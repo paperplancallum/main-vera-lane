@@ -750,7 +750,8 @@
             "image_single": "shopify://shop_images/1_f148cab1-78ca-4668-b580-6ad71b71f4e6.png",
             "image_before": "shopify://shop_images/Untitled_design_68.png",
             "card_name": "Linda, 62",
-            "card_description": "I stopped wearing foundation because it always settled into my fine lines or looked the wrong color—usually too orange. This formula matched my skin tone instantly and feels so light. It doesn't look like makeup; it just looks like I have great skin again."
+            "card_description": "I stopped wearing foundation because it always settled into my fine lines or looked the wrong color—usually too orange. This formula matched my skin tone instantly and feels so light. It doesn't look like makeup; it just looks like I have great skin again.",
+            "show_verified_buyer": true
           }
         },
         "testimonial_card_WAUUWU": {
@@ -761,7 +762,8 @@
             "image_before": "shopify://shop_images/2.png",
             "image_after": "shopify://shop_images/image_2_2.png",
             "card_name": "Michelle, 57",
-            "card_description": "I have tricky undertones and struggling with redness, so buying makeup online terrified me. I took a chance on this, and I'm shocked. It neutralized my redness immediately and blended right into my neck. No more 'floating head' effect!"
+            "card_description": "I have tricky undertones and struggling with redness, so buying makeup online terrified me. I took a chance on this, and I'm shocked. It neutralized my redness immediately and blended right into my neck. No more 'floating head' effect!",
+            "show_verified_buyer": true
           }
         },
         "testimonial_card_pkT3Gh": {
@@ -772,7 +774,8 @@
             "image_before": "shopify://shop_images/3.png",
             "image_after": "shopify://shop_images/image_2_2.png",
             "card_name": "Diane, 54",
-            "card_description": "Being very fair, 'universal' shades usually turn dark or orange on me within an hour. This one actually stayed true to my pale complexion. It gives me a healthy, warm glow without looking fake. Finally, a perfect match for fair skin."
+            "card_description": "Being very fair, 'universal' shades usually turn dark or orange on me within an hour. This one actually stayed true to my pale complexion. It gives me a healthy, warm glow without looking fake. Finally, a perfect match for fair skin.",
+            "show_verified_buyer": true
           }
         },
         "testimonial_card_BGPEhn": {
@@ -783,7 +786,8 @@
             "image_before": "shopify://shop_images/1.png",
             "image_after": "shopify://shop_images/CleanShot2025-09-11at22.41.55_2x_58285bd6-1b08-4051-8b2c-b005b1881927.png",
             "card_name": "Amanda, 47",
-            "card_description": "I have fair skin with a lot of natural redness, so finding a shade that covers without looking like a thick mask is impossible. This neutralized my complexion instantly! It adapted to my pale tone perfectly—no orange line, just calm, even skin."
+            "card_description": "I have fair skin with a lot of natural redness, so finding a shade that covers without looking like a thick mask is impossible. This neutralized my complexion instantly! It adapted to my pale tone perfectly—no orange line, just calm, even skin.",
+            "show_verified_buyer": true
           }
         }
       },
