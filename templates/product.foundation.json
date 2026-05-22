@@ -5,8 +5,6 @@
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
- *
- * Re-imported 2026-05-22 to pick up show_verified_buyer schema.
  * ------------------------------------------------------------
  */
 {
@@ -724,6 +722,13 @@
         "rating_link": "#reviews",
         "size_text": "1 FL OZ / 30 ML",
         "description": "<ul><li><strong>Instantly Adapts to Your Exact Shade: </strong>The white cream transforms upon application to match your unique skin tone perfectly.</li><li><strong>Ideal for Mature Skin (Floats Over Fine Lines): </strong>The hydrating formula doesn't cake or crease into wrinkles, creating a smooth finish that looks like skin, not makeup.</li><li><strong>Weightless, \"Second-Skin\" Feel: </strong>Say goodbye to that heavy, \"mask-like\" sensation. Neutralizes redness and age spots while letting your skin breathe, giving you a healthy, lit-from-within glow.</li></ul>",
+        "show_tone_selector": true,
+        "tone_color_fair": "#f3d4b7",
+        "tone_label_fair": "",
+        "tone_color_medium": "#d4a982",
+        "tone_label_medium": "",
+        "tone_color_medium_dark": "#b2895f",
+        "tone_label_medium_dark": "",
         "add_to_cart_label": "ADD TO CART",
         "adding_to_cart_label": "ADDING...",
         "skip_cart_go_to_checkout": true,
@@ -740,6 +745,78 @@
         "show_upsell": true,
         "upsell_heading": "Choose what works best for you",
         "upsell_button_label": "ADD TO BAG"
+      }
+    },
+    "lumen_grid_benefits_section": {
+      "type": "lumen-grid-benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Adaptive Color Technology",
+            "description": "Our Intelligent Capsule Technology recognizes your unique undertones on contact. The white cream breaks down as you blend, releasing pigments that mirror your exact skin tone for a match that is yours and yours alone."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Engineered for Mature Texture",
+            "description": "Traditional makeup often highlights what you want to hide. Our formula is specifically designed to float over fine lines and enlarged pores rather than settling into them, creating a lifted, soft-focus effect that lasts all day."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "The \"Second Skin\" Glow",
+            "description": "Conceal redness, age spots, and uneven patches without the heavy \"mask\" feel of full-coverage foundation. This breathable, lightweight finish allows your natural radiance to shine through while providing a balanced, uniform complexion."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "16-Hour Hydration Lock",
+            "description": "Formulated to combat the \"mid-day dry out\" common with aging skin. This long-wear formula stays flexible and luminous for up to 16 hours, ensuring your skin looks as fresh in the evening as it did in the morning."
+          }
+        },
+        "benefit_5": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Clean & Breathable Pore Care",
+            "description": "A skin-first approach that won't lead to breakouts or irritation. Our non-comedogenic ingredients nourish the skin barrier while letting your pores breathe, making it safe and comfortable for daily wear."
+          }
+        },
+        "benefit_6": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Cruelty-Free",
+            "description": "Kindness is beautiful. We are proud to be 100% cruelty-free, meaning we never test our products or ingredients on animals at any stage of production."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "benefit_5",
+        "benefit_6"
+      ],
+      "name": "⚡Grid Benefits Section",
+      "settings": {
+        "section_label": "Grid benefits section",
+        "main_title": "Beautiful Benefits",
+        "image": "shopify://shop_images/Untitled_design_62.png",
+        "enable_animation": true,
+        "title_font_size_mobile": 30,
+        "title_font_size_desktop": 40,
+        "item_title_font_size_mobile": 16,
+        "item_title_font_size_desktop": 18,
+        "item_text_font_size_mobile": 14,
+        "item_text_font_size_desktop": 14,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
+        "padding_top_desktop": 96,
+        "padding_bottom_desktop": 96
       }
     },
     "lumen_before_after_section": {
@@ -1174,78 +1251,6 @@
         "padding_bottom_desktop": 80
       }
     },
-    "lumen_grid_benefits_section": {
-      "type": "lumen-grid-benefits",
-      "blocks": {
-        "benefit_1": {
-          "type": "benefit_item",
-          "settings": {
-            "title": "Adaptive Color Technology",
-            "description": "Our Intelligent Capsule Technology recognizes your unique undertones on contact. The white cream breaks down as you blend, releasing pigments that mirror your exact skin tone for a match that is yours and yours alone."
-          }
-        },
-        "benefit_2": {
-          "type": "benefit_item",
-          "settings": {
-            "title": "Engineered for Mature Texture",
-            "description": "Traditional makeup often highlights what you want to hide. Our formula is specifically designed to float over fine lines and enlarged pores rather than settling into them, creating a lifted, soft-focus effect that lasts all day."
-          }
-        },
-        "benefit_3": {
-          "type": "benefit_item",
-          "settings": {
-            "title": "The \"Second Skin\" Glow",
-            "description": "Conceal redness, age spots, and uneven patches without the heavy \"mask\" feel of full-coverage foundation. This breathable, lightweight finish allows your natural radiance to shine through while providing a balanced, uniform complexion."
-          }
-        },
-        "benefit_4": {
-          "type": "benefit_item",
-          "settings": {
-            "title": "16-Hour Hydration Lock",
-            "description": "Formulated to combat the \"mid-day dry out\" common with aging skin. This long-wear formula stays flexible and luminous for up to 16 hours, ensuring your skin looks as fresh in the evening as it did in the morning."
-          }
-        },
-        "benefit_5": {
-          "type": "benefit_item",
-          "settings": {
-            "title": "Clean & Breathable Pore Care",
-            "description": "A skin-first approach that won't lead to breakouts or irritation. Our non-comedogenic ingredients nourish the skin barrier while letting your pores breathe, making it safe and comfortable for daily wear."
-          }
-        },
-        "benefit_6": {
-          "type": "benefit_item",
-          "settings": {
-            "title": "Cruelty-Free",
-            "description": "Kindness is beautiful. We are proud to be 100% cruelty-free, meaning we never test our products or ingredients on animals at any stage of production."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_1",
-        "benefit_2",
-        "benefit_3",
-        "benefit_4",
-        "benefit_5",
-        "benefit_6"
-      ],
-      "name": "⚡Grid Benefits Section",
-      "settings": {
-        "section_label": "Grid benefits section",
-        "main_title": "Beautiful Benefits",
-        "image": "shopify://shop_images/Untitled_design_62.png",
-        "enable_animation": true,
-        "title_font_size_mobile": 30,
-        "title_font_size_desktop": 40,
-        "item_title_font_size_mobile": 16,
-        "item_title_font_size_desktop": 18,
-        "item_text_font_size_mobile": 14,
-        "item_text_font_size_desktop": 14,
-        "padding_top_mobile": 56,
-        "padding_bottom_mobile": 56,
-        "padding_top_desktop": 96,
-        "padding_bottom_desktop": 96
-      }
-    },
     "lumen_faq_section": {
       "type": "lumen-faq",
       "blocks": {
@@ -1253,28 +1258,44 @@
           "type": "faq_item",
           "settings": {
             "question": "What is your return policy?",
-            "answer": "We offer a 30-day money-back guarantee on all products. If you're not completely satisfied with your purchase, contact us for a full refund."
+            "answer": "We offer a 30-day money-back guarantee on all products. If you're not completely satisfied with your purchase, contact us for a full refund.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_2": {
           "type": "faq_item",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "Standard shipping takes 4-5 business days."
+            "answer": "Standard shipping takes 4-5 business days.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_3": {
           "type": "faq_item",
           "settings": {
             "question": "Is this product suitable for sensitive skin?",
-            "answer": "Yes, our products are dermatologist-tested and formulated for most skin types, including sensitive skin. If your skin is particularly sensitive, a patch test is recommended."
+            "answer": "Yes, our products are dermatologist-tested and formulated for most skin types, including sensitive skin. If your skin is particularly sensitive, a patch test is recommended.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_4": {
           "type": "faq_item",
           "settings": {
             "question": "How do I know which shade to choose?",
-            "answer": "Our foundation adapts to your skin tone within seconds. It works for fair to medium skin tones."
+            "answer": "Our foundation adapts to your skin tone within seconds. It works for fair to medium skin tones.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_5": {
@@ -1282,35 +1303,55 @@
           "disabled": true,
           "settings": {
             "question": "What ingredients are in this product?",
-            "answer": "Our foundation contains nourishing ingredients like Glycerin, Bisabolol, and Vitamin E for healthy, comfortable-looking skin."
+            "answer": "Our foundation contains nourishing ingredients like Glycerin, Bisabolol, and Vitamin E for healthy, comfortable-looking skin.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_6": {
           "type": "faq_item",
           "settings": {
             "question": "Do you offer free shipping?",
-            "answer": "Yes, we offer free shipping on all orders over $[threshold]. Orders under $[threshold] have a flat shipping rate across the US."
+            "answer": "Yes, we offer free shipping on all orders over $[threshold]. Orders under $[threshold] have a flat shipping rate across the US.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_moved_U8Vae4": {
           "type": "faq_item",
           "settings": {
             "question": "How does the guarantee work?",
-            "answer": "<p><strong>Our 100% Shade Match Guarantee:</strong> We want you to test your new foundation without any risk. If the formula does not adapt perfectly to your skin tone, you will receive 100% of your money back—no questions asked.</p>"
+            "answer": "<p><strong>Our 100% Shade Match Guarantee:</strong> We want you to test your new foundation without any risk. If the formula does not adapt perfectly to your skin tone, you will receive 100% of your money back—no questions asked.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_moved_BaHyjk": {
           "type": "faq_item",
           "settings": {
             "question": "Description",
-            "answer": "<p>Experience a foundation that does the work for you. This white cream transforms upon application to match your unique skin tone perfectly. The hydrating formula provides buildable coverage that hides redness and imperfections while remaining weightless and breathable all day.</p>"
+            "answer": "<p>Experience a foundation that does the work for you. This white cream transforms upon application to match your unique skin tone perfectly. The hydrating formula provides buildable coverage that hides redness and imperfections while remaining weightless and breathable all day.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_moved_m8GzcM": {
           "type": "faq_item",
           "settings": {
             "question": "Does this work for my skin?",
-            "answer": "<p>Yes. Our adaptive formula is suitable for all fair to medium skin tones and is specifically formulated for mature skin types. It is designed to float over fine lines and wrinkles rather than settling into them, making it ideal for skin with texture, rosacea, or age spots.</p>"
+            "answer": "<p>Yes. Our adaptive formula is suitable for all fair to medium skin tones and is specifically formulated for mature skin types. It is designed to float over fine lines and wrinkles rather than settling into them, making it ideal for skin with texture, rosacea, or age spots.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_moved_fkJYQr": {
@@ -1328,7 +1369,11 @@
           "type": "faq_item",
           "settings": {
             "question": "Shipping & Returns",
-            "answer": "<p><strong>Love It or It's Free.</strong> Try it for 30 days. If it doesn't float over your lines or match your shade exactly as promised, just let us know for a full refund.</p><p><strong>Fast & Secure Delivery.</strong> We ship your order within 1 business day. Free shipping on all orders over $[threshold]. Tracked shipping so you know exactly when your glow arrives.</p><p><strong>Zero-Stress Returns.</strong> No complicated forms. No hidden fees. If you aren't happy, we aren't happy. Just reach out to our friendly support team for a quick resolution.</p>"
+            "answer": "<p><strong>Love It or It's Free.</strong> Try it for 30 days. If it doesn't float over your lines or match your shade exactly as promised, just let us know for a full refund.</p><p><strong>Fast & Secure Delivery.</strong> We ship your order within 1 business day. Free shipping on all orders over $[threshold]. Tracked shipping so you know exactly when your glow arrives.</p><p><strong>Zero-Stress Returns.</strong> No complicated forms. No hidden fees. If you aren't happy, we aren't happy. Just reach out to our friendly support team for a quick resolution.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         }
       },
@@ -1412,12 +1457,12 @@
     "product_list_fa6P9H",
     "vl_message_match_hero",
     "lumen_pdp_hero_WWxn3E",
+    "lumen_grid_benefits_section",
     "lumen_before_after_section",
     "lumen_image_slider_section",
     "lumen_trustpilot_section",
     "vl_review_cards_section",
     "lumen_benefits_section",
-    "lumen_grid_benefits_section",
     "lumen_faq_section",
     "lumen_usp_mjAcCK",
     "vl_upsell_modal"
