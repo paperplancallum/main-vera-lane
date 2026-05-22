@@ -2034,7 +2034,7 @@
                       {% if block.type == 'bundle' %}data-amazon-offer="{% if block.settings.show_amazon_offer %}on{% else %}off{% endif %}"{% endif %}
                       :class="{'lumen-pdp-hero__variant--selected': isSelected('{{ block.id }}')}"
                       {% if block.type == 'bundle_option' %}
-                        @click="selectBundle('{{ block.id }}', {{ selected_variant.id }}, {{ bundle_quantity }}, 'bundle_option')"
+                        @click="selectBundle('{{ block.id }}', selectedVariantId, {{ bundle_quantity }}, 'bundle_option')"
                       {% elsif block.type == 'bundle' %}
                         @click="selectMultiProductBundle('{{ block.id }}', {{ product_1.variants.first.id | default: 0 }}, {{ product_1_quantity }}, {{ product_2.variants.first.id | default: 0 }}, {{ product_2_quantity }}, {{ product_3.variants.first.id | default: 0 }}, {{ product_3_quantity }}, {{ add_bundle_property }}, {{ add_vera2_bundle_property }}, {{ block.settings.is_subscription | default: false }})"
                       {% endif %}
@@ -2620,7 +2620,9 @@
           {% if first_bundle_option %}
             {% assign first_quantity = first_bundle_option.settings.quantity | default: 1 %}
             this.selectedBundleId = '{{ first_bundle_option.id }}';
-            this.selectedVariantId = {{ selected_variant.id }};
+            // Don't clobber selectedVariantId here — Alpine data init already set it to the
+            // tone-aware default (tone_default_variant_id). Overwriting with selected_variant.id
+            // would reset the tone selector's Medium-default back to Fair on every page load.
             this.selectedQuantity = {{ first_quantity }};
             this.bundleType = 'bundle_option';
           {% elsif first_bundle %}
