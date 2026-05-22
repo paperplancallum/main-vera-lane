@@ -117,12 +117,26 @@
       gap: 20px;
       text-align: center;
     }
+
+    .vl-mmh__image {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      max-height: 50vh;
+    }
   }
 </style>
 
 {% for block in section.blocks %}
+  {%- assign mmh_img_src = '' -%}
+  {%- assign mmh_img_alt = block.settings.headline | default: 'Vera Lane' -%}
+  {%- if block.settings.image_asset != blank -%}
+    {%- assign mmh_img_src = block.settings.image_asset | asset_url -%}
+  {%- elsif block.settings.hero_image != blank -%}
+    {%- assign mmh_img_src = block.settings.hero_image | image_url: width: 800 -%}
+    {%- assign mmh_img_alt = block.settings.hero_image.alt | default: mmh_img_alt -%}
+  {%- endif -%}
   {%- assign has_image = false -%}
-  {%- if block.settings.hero_image != blank -%}
+  {%- if mmh_img_src != '' -%}
     {%- assign has_image = true -%}
   {%- endif -%}
   <div
@@ -138,10 +152,8 @@
         <div class="vl-mmh__image-wrap">
           <img
             class="vl-mmh__image"
-            src="{{ block.settings.hero_image | image_url: width: 800 }}"
-            alt="{{ block.settings.hero_image.alt | default: block.settings.headline | escape }}"
-            width="{{ block.settings.hero_image.width }}"
-            height="{{ block.settings.hero_image.height }}"
+            src="{{ mmh_img_src }}"
+            alt="{{ mmh_img_alt | escape }}"
             loading="lazy"
           />
         </div>
@@ -242,6 +254,12 @@
           "id": "hero_image",
           "label": "Hero image",
           "info": "Optional. Shown left of the headline on desktop, stacked on mobile."
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Hero image (asset filename)",
+          "info": "Optional. Filename in /assets/, e.g. lp-foundation-mmh-a.jpg. Takes precedence over Hero image picker if set."
         },
         {
           "type": "text",
