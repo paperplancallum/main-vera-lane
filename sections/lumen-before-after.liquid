@@ -79,6 +79,14 @@
             </div>
             <div class="lumen-card-content">
               <h3 class="card-name">{{ block.settings.card_name }}</h3>
+              {%- if block.settings.show_verified_buyer -%}
+                <span class="card-verified-badge" aria-label="Verified buyer">
+                  <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill="currentColor" d="M10 0a10 10 0 1 0 0 20A10 10 0 0 0 10 0Zm-1.3 14.4-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4Z"/>
+                  </svg>
+                  Verified Buyer
+                </span>
+              {%- endif -%}
               <p class="card-description">{{ block.settings.card_description }}</p>
             </div>
           </div>
@@ -141,6 +149,14 @@
                 </div>
                 <div class="lumen-card-content">
                   <h3 class="card-name">{{ block.settings.card_name }}</h3>
+                  {%- if block.settings.show_verified_buyer -%}
+                    <span class="card-verified-badge" aria-label="Verified buyer">
+                      <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill="currentColor" d="M10 0a10 10 0 1 0 0 20A10 10 0 0 0 10 0Zm-1.3 14.4-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4Z"/>
+                      </svg>
+                      Verified Buyer
+                    </span>
+                  {%- endif -%}
                   <p class="card-description">{{ block.settings.card_description }}</p>
                 </div>
               </div>
@@ -257,7 +273,23 @@
     font-size: 14px;
     font-weight: 700;
     color: #000000;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+  }
+
+  .before-after-{{ section.id }} .card-verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #0a7a3b;
+    margin: 0 0 10px;
+  }
+  .before-after-{{ section.id }} .card-verified-badge svg {
+    color: #0a7a3b;
+    flex: 0 0 14px;
   }
 
   .before-after-{{ section.id }} .card-description {
@@ -657,6 +689,12 @@
           "id": "card_description",
           "label": "Description",
           "default": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ut metus rhoncus. Ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ut metus rhoncus mattis.\""
+        },
+        {
+          "type": "checkbox",
+          "id": "show_verified_buyer",
+          "label": "Show Verified Buyer badge",
+          "default": false
         }
       ]
     }
