@@ -2517,6 +2517,10 @@
       // Store the selected bundle block ID, variant ID, and quantity
       selectedBundleId: null,
       selectedVariantId: {{ tone_default_variant_id | default: section_product.variants.first.id }},
+      // All variant IDs for the section product — used to swap product_N variant IDs in the
+      // bundle ATC path with the tone-selected variant when a bundle's product slot is the
+      // section product (e.g. single-product "buy 1 / 2 / 3" bundle cards).
+      sectionVariantIds: [{% for v in section_product.variants %}{{ v.id }}{% unless forloop.last %},{% endunless %}{% endfor %}],
       selectedQuantity: 1,
       isLoading: false,
       bundleType: 'bundle_option', // 'bundle_option' or 'bundle'
@@ -2807,17 +2811,28 @@
       
       async addMultipleProductsToCart() {
         const items = [];
-        
+
         // Determine which bundle property to use (vera2_bundle takes priority)
         const useBundleProperty = this.addVera2BundleProperty || this.addBundleProperty;
         const bundleId = this.addVera2BundleProperty ? "vera2_bundle" : "vera_bundle";
-        
+
         // Generate unique bundle timestamp to keep bundle items separate
         const bundleTimestamp = useBundleProperty ? Date.now().toString() : null;
-        
+
+        // Tone selector integration: if a bundle's product slot is filled with the section
+        // product itself (e.g. "1 Piece" / "2 Pieces" bundles that are really just buy-N
+        // of the foundation), respect the user's tone selector choice instead of the
+        // bundle's hardcoded first-variant default.
+        const toneAwareId = (rawId) => {
+          if (Array.isArray(this.sectionVariantIds) && this.sectionVariantIds.includes(Number(rawId))) {
+            return this.selectedVariantId;
+          }
+          return rawId;
+        };
+
         if (this.product1VariantId && this.product1VariantId !== 0) {
           const item = {
-            id: this.product1VariantId,
+            id: toneAwareId(this.product1VariantId),
             quantity: this.product1Quantity
           };
           if (useBundleProperty) {
@@ -2836,7 +2851,7 @@
 
         if (this.product2VariantId && this.product2VariantId !== 0) {
           const item = {
-            id: this.product2VariantId,
+            id: toneAwareId(this.product2VariantId),
             quantity: this.product2Quantity
           };
           if (useBundleProperty) {
@@ -2855,7 +2870,7 @@
 
         if (this.product3VariantId && this.product3VariantId !== 0) {
           const item = {
-            id: this.product3VariantId,
+            id: toneAwareId(this.product3VariantId),
             quantity: this.product3Quantity
           };
           if (useBundleProperty) {
