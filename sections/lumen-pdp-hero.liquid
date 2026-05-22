@@ -258,7 +258,22 @@
             line-height: 40px;
             color: #000000;
         }
-        
+
+        .lumen-pdp-hero__mmh-reinforcement {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
+            color: #444;
+            margin: 14px 0 18px;
+            padding: 14px 0;
+            border-top: 1px solid #ece5df;
+            border-bottom: 1px solid #ece5df;
+        }
+        .lumen-pdp-hero__mmh-reinforcement[hidden],
+        .lumen-pdp-hero__mmh-reinforcement:empty {
+            display: none;
+        }
+
         .lumen-pdp-hero__price-row {
             display: flex;
             flex-direction: row;
@@ -1791,6 +1806,7 @@
                     {{ 'products.product.title' | t }}
                   {% endif %}
                 </h1>
+                <div class="lumen-pdp-hero__mmh-reinforcement" data-mmh-reinforcement-slot hidden></div>
                 <div class="lumen-pdp-hero__price-row">
                   <span class="lumen-pdp-hero__price" x-text="formatMoney(currentPrice)">
                     {% if section_product and selected_variant %}

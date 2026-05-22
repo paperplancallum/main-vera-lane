@@ -97,18 +97,6 @@
     margin: 0 auto 24px;
   }
 
-  .vl-mmh__reinforcement {
-    font-size: 15px;
-    line-height: 1.65;
-    color: #444;
-    margin: 24px 0 0;
-    padding-top: 20px;
-    border-top: 1px solid #ece5df;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   /* Hide the default description in lumen-pdp-hero when variant is active. Keep the title visible. */
   body.has-mmh .lumen-pdp-hero__description {
     display: none;
@@ -207,7 +195,7 @@
     {% endif %}
 
     {% if block.settings.reinforcement != blank %}
-      <p class="vl-mmh__reinforcement">{{ block.settings.reinforcement | newline_to_br }}</p>
+      <template data-mmh-reinforcement-for="{{ block.settings.variant_key }}">{{ block.settings.reinforcement | newline_to_br }}</template>
     {% endif %}
 
   </div>
@@ -225,6 +213,14 @@
     // Show the matching hero
     hero.classList.add('is-active');
     document.body.classList.add('has-mmh');
+
+    // Inject this variant's reinforcement copy into the buy box slot, if both exist
+    var reinforcementTpl = document.querySelector('template[data-mmh-reinforcement-for="' + variant + '"]');
+    var reinforcementSlot = document.querySelector('[data-mmh-reinforcement-slot]');
+    if (reinforcementTpl && reinforcementSlot) {
+      reinforcementSlot.innerHTML = reinforcementTpl.innerHTML;
+      reinforcementSlot.hidden = false;
+    }
 
     // GA4 tracking
     if (typeof gtag === 'function') {
