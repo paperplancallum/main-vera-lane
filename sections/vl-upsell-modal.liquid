@@ -2,10 +2,10 @@
   VL Upsell Modal
   ----------------
   Shown after add-to-cart on the PDP. Offers an upsell product at a discount
-  before redirecting to checkout.
+  before opening the cart drawer.
 
   Listens for: 'vl:upsell:show' custom event (dispatched by lumen-pdp-hero after cart add)
-  Dispatches: 'vl:upsell:done' when user accepts or declines
+  Dispatches: 'cart:update' when user accepts, declines, or dismisses — opens the cart drawer
 {% endcomment %}
 
 {% assign upsell_product = section.settings.upsell_product %}
@@ -265,7 +265,7 @@
       </button>
 
       <button class="vl-upsell-modal__skip" id="vl-upsell-decline">
-        {{ section.settings.skip_text | default: 'No thanks, continue to checkout' }}
+        {{ section.settings.skip_text | default: 'No thanks' }}
       </button>
     </div>
   </div>
@@ -308,12 +308,34 @@
         document.body.style.overflow = '';
       }
 
-      function goToCheckout() {
+      function dispatchCartUpdate() {
+        return fetch('/cart.js')
+          .then(function(r) { return r.json(); })
+          .then(function(cart) {
+            document.dispatchEvent(new CustomEvent('cart:update', {
+              bubbles: true,
+              detail: {
+                resource: cart,
+                sourceId: 'vl-upsell-modal',
+                data: {
+                  didError: false,
+                  itemCount: cart.item_count,
+                  source: 'upsell-modal'
+                }
+              }
+            }));
+          })
+          .catch(function(err) {
+            console.error('Failed to refresh cart for drawer:', err);
+          });
+      }
+
+      function closeAndOpenCart() {
         if (!didAccept) {
           trackUpsell('upsell_declined');
         }
         hide();
-        window.location.href = '/checkout';
+        dispatchCartUpdate();
       }
 
       // Countdown timer
@@ -328,7 +350,7 @@
           if (totalSeconds <= 0) {
             clearInterval(timerInterval);
             trackUpsell('upsell_timer_expired');
-            goToCheckout();
+            closeAndOpenCart();
             return;
           }
           var mins = Math.floor(totalSeconds / 60);
@@ -346,19 +368,19 @@
         startCountdown();
       });
 
-      // Close buttons (X and backdrop)
+      // Close buttons (X and backdrop) — open cart drawer instead
       closeBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          goToCheckout();
+          closeAndOpenCart();
         });
       });
 
-      // Decline — go straight to checkout
+      // Decline — open cart drawer
       declineBtn.addEventListener('click', function() {
-        goToCheckout();
+        closeAndOpenCart();
       });
 
-      // Accept — add upsell product to cart, then checkout
+      // Accept — add upsell to cart, apply discount, then open cart drawer
       acceptBtn.addEventListener('click', function() {
         didAccept = true;
         trackUpsell('upsell_accepted', { variant_id: upsellVariantId, discounted_price: upsellPrice });
@@ -384,22 +406,33 @@
           return response.json();
         })
         .then(function() {
+          // Apply the discount code session-side so it shows in the drawer
+          // and is auto-applied at checkout. Best-effort — proceed either way.
           var discountCode = {{ section.settings.discount_code | json }};
-          window.location.href = discountCode
-            ? '/checkout?discount=' + encodeURIComponent(discountCode)
-            : '/checkout';
+          if (discountCode) {
+            return fetch('/discount/' + encodeURIComponent(discountCode), {
+              credentials: 'same-origin'
+            }).catch(function(err) {
+              console.error('Failed to apply discount code:', err);
+            });
+          }
+        })
+        .then(function() {
+          hide();
+          return dispatchCartUpdate();
         })
         .catch(function(err) {
           console.error('Upsell add error:', err);
-          // Still go to checkout even if upsell fails
-          window.location.href = '/checkout';
+          // Still open the cart drawer so the user sees their original item
+          hide();
+          dispatchCartUpdate();
         });
       });
 
       // Close on Escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && overlay.classList.contains('is-visible')) {
-          goToCheckout();
+          closeAndOpenCart();
         }
       });
     })();
@@ -463,7 +496,7 @@
       "type": "text",
       "id": "skip_text",
       "label": "Skip button text",
-      "default": "No thanks, continue to checkout"
+      "default": "No thanks"
     },
     {
       "type": "range",
@@ -473,7 +506,7 @@
       "max": 15,
       "step": 1,
       "default": 5,
-      "info": "Offer expires after this many minutes. Redirects to checkout when timer hits zero."
+      "info": "Offer expires after this many minutes. Opens the cart drawer when timer hits zero."
     }
   ],
   "presets": [

@@ -2759,14 +2759,13 @@
                 {% endif %}
               {% endif %}
 
-              // Check if an upsell modal is present on the page
+              // If an upsell modal exists, show it — it will open the cart drawer on exit.
+              // Otherwise fall through to the cart:update dispatch below.
               const upsellOverlay = document.getElementById('vl-upsell-overlay');
               if (upsellOverlay) {
                 document.dispatchEvent(new CustomEvent('vl:upsell:show'));
-              } else {
-                window.location.href = '/checkout';
+                return;
               }
-              return;
             {% endif %}
 
             // Fetch updated cart state
