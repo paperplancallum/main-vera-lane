@@ -147,6 +147,74 @@
         color: {{ section.settings.answer_color }};
     }
 
+    .faq-popup-trigger-wrap {
+        margin: 14px 0 0;
+    }
+    .faq-popup-trigger {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        padding: 0;
+        font: inherit;
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+    }
+    .faq-popup-trigger:hover { text-decoration-thickness: 2px; }
+    .faq-popup-trigger span { margin-left: 4px; }
+
+    /* Native <dialog> styling */
+    .faq-popup-dialog {
+        border: 0;
+        padding: 0;
+        background: transparent;
+        max-width: min(560px, 92vw);
+        width: 100%;
+    }
+    .faq-popup-dialog::backdrop {
+        background: rgba(20, 20, 20, 0.5);
+        backdrop-filter: blur(2px);
+    }
+    .faq-popup-dialog__inner {
+        position: relative;
+        background: #fff;
+        border-radius: 6px;
+        padding: 32px 28px 28px;
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .faq-popup-dialog__close {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: transparent;
+        border: 0;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+        color: #555;
+        padding: 4px 8px;
+    }
+    .faq-popup-dialog__title {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        line-height: 1.3;
+        margin: 0 0 16px;
+        color: #111;
+    }
+    .faq-popup-dialog__body {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #333;
+    }
+    .faq-popup-dialog__body p { margin: 0 0 12px; }
+    .faq-popup-dialog__body strong { color: #111; }
+
     /* Desktop layout - two columns */
     @media (min-width: 768px) {
         #lumen-faq-{{ section.id }} {
@@ -248,14 +316,27 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="faq-question-text">{{ block.settings.question }}</span>
                         <span class="faq-icon" x-text="activeItem === {{ forloop.index0 }} ? '−' : '+'"></span>
                     </button>
-                    <div 
-                        class="faq-answer" 
-                        x-show="activeItem === {{ forloop.index0 }}" 
+                    <div
+                        class="faq-answer"
+                        x-show="activeItem === {{ forloop.index0 }}"
                         x-collapse
                     >
                         <div class="faq-answer-content">
                             {%- assign faq_answer = block.settings.answer | replace: '[threshold]', free_shipping_threshold -%}
                             {{ faq_answer }}
+                            {% if block.settings.popup_enabled and block.settings.popup_content != blank %}
+                              <p class="faq-popup-trigger-wrap">
+                                <button
+                                  type="button"
+                                  class="faq-popup-trigger"
+                                  data-faq-popup-open="dlg-{{ section.id }}-{{ block.id }}"
+                                  aria-haspopup="dialog"
+                                >
+                                  {{ block.settings.popup_trigger_text | default: 'View full list' }}
+                                  <span aria-hidden="true">→</span>
+                                </button>
+                              </p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -263,6 +344,48 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </div>
+
+{%- comment -%} Per-FAQ-item popup dialogs (native <dialog>) {%- endcomment -%}
+{% for block in section.blocks %}
+  {% if block.settings.popup_enabled and block.settings.popup_content != blank %}
+    <dialog id="dlg-{{ section.id }}-{{ block.id }}" class="faq-popup-dialog" aria-labelledby="dlg-title-{{ section.id }}-{{ block.id }}">
+      <div class="faq-popup-dialog__inner">
+        <button type="button" class="faq-popup-dialog__close" data-faq-popup-close aria-label="Close">×</button>
+        {% if block.settings.popup_title != blank %}
+          <h3 id="dlg-title-{{ section.id }}-{{ block.id }}" class="faq-popup-dialog__title">{{ block.settings.popup_title }}</h3>
+        {% endif %}
+        <div class="faq-popup-dialog__body">{{ block.settings.popup_content }}</div>
+      </div>
+    </dialog>
+  {% endif %}
+{% endfor %}
+
+<script>
+  (function() {
+    if (window.__lumenFaqPopupBound) return;
+    window.__lumenFaqPopupBound = true;
+    document.addEventListener('click', function(e) {
+      var trigger = e.target.closest('[data-faq-popup-open]');
+      if (trigger) {
+        e.preventDefault();
+        var dlg = document.getElementById(trigger.getAttribute('data-faq-popup-open'));
+        if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
+        return;
+      }
+      var closer = e.target.closest('[data-faq-popup-close]');
+      if (closer) {
+        e.preventDefault();
+        var ownDlg = closer.closest('dialog');
+        if (ownDlg) ownDlg.close();
+        return;
+      }
+      // Click on backdrop closes (native dialog backdrop = clicks on the dialog element itself outside .faq-popup-dialog__inner)
+      if (e.target.tagName === 'DIALOG' && e.target.classList.contains('faq-popup-dialog')) {
+        e.target.close();
+      }
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -530,6 +653,32 @@ document.addEventListener('DOMContentLoaded', function() {
           "id": "answer",
           "label": "Answer",
           "default": "Nunc imperdiet posuere tempus. Aenean dictum congue nulla, eu dapibus ipsum tincidunt in. Vestibulum diam orci, ultricies in congue non, condimentum vel mauris."
+        },
+        {
+          "type": "header",
+          "content": "Optional popup"
+        },
+        {
+          "type": "checkbox",
+          "id": "popup_enabled",
+          "label": "Show a popup link inside the answer",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "popup_trigger_text",
+          "label": "Trigger text",
+          "default": "View full list"
+        },
+        {
+          "type": "text",
+          "id": "popup_title",
+          "label": "Popup title"
+        },
+        {
+          "type": "richtext",
+          "id": "popup_content",
+          "label": "Popup content"
         }
       ]
     }
