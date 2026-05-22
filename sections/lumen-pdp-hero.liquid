@@ -398,7 +398,68 @@
             gap: 10px;
             width: 100%;
         }
-        
+
+        /* Tone selector — horizontal swatch row between the buy-box card and ATC */
+        .lumen-pdp-hero__tone-selector {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            margin: 14px 0 16px;
+            width: 100%;
+        }
+
+        .lumen-pdp-hero__tone-swatch {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 6px;
+            background: #fff;
+            border: 1px solid #ece5df;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+        }
+        .lumen-pdp-hero__tone-swatch:hover:not([disabled]) {
+            border-color: #b9a797;
+        }
+        .lumen-pdp-hero__tone-swatch:hover:not([disabled]) .lumen-pdp-hero__tone-swatch-circle {
+            transform: scale(1.05);
+        }
+        .lumen-pdp-hero__tone-swatch-circle {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: inset 0 0 0 2px #fff;
+            transition: transform 120ms ease, box-shadow 120ms ease;
+        }
+        .lumen-pdp-hero__tone-swatch--selected {
+            border-color: #1a1a1a;
+            background: #faf6f2;
+        }
+        .lumen-pdp-hero__tone-swatch--selected .lumen-pdp-hero__tone-swatch-circle {
+            box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #1a1a1a;
+        }
+        .lumen-pdp-hero__tone-swatch--unavailable {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+        .lumen-pdp-hero__tone-swatch--unavailable .lumen-pdp-hero__tone-swatch-circle {
+            background-image: linear-gradient(to top left, transparent calc(50% - 1px), rgba(0,0,0,0.45) calc(50% - 1px), rgba(0,0,0,0.45) calc(50% + 1px), transparent calc(50% + 1px));
+        }
+        .lumen-pdp-hero__tone-swatch-label {
+            line-height: 1.1;
+            text-align: center;
+        }
+
         .lumen-pdp-hero__variant {
             display: flex;
             flex-direction: column;
@@ -2136,6 +2197,41 @@
               </div>
             {% endif %}
 
+            <!-- Tone selector (Skin tone variants) -->
+            {% if section.settings.show_tone_selector and section_product and section_product.variants.size > 1 %}
+              <div class="lumen-pdp-hero__tone-selector" role="radiogroup" aria-label="Choose your skin tone">
+                {% for variant in section_product.variants %}
+                  {%- assign tone = variant.option1 -%}
+                  {%- assign tone_color = '#D4A982' -%}
+                  {%- assign tone_label = tone -%}
+                  {%- if tone == 'Fair' -%}
+                    {%- if section.settings.tone_color_fair != blank -%}{%- assign tone_color = section.settings.tone_color_fair -%}{%- endif -%}
+                    {%- if section.settings.tone_label_fair != blank -%}{%- assign tone_label = section.settings.tone_label_fair -%}{%- endif -%}
+                  {%- elsif tone == 'Medium' -%}
+                    {%- if section.settings.tone_color_medium != blank -%}{%- assign tone_color = section.settings.tone_color_medium -%}{%- endif -%}
+                    {%- if section.settings.tone_label_medium != blank -%}{%- assign tone_label = section.settings.tone_label_medium -%}{%- endif -%}
+                  {%- elsif tone == 'Medium-Dark' -%}
+                    {%- if section.settings.tone_color_medium_dark != blank -%}{%- assign tone_color = section.settings.tone_color_medium_dark -%}{%- endif -%}
+                    {%- if section.settings.tone_label_medium_dark != blank -%}{%- assign tone_label = section.settings.tone_label_medium_dark -%}{%- endif -%}
+                  {%- endif -%}
+                  <button
+                    type="button"
+                    class="lumen-pdp-hero__tone-swatch{% unless variant.available %} lumen-pdp-hero__tone-swatch--unavailable{% endunless %}"
+                    :class="{'lumen-pdp-hero__tone-swatch--selected': selectedVariantId == {{ variant.id }}}"
+                    role="radio"
+                    :aria-checked="selectedVariantId == {{ variant.id }} ? 'true' : 'false'"
+                    data-variant-id="{{ variant.id }}"
+                    aria-label="{{ tone_label | escape }}{% unless variant.available %} (out of stock){% endunless %}"
+                    @click="selectedVariantId = {{ variant.id }}"
+                    {% unless variant.available %}disabled aria-disabled="true"{% endunless %}
+                  >
+                    <span class="lumen-pdp-hero__tone-swatch-circle" style="background-color: {{ tone_color }};" aria-hidden="true"></span>
+                    <span class="lumen-pdp-hero__tone-swatch-label">{{ tone_label }}</span>
+                  </button>
+                {% endfor %}
+              </div>
+            {% endif %}
+
             <!-- Add to Bag Button -->
             {% if section_product and selected_variant %}
               {% assign form_id = 'LumenPdpHeroProductForm-' | append: section.id %}
@@ -2381,6 +2477,33 @@
 <!-- Load product form script -->
 <script src="{{ 'product-form.js' | asset_url }}" type="module"></script>
 
+{%- comment -%}
+  Tone selector default: when no ?variant= is in the URL, prefer the Medium
+  variant; if Medium is out of stock fall through to first in-stock; else
+  the first variant. Honors Shopify-selected variant when ?variant= is set.
+{%- endcomment -%}
+{%- assign tone_default_variant_id = section_product.variants.first.id -%}
+{%- if request.params.variant != blank -%}
+  {%- assign tone_default_variant_id = selected_variant.id -%}
+{%- elsif section_product and section_product.variants.size > 0 -%}
+  {%- assign found_medium = false -%}
+  {%- for v in section_product.variants -%}
+    {%- if v.option1 == 'Medium' and v.available -%}
+      {%- assign tone_default_variant_id = v.id -%}
+      {%- assign found_medium = true -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- unless found_medium -%}
+    {%- for v in section_product.variants -%}
+      {%- if v.available -%}
+        {%- assign tone_default_variant_id = v.id -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endunless -%}
+{%- endif -%}
+
 <!-- Alpine.js Component Registration -->
 <script>
   // Utility function for money formatting
@@ -2393,7 +2516,7 @@
     return {
       // Store the selected bundle block ID, variant ID, and quantity
       selectedBundleId: null,
-      selectedVariantId: {{ selected_variant.id | default: section_product.variants.first.id }},
+      selectedVariantId: {{ tone_default_variant_id | default: section_product.variants.first.id }},
       selectedQuantity: 1,
       isLoading: false,
       bundleType: 'bundle_option', // 'bundle_option' or 'bundle'
@@ -3360,6 +3483,51 @@
       "id": "description",
       "label": "Description",
       "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tone selector (Skin tone variants)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tone_selector",
+      "label": "Show tone selector above ATC",
+      "default": true,
+      "info": "Renders a row of swatch buttons (one per Skin tone variant) between the buy box and the Add to Cart button."
+    },
+    {
+      "type": "color",
+      "id": "tone_color_fair",
+      "label": "Fair swatch color",
+      "default": "#F3D4B7"
+    },
+    {
+      "type": "text",
+      "id": "tone_label_fair",
+      "label": "Fair label override",
+      "info": "Leave blank to use the variant's option value (e.g. 'Fair')."
+    },
+    {
+      "type": "color",
+      "id": "tone_color_medium",
+      "label": "Medium swatch color",
+      "default": "#D4A982"
+    },
+    {
+      "type": "text",
+      "id": "tone_label_medium",
+      "label": "Medium label override"
+    },
+    {
+      "type": "color",
+      "id": "tone_color_medium_dark",
+      "label": "Medium-Dark swatch color",
+      "default": "#B2895F"
+    },
+    {
+      "type": "text",
+      "id": "tone_label_medium_dark",
+      "label": "Medium-Dark label override"
     },
     {
       "type": "text",
