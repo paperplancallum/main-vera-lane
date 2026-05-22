@@ -97,6 +97,18 @@
     margin: 0 auto 24px;
   }
 
+  .vl-mmh__reinforcement {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #444;
+    margin: 24px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid #ece5df;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /* Hide the default description in lumen-pdp-hero when variant is active. Keep the title visible. */
   body.has-mmh .lumen-pdp-hero__description {
     display: none;
@@ -200,6 +212,10 @@
       </div>
     {% endif %}
 
+    {% if block.settings.reinforcement != blank %}
+      <p class="vl-mmh__reinforcement">{{ block.settings.reinforcement | newline_to_br }}</p>
+    {% endif %}
+
   </div>
 {% endfor %}
 
@@ -298,6 +314,12 @@
           "type": "textarea",
           "id": "col_2_text",
           "label": "Column 2 text"
+        },
+        {
+          "type": "textarea",
+          "id": "reinforcement",
+          "label": "Reinforcement text",
+          "info": "Optional. Renders below the headline/subhead/columns. Use to reinforce the angle and tie it back to the product characteristics that solve the problem."
         }
       ]
     }
