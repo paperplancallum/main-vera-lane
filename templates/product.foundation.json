@@ -1273,6 +1273,7 @@
         },
         "faq_item_5": {
           "type": "faq_item",
+          "disabled": true,
           "settings": {
             "question": "What ingredients are in this product?",
             "answer": "Our foundation contains nourishing ingredients like Glycerin, Bisabolol, and Vitamin E for healthy, comfortable-looking skin."
