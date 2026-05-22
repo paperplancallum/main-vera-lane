@@ -1358,6 +1358,14 @@
           object-fit: contain;
         }
 
+        /* Hide Amazon-specific elements when the bundle's data-amazon-offer is off.
+           Used by both Liquid-time render (merchant toggle) and the ?amazon=on/off
+           URL override applied at runtime. */
+        .lumen-pdp-hero__variant[data-amazon-offer="off"] .lumen-pdp-hero__amazon-button,
+        .lumen-pdp-hero__variant[data-amazon-offer="off"] .lumen-pdp-hero__amazon-banner {
+          display: none !important;
+        }
+
         .lumen-pdp-hero__amazon-banner {
           padding: 3px 14px;
           margin: 0 -12px -12px -12px;
@@ -1962,6 +1970,7 @@
 
                     <div
                       class="lumen-pdp-hero__variant{% if block.type == 'bundle' and has_bundle_property %} lumen-pdp-hero__variant--has-bundle-products{% endif %}{% if block.type == 'bundle' and block.settings.show_amazon_offer %} lumen-pdp-hero__variant--amazon-offer{% endif %}{% if block.type == 'bundle' and block.settings.is_subscription %} lumen-pdp-hero__variant--subscription{% endif %}"
+                      {% if block.type == 'bundle' %}data-amazon-offer="{% if block.settings.show_amazon_offer %}on{% else %}off{% endif %}"{% endif %}
                       :class="{'lumen-pdp-hero__variant--selected': isSelected('{{ block.id }}')}"
                       {% if block.type == 'bundle_option' %}
                         @click="selectBundle('{{ block.id }}', {{ selected_variant.id }}, {{ bundle_quantity }}, 'bundle_option')"
@@ -1987,7 +1996,7 @@
                                   {% endif %}
                                 </div>
                               </div>
-                              {% if block.type == 'bundle' and block.settings.show_amazon_offer and block.settings.amazon_url != blank %}
+                              {% if block.type == 'bundle' and block.settings.amazon_url != blank %}
                                 <div class="lumen-pdp-hero__variant-header-right">
                                   <a href="{{ block.settings.amazon_url }}"
                                      class="lumen-pdp-hero__amazon-button"
@@ -2096,7 +2105,7 @@
                               </div>
                             </div>
                           {% endif %}
-                      {% if block.type == 'bundle' and block.settings.show_amazon_offer and block.settings.amazon_promo_text != blank %}
+                      {% if block.type == 'bundle' and block.settings.amazon_promo_text != blank %}
                         <div class="lumen-pdp-hero__amazon-banner"
                              style="background-color: {{ block.settings.amazon_banner_bg_color | default: '#7A0036' }}; color: {{ block.settings.amazon_banner_text_color | default: '#FFFFFF' }};">
                           {{ block.settings.amazon_promo_text }}
@@ -3191,6 +3200,20 @@
 
     // Init FAQ popups (global delegated handlers)
     initLumenFaqPopups();
+
+    // ?amazon=on / ?amazon=off URL override for bundle Amazon offers.
+    // Lets internal team flip the Amazon offer visibility on every bundle
+    // without touching merchant toggles. No persistence — page-load only.
+    (function applyAmazonOverride() {
+      var raw = new URLSearchParams(window.location.search).get('amazon');
+      if (!raw) return;
+      var val = raw.toLowerCase();
+      if (val !== 'on' && val !== 'off') return;
+      document.querySelectorAll('.lumen-pdp-hero__variant[data-amazon-offer]').forEach(function(el) {
+        el.setAttribute('data-amazon-offer', val);
+        el.classList.toggle('lumen-pdp-hero__variant--amazon-offer', val === 'on');
+      });
+    })();
 
     // Upsell ATC: "ADDING..." state for upsell buttons
     if (!window.__lumenUpsellAtcBound) {
