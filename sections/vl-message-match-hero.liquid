@@ -214,12 +214,20 @@
     hero.classList.add('is-active');
     document.body.classList.add('has-mmh');
 
-    // Inject this variant's reinforcement copy into the buy box slot, if both exist
-    var reinforcementTpl = document.querySelector('template[data-mmh-reinforcement-for="' + variant + '"]');
-    var reinforcementSlot = document.querySelector('[data-mmh-reinforcement-slot]');
-    if (reinforcementTpl && reinforcementSlot) {
-      reinforcementSlot.innerHTML = reinforcementTpl.innerHTML;
-      reinforcementSlot.hidden = false;
+    // Inject this variant's reinforcement copy into the buy box slot once the DOM is parsed
+    // (the slot lives in lumen-pdp-hero, which renders below this script in the document)
+    var injectReinforcement = function() {
+      var reinforcementTpl = document.querySelector('template[data-mmh-reinforcement-for="' + variant + '"]');
+      var reinforcementSlot = document.querySelector('[data-mmh-reinforcement-slot]');
+      if (reinforcementTpl && reinforcementSlot && reinforcementTpl.innerHTML.trim() !== '') {
+        reinforcementSlot.innerHTML = reinforcementTpl.innerHTML;
+        reinforcementSlot.hidden = false;
+      }
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', injectReinforcement);
+    } else {
+      injectReinforcement();
     }
 
     // GA4 tracking
