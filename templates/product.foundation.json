@@ -1311,7 +1311,11 @@
           "type": "faq_item",
           "settings": {
             "question": "Ingredients",
-            "answer": "<p>Contains nourishing, skin-first ingredients: </p><p><strong>1. Glycerin</strong> - Attracts moisture for a soft, supple feel.</p><p><strong>2. Bisabolol & Tone-Evening Pigments</strong> - Help reduce the appearance of redness and uneven tone for a more balanced, natural-looking complexion.</p><p><strong>3. Tocopheryl Acetate (Vitamin E)</strong> - Nourishes and supports a fresh, healthy-looking complexion.</p>"
+            "answer": "Skin-first formula built around three hero ingredients: Glycerin for moisture, Bisabolol with tone-evening pigments to calm redness, and Vitamin E to nourish.",
+            "popup_enabled": true,
+            "popup_trigger_text": "See full ingredient list",
+            "popup_title": "Full ingredient list",
+            "popup_content": "<p>Contains nourishing, skin-first ingredients: </p><p><strong>1. Glycerin</strong> - Attracts moisture for a soft, supple feel.</p><p><strong>2. Bisabolol & Tone-Evening Pigments</strong> - Help reduce the appearance of redness and uneven tone for a more balanced, natural-looking complexion.</p><p><strong>3. Tocopheryl Acetate (Vitamin E)</strong> - Nourishes and supports a fresh, healthy-looking complexion.</p>"
           }
         },
         "faq_item_moved_TgaEiB": {
