@@ -321,12 +321,12 @@
             "variant_key": "c",
             "image_asset": "lp-foundation-mmh-c.jpg",
             "headline": "If you don't believe foundation ads anymore, here's one that doesn't ask you to.",
-            "subhead": "",
-            "use_columns": true,
-            "col_1_title": "What we're not going to do",
-            "col_1_text": "Tell you it's revolutionary. Show you a before/after with different lighting. Quote a celebrity. Promise it'll change your life.",
-            "col_2_title": "What we are doing",
-            "col_2_text": "Selling you a foundation built on a different mechanism — pigment releases on contact, doesn't pre-mix. Backed by 30 days, no questions, full refund including return shipping. The mechanism either works on your skin or it doesn't."
+            "subhead": "We're not going to tell you it's revolutionary, show a before/after with different lighting, or quote a celebrity. We're selling you a foundation built on a different mechanism — pigment that releases on contact with your skin, not pre-mixed in the bottle. Backed by 30 days, no questions, full refund including return shipping. The mechanism either works on your skin or it doesn't.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": ""
           }
         },
         "variant_d": {
@@ -335,12 +335,12 @@
             "variant_key": "d",
             "image_asset": "lp-foundation-mmh-d.jpg",
             "headline": "If your foundation breaks during a hot flash, you've been sold the wrong category.",
-            "subhead": "",
-            "use_columns": true,
-            "col_1_title": "What \"long-wear\" was designed for",
-            "col_1_text": "Sealing the surface. Controlling shine. Locking pigment in place. Built for a 25-year-old bride who needs 12 hours of oil control on her wedding day.",
-            "col_2_title": "What menopausal skin actually needs",
-            "col_2_text": "Hydration that doesn't break under a hot flash. A formula that adapts when skin chemistry shifts. Pigment that releases on contact instead of sitting on top of dehydrated skin."
+            "subhead": "Long-wear was built to seal surfaces, control shine, and lock pigment in place — designed for a 25-year-old bride at her wedding. Menopausal skin needs the opposite: hydration that holds through a hot flash, a formula that adapts when chemistry shifts, pigment that releases on contact instead of sitting on top of dehydrated skin.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": ""
           }
         },
         "variant_e": {
