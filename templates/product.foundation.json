@@ -292,7 +292,7 @@
           "settings": {
             "variant_key": "a",
             "image_asset": "lp-foundation-mmh-a.jpg",
-            "headline": "Three years ago I put my foundation in a drawer. This is the one that brought me back.",
+            "headline": "If you've quietly stopped buying foundation, this might be the one worth opening the drawer for.",
             "subhead": "I didn't even mean to quit. It just stopped working — orange by lunch, settled into every fine line, more effort than it was worth. Vera Lane releases pigment on contact with your skin instead of fighting it. Same drawer. Different ending.",
             "use_columns": false,
             "col_1_title": "",
@@ -306,7 +306,7 @@
           "settings": {
             "variant_key": "b",
             "image_asset": "lp-foundation-mmh-b.jpg",
-            "headline": "You put it on at 7am. By 11 your face is a different color.",
+            "headline": "If your foundation keeps turning orange by lunch, it's not your shade. It's the formula.",
             "subhead": "If you've already tried a lighter shade, primer, setting powder, swapping brands — the problem isn't your routine. It's oxidation. Vera Lane skips the pre-mixed pigment that causes it: the cream releases your tone on contact, so there's no shade to drift.",
             "use_columns": false,
             "col_1_title": "",
@@ -320,7 +320,7 @@
           "settings": {
             "variant_key": "c",
             "image_asset": "lp-foundation-mmh-c.jpg",
-            "headline": "This page isn't going to convince you. You've seen too many like it.",
+            "headline": "If you don't believe foundation ads anymore, here's one that doesn't ask you to.",
             "subhead": "",
             "use_columns": true,
             "col_1_title": "What we're not going to do",
@@ -334,7 +334,7 @@
           "settings": {
             "variant_key": "d",
             "image_asset": "lp-foundation-mmh-d.jpg",
-            "headline": "Long-wear foundation wasn't built for menopausal skin.",
+            "headline": "If your foundation breaks during a hot flash, you've been sold the wrong category.",
             "subhead": "",
             "use_columns": true,
             "col_1_title": "What \"long-wear\" was designed for",
@@ -348,7 +348,7 @@
           "settings": {
             "variant_key": "e",
             "image_asset": "lp-foundation-mmh-e.jpg",
-            "headline": "I'm the last person who buys foundation off Instagram.",
+            "headline": "If you've rolled your eyes at every \"adapts to your tone\" ad, this is the one to actually try.",
             "subhead": "I rolled my eyes at \"adapts to your skin tone\" the first three times I saw it. I tried it the fourth time only because of the 30-day guarantee — no questions, full refund, return shipping included. Two months later it's the only foundation I'm wearing. I'm not saying it's magic. I'm saying it worked.",
             "use_columns": false,
             "col_1_title": "",
@@ -362,7 +362,7 @@
           "settings": {
             "variant_key": "f",
             "image_asset": "lp-foundation-mmh-f.jpg",
-            "headline": "Add up the failed bottles in your drawer. It's probably four hundred dollars.",
+            "headline": "If you've spent hundreds finding \"the right shade\", try the one that adapts to you instead.",
             "subhead": "#1 was the wrong shade. #5 oxidized. #9 settled into every line. Eleven close-but-no purchases and you've quietly spent the price of a designer bag. If the next one costs $40 and comes with a 30-day refund, the math is already decided.",
             "use_columns": false,
             "col_1_title": "",
@@ -639,67 +639,6 @@
             "button_label": ""
           }
         },
-        "faq_item_U8Vae4": {
-          "type": "faq_item",
-          "settings": {
-            "title": "How does the guarantee work?",
-            "content": "<p><strong>Our 100% Shade Match Guarantee:</strong> We want you to test your new foundation without any risk. If the formula does not adapt perfectly to your skin tone, you will receive 100% of your money back—no questions asked.</p>",
-            "faq_show_image": false,
-            "faq_enable_popup": false,
-            "faq_popup_trigger_text": "View full list",
-            "faq_popup_title": "FULL LIST OF INGREDIENTS",
-            "faq_popup_content": ""
-          }
-        },
-        "faq_item_BaHyjk": {
-          "type": "faq_item",
-          "settings": {
-            "title": "Description",
-            "content": "<p>Experience a foundation that does the work for you. This white cream transforms upon application to match your unique skin tone perfectly. The hydrating formula provides buildable coverage that hides redness and imperfections while remaining weightless and breathable all day.</p>",
-            "faq_show_image": false,
-            "faq_enable_popup": false,
-            "faq_popup_trigger_text": "View full list",
-            "faq_popup_title": "FULL LIST OF INGREDIENTS",
-            "faq_popup_content": ""
-          }
-        },
-        "faq_item_m8GzcM": {
-          "type": "faq_item",
-          "settings": {
-            "title": "Does this work for my skin?",
-            "content": "<p>Yes. Our adaptive formula is suitable for all fair to medium skin tones and is specifically formulated for mature skin types. It is designed to float over fine lines and wrinkles rather than settling into them, making it ideal for skin with texture, rosacea, or age spots.</p>",
-            "faq_show_image": true,
-            "faq_image": "shopify://shop_images/Untitled_design_13.png",
-            "faq_enable_popup": false,
-            "faq_popup_trigger_text": "View full list",
-            "faq_popup_title": "FULL LIST OF INGREDIENTS",
-            "faq_popup_content": ""
-          }
-        },
-        "faq_item_fkJYQr": {
-          "type": "faq_item",
-          "settings": {
-            "title": "Ingredients",
-            "content": "<p>Contains nourishing, skin-first ingredients: </p><p><strong>1. Glycerin</strong> - Attracts moisture for a soft, supple feel.</p><p><strong>2. Bisabolol & Tone-Evening Pigments</strong> - Help reduce the appearance of redness and uneven tone for a more balanced, natural-looking complexion.</p><p><strong>3. Tocopheryl Acetate (Vitamin E)</strong> - Nourishes and supports a fresh, healthy-looking complexion.</p>",
-            "faq_show_image": false,
-            "faq_enable_popup": true,
-            "faq_popup_trigger_text": "View full list",
-            "faq_popup_title": "FULL LIST OF INGREDIENTS",
-            "faq_popup_content": "<p>Aqua, Cyclopentasiloxane, Glycerin, C12-15 Alkyl Benzoate, Ethylhexyl Methoxycinnamate, Dimethicone, Butylene Glycol, Ethylhexyl Palmitate, Caprylic/Capric Triglyceride, Sorbitol, Lauryl PEG-10 Tris(Trimethylsiloxy) Silylethyl Dimethicone, Petrolatum, Synthetic Fluorphlogopite, Titanium Dioxide, Sodium Chloride, Polyglyceryl-3 Diisostearate, Tridecyl Trimellitate, Silica, Disteardimonium Hectorite, Ethoxy Diglycol, Sorbitan Sesquioleate, Mica, Phenoxyethanol, Hydroxyacetophenone, Aluminum Hydroxide, Dimethiconol, Dimethicone Crosspolymer, Triethoxycaprylylsilane, Polyester-1, Silica Dimethyl Silylate, Stearic Acid, Bisabolol, Silica Silylate, Pentaerythrityl Tetra-Di-t-Butyl Hydroxyhydrocinnamate, Methicone, Trehalose, Sophora Flavescens Root Extract, Ophiopogon Japonicus Root Extract, Opuntia Ficus-Indica Stem Extract, Pentylene Glycol, 1,2-Hexanediol, BHT, Propanediol, Tocopherol, Buddleja Officinalis Extract, CI 77891 (Titanium Dioxide), CI 77492 (Iron Oxides), CI 77491 (Iron Oxides), CI 77499 (Iron Oxides).</p><p><em>Please note that ingredient lists may change and slightly vary from time to time. You will always find the most up-to-date information on the actual product packaging.</em></p>"
-          }
-        },
-        "faq_item_TgaEiB": {
-          "type": "faq_item",
-          "settings": {
-            "title": "Shipping & Returns",
-            "content": "<p><strong>Love It or It's Free.</strong> Try it for 30 days. If it doesn't float over your lines or match your shade exactly as promised, just let us know for a full refund.</p><p><strong>Fast & Secure Delivery.</strong> We ship your order within 1 business day. Free shipping on all orders over $[threshold]. Tracked shipping so you know exactly when your glow arrives.</p><p><strong>Zero-Stress Returns.</strong> No complicated forms. No hidden fees. If you aren't happy, we aren't happy. Just reach out to our friendly support team for a quick resolution.</p>",
-            "faq_show_image": false,
-            "faq_enable_popup": false,
-            "faq_popup_trigger_text": "View full list",
-            "faq_popup_title": "FULL LIST OF INGREDIENTS",
-            "faq_popup_content": ""
-          }
-        },
         "ugc_video_iWF9GK": {
           "type": "ugc_video",
           "disabled": true,
@@ -763,11 +702,6 @@
         "bundle_option_VnCjay",
         "upsell_product_KVyK9f",
         "upsell_product_3DPeqL",
-        "faq_item_U8Vae4",
-        "faq_item_BaHyjk",
-        "faq_item_m8GzcM",
-        "faq_item_fkJYQr",
-        "faq_item_TgaEiB",
         "ugc_video_iWF9GK",
         "ugc_video_LcRNAT",
         "ugc_video_nddcgM",
@@ -1227,7 +1161,8 @@
         "padding_bottom_mobile": 56,
         "padding_top_desktop": 80,
         "padding_bottom_desktop": 80
-      }
+      },
+      "disabled": true
     },
     "lumen_grid_benefits_section": {
       "type": "lumen-grid-benefits",
@@ -1345,6 +1280,41 @@
             "question": "Do you offer free shipping?",
             "answer": "Yes, we offer free shipping on all orders over $[threshold]. Orders under $[threshold] have a flat shipping rate across the US."
           }
+        },
+        "faq_item_moved_U8Vae4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does the guarantee work?",
+            "answer": "<p><strong>Our 100% Shade Match Guarantee:</strong> We want you to test your new foundation without any risk. If the formula does not adapt perfectly to your skin tone, you will receive 100% of your money back—no questions asked.</p>"
+          }
+        },
+        "faq_item_moved_BaHyjk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Description",
+            "answer": "<p>Experience a foundation that does the work for you. This white cream transforms upon application to match your unique skin tone perfectly. The hydrating formula provides buildable coverage that hides redness and imperfections while remaining weightless and breathable all day.</p>"
+          }
+        },
+        "faq_item_moved_m8GzcM": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does this work for my skin?",
+            "answer": "<p>Yes. Our adaptive formula is suitable for all fair to medium skin tones and is specifically formulated for mature skin types. It is designed to float over fine lines and wrinkles rather than settling into them, making it ideal for skin with texture, rosacea, or age spots.</p>"
+          }
+        },
+        "faq_item_moved_fkJYQr": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Ingredients",
+            "answer": "<p>Contains nourishing, skin-first ingredients: </p><p><strong>1. Glycerin</strong> - Attracts moisture for a soft, supple feel.</p><p><strong>2. Bisabolol & Tone-Evening Pigments</strong> - Help reduce the appearance of redness and uneven tone for a more balanced, natural-looking complexion.</p><p><strong>3. Tocopheryl Acetate (Vitamin E)</strong> - Nourishes and supports a fresh, healthy-looking complexion.</p>"
+          }
+        },
+        "faq_item_moved_TgaEiB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Shipping & Returns",
+            "answer": "<p><strong>Love It or It's Free.</strong> Try it for 30 days. If it doesn't float over your lines or match your shade exactly as promised, just let us know for a full refund.</p><p><strong>Fast & Secure Delivery.</strong> We ship your order within 1 business day. Free shipping on all orders over $[threshold]. Tracked shipping so you know exactly when your glow arrives.</p><p><strong>Zero-Stress Returns.</strong> No complicated forms. No hidden fees. If you aren't happy, we aren't happy. Just reach out to our friendly support team for a quick resolution.</p>"
+          }
         }
       },
       "block_order": [
@@ -1353,7 +1323,12 @@
         "faq_item_3",
         "faq_item_4",
         "faq_item_5",
-        "faq_item_6"
+        "faq_item_6",
+        "faq_item_moved_U8Vae4",
+        "faq_item_moved_BaHyjk",
+        "faq_item_moved_m8GzcM",
+        "faq_item_moved_fkJYQr",
+        "faq_item_moved_TgaEiB"
       ],
       "name": "⚡FAQ Section",
       "settings": {
