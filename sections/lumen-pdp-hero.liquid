@@ -3086,8 +3086,12 @@
                 }
               }
 
-              // 2) Subscribe to the main marketing list with the tone as a profile property
-              //    (the "tag" for segmentation). Uses the modern client subscription endpoint.
+              // 2) Add the profile to the marketing list with the tone as a profile property
+              //    (the "tag" for segmentation). The client subscription endpoint does NOT accept
+              //    a `subscriptions` field on the profile — passing it returns 400. Membership
+              //    without explicit marketing consent is the right default for a back-in-stock
+              //    flow: you can still trigger restock emails via the "Back In Stock Requested"
+              //    event in Klaviyo flows.
               if (klaviyoCompanyId && klaviyoListId) {
                 try {
                   fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(klaviyoCompanyId), {
@@ -3110,11 +3114,6 @@
                                 properties: {
                                   'back_in_stock_request_tone': tone,
                                   'last_back_in_stock_request_at': new Date().toISOString()
-                                },
-                                subscriptions: {
-                                  email: {
-                                    marketing: { consent: 'SUBSCRIBED' }
-                                  }
                                 }
                               }
                             }
@@ -3127,6 +3126,10 @@
                         }
                       }
                     })
+                  }).then(function(r) {
+                    if (!r.ok && window.console && console.warn) {
+                      console.warn('Klaviyo subscribe non-2xx:', r.status);
+                    }
                   }).catch(function(err) {
                     if (window.console && console.warn) console.warn('Klaviyo subscribe error', err);
                   });
