@@ -2934,6 +2934,10 @@
           var overlay = document.getElementById('lumen-pdp-hero-notify-' + sectionId);
           if (!overlay) return;
 
+          var klaviyoCompanyId = {{ section.settings.klaviyo_company_id | default: 'VhFhDd' | json }};
+          var klaviyoListId = {{ section.settings.klaviyo_main_list_id | default: '' | json }};
+          var klaviyoCustomSource = {{ section.settings.klaviyo_custom_source | default: 'PDP Back-in-Stock Modal' | json }};
+
           var section = overlay.closest('body') ? document : null;
           // Triggers live inside the section, not the modal. Scope by data-attribute.
           var triggers = document.querySelectorAll('[data-notify-trigger]');
@@ -3022,17 +3026,84 @@
                 return;
               }
 
-              // Phase 1: stub — log payload, show success state. Phase 2 wires Klaviyo.
-              var payload = {
-                event: 'tone-notify-request',
-                email: email,
-                tone: currentTone,
-                variantId: currentVariantId,
-                productHandle: form.getAttribute('data-product-handle'),
-                timestamp: Date.now()
-              };
-              if (window.console && console.log) {
-                console.log('[lumen-pdp-hero] tone-notify-request', payload);
+              var tone = currentTone || 'Unknown';
+              var variantId = currentVariantId || '';
+              var productHandle = form.getAttribute('data-product-handle') || '';
+
+              // 1) Fire Klaviyo track event — creates/updates profile and records this request as event history.
+              //    Mirrors the pixel pattern in sections/lumen-form.liquid (works around CORS without a server proxy).
+              if (klaviyoCompanyId) {
+                try {
+                  var trackPayload = {
+                    token: klaviyoCompanyId,
+                    event: 'Back In Stock Requested',
+                    customer_properties: {
+                      '$email': email,
+                      'back_in_stock_request_tone': tone,
+                      'last_back_in_stock_request_at': new Date().toISOString()
+                    },
+                    properties: {
+                      'Tone': tone,
+                      'Variant ID': variantId,
+                      'Product Handle': productHandle,
+                      'Source': klaviyoCustomSource
+                    }
+                  };
+                  var trackData = btoa(unescape(encodeURIComponent(JSON.stringify(trackPayload))));
+                  var img = new Image();
+                  img.src = 'https://a.klaviyo.com/api/track?data=' + encodeURIComponent(trackData);
+                } catch (err) {
+                  if (window.console && console.warn) console.warn('Klaviyo track error', err);
+                }
+              }
+
+              // 2) Subscribe to the main marketing list with the tone as a profile property
+              //    (the "tag" for segmentation). Uses the modern client subscription endpoint.
+              if (klaviyoCompanyId && klaviyoListId) {
+                try {
+                  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(klaviyoCompanyId), {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'revision': '2024-10-15'
+                    },
+                    keepalive: true,
+                    body: JSON.stringify({
+                      data: {
+                        type: 'subscription',
+                        attributes: {
+                          custom_source: klaviyoCustomSource,
+                          profile: {
+                            data: {
+                              type: 'profile',
+                              attributes: {
+                                email: email,
+                                properties: {
+                                  'back_in_stock_request_tone': tone,
+                                  'last_back_in_stock_request_at': new Date().toISOString()
+                                },
+                                subscriptions: {
+                                  email: {
+                                    marketing: { consent: 'SUBSCRIBED' }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        relationships: {
+                          list: {
+                            data: { type: 'list', id: klaviyoListId }
+                          }
+                        }
+                      }
+                    })
+                  }).catch(function(err) {
+                    if (window.console && console.warn) console.warn('Klaviyo subscribe error', err);
+                  });
+                } catch (err) {
+                  if (window.console && console.warn) console.warn('Klaviyo subscribe threw', err);
+                }
               }
 
               form.classList.add('is-hidden');
@@ -4247,6 +4318,27 @@
       "id": "notify_modal_success_message",
       "label": "Modal success message",
       "default": "You're on the list. We'll be in touch."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_company_id",
+      "label": "Klaviyo public API key (company ID)",
+      "default": "VhFhDd",
+      "info": "The 6-character public key from your Klaviyo account. Used to fire the Back In Stock Requested event and subscribe submitters to a list."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_main_list_id",
+      "label": "Klaviyo list ID for back-in-stock subscribers",
+      "default": "TFLmeE",
+      "info": "Paste the ID of your main marketing list (Audience → Lists → click list → URL ends with /lists/XXXXXX). Submitters get added with a 'back_in_stock_request_tone' profile property set to the tone they wanted."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_custom_source",
+      "label": "Klaviyo subscription source label",
+      "default": "PDP Back-in-Stock Modal",
+      "info": "Shown in Klaviyo as the source of the subscription, helps you trace where the email came from."
     },
     {
       "type": "text",
