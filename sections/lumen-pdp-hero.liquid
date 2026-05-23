@@ -506,6 +506,126 @@
             text-decoration-thickness: 2px;
         }
 
+        /* Inline shade guide — "Not sure which shade?" expander */
+        .lumen-pdp-hero__shade-guide {
+            margin: -4px 0 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .lumen-pdp-hero__shade-guide-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: 0;
+            padding: 6px 0;
+            font: inherit;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #6b1f3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+        }
+        .lumen-pdp-hero__shade-guide-toggle:hover,
+        .lumen-pdp-hero__shade-guide-toggle:focus-visible {
+            color: #4a1428;
+            outline: none;
+        }
+        .lumen-pdp-hero__shade-guide-toggle-icon {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1;
+            transition: transform 160ms ease;
+        }
+        .lumen-pdp-hero__shade-guide-toggle[aria-expanded="true"] .lumen-pdp-hero__shade-guide-toggle-icon {
+            transform: rotate(45deg);
+        }
+        .lumen-pdp-hero__shade-guide-panel {
+            margin-top: 10px;
+            background: #faf6f2;
+            border: 1px solid #ece5df;
+            border-radius: 10px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .lumen-pdp-hero__shade-guide-panel[hidden] {
+            display: none;
+        }
+        .lumen-pdp-hero__shade-guide-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 10px 12px;
+            background: #fff;
+            border: 1px solid #ece5df;
+            border-radius: 8px;
+            font: inherit;
+            color: #1a1a1a;
+            text-align: left;
+            cursor: pointer;
+            transition: border-color 120ms ease, background 120ms ease;
+        }
+        .lumen-pdp-hero__shade-guide-row:hover:not([disabled]),
+        .lumen-pdp-hero__shade-guide-row:focus-visible:not([disabled]) {
+            border-color: #6b1f3a;
+            outline: none;
+        }
+        .lumen-pdp-hero__shade-guide-row--unavailable {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+        .lumen-pdp-hero__shade-guide-row-swatch {
+            flex: 0 0 auto;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: inset 0 0 0 2px #fff;
+        }
+        .lumen-pdp-hero__shade-guide-row-text {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+        .lumen-pdp-hero__shade-guide-row-name {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .lumen-pdp-hero__shade-guide-row-desc {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #6b6b6b;
+        }
+        .lumen-pdp-hero__shade-guide-row-pick {
+            flex: 0 0 auto;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6b1f3a;
+            padding: 6px 10px;
+            border: 1px solid #6b1f3a;
+            border-radius: 999px;
+        }
+        .lumen-pdp-hero__shade-guide-row-pick--oos {
+            color: #8a7d70;
+            border-color: #d6cec7;
+        }
+        .lumen-pdp-hero__shade-guide-footnote {
+            margin: 4px 4px 2px;
+            font-size: 11.5px;
+            line-height: 1.45;
+            color: #6b6b6b;
+        }
+
         /* Notify modal */
         .lumen-pdp-hero__notify-overlay {
             position: fixed;
@@ -2424,6 +2544,70 @@
                   </div>
                 {% endfor %}
               </div>
+
+              {%- comment -%} Inline shade guide — collapsed by default. Each row is a single button that auto-selects that variant when in stock. {%- endcomment -%}
+              {%- if section.settings.show_shade_guide -%}
+                <div class="lumen-pdp-hero__shade-guide" data-shade-guide>
+                  <button
+                    type="button"
+                    class="lumen-pdp-hero__shade-guide-toggle"
+                    data-shade-guide-toggle
+                    aria-expanded="false"
+                    aria-controls="lumen-pdp-hero-shade-guide-panel-{{ section.id }}"
+                  >
+                    <span data-shade-guide-toggle-label>{{ section.settings.shade_guide_open_label | default: 'Not sure which shade? See guide' }}</span>
+                    <span class="lumen-pdp-hero__shade-guide-toggle-icon" aria-hidden="true">+</span>
+                  </button>
+                  <div
+                    class="lumen-pdp-hero__shade-guide-panel"
+                    id="lumen-pdp-hero-shade-guide-panel-{{ section.id }}"
+                    data-shade-guide-panel
+                    hidden
+                  >
+                    {%- for variant in section_product.variants -%}
+                      {%- assign tone = variant.option1 -%}
+                      {%- assign row_color = '#D4A982' -%}
+                      {%- assign row_label = tone -%}
+                      {%- assign row_best_for = '' -%}
+                      {%- if tone == 'Fair' -%}
+                        {%- if section.settings.tone_color_fair != blank -%}{%- assign row_color = section.settings.tone_color_fair -%}{%- endif -%}
+                        {%- if section.settings.tone_label_fair != blank -%}{%- assign row_label = section.settings.tone_label_fair -%}{%- endif -%}
+                        {%- assign row_best_for = section.settings.shade_guide_fair_best_for | default: 'Light skin with a warm, peachy undertone — not chalky or cool.' -%}
+                      {%- elsif tone == 'Medium' -%}
+                        {%- if section.settings.tone_color_medium != blank -%}{%- assign row_color = section.settings.tone_color_medium -%}{%- endif -%}
+                        {%- if section.settings.tone_label_medium != blank -%}{%- assign row_label = section.settings.tone_label_medium -%}{%- endif -%}
+                        {%- assign row_best_for = section.settings.shade_guide_medium_best_for | default: 'Light olive or honey tones — the most versatile shade.' -%}
+                      {%- elsif tone == 'Medium-Dark' -%}
+                        {%- if section.settings.tone_color_medium_dark != blank -%}{%- assign row_color = section.settings.tone_color_medium_dark -%}{%- endif -%}
+                        {%- if section.settings.tone_label_medium_dark != blank -%}{%- assign row_label = section.settings.tone_label_medium_dark -%}{%- endif -%}
+                        {%- assign row_best_for = section.settings.shade_guide_medium_dark_best_for | default: 'Deeper warm skin that tans easily and wants a natural bronze glow.' -%}
+                      {%- endif -%}
+                      <button
+                        type="button"
+                        class="lumen-pdp-hero__shade-guide-row{% unless variant.available %} lumen-pdp-hero__shade-guide-row--unavailable{% endunless %}"
+                        data-shade-guide-row
+                        data-variant-id="{{ variant.id }}"
+                        {% if variant.available %}@click="selectedVariantId = {{ variant.id }}"{% else %}disabled aria-disabled="true"{% endif %}
+                        aria-label="{{ row_label | escape }} — {{ row_best_for | escape }}{% unless variant.available %} (out of stock){% endunless %}"
+                      >
+                        <span class="lumen-pdp-hero__shade-guide-row-swatch" style="background-color: {{ row_color }};" aria-hidden="true"></span>
+                        <span class="lumen-pdp-hero__shade-guide-row-text">
+                          <span class="lumen-pdp-hero__shade-guide-row-name">{{ row_label }}</span>
+                          <span class="lumen-pdp-hero__shade-guide-row-desc">{{ row_best_for }}</span>
+                        </span>
+                        {% if variant.available %}
+                          <span class="lumen-pdp-hero__shade-guide-row-pick" aria-hidden="true">{{ section.settings.shade_guide_pick_label | default: 'Pick' }}</span>
+                        {% else %}
+                          <span class="lumen-pdp-hero__shade-guide-row-pick lumen-pdp-hero__shade-guide-row-pick--oos" aria-hidden="true">Out of stock</span>
+                        {% endif %}
+                      </button>
+                    {%- endfor -%}
+                    {%- if section.settings.shade_guide_footnote != blank -%}
+                      <p class="lumen-pdp-hero__shade-guide-footnote">{{ section.settings.shade_guide_footnote }}</p>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
             {% endif %}
 
             <!-- Add to Bag Button -->
@@ -2637,6 +2821,46 @@
         </div>
     </div>
   </section>
+
+  {%- comment -%} Shade guide toggle script — independent of OOS state. {%- endcomment -%}
+  {%- if section.settings.show_tone_selector and section.settings.show_shade_guide and section_product and section_product.variants.size > 1 -%}
+    <script>
+      (function() {
+        var guide = document.querySelector('[data-shade-guide]');
+        if (!guide) return;
+        var toggle = guide.querySelector('[data-shade-guide-toggle]');
+        var label = guide.querySelector('[data-shade-guide-toggle-label]');
+        var panel = guide.querySelector('[data-shade-guide-panel]');
+        if (!toggle || !panel) return;
+
+        var openLabel = {{ section.settings.shade_guide_open_label | default: 'Not sure which shade? See guide' | json }};
+        var closeLabel = {{ section.settings.shade_guide_close_label | default: 'Hide shade guide' | json }};
+
+        function setOpen(isOpen) {
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (isOpen) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', '');
+          }
+          if (label) label.textContent = isOpen ? closeLabel : openLabel;
+        }
+
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        // Picking a shade closes the guide so the customer sees their selection in the swatch row.
+        panel.querySelectorAll('[data-shade-guide-row]').forEach(function(row) {
+          if (row.hasAttribute('disabled')) return;
+          row.addEventListener('click', function() {
+            setOpen(false);
+          });
+        });
+      })();
+    </script>
+  {%- endif -%}
 
   {%- comment -%} Restock notify modal — opened by the "Get notified →" link beneath OOS swatches. Single modal reused per click; heading text swapped client-side. {%- endcomment -%}
   {%- if section.settings.show_tone_selector and section_product and section_product.variants.size > 1 -%}
@@ -3892,6 +4116,59 @@
       "type": "text",
       "id": "tone_label_medium_dark",
       "label": "Medium-Dark label override"
+    },
+    {
+      "type": "header",
+      "content": "Shade guide (\"Not sure which shade?\")"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shade_guide",
+      "label": "Show shade guide beneath swatches",
+      "default": true,
+      "info": "Renders a collapsible expander that shows each shade with a 'Best for' description. Clicking a row in the panel auto-selects that variant."
+    },
+    {
+      "type": "text",
+      "id": "shade_guide_open_label",
+      "label": "Open label",
+      "default": "Not sure which shade? See guide"
+    },
+    {
+      "type": "text",
+      "id": "shade_guide_close_label",
+      "label": "Close label",
+      "default": "Hide shade guide"
+    },
+    {
+      "type": "text",
+      "id": "shade_guide_pick_label",
+      "label": "Row CTA label",
+      "default": "Pick"
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_fair_best_for",
+      "label": "Fair \"Best for\" description",
+      "default": "Light skin with a warm, peachy undertone — not chalky or cool."
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_medium_best_for",
+      "label": "Medium \"Best for\" description",
+      "default": "Light olive or honey tones — the most versatile shade."
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_medium_dark_best_for",
+      "label": "Medium-Dark \"Best for\" description",
+      "default": "Deeper warm skin that tans easily and wants a natural bronze glow."
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_footnote",
+      "label": "Footnote (optional)",
+      "default": "Color-changing technology adapts within each range, so close is good enough."
     },
     {
       "type": "header",
