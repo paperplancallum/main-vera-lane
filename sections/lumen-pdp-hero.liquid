@@ -2834,25 +2834,65 @@
     </div>
   </section>
 
-  {%- comment -%} GA4 click tracking for Amazon "Buy" buttons. Fires amazon_buy_click and lets the navigation proceed normally. {%- endcomment -%}
+  {%- comment -%} Click tracking for Amazon "Buy" buttons. Fires GA4 amazon_buy_click + Meta AmazonLinkClick in parallel. The link has target="_blank" so we don't need to delay navigation. {%- endcomment -%}
   <script>
     (function() {
       document.addEventListener('click', function(e) {
         var link = e.target.closest('a[data-amazon-track]');
         if (!link) return;
-        if (typeof window.gtag !== 'function') return;
+
         var variantInput = document.querySelector('input[ref="variantId"]') || document.querySelector('product-form-component input[name="id"]');
+        var variantId = variantInput && variantInput.value ? variantInput.value : '';
+        var bundleId = link.getAttribute('data-bundle-id') || '';
+        var bundleName = link.getAttribute('data-bundle-name') || '';
+        var productHandle = link.getAttribute('data-product-handle') || '';
+        var productId = link.getAttribute('data-product-id') || '';
+        var pagePath = window.location.pathname;
+
+        // GA4
+        if (typeof window.gtag === 'function') {
+          try {
+            window.gtag('event', 'amazon_buy_click', {
+              link_url: link.href,
+              variant_id: variantId,
+              bundle_id: bundleId,
+              bundle_name: bundleName,
+              product_handle: productHandle,
+              product_id: productId
+            });
+          } catch (err) {
+            if (window.console && console.warn) console.warn('amazon_buy_click gtag error', err);
+          }
+        }
+
+        // Meta pixel — same custom event used by the landing pages (sections/vl-product-hero,
+        // sections/vl-sticky-cta) so Meta sees a single unified AmazonLinkClick across all surfaces.
+        // Direct beacon first (works even when fbq is blocked/not yet loaded), then fbq() if present.
         try {
-          window.gtag('event', 'amazon_buy_click', {
-            link_url: link.href,
-            variant_id: variantInput && variantInput.value ? variantInput.value : '',
-            bundle_id: link.getAttribute('data-bundle-id') || '',
-            bundle_name: link.getAttribute('data-bundle-name') || '',
-            product_handle: link.getAttribute('data-product-handle') || '',
-            product_id: link.getAttribute('data-product-id') || ''
-          });
-        } catch (err) {
-          if (window.console && console.warn) console.warn('amazon_buy_click gtag error', err);
+          var img = new Image();
+          img.src = 'https://www.facebook.com/tr?id=2280168542489572'
+            + '&ev=AmazonLinkClick'
+            + '&cd[button_type]=pdp_bundle'
+            + '&cd[bundle_id]=' + encodeURIComponent(bundleId)
+            + '&cd[bundle_name]=' + encodeURIComponent(bundleName)
+            + '&cd[variant_id]=' + encodeURIComponent(variantId)
+            + '&cd[product_handle]=' + encodeURIComponent(productHandle)
+            + '&cd[page_url]=' + encodeURIComponent(pagePath)
+            + '&noscript=1';
+        } catch (err) {}
+        if (typeof fbq === 'function') {
+          try {
+            fbq('trackCustom', 'AmazonLinkClick', {
+              button_type: 'pdp_bundle',
+              bundle_id: bundleId,
+              bundle_name: bundleName,
+              variant_id: variantId,
+              product_handle: productHandle,
+              page_url: pagePath
+            });
+          } catch (err) {
+            if (window.console && console.warn) console.warn('AmazonLinkClick fbq error', err);
+          }
         }
       });
     })();
