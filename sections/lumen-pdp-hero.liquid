@@ -460,6 +460,305 @@
             text-align: center;
         }
 
+        /* OOS notify treatment beneath the (disabled) swatch */
+        .lumen-pdp-hero__tone-swatch-wrap {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 0;
+        }
+        .lumen-pdp-hero__tone-swatch-wrap .lumen-pdp-hero__tone-swatch {
+            flex: none;
+            width: 100%;
+        }
+        .lumen-pdp-hero__tone-oos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            line-height: 1.25;
+            text-align: center;
+        }
+        .lumen-pdp-hero__tone-oos-status {
+            color: #8a7d70;
+            letter-spacing: 0.01em;
+        }
+        .lumen-pdp-hero__tone-oos-cta {
+            background: none;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            color: #6b1f3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .lumen-pdp-hero__tone-oos-cta:hover,
+        .lumen-pdp-hero__tone-oos-cta:focus-visible {
+            color: #4a1428;
+            outline: none;
+        }
+        .lumen-pdp-hero__tone-oos-cta:focus-visible {
+            text-decoration-thickness: 2px;
+        }
+
+        /* Inline shade guide — "Not sure which shade?" expander */
+        .lumen-pdp-hero__shade-guide {
+            margin: -4px 0 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .lumen-pdp-hero__shade-guide-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: 0;
+            padding: 6px 0;
+            font: inherit;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #6b1f3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+        }
+        .lumen-pdp-hero__shade-guide-toggle:hover,
+        .lumen-pdp-hero__shade-guide-toggle:focus-visible {
+            color: #4a1428;
+            outline: none;
+        }
+        .lumen-pdp-hero__shade-guide-toggle-icon {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1;
+            transition: transform 160ms ease;
+        }
+        .lumen-pdp-hero__shade-guide-toggle[aria-expanded="true"] .lumen-pdp-hero__shade-guide-toggle-icon {
+            transform: rotate(45deg);
+        }
+        .lumen-pdp-hero__shade-guide-panel {
+            margin-top: 10px;
+            background: #faf6f2;
+            border: 1px solid #ece5df;
+            border-radius: 10px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .lumen-pdp-hero__shade-guide-panel[hidden] {
+            display: none;
+        }
+        .lumen-pdp-hero__shade-guide-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 10px 12px;
+            background: #fff;
+            border: 1px solid #ece5df;
+            border-radius: 8px;
+            font: inherit;
+            color: #1a1a1a;
+            text-align: left;
+            cursor: pointer;
+            transition: border-color 120ms ease, background 120ms ease;
+        }
+        .lumen-pdp-hero__shade-guide-row:hover:not([disabled]),
+        .lumen-pdp-hero__shade-guide-row:focus-visible:not([disabled]) {
+            border-color: #6b1f3a;
+            outline: none;
+        }
+        .lumen-pdp-hero__shade-guide-row--unavailable {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+        .lumen-pdp-hero__shade-guide-row-swatch {
+            flex: 0 0 auto;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: inset 0 0 0 2px #fff;
+        }
+        .lumen-pdp-hero__shade-guide-row-text {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+        .lumen-pdp-hero__shade-guide-row-name {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .lumen-pdp-hero__shade-guide-row-desc {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #6b6b6b;
+        }
+        .lumen-pdp-hero__shade-guide-row-pick {
+            flex: 0 0 auto;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6b1f3a;
+            padding: 6px 10px;
+            border: 1px solid #6b1f3a;
+            border-radius: 999px;
+        }
+        .lumen-pdp-hero__shade-guide-row-pick--oos {
+            color: #8a7d70;
+            border-color: #d6cec7;
+        }
+        .lumen-pdp-hero__shade-guide-footnote {
+            margin: 4px 4px 2px;
+            font-size: 11.5px;
+            line-height: 1.45;
+            color: #6b6b6b;
+        }
+
+        /* Notify modal */
+        .lumen-pdp-hero__notify-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .lumen-pdp-hero__notify-overlay.is-visible {
+            display: flex;
+        }
+        .lumen-pdp-hero__notify-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            animation: lumenNotifyFadeIn 0.2s ease;
+        }
+        .lumen-pdp-hero__notify-modal {
+            position: relative;
+            background: #fff;
+            border-radius: 12px;
+            max-width: 420px;
+            width: 100%;
+            padding: 32px 28px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            animation: lumenNotifySlideUp 0.25s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        .lumen-pdp-hero__notify-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: none;
+            border: 0;
+            font-size: 24px;
+            line-height: 1;
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 6px;
+        }
+        .lumen-pdp-hero__notify-close:hover {
+            color: #6b1f3a;
+        }
+        .lumen-pdp-hero__notify-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            line-height: 1.25;
+            margin: 0 0 8px;
+            color: #1a1a1a;
+        }
+        .lumen-pdp-hero__notify-subhead {
+            font-size: 13px;
+            line-height: 1.45;
+            color: #6b6b6b;
+            margin: 0 0 18px;
+        }
+        .lumen-pdp-hero__notify-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .lumen-pdp-hero__notify-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d6cec7;
+            border-radius: 8px;
+            font: inherit;
+            font-size: 14px;
+            color: #1a1a1a;
+            background: #fff;
+            transition: border-color 120ms ease;
+        }
+        .lumen-pdp-hero__notify-input:focus {
+            outline: none;
+            border-color: #6b1f3a;
+        }
+        .lumen-pdp-hero__notify-input.has-error {
+            border-color: #c0392b;
+        }
+        .lumen-pdp-hero__notify-error {
+            display: none;
+            font-size: 12px;
+            color: #c0392b;
+            margin-top: -4px;
+            text-align: left;
+        }
+        .lumen-pdp-hero__notify-error.is-visible {
+            display: block;
+        }
+        .lumen-pdp-hero__notify-cta {
+            width: 100%;
+            padding: 13px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 120ms ease;
+        }
+        .lumen-pdp-hero__notify-cta:hover {
+            background: #6b1f3a;
+        }
+        .lumen-pdp-hero__notify-success {
+            display: none;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            padding: 8px 0 4px;
+        }
+        .lumen-pdp-hero__notify-success.is-visible {
+            display: block;
+        }
+        .lumen-pdp-hero__notify-form.is-hidden {
+            display: none;
+        }
+        @keyframes lumenNotifyFadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @keyframes lumenNotifySlideUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
         .lumen-pdp-hero__variant {
             display: flex;
             flex-direction: column;
@@ -2214,22 +2513,101 @@
                     {%- if section.settings.tone_color_medium_dark != blank -%}{%- assign tone_color = section.settings.tone_color_medium_dark -%}{%- endif -%}
                     {%- if section.settings.tone_label_medium_dark != blank -%}{%- assign tone_label = section.settings.tone_label_medium_dark -%}{%- endif -%}
                   {%- endif -%}
-                  <button
-                    type="button"
-                    class="lumen-pdp-hero__tone-swatch{% unless variant.available %} lumen-pdp-hero__tone-swatch--unavailable{% endunless %}"
-                    :class="{'lumen-pdp-hero__tone-swatch--selected': selectedVariantId == {{ variant.id }}}"
-                    role="radio"
-                    :aria-checked="selectedVariantId == {{ variant.id }} ? 'true' : 'false'"
-                    data-variant-id="{{ variant.id }}"
-                    aria-label="{{ tone_label | escape }}{% unless variant.available %} (out of stock){% endunless %}"
-                    @click="selectedVariantId = {{ variant.id }}"
-                    {% unless variant.available %}disabled aria-disabled="true"{% endunless %}
-                  >
-                    <span class="lumen-pdp-hero__tone-swatch-circle" style="background-color: {{ tone_color }};" aria-hidden="true"></span>
-                    <span class="lumen-pdp-hero__tone-swatch-label">{{ tone_label }}</span>
-                  </button>
+                  <div class="lumen-pdp-hero__tone-swatch-wrap">
+                    <button
+                      type="button"
+                      class="lumen-pdp-hero__tone-swatch{% unless variant.available %} lumen-pdp-hero__tone-swatch--unavailable{% endunless %}"
+                      :class="{'lumen-pdp-hero__tone-swatch--selected': selectedVariantId == {{ variant.id }}}"
+                      role="radio"
+                      :aria-checked="selectedVariantId == {{ variant.id }} ? 'true' : 'false'"
+                      data-variant-id="{{ variant.id }}"
+                      aria-label="{{ tone_label | escape }}{% unless variant.available %} (out of stock){% endunless %}"
+                      @click="selectedVariantId = {{ variant.id }}"
+                      {% unless variant.available %}disabled aria-disabled="true"{% endunless %}
+                    >
+                      <span class="lumen-pdp-hero__tone-swatch-circle" style="background-color: {{ tone_color }};" aria-hidden="true"></span>
+                      <span class="lumen-pdp-hero__tone-swatch-label">{{ tone_label }}</span>
+                    </button>
+                    {% unless variant.available %}
+                      <div class="lumen-pdp-hero__tone-oos">
+                        <span class="lumen-pdp-hero__tone-oos-status">{{ section.settings.oos_label | default: 'Back in stock soon' }}</span>
+                        <button
+                          type="button"
+                          class="lumen-pdp-hero__tone-oos-cta"
+                          data-notify-trigger
+                          data-tone="{{ tone_label | escape }}"
+                          data-variant-id="{{ variant.id }}"
+                          aria-label="Get notified when {{ tone_label | escape }} is back in stock"
+                        >{{ section.settings.oos_cta_label | default: 'Get notified →' }}</button>
+                      </div>
+                    {% endunless %}
+                  </div>
                 {% endfor %}
               </div>
+
+              {%- comment -%} Inline shade guide — collapsed by default. Each row is a single button that auto-selects that variant when in stock. {%- endcomment -%}
+              {%- if section.settings.show_shade_guide -%}
+                <div class="lumen-pdp-hero__shade-guide" data-shade-guide>
+                  <button
+                    type="button"
+                    class="lumen-pdp-hero__shade-guide-toggle"
+                    data-shade-guide-toggle
+                    aria-expanded="false"
+                    aria-controls="lumen-pdp-hero-shade-guide-panel-{{ section.id }}"
+                  >
+                    <span data-shade-guide-toggle-label>{{ section.settings.shade_guide_open_label | default: 'Not sure which shade? See guide' }}</span>
+                    <span class="lumen-pdp-hero__shade-guide-toggle-icon" aria-hidden="true">+</span>
+                  </button>
+                  <div
+                    class="lumen-pdp-hero__shade-guide-panel"
+                    id="lumen-pdp-hero-shade-guide-panel-{{ section.id }}"
+                    data-shade-guide-panel
+                    hidden
+                  >
+                    {%- for variant in section_product.variants -%}
+                      {%- assign tone = variant.option1 -%}
+                      {%- assign row_color = '#D4A982' -%}
+                      {%- assign row_label = tone -%}
+                      {%- assign row_best_for = '' -%}
+                      {%- if tone == 'Fair' -%}
+                        {%- if section.settings.tone_color_fair != blank -%}{%- assign row_color = section.settings.tone_color_fair -%}{%- endif -%}
+                        {%- if section.settings.tone_label_fair != blank -%}{%- assign row_label = section.settings.tone_label_fair -%}{%- endif -%}
+                        {%- assign row_best_for = section.settings.shade_guide_fair_best_for | default: 'Light skin with a warm, peachy undertone — not chalky or cool.' -%}
+                      {%- elsif tone == 'Medium' -%}
+                        {%- if section.settings.tone_color_medium != blank -%}{%- assign row_color = section.settings.tone_color_medium -%}{%- endif -%}
+                        {%- if section.settings.tone_label_medium != blank -%}{%- assign row_label = section.settings.tone_label_medium -%}{%- endif -%}
+                        {%- assign row_best_for = section.settings.shade_guide_medium_best_for | default: 'Light olive or honey tones — the most versatile shade.' -%}
+                      {%- elsif tone == 'Medium-Dark' -%}
+                        {%- if section.settings.tone_color_medium_dark != blank -%}{%- assign row_color = section.settings.tone_color_medium_dark -%}{%- endif -%}
+                        {%- if section.settings.tone_label_medium_dark != blank -%}{%- assign row_label = section.settings.tone_label_medium_dark -%}{%- endif -%}
+                        {%- assign row_best_for = section.settings.shade_guide_medium_dark_best_for | default: 'Deeper warm skin that tans easily and wants a natural bronze glow.' -%}
+                      {%- endif -%}
+                      <button
+                        type="button"
+                        class="lumen-pdp-hero__shade-guide-row{% unless variant.available %} lumen-pdp-hero__shade-guide-row--unavailable{% endunless %}"
+                        data-shade-guide-row
+                        data-variant-id="{{ variant.id }}"
+                        {% if variant.available %}@click="selectedVariantId = {{ variant.id }}"{% else %}disabled aria-disabled="true"{% endif %}
+                        aria-label="{{ row_label | escape }} — {{ row_best_for | escape }}{% unless variant.available %} (out of stock){% endunless %}"
+                      >
+                        <span class="lumen-pdp-hero__shade-guide-row-swatch" style="background-color: {{ row_color }};" aria-hidden="true"></span>
+                        <span class="lumen-pdp-hero__shade-guide-row-text">
+                          <span class="lumen-pdp-hero__shade-guide-row-name">{{ row_label }}</span>
+                          <span class="lumen-pdp-hero__shade-guide-row-desc">{{ row_best_for }}</span>
+                        </span>
+                        {% if variant.available %}
+                          <span class="lumen-pdp-hero__shade-guide-row-pick" aria-hidden="true">{{ section.settings.shade_guide_pick_label | default: 'Pick' }}</span>
+                        {% else %}
+                          <span class="lumen-pdp-hero__shade-guide-row-pick lumen-pdp-hero__shade-guide-row-pick--oos" aria-hidden="true">Out of stock</span>
+                        {% endif %}
+                      </button>
+                    {%- endfor -%}
+                    {%- if section.settings.shade_guide_footnote != blank -%}
+                      <p class="lumen-pdp-hero__shade-guide-footnote">{{ section.settings.shade_guide_footnote }}</p>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
             {% endif %}
 
             <!-- Add to Bag Button -->
@@ -2443,6 +2821,199 @@
         </div>
     </div>
   </section>
+
+  {%- comment -%} Shade guide toggle script — independent of OOS state. {%- endcomment -%}
+  {%- if section.settings.show_tone_selector and section.settings.show_shade_guide and section_product and section_product.variants.size > 1 -%}
+    <script>
+      (function() {
+        var guide = document.querySelector('[data-shade-guide]');
+        if (!guide) return;
+        var toggle = guide.querySelector('[data-shade-guide-toggle]');
+        var label = guide.querySelector('[data-shade-guide-toggle-label]');
+        var panel = guide.querySelector('[data-shade-guide-panel]');
+        if (!toggle || !panel) return;
+
+        var openLabel = {{ section.settings.shade_guide_open_label | default: 'Not sure which shade? See guide' | json }};
+        var closeLabel = {{ section.settings.shade_guide_close_label | default: 'Hide shade guide' | json }};
+
+        function setOpen(isOpen) {
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (isOpen) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', '');
+          }
+          if (label) label.textContent = isOpen ? closeLabel : openLabel;
+        }
+
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        // Picking a shade closes the guide so the customer sees their selection in the swatch row.
+        panel.querySelectorAll('[data-shade-guide-row]').forEach(function(row) {
+          if (row.hasAttribute('disabled')) return;
+          row.addEventListener('click', function() {
+            setOpen(false);
+          });
+        });
+      })();
+    </script>
+  {%- endif -%}
+
+  {%- comment -%} Restock notify modal — opened by the "Get notified →" link beneath OOS swatches. Single modal reused per click; heading text swapped client-side. {%- endcomment -%}
+  {%- if section.settings.show_tone_selector and section_product and section_product.variants.size > 1 -%}
+    {%- assign any_oos = false -%}
+    {%- for variant in section_product.variants -%}
+      {%- unless variant.available -%}{%- assign any_oos = true -%}{%- endunless -%}
+    {%- endfor -%}
+    {%- if any_oos -%}
+      <div class="lumen-pdp-hero__notify-overlay" id="lumen-pdp-hero-notify-{{ section.id }}" role="dialog" aria-modal="true" aria-labelledby="lumen-pdp-hero-notify-heading-{{ section.id }}" aria-hidden="true">
+        <div class="lumen-pdp-hero__notify-backdrop" data-notify-close></div>
+        <div class="lumen-pdp-hero__notify-modal">
+          <button type="button" class="lumen-pdp-hero__notify-close" data-notify-close aria-label="Close">&times;</button>
+          <h2 class="lumen-pdp-hero__notify-heading" id="lumen-pdp-hero-notify-heading-{{ section.id }}" data-notify-heading data-template="{{ section.settings.notify_modal_heading_template | default: 'Get notified when {tone} is back' | escape }}">{{ section.settings.notify_modal_heading_template | default: 'Get notified when {tone} is back' | replace: '{tone}', 'this shade' }}</h2>
+          <p class="lumen-pdp-hero__notify-subhead">{{ section.settings.notify_modal_subhead | default: "We'll email you the moment it's restocked. No spam." }}</p>
+          <form class="lumen-pdp-hero__notify-form" data-notify-form data-product-handle="{{ section_product.handle }}" novalidate>
+            <input
+              type="email"
+              name="email"
+              class="lumen-pdp-hero__notify-input"
+              data-notify-email
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+            <div class="lumen-pdp-hero__notify-error" data-notify-error>Please enter a valid email address.</div>
+            <button type="submit" class="lumen-pdp-hero__notify-cta">{{ section.settings.notify_modal_cta_label | default: 'Notify me' }}</button>
+          </form>
+          <div class="lumen-pdp-hero__notify-success" data-notify-success>{{ section.settings.notify_modal_success_message | default: "You're on the list. We'll be in touch." }}</div>
+        </div>
+      </div>
+
+      <script>
+        (function() {
+          var sectionId = {{ section.id | json }};
+          var overlay = document.getElementById('lumen-pdp-hero-notify-' + sectionId);
+          if (!overlay) return;
+
+          var section = overlay.closest('body') ? document : null;
+          // Triggers live inside the section, not the modal. Scope by data-attribute.
+          var triggers = document.querySelectorAll('[data-notify-trigger]');
+          var heading = overlay.querySelector('[data-notify-heading]');
+          var headingTemplate = heading ? heading.getAttribute('data-template') : 'Get notified when {tone} is back';
+          var form = overlay.querySelector('[data-notify-form]');
+          var emailInput = overlay.querySelector('[data-notify-email]');
+          var errorEl = overlay.querySelector('[data-notify-error]');
+          var successEl = overlay.querySelector('[data-notify-success]');
+          var closers = overlay.querySelectorAll('[data-notify-close]');
+
+          var lastTrigger = null;
+          var currentTone = null;
+          var currentVariantId = null;
+
+          function emailIsValid(value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value || '');
+          }
+
+          function resetForm() {
+            if (!form) return;
+            form.classList.remove('is-hidden');
+            if (successEl) successEl.classList.remove('is-visible');
+            if (emailInput) {
+              emailInput.value = '';
+              emailInput.classList.remove('has-error');
+            }
+            if (errorEl) errorEl.classList.remove('is-visible');
+          }
+
+          function openModal(tone, variantId, triggerEl) {
+            currentTone = tone || 'this shade';
+            currentVariantId = variantId || null;
+            lastTrigger = triggerEl || null;
+            if (heading) heading.textContent = headingTemplate.replace('{tone}', currentTone);
+            resetForm();
+            overlay.classList.add('is-visible');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function() {
+              if (emailInput) emailInput.focus();
+            }, 30);
+          }
+
+          function closeModal() {
+            overlay.classList.remove('is-visible');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (lastTrigger && typeof lastTrigger.focus === 'function') {
+              lastTrigger.focus();
+            }
+          }
+
+          triggers.forEach(function(trigger) {
+            trigger.addEventListener('click', function(e) {
+              e.preventDefault();
+              openModal(
+                trigger.getAttribute('data-tone'),
+                trigger.getAttribute('data-variant-id'),
+                trigger
+              );
+            });
+          });
+
+          closers.forEach(function(closer) {
+            closer.addEventListener('click', function(e) {
+              e.preventDefault();
+              closeModal();
+            });
+          });
+
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('is-visible')) {
+              closeModal();
+            }
+          });
+
+          if (form) {
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              var email = emailInput ? emailInput.value.trim() : '';
+              if (!emailIsValid(email)) {
+                if (emailInput) emailInput.classList.add('has-error');
+                if (errorEl) errorEl.classList.add('is-visible');
+                if (emailInput) emailInput.focus();
+                return;
+              }
+
+              // Phase 1: stub — log payload, show success state. Phase 2 wires Klaviyo.
+              var payload = {
+                event: 'tone-notify-request',
+                email: email,
+                tone: currentTone,
+                variantId: currentVariantId,
+                productHandle: form.getAttribute('data-product-handle'),
+                timestamp: Date.now()
+              };
+              if (window.console && console.log) {
+                console.log('[lumen-pdp-hero] tone-notify-request', payload);
+              }
+
+              form.classList.add('is-hidden');
+              if (successEl) successEl.classList.add('is-visible');
+            });
+          }
+
+          if (emailInput) {
+            emailInput.addEventListener('input', function() {
+              emailInput.classList.remove('has-error');
+              if (errorEl) errorEl.classList.remove('is-visible');
+            });
+          }
+        })();
+      </script>
+    {%- endif -%}
+  {%- endif -%}
 
   {%- comment -%}
     Render UGC modal OUTSIDE the animated content columns so it isn't constrained by
@@ -3516,7 +4087,7 @@
       "type": "color",
       "id": "tone_color_fair",
       "label": "Fair swatch color",
-      "default": "#F3D4B7"
+      "default": "#E7C0A7"
     },
     {
       "type": "text",
@@ -3528,7 +4099,7 @@
       "type": "color",
       "id": "tone_color_medium",
       "label": "Medium swatch color",
-      "default": "#D4A982"
+      "default": "#C9966B"
     },
     {
       "type": "text",
@@ -3539,12 +4110,107 @@
       "type": "color",
       "id": "tone_color_medium_dark",
       "label": "Medium-Dark swatch color",
-      "default": "#B2895F"
+      "default": "#9A5F3C"
     },
     {
       "type": "text",
       "id": "tone_label_medium_dark",
       "label": "Medium-Dark label override"
+    },
+    {
+      "type": "header",
+      "content": "Shade guide (\"Not sure which shade?\")"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shade_guide",
+      "label": "Show shade guide beneath swatches",
+      "default": true,
+      "info": "Renders a collapsible expander that shows each shade with a 'Best for' description. Clicking a row in the panel auto-selects that variant."
+    },
+    {
+      "type": "text",
+      "id": "shade_guide_open_label",
+      "label": "Open label",
+      "default": "Not sure which shade? See guide"
+    },
+    {
+      "type": "text",
+      "id": "shade_guide_close_label",
+      "label": "Close label",
+      "default": "Hide shade guide"
+    },
+    {
+      "type": "text",
+      "id": "shade_guide_pick_label",
+      "label": "Row CTA label",
+      "default": "Pick"
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_fair_best_for",
+      "label": "Fair \"Best for\" description",
+      "default": "Light skin with a warm, peachy undertone — not chalky or cool."
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_medium_best_for",
+      "label": "Medium \"Best for\" description",
+      "default": "Light olive or honey tones — the most versatile shade."
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_medium_dark_best_for",
+      "label": "Medium-Dark \"Best for\" description",
+      "default": "Deeper warm skin that tans easily and wants a natural bronze glow."
+    },
+    {
+      "type": "textarea",
+      "id": "shade_guide_footnote",
+      "label": "Footnote (optional)",
+      "default": "Color-changing technology adapts within each range, so close is good enough."
+    },
+    {
+      "type": "header",
+      "content": "Restock notify (out-of-stock tones)"
+    },
+    {
+      "type": "text",
+      "id": "oos_label",
+      "label": "Out-of-stock status text",
+      "default": "Back in stock soon",
+      "info": "Muted line shown beneath out-of-stock tone swatches."
+    },
+    {
+      "type": "text",
+      "id": "oos_cta_label",
+      "label": "Notify-me link text",
+      "default": "Get notified →"
+    },
+    {
+      "type": "text",
+      "id": "notify_modal_heading_template",
+      "label": "Modal heading template",
+      "default": "Get notified when {tone} is back",
+      "info": "Use {tone} as a placeholder — it's replaced with the clicked tone name."
+    },
+    {
+      "type": "text",
+      "id": "notify_modal_subhead",
+      "label": "Modal subhead",
+      "default": "We'll email you the moment it's restocked. No spam."
+    },
+    {
+      "type": "text",
+      "id": "notify_modal_cta_label",
+      "label": "Modal submit button label",
+      "default": "Notify me"
+    },
+    {
+      "type": "text",
+      "id": "notify_modal_success_message",
+      "label": "Modal success message",
+      "default": "You're on the list. We'll be in touch."
     },
     {
       "type": "text",
