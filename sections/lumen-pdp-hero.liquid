@@ -2362,7 +2362,12 @@
                                      class="lumen-pdp-hero__amazon-button"
                                      target="_blank"
                                      rel="noopener noreferrer"
-                                     aria-label="Buy on Amazon">
+                                     aria-label="Buy on Amazon"
+                                     data-amazon-track
+                                     data-bundle-id="{{ block.id }}"
+                                     data-bundle-name="{{ block.settings.title | default: '' | escape }}"
+                                     data-product-handle="{{ section_product.handle }}"
+                                     data-product-id="{{ section_product.id }}">
                                     {% if block.settings.amazon_icon != blank %}
                                       <img src="{{ block.settings.amazon_icon | image_url: width: 40 }}" alt="Amazon" width="24" height="24" loading="lazy">
                                     {% else %}
@@ -2822,6 +2827,30 @@
     </div>
   </section>
 
+  {%- comment -%} GA4 click tracking for Amazon "Buy" buttons. Fires amazon_buy_click and lets the navigation proceed normally. {%- endcomment -%}
+  <script>
+    (function() {
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[data-amazon-track]');
+        if (!link) return;
+        if (typeof window.gtag !== 'function') return;
+        var variantInput = document.querySelector('input[ref="variantId"]') || document.querySelector('product-form-component input[name="id"]');
+        try {
+          window.gtag('event', 'amazon_buy_click', {
+            link_url: link.href,
+            variant_id: variantInput && variantInput.value ? variantInput.value : '',
+            bundle_id: link.getAttribute('data-bundle-id') || '',
+            bundle_name: link.getAttribute('data-bundle-name') || '',
+            product_handle: link.getAttribute('data-product-handle') || '',
+            product_id: link.getAttribute('data-product-id') || ''
+          });
+        } catch (err) {
+          if (window.console && console.warn) console.warn('amazon_buy_click gtag error', err);
+        }
+      });
+    })();
+  </script>
+
   {%- comment -%} Shade guide toggle script — independent of OOS state. {%- endcomment -%}
   {%- if section.settings.show_tone_selector and section.settings.show_shade_guide and section_product and section_product.variants.size > 1 -%}
     <script>
@@ -2873,7 +2902,7 @@
         <div class="lumen-pdp-hero__notify-backdrop" data-notify-close></div>
         <div class="lumen-pdp-hero__notify-modal">
           <button type="button" class="lumen-pdp-hero__notify-close" data-notify-close aria-label="Close">&times;</button>
-          <h2 class="lumen-pdp-hero__notify-heading" id="lumen-pdp-hero-notify-heading-{{ section.id }}" data-notify-heading data-template="{{ section.settings.notify_modal_heading_template | default: 'Get notified when {tone} is back' | escape }}">{{ section.settings.notify_modal_heading_template | default: 'Get notified when {tone} is back' | replace: '{tone}', 'this shade' }}</h2>
+          <h2 class="lumen-pdp-hero__notify-heading" id="lumen-pdp-hero-notify-heading-{{ section.id }}" data-notify-heading data-template="{{ section.settings.notify_modal_heading_template | default: 'Get notified when [tone] is back' | escape }}">{{ section.settings.notify_modal_heading_template | default: 'Get notified when [tone] is back' | replace: '[tone]', 'this shade' }}</h2>
           <p class="lumen-pdp-hero__notify-subhead">{{ section.settings.notify_modal_subhead | default: "We'll email you the moment it's restocked. No spam." }}</p>
           <form class="lumen-pdp-hero__notify-form" data-notify-form data-product-handle="{{ section_product.handle }}" novalidate>
             <input
@@ -2902,7 +2931,7 @@
           // Triggers live inside the section, not the modal. Scope by data-attribute.
           var triggers = document.querySelectorAll('[data-notify-trigger]');
           var heading = overlay.querySelector('[data-notify-heading]');
-          var headingTemplate = heading ? heading.getAttribute('data-template') : 'Get notified when {tone} is back';
+          var headingTemplate = heading ? heading.getAttribute('data-template') : 'Get notified when [tone] is back';
           var form = overlay.querySelector('[data-notify-form]');
           var emailInput = overlay.querySelector('[data-notify-email]');
           var errorEl = overlay.querySelector('[data-notify-error]');
@@ -2932,7 +2961,7 @@
             currentTone = tone || 'this shade';
             currentVariantId = variantId || null;
             lastTrigger = triggerEl || null;
-            if (heading) heading.textContent = headingTemplate.replace('{tone}', currentTone);
+            if (heading) heading.textContent = headingTemplate.replace('[tone]', currentTone);
             resetForm();
             overlay.classList.add('is-visible');
             overlay.setAttribute('aria-hidden', 'false');
@@ -4191,8 +4220,8 @@
       "type": "text",
       "id": "notify_modal_heading_template",
       "label": "Modal heading template",
-      "default": "Get notified when {tone} is back",
-      "info": "Use {tone} as a placeholder — it's replaced with the clicked tone name."
+      "default": "Get notified when [tone] is back",
+      "info": "Use [tone] as a placeholder — it's replaced with the clicked tone name."
     },
     {
       "type": "text",
