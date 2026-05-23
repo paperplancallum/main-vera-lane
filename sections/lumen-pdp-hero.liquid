@@ -3030,30 +3030,59 @@
               var variantId = currentVariantId || '';
               var productHandle = form.getAttribute('data-product-handle') || '';
 
-              // 1) Fire Klaviyo track event — creates/updates profile and records this request as event history.
-              //    Mirrors the pixel pattern in sections/lumen-form.liquid (works around CORS without a server proxy).
+              // 1) Fire Klaviyo "Back In Stock Requested" event using the modern /client/events/ endpoint.
+              //    Replaces the legacy /api/track image-pixel pattern, which is silently blocked by
+              //    common privacy extensions (uBlock, Brave Shields, etc.). POST works with proper CORS
+              //    and returns a status we can log.
               if (klaviyoCompanyId) {
                 try {
-                  var trackPayload = {
-                    token: klaviyoCompanyId,
-                    event: 'Back In Stock Requested',
-                    customer_properties: {
-                      '$email': email,
-                      'back_in_stock_request_tone': tone,
-                      'last_back_in_stock_request_at': new Date().toISOString()
+                  fetch('https://a.klaviyo.com/client/events/?company_id=' + encodeURIComponent(klaviyoCompanyId), {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'revision': '2024-10-15'
                     },
-                    properties: {
-                      'Tone': tone,
-                      'Variant ID': variantId,
-                      'Product Handle': productHandle,
-                      'Source': klaviyoCustomSource
+                    keepalive: true,
+                    body: JSON.stringify({
+                      data: {
+                        type: 'event',
+                        attributes: {
+                          properties: {
+                            'Tone': tone,
+                            'Variant ID': variantId,
+                            'Product Handle': productHandle,
+                            'Source': klaviyoCustomSource
+                          },
+                          metric: {
+                            data: {
+                              type: 'metric',
+                              attributes: { name: 'Back In Stock Requested' }
+                            }
+                          },
+                          profile: {
+                            data: {
+                              type: 'profile',
+                              attributes: {
+                                email: email,
+                                properties: {
+                                  'back_in_stock_request_tone': tone,
+                                  'last_back_in_stock_request_at': new Date().toISOString()
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    })
+                  }).then(function(r) {
+                    if (!r.ok && window.console && console.warn) {
+                      console.warn('Klaviyo event non-2xx:', r.status);
                     }
-                  };
-                  var trackData = btoa(unescape(encodeURIComponent(JSON.stringify(trackPayload))));
-                  var img = new Image();
-                  img.src = 'https://a.klaviyo.com/api/track?data=' + encodeURIComponent(trackData);
+                  }).catch(function(err) {
+                    if (window.console && console.warn) console.warn('Klaviyo event error', err);
+                  });
                 } catch (err) {
-                  if (window.console && console.warn) console.warn('Klaviyo track error', err);
+                  if (window.console && console.warn) console.warn('Klaviyo event threw', err);
                 }
               }
 
@@ -4330,8 +4359,8 @@
       "type": "text",
       "id": "klaviyo_main_list_id",
       "label": "Klaviyo list ID for back-in-stock subscribers",
-      "default": "TFLmeE",
-      "info": "Paste the ID of your main marketing list (Audience → Lists → click list → URL ends with /lists/XXXXXX). Submitters get added with a 'back_in_stock_request_tone' profile property set to the tone they wanted."
+      "default": "RtSate",
+      "info": "Paste a real Klaviyo LIST ID (not a Segment ID). Default is RtSate (Vera Lane Newsletter). The subscribe API only accepts list IDs — segments populate dynamically and can't be written to."
     },
     {
       "type": "text",
