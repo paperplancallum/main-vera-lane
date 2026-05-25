@@ -1,0 +1,659 @@
+{%- comment -%} ── VL - SPIN TO WIN EMAIL GATE ── {%- endcomment -%}
+{%- assign storage_key = section.settings.storage_key | default: 'vl_spin_to_win_completed' -%}
+{%- assign storage_key_clean = storage_key | strip -%}
+
+<div
+  class="vl-spin"
+  data-vl-spin
+  data-storage-key="{{ storage_key_clean }}"
+  data-klaviyo-company-id="{{ section.settings.klaviyo_company_id }}"
+  data-klaviyo-list-id="{{ section.settings.klaviyo_list_id }}"
+  data-klaviyo-source="{{ section.settings.klaviyo_source }}"
+  hidden
+  style="
+    --spin-bg: {{ section.settings.overlay_color }};
+    --spin-card-bg: {{ section.settings.card_bg }};
+    --spin-text: {{ section.settings.text_color }};
+    --spin-accent: {{ section.settings.accent_color }};
+    --spin-accent-text: {{ section.settings.accent_text_color }};
+  "
+>
+  <div class="vl-spin__overlay" role="dialog" aria-modal="true" aria-labelledby="vl-spin-title">
+    <div class="vl-spin__card" data-card>
+      <button class="vl-spin__close" type="button" data-close aria-label="Close" hidden>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      {%- comment -%} STEP 1: EMAIL ENTRY {%- endcomment -%}
+      <div class="vl-spin__step vl-spin__step--email" data-step="email">
+        <h2 class="vl-spin__title" id="vl-spin-title">{{ section.settings.headline }}</h2>
+        <p class="vl-spin__subtitle">{{ section.settings.subheadline }}</p>
+
+        <div class="vl-spin__wheel-wrap vl-spin__wheel-wrap--preview">
+          {%- render 'vl-spin-wheel' -%}
+        </div>
+
+        <form class="vl-spin__form" data-form novalidate>
+          <label class="vl-spin__label" for="vl-spin-email">{{ section.settings.email_label }}</label>
+          <input
+            type="email"
+            id="vl-spin-email"
+            class="vl-spin__input"
+            placeholder="{{ section.settings.email_placeholder }}"
+            autocomplete="email"
+            required
+            data-email-input
+          >
+          <p class="vl-spin__error" data-error hidden>Please enter a valid email address.</p>
+          <button type="submit" class="vl-spin__cta" data-submit-btn>
+            {{ section.settings.spin_button_text }}
+          </button>
+          <p class="vl-spin__fineprint">{{ section.settings.fineprint }}</p>
+        </form>
+      </div>
+
+      {%- comment -%} STEP 2: SPINNING {%- endcomment -%}
+      <div class="vl-spin__step vl-spin__step--spinning" data-step="spinning" hidden>
+        <h2 class="vl-spin__title">{{ section.settings.spinning_headline }}</h2>
+        <div class="vl-spin__wheel-wrap vl-spin__wheel-wrap--active">
+          {%- render 'vl-spin-wheel' -%}
+        </div>
+        <p class="vl-spin__subtitle vl-spin__subtitle--spinning">{{ section.settings.spinning_subtext }}</p>
+      </div>
+
+      {%- comment -%} STEP 3: RESULT (you won) {%- endcomment -%}
+      <div class="vl-spin__step vl-spin__step--win" data-step="win" hidden>
+        <div class="vl-spin__confetti" aria-hidden="true">🎉</div>
+        <h2 class="vl-spin__title vl-spin__title--win">{{ section.settings.win_headline }}</h2>
+        <p class="vl-spin__prize">{{ section.settings.win_prize_text }}</p>
+        <p class="vl-spin__subtitle">{{ section.settings.win_subtext }}</p>
+        <a href="{{ section.settings.win_cta_url }}" class="vl-spin__cta vl-spin__cta--win" data-claim-btn>
+          {{ section.settings.win_cta_text }}
+        </a>
+        <button type="button" class="vl-spin__skip" data-close-text>{{ section.settings.win_dismiss_text }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .vl-spin {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+  }
+  .vl-spin[hidden] {
+    display: none !important;
+  }
+  .vl-spin__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--spin-bg, rgba(20, 8, 14, 0.85));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    animation: vl-spin-fade-in 0.3s ease-out;
+  }
+  @keyframes vl-spin-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .vl-spin__card {
+    background: var(--spin-card-bg, #ffffff);
+    color: var(--spin-text, #1a1a1a);
+    border-radius: 20px;
+    max-width: 460px;
+    width: 100%;
+    padding: 32px 24px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    animation: vl-spin-card-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+  @keyframes vl-spin-card-in {
+    from { transform: scale(0.85) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .vl-spin__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--spin-text, #1a1a1a);
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    z-index: 2;
+  }
+  .vl-spin__close:hover { opacity: 1; }
+  .vl-spin__title {
+    font-family: var(--font-heading--family, var(--font-body--family));
+    font-size: 26px;
+    line-height: 1.15;
+    margin: 0 0 8px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .vl-spin__title--win {
+    color: var(--spin-accent, #7a0036);
+  }
+  .vl-spin__subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+    opacity: 0.75;
+  }
+  .vl-spin__subtitle--spinning {
+    margin-top: 16px;
+    font-weight: 600;
+    opacity: 1;
+  }
+  .vl-spin__wheel-wrap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vl-spin__wheel-wrap svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+    transition: transform 4s cubic-bezier(0.17, 0.67, 0.21, 1);
+  }
+  .vl-spin__wheel-wrap--preview svg {
+    animation: vl-spin-idle 12s linear infinite;
+  }
+  @keyframes vl-spin-idle {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .vl-spin__wheel-wrap--active svg {
+    animation: none;
+  }
+  .vl-spin__wheel-pointer {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 32px;
+    z-index: 2;
+    color: var(--spin-accent, #7a0036);
+  }
+  .vl-spin__form {
+    text-align: left;
+  }
+  .vl-spin__label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .vl-spin__input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fff;
+    color: var(--spin-text, #1a1a1a);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+  }
+  .vl-spin__input:focus {
+    outline: none;
+    border-color: var(--spin-accent, #7a0036);
+  }
+  .vl-spin__input.has-error {
+    border-color: #e63946;
+  }
+  .vl-spin__error {
+    color: #e63946;
+    font-size: 13px;
+    margin: 6px 0 0;
+  }
+  .vl-spin__cta {
+    display: inline-block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--spin-accent, #7a0036);
+    color: var(--spin-accent-text, #ffffff);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.15s, filter 0.15s;
+  }
+  .vl-spin__cta:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+  .vl-spin__cta:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .vl-spin__cta--win {
+    margin-top: 6px;
+  }
+  .vl-spin__fineprint {
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0.55;
+    margin: 12px 0 0;
+    text-align: center;
+  }
+  .vl-spin__confetti {
+    font-size: 48px;
+    margin-bottom: 8px;
+    animation: vl-spin-pop 0.5s ease-out;
+  }
+  @keyframes vl-spin-pop {
+    0% { transform: scale(0) rotate(-10deg); }
+    60% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+  .vl-spin__prize {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--spin-accent, #7a0036);
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .vl-spin__skip {
+    background: transparent;
+    border: none;
+    color: var(--spin-text, #1a1a1a);
+    opacity: 0.5;
+    text-decoration: underline;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 14px;
+    padding: 6px;
+  }
+  .vl-spin__skip:hover { opacity: 0.8; }
+
+  body.vl-spin-active {
+    overflow: hidden;
+  }
+
+  @media (min-width: 750px) {
+    .vl-spin__card {
+      padding: 40px 36px;
+    }
+    .vl-spin__title { font-size: 30px; }
+    .vl-spin__wheel-wrap { width: 320px; height: 320px; }
+  }
+{% endstylesheet %}
+
+<script>
+  (function() {
+    var root = document.querySelector('[data-vl-spin]');
+    if (!root) return;
+
+    var storageKey = root.getAttribute('data-storage-key');
+    var klaviyoCompanyId = root.getAttribute('data-klaviyo-company-id');
+    var klaviyoListId = root.getAttribute('data-klaviyo-list-id');
+    var klaviyoSource = root.getAttribute('data-klaviyo-source') || 'ALP-LP1 Spin to Win';
+
+    // Don't show if already completed in this browser
+    try {
+      if (storageKey && window.localStorage.getItem(storageKey) === '1') {
+        return;
+      }
+    } catch (e) { /* localStorage disabled — show anyway */ }
+
+    var stepEmail = root.querySelector('[data-step="email"]');
+    var stepSpinning = root.querySelector('[data-step="spinning"]');
+    var stepWin = root.querySelector('[data-step="win"]');
+    var form = root.querySelector('[data-form]');
+    var emailInput = root.querySelector('[data-email-input]');
+    var errorEl = root.querySelector('[data-error]');
+    var submitBtn = root.querySelector('[data-submit-btn]');
+    var closeBtn = root.querySelector('[data-close]');
+    var closeText = root.querySelector('[data-close-text]');
+    var wheelActive = root.querySelector('.vl-spin__wheel-wrap--active svg');
+
+    function showStep(step) {
+      stepEmail.hidden = step !== 'email';
+      stepSpinning.hidden = step !== 'spinning';
+      stepWin.hidden = step !== 'win';
+    }
+
+    function open() {
+      root.hidden = false;
+      document.body.classList.add('vl-spin-active');
+    }
+
+    function close() {
+      root.hidden = true;
+      document.body.classList.remove('vl-spin-active');
+    }
+
+    function markCompleted() {
+      try {
+        if (storageKey) window.localStorage.setItem(storageKey, '1');
+      } catch (e) { /* ignore */ }
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function sendToKlaviyo(email) {
+      if (!klaviyoCompanyId) return Promise.resolve();
+
+      var subscribePayload = {
+        data: {
+          type: 'subscription',
+          attributes: {
+            custom_source: klaviyoSource,
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  properties: {
+                    'spin_to_win_source': klaviyoSource,
+                    'spin_to_win_at': new Date().toISOString()
+                  }
+                }
+              }
+            }
+          }
+        }
+      };
+      if (klaviyoListId) {
+        subscribePayload.data.relationships = {
+          list: { data: { type: 'list', id: klaviyoListId } }
+        };
+      }
+
+      var subscribeReq = fetch(
+        'https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(klaviyoCompanyId),
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+          keepalive: true,
+          body: JSON.stringify(subscribePayload)
+        }
+      ).catch(function(err) {
+        if (window.console && console.warn) console.warn('Klaviyo subscribe error', err);
+      });
+
+      var eventReq = fetch(
+        'https://a.klaviyo.com/client/events/?company_id=' + encodeURIComponent(klaviyoCompanyId),
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+          keepalive: true,
+          body: JSON.stringify({
+            data: {
+              type: 'event',
+              attributes: {
+                properties: { 'Source': klaviyoSource },
+                metric: { data: { type: 'metric', attributes: { name: 'Spin To Win Completed' } } },
+                profile: {
+                  data: {
+                    type: 'profile',
+                    attributes: { email: email }
+                  }
+                }
+              }
+            }
+          })
+        }
+      ).catch(function(err) {
+        if (window.console && console.warn) console.warn('Klaviyo event error', err);
+      });
+
+      return Promise.all([subscribeReq, eventReq]);
+    }
+
+    function runSpin() {
+      showStep('spinning');
+      if (wheelActive) {
+        // Always lands on the 50% segment (segment 0, at top — pointer aligned).
+        // Rotate by full turns + final landing offset (small jitter for realism).
+        var jitter = (Math.random() * 20) - 10; // -10° to +10° within the winning segment
+        var degrees = (360 * 6) + jitter;
+        wheelActive.style.transform = 'rotate(' + degrees + 'deg)';
+      }
+      setTimeout(function() {
+        showStep('win');
+        if (closeBtn) closeBtn.hidden = false;
+        markCompleted();
+      }, 4200);
+    }
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = emailInput ? emailInput.value.trim() : '';
+        if (!isValidEmail(email)) {
+          if (emailInput) emailInput.classList.add('has-error');
+          if (errorEl) errorEl.hidden = false;
+          if (emailInput) emailInput.focus();
+          return;
+        }
+        if (emailInput) emailInput.classList.remove('has-error');
+        if (errorEl) errorEl.hidden = true;
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting…';
+        }
+        sendToKlaviyo(email).finally(function() {
+          runSpin();
+        });
+      });
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (closeText) closeText.addEventListener('click', close);
+
+    // Open shortly after page load (gives the page a moment to settle).
+    if (document.readyState === 'complete') {
+      setTimeout(open, 600);
+    } else {
+      window.addEventListener('load', function() { setTimeout(open, 600); });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VL - Spin to Win Gate",
+  "tag": "section",
+  "class": "section-vl-spin",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Step 1: Email entry"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Get an exclusive deal!"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Enter your email to spin the wheel and unlock your discount."
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email label",
+      "default": "Your email"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "you@example.com"
+    },
+    {
+      "type": "text",
+      "id": "spin_button_text",
+      "label": "Spin button text",
+      "default": "Spin the Wheel"
+    },
+    {
+      "type": "richtext",
+      "id": "fineprint",
+      "label": "Fine print under button",
+      "default": "<p>By entering your email you agree to receive marketing emails. Unsubscribe anytime.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 2: Spinning"
+    },
+    {
+      "type": "text",
+      "id": "spinning_headline",
+      "label": "Spinning headline",
+      "default": "Spinning…"
+    },
+    {
+      "type": "text",
+      "id": "spinning_subtext",
+      "label": "Spinning subtext",
+      "default": "Fingers crossed!"
+    },
+    {
+      "type": "header",
+      "content": "Step 3: Win result"
+    },
+    {
+      "type": "text",
+      "id": "win_headline",
+      "label": "Win headline",
+      "default": "You won!"
+    },
+    {
+      "type": "text",
+      "id": "win_prize_text",
+      "label": "Prize text",
+      "default": "50% OFF"
+    },
+    {
+      "type": "text",
+      "id": "win_subtext",
+      "label": "Win subtext",
+      "default": "Your discount has been applied. Tap below to claim it on Amazon."
+    },
+    {
+      "type": "text",
+      "id": "win_cta_text",
+      "label": "Claim button text",
+      "default": "CLAIM 50% OFF ON AMAZON"
+    },
+    {
+      "type": "url",
+      "id": "win_cta_url",
+      "label": "Claim button URL"
+    },
+    {
+      "type": "text",
+      "id": "win_dismiss_text",
+      "label": "Dismiss link text",
+      "default": "No thanks, take me to the page"
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo Integration"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_company_id",
+      "label": "Klaviyo Company ID",
+      "default": "VhFhDd"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo List ID (main marketing list)",
+      "default": "RtSate",
+      "info": "Default RtSate = Vera Lane Newsletter (main list)."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_source",
+      "label": "Klaviyo custom_source tag",
+      "default": "ALP-LP1 Spin to Win"
+    },
+    {
+      "type": "text",
+      "id": "storage_key",
+      "label": "localStorage key (prevents re-showing)",
+      "default": "vl_spin_to_win_completed",
+      "info": "Unique per gate. Change the key to force the popup to re-appear for returning visitors."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay background",
+      "default": "#14080edd"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent / button color",
+      "default": "#7a0036"
+    },
+    {
+      "type": "color",
+      "id": "accent_text_color",
+      "label": "Accent button text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "VL Spin to Win Gate"
+    }
+  ]
+}
+{% endschema %}
