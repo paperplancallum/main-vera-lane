@@ -9,6 +9,8 @@
   data-vl-spin
   data-storage-key="{{ storage_key_clean }}"
   data-trigger-selector="{{ trigger_selector | escape }}"
+  data-post-spin-label="{{ section.settings.post_spin_label | escape }}"
+  data-text-selector="{{ section.settings.cta_text_selector | escape }}"
   data-klaviyo-company-id="{{ section.settings.klaviyo_company_id }}"
   data-klaviyo-list-id="{{ section.settings.klaviyo_list_id }}"
   data-klaviyo-source="{{ section.settings.klaviyo_source }}"
@@ -346,6 +348,8 @@
 
     var storageKey = root.getAttribute('data-storage-key');
     var triggerSelector = root.getAttribute('data-trigger-selector') || 'a[href*="amazon.com"]';
+    var postSpinLabel = root.getAttribute('data-post-spin-label') || '';
+    var ctaTextSelector = root.getAttribute('data-text-selector') || '';
     var klaviyoCompanyId = root.getAttribute('data-klaviyo-company-id');
     var klaviyoListId = root.getAttribute('data-klaviyo-list-id');
     var klaviyoSource = root.getAttribute('data-klaviyo-source') || 'ALP-LP1 Spin to Win';
@@ -369,6 +373,32 @@
     function markCompleted() {
       try { if (storageKey) window.localStorage.setItem(storageKey, '1'); }
       catch (e) { /* ignore */ }
+    }
+
+    // Swap CTA labels post-spin: server renders the pre-spin label ("Get 50%
+    // Discount"). Once the spin is completed (localStorage flag set) we swap
+    // to the post-spin label ("Buy Now on Amazon") so the offer doesn't stay
+    // promised after it's been claimed.
+    function applyPostSpinLabels() {
+      if (!postSpinLabel) return;
+      var links;
+      try { links = document.querySelectorAll(triggerSelector); }
+      catch (e) { return; }
+      Array.prototype.forEach.call(links, function(link) {
+        if (link.closest('[data-vl-spin]')) return;
+        var textEl = ctaTextSelector ? link.querySelector(ctaTextSelector) : null;
+        if (textEl) {
+          textEl.textContent = postSpinLabel;
+        } else {
+          // Fallback: rewrite the link's last text-node-ish child.
+          // Skips if the link has nested elements we don't recognize so we
+          // don't accidentally nuke icons.
+          var children = link.children;
+          if (children.length === 0) {
+            link.textContent = postSpinLabel;
+          }
+        }
+      });
     }
 
     var fbPixelId = {{ section.settings.fb_pixel_id | default: '2280168542489572' | json }};
@@ -585,6 +615,7 @@
         // so we don't need to await them.
         sendToKlaviyo(email);
         markCompleted();
+        applyPostSpinLabels();
 
         // Fire AmazonLinkClick to Meta + GA synchronously inside the user gesture.
         trackEvent('AmazonLinkClick', 'amazon_link_click', {
@@ -613,10 +644,17 @@
 
     if (closeBtn) closeBtn.addEventListener('click', close);
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', attachTriggers);
-    } else {
+    function init() {
       attachTriggers();
+      // Returning visitor who already completed the spin — swap labels now
+      // so they don't see a promised discount they've already claimed.
+      if (alreadyCompleted()) applyPostSpinLabels();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
     }
   })();
 </script>
@@ -637,6 +675,20 @@
       "label": "Trigger selector (CSS)",
       "default": "a[href*=\"amazon.com\"]",
       "info": "CSS selector for links/buttons that should open the spin gate. Default catches any link to amazon.com on the page."
+    },
+    {
+      "type": "text",
+      "id": "post_spin_label",
+      "label": "Post-spin CTA label",
+      "default": "BUY NOW ON AMAZON",
+      "info": "Replaces the trigger button text after the visitor completes the spin (or on page load for returning visitors who already completed it). The pre-spin label is set in the trigger button's own section."
+    },
+    {
+      "type": "text",
+      "id": "cta_text_selector",
+      "label": "Trigger button text selector",
+      "default": ".vl-product-hero__cta-text, .vl-sticky-cta__text",
+      "info": "CSS selector matching the text element inside the trigger button. Multiple selectors comma-separated. Default covers the product hero CTA and sticky CTA."
     },
     {
       "type": "header",
