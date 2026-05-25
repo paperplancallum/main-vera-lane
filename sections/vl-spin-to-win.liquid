@@ -25,12 +25,6 @@
 >
   <div class="vl-spin__overlay" role="dialog" aria-modal="true" aria-labelledby="vl-spin-title">
     <div class="vl-spin__card" data-card>
-      <button class="vl-spin__close" type="button" data-close aria-label="Close">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6L6 18M6 6l12 12"/>
-        </svg>
-      </button>
-
       {%- comment -%} STEP 1: SPINNING — opens here, wheel animates immediately {%- endcomment -%}
       <div class="vl-spin__step vl-spin__step--spinning" data-step="spinning">
         {%- if product_image != blank or section.settings.product_name != blank -%}
@@ -95,7 +89,7 @@
             data-email-input
           >
           <p class="vl-spin__error" data-error hidden>Please enter a valid email address.</p>
-          <button type="submit" class="vl-spin__cta vl-spin__cta--win" data-claim-btn>
+          <button type="submit" class="vl-spin__cta vl-spin__cta--win" data-claim-btn disabled>
             {{ section.settings.win_cta_text }}
           </button>
           <p class="vl-spin__fineprint">{{ section.settings.fineprint }}</p>
@@ -360,7 +354,6 @@
     var emailInput = root.querySelector('[data-email-input]');
     var errorEl = root.querySelector('[data-error]');
     var claimBtn = root.querySelector('[data-claim-btn]');
-    var closeBtn = root.querySelector('[data-close]');
     var wheelActive = root.querySelector('[data-wheel-active] svg');
 
     var capturedUrl = null;
@@ -545,6 +538,7 @@
         if (emailInput) {
           try { emailInput.focus({ preventScroll: true }); } catch (e) { emailInput.focus(); }
         }
+        syncClaimDisabled(); // re-evaluate in case autofill landed a value
       }, 4400);
     }
 
@@ -642,7 +636,23 @@
       });
     }
 
-    if (closeBtn) closeBtn.addEventListener('click', close);
+    // Live-toggle the claim button's disabled state as the user types.
+    // The button starts disabled (server-rendered) and only enables when
+    // a valid email is in the input. Stops users clicking through to a
+    // validation error.
+    function syncClaimDisabled() {
+      if (!emailInput || !claimBtn) return;
+      var valid = isValidEmail(emailInput.value.trim());
+      claimBtn.disabled = !valid;
+      if (valid && errorEl) errorEl.hidden = true;
+      if (valid && emailInput.classList.contains('has-error')) {
+        emailInput.classList.remove('has-error');
+      }
+    }
+    if (emailInput && claimBtn) {
+      emailInput.addEventListener('input', syncClaimDisabled);
+      emailInput.addEventListener('change', syncClaimDisabled); // autofill in some browsers
+    }
 
     function init() {
       attachTriggers();
