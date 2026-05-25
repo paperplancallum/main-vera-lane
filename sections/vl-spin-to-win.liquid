@@ -371,6 +371,46 @@
       catch (e) { /* ignore */ }
     }
 
+    var fbPixelId = {{ section.settings.fb_pixel_id | default: '2280168542489572' | json }};
+
+    // Unified tracking helper — fires to Meta Pixel (script + image beacon
+    // fallback for ad-blockers), GA4 via gtag, and GTM-style dataLayer push.
+    // Stays inert if a given system isn't loaded.
+    function trackEvent(metaEventName, gaEventName, properties) {
+      properties = properties || {};
+      // Meta Pixel — script API
+      try {
+        if (typeof fbq === 'function') {
+          fbq('trackCustom', metaEventName, properties);
+        }
+      } catch (err) { /* ignore */ }
+      // Meta Pixel — image beacon (survives uBlock / Brave Shields)
+      try {
+        if (fbPixelId) {
+          var qs = 'id=' + encodeURIComponent(fbPixelId) + '&ev=' + encodeURIComponent(metaEventName);
+          Object.keys(properties).forEach(function(k) {
+            qs += '&cd[' + encodeURIComponent(k) + ']=' + encodeURIComponent(String(properties[k]));
+          });
+          qs += '&noscript=1';
+          (new Image()).src = 'https://www.facebook.com/tr?' + qs;
+        }
+      } catch (err) { /* ignore */ }
+      // GA4 via gtag
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', gaEventName, properties);
+        }
+      } catch (err) { /* ignore */ }
+      // dataLayer push (covers GTM-based routing if it's added later)
+      try {
+        if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+          var dlPayload = { event: gaEventName };
+          Object.keys(properties).forEach(function(k) { dlPayload[k] = properties[k]; });
+          window.dataLayer.push(dlPayload);
+        }
+      } catch (err) { /* ignore */ }
+    }
+
     function showStep(step) {
       stepSpinning.hidden = step !== 'spinning';
       stepWin.hidden = step !== 'win';
@@ -480,6 +520,10 @@
 
     function openAndSpin(destinationUrl) {
       capturedUrl = destinationUrl || null;
+      trackEvent('SpinToWinOpened', 'spin_to_win_opened', {
+        page_url: window.location.pathname,
+        destination_url: capturedUrl || ''
+      });
       open();
       runSpin();
     }
@@ -542,15 +586,16 @@
         sendToKlaviyo(email);
         markCompleted();
 
-        // Fire the AmazonLinkClick pixel synchronously inside the user gesture.
-        try {
-          if (typeof fbq === 'function') {
-            fbq('trackCustom', 'AmazonLinkClick', {
-              button_type: 'spin_to_win',
-              page_url: window.location.pathname
-            });
-          }
-        } catch (err) { /* ignore */ }
+        // Fire AmazonLinkClick to Meta + GA synchronously inside the user gesture.
+        trackEvent('AmazonLinkClick', 'amazon_link_click', {
+          button_type: 'spin_to_win',
+          page_url: window.location.pathname
+        });
+        // Also fire an email-captured event so funnel analysis can separate
+        // "opened the gate" from "completed the gate".
+        trackEvent('SpinToWinEmailCaptured', 'spin_to_win_email_captured', {
+          page_url: window.location.pathname
+        });
 
         if (capturedUrl) {
           // window.open MUST be called synchronously inside the submit handler
@@ -669,6 +714,17 @@
       "id": "fineprint",
       "label": "Fine print under claim button",
       "default": "<p>By entering your email you agree to receive marketing emails. Unsubscribe anytime.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tracking"
+    },
+    {
+      "type": "text",
+      "id": "fb_pixel_id",
+      "label": "Meta Pixel ID",
+      "default": "2280168542489572",
+      "info": "Used for the image-beacon fallback when fbq is blocked by ad-blockers. Should match the main site pixel."
     },
     {
       "type": "header",
