@@ -484,24 +484,39 @@
       runSpin();
     }
 
-    function attachTriggers() {
-      var links;
-      try { links = document.querySelectorAll(triggerSelector); }
-      catch (e) {
-        if (window.console && console.warn) console.warn('vl-spin: invalid trigger selector', triggerSelector, e);
+    // Intercept clicks at the document level in CAPTURE phase. This runs before
+    // any other listeners (including the product-hero/sticky-cta scripts that
+    // fire window.open in a 400ms setTimeout), so stopImmediatePropagation
+    // prevents those side effects entirely.
+    function handleDocumentClick(e) {
+      if (e.defaultPrevented) return;
+      var target = e.target;
+      if (!target || typeof target.closest !== 'function') return;
+      var link = target.closest('a');
+      if (!link) return;
+      // Only intercept if the link matches our trigger selector
+      var matches;
+      try {
+        matches = link.matches(triggerSelector) ||
+                  (link.closest(triggerSelector) === link);
+      } catch (err) {
+        if (window.console && console.warn) console.warn('vl-spin: invalid selector', triggerSelector, err);
         return;
       }
-      Array.prototype.forEach.call(links, function(link) {
-        // Don't intercept our own claim button or other elements inside the overlay
-        if (link.closest('[data-vl-spin]')) return;
-        if (link.getAttribute('data-vl-spin-bound') === '1') return;
-        link.setAttribute('data-vl-spin-bound', '1');
-        link.addEventListener('click', function(e) {
-          if (alreadyCompleted()) return; // already captured email — let nav proceed
-          e.preventDefault();
-          openAndSpin(link.href);
-        });
-      });
+      if (!matches) return;
+      // Don't intercept links inside the overlay (e.g. our own claim button)
+      if (link.closest('[data-vl-spin]')) return;
+      // Already captured email — let normal nav happen (their existing handlers
+      // will fire the pixel and open Amazon in a new tab as before).
+      if (alreadyCompleted()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+      openAndSpin(link.href);
+    }
+
+    function attachTriggers() {
+      document.addEventListener('click', handleDocumentClick, true);
     }
 
     if (form) {
@@ -520,14 +535,34 @@
           claimBtn.disabled = true;
           claimBtn.textContent = 'Claiming…';
         }
-        sendToKlaviyo(email).finally(function() {
-          markCompleted();
-          if (capturedUrl) {
-            window.location.href = capturedUrl;
-          } else {
-            close();
+
+        // Fire the Klaviyo subscribe + event. Using keepalive:true inside
+        // sendToKlaviyo means the requests survive the upcoming navigation,
+        // so we don't need to await them.
+        sendToKlaviyo(email);
+        markCompleted();
+
+        // Fire the AmazonLinkClick pixel synchronously inside the user gesture.
+        try {
+          if (typeof fbq === 'function') {
+            fbq('trackCustom', 'AmazonLinkClick', {
+              button_type: 'spin_to_win',
+              page_url: window.location.pathname
+            });
           }
-        });
+        } catch (err) { /* ignore */ }
+
+        if (capturedUrl) {
+          // window.open MUST be called synchronously inside the submit handler
+          // (user gesture) or browsers will block it as a popup.
+          var opened = window.open(capturedUrl, '_blank', 'noopener');
+          if (!opened) {
+            // Popup blocked — fall back to same-tab navigation
+            window.location.href = capturedUrl;
+            return;
+          }
+        }
+        close();
       });
     }
 
