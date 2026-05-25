@@ -54,6 +54,15 @@
         "padding": 10
       }
     },
+    "vl_scarcity_badge": {
+      "type": "vl-scarcity-badge",
+      "settings": {
+        "text": "Selling fast on Amazon — limited stock",
+        "bg_color": "#fff4ed",
+        "text_color": "#7a0036",
+        "accent_color": "#e63946"
+      }
+    },
     "vl_product_hero": {
       "type": "vl-product-hero",
       "blocks": {
@@ -87,7 +96,7 @@
         "benefit_2": {
           "type": "benefit",
           "settings": {
-            "text": "For sensitive skin + SPF 15"
+            "text": "For sensitive skin"
           }
         },
         "benefit_3": {
@@ -121,7 +130,7 @@
         "rating_stars": 5,
         "rating_text": "4.8/5 BY 9,000+ CUSTOMERS",
         "cta_url": "https://www.amazon.com/dp/B0G1LN69YL?maas=maas_adg_7FE4351E283CF8B10091DC1D274AAB19_afap_abs&ref_=aa_maas&tag=maas&th=1",
-        "cta_text": "BUY NOW ON AMAZON",
+        "cta_text": "GET 50% DISCOUNT",
         "show_amazon_icon": true,
         "cta_icon": "shopify://shop_images/Symbol_svg.png",
         "image_bg_color": "#ffffff",
@@ -136,11 +145,200 @@
         "cta_icon_bg_color": "#232f3e"
       }
     },
+    "vl_before_after": {
+      "type": "lumen-before-after",
+      "blocks": {
+        "before_after_card_1": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/1_f148cab1-78ca-4668-b580-6ad71b71f4e6.png",
+            "image_before": "shopify://shop_images/Untitled_design_68.png",
+            "card_name": "Linda, 62",
+            "card_description": "I stopped wearing foundation because it always settled into my fine lines or looked the wrong color—usually too orange. This formula matched my skin tone instantly and feels so light. It doesn't look like makeup; it just looks like I have great skin again.",
+            "show_verified_buyer": true
+          }
+        },
+        "before_after_card_2": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/6.png",
+            "image_before": "shopify://shop_images/2.png",
+            "image_after": "shopify://shop_images/image_2_2.png",
+            "card_name": "Michelle, 57",
+            "card_description": "I have tricky undertones and struggling with redness, so buying makeup online terrified me. I took a chance on this, and I'm shocked. It neutralized my redness immediately and blended right into my neck. No more 'floating head' effect!",
+            "show_verified_buyer": true
+          }
+        },
+        "before_after_card_3": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/woman-13.jpg",
+            "image_before": "shopify://shop_images/3.png",
+            "image_after": "shopify://shop_images/image_2_2.png",
+            "card_name": "Diane, 54",
+            "card_description": "Being very fair, 'universal' shades usually turn dark or orange on me within an hour. This one actually stayed true to my pale complexion. It gives me a healthy, warm glow without looking fake. Finally, a perfect match for fair skin.",
+            "show_verified_buyer": true
+          }
+        },
+        "before_after_card_4": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/8_460d018c-39c2-4345-baba-bbf6b6e2a747.png",
+            "image_before": "shopify://shop_images/1.png",
+            "image_after": "shopify://shop_images/CleanShot2025-09-11at22.41.55_2x_58285bd6-1b08-4051-8b2c-b005b1881927.png",
+            "card_name": "Amanda, 47",
+            "card_description": "I have fair skin with a lot of natural redness, so finding a shade that covers without looking like a thick mask is impossible. This neutralized my complexion instantly! It adapted to my pale tone perfectly—no orange line, just calm, even skin.",
+            "show_verified_buyer": true
+          }
+        }
+      },
+      "block_order": [
+        "before_after_card_1",
+        "before_after_card_2",
+        "before_after_card_3",
+        "before_after_card_4"
+      ],
+      "settings": {
+        "section_id": "",
+        "section_title": "Real Customers, Real Results",
+        "enable_animation": true
+      }
+    },
+    "vl_reviews": {
+      "type": "vl-review-cards",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-7.jpg",
+            "rating": 5,
+            "date": "Mar 18, 2026",
+            "title": "Finally found my perfect match",
+            "quote": "I'm 58 and have tried everything. This actually blends into my skin without settling into lines. My daughter asked what I was doing differently!",
+            "name": "Margaret S.",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-2.jpg",
+            "rating": 5,
+            "date": "Mar 5, 2026",
+            "title": "No more orange face!",
+            "quote": "At 52, I've tried every foundation that promises to match. The color-matching on this one is real. It adapts to my skin throughout the day. No more checking mirrors worried I look orange by lunch.",
+            "name": "Patricia L.",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-3.jpg",
+            "rating": 5,
+            "date": "Feb 20, 2026",
+            "title": "Worth every penny",
+            "quote": "At 50, I've wasted so much money on foundations that cake or crease. This one doesn't. It just works. Finally found something that makes my skin look natural.",
+            "name": "Linda K.",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-1.jpg",
+            "rating": 4,
+            "date": "Feb 8, 2026",
+            "title": "Good but wish it had more shades",
+            "quote": "At 60, I'd given up on foundation. This changed that. Lightweight and natural. Would love to see more shade options for deeper skin tones.",
+            "name": "Susan M.",
+            "verified": true
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-4.jpg",
+            "rating": 5,
+            "date": "Jan 25, 2026",
+            "title": "Finally something for rosacea",
+            "quote": "At 52, my rosacea has always made foundation tricky. This neutralizes redness without looking like I'm wearing a mask. Game changer for mature skin.",
+            "name": "Carol B.",
+            "verified": true
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-5.jpg",
+            "rating": 5,
+            "date": "Jan 12, 2026",
+            "title": "Skeptic turned believer",
+            "quote": "At 55, I rolled my eyes at 'adapts to your skin tone' but it actually does. Perfect match every time. Bought 3 more for backup.",
+            "name": "Barbara R.",
+            "verified": true
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-6.jpg",
+            "rating": 5,
+            "date": "Dec 28, 2025",
+            "title": "Perfect for hot flashes",
+            "quote": "At 55, hot flashes were melting my makeup off by noon. This stays put even when I'm having a moment. Absolute lifesaver.",
+            "name": "Nancy W.",
+            "verified": true
+          }
+        },
+        "review_8": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "",
+            "rating": 5,
+            "date": "Dec 15, 2025",
+            "title": "My go-to now",
+            "quote": "Threw out my other foundations. This is the only one I need. Matches perfectly, doesn't cake, and my skin can breathe.",
+            "name": "Dorothy H.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5",
+        "review_6",
+        "review_7",
+        "review_8"
+      ],
+      "settings": {
+        "section_id": "reviews",
+        "headline": "Customer Reviews",
+        "show_rating_summary": true,
+        "rating_summary_text": "Based on 1,356 reviews",
+        "initial_count": 8,
+        "load_more_text": "Load More Reviews",
+        "see_all_text": "",
+        "see_all_url": "",
+        "bg_color": "#ffffff",
+        "card_bg_color": "#ffffff",
+        "star_color": "#fbbf24",
+        "text_color": "#4b5563",
+        "name_color": "#374151"
+      }
+    },
     "vl_sticky_cta": {
       "type": "vl-sticky-cta",
       "settings": {
         "url": "https://www.amazon.com/dp/B0G1LN69YL?maas=maas_adg_7FE4351E283CF8B10091DC1D274AAB19_afap_abs&ref_=aa_maas&tag=maas&th=1",
-        "button_text": "BUY NOW ON AMAZON",
+        "button_text": "GET 50% DISCOUNT",
         "show_amazon_icon": true,
         "icon": "shopify://shop_images/Symbol_svg.png",
         "bg_color": "#ffffff",
@@ -148,12 +346,44 @@
         "button_text_color": "#ffffff",
         "icon_bg_color": "#212c3d"
       }
+    },
+    "vl_spin_to_win": {
+      "type": "vl-spin-to-win",
+      "settings": {
+        "trigger_selector": "a[href*=\"amazon.com\"]",
+        "post_spin_label": "BUY NOW ON AMAZON",
+        "cta_text_selector": ".vl-product-hero__cta-text, .vl-sticky-cta__text",
+        "product_image": "shopify://shop_images/Generated_Image_March_03_2026_-_3_57PM_jpg.jpg",
+        "product_name": "Tone Adapting Foundation",
+        "spinning_headline": "Spinning…",
+        "spinning_subtext": "Fingers crossed!",
+        "win_headline": "You won!",
+        "win_prize_text": "50% OFF",
+        "win_subtext": "Enter your email to claim your 50% off discount.",
+        "email_label": "Your email",
+        "email_placeholder": "you@example.com",
+        "win_cta_text": "CLAIM 50% OFF ON AMAZON",
+        "fineprint": "<p>By entering your email you agree to receive marketing emails from Vera Lane. Unsubscribe anytime.</p>",
+        "klaviyo_company_id": "VhFhDd",
+        "klaviyo_list_id": "RtSate",
+        "klaviyo_source": "ALP-LP1 Spin to Win",
+        "storage_key": "vl_spin_to_win_alp_lp1_v3",
+        "overlay_color": "#14080edd",
+        "card_bg": "#ffffff",
+        "text_color": "#1a1a1a",
+        "accent_color": "#7a0036",
+        "accent_text_color": "#ffffff"
+      }
     }
   },
   "order": [
     "vl_header",
     "vl_trust_marquee",
+    "vl_scarcity_badge",
     "vl_product_hero",
-    "vl_sticky_cta"
+    "vl_before_after",
+    "vl_reviews",
+    "vl_sticky_cta",
+    "vl_spin_to_win"
   ]
 }

@@ -1,0 +1,60 @@
+{%- comment -%}
+  VL Spin Wheel SVG — 6 segments. Segment 0 (50% OFF) sits at the top,
+  aligned with the pointer. Always lands on segment 0.
+{%- endcomment -%}
+<div class="vl-spin-wheel">
+  <svg viewBox="0 0 200 200" role="img" aria-label="Prize wheel">
+    <defs>
+      <filter id="vl-wheel-shadow" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.25"/>
+      </filter>
+    </defs>
+    <g filter="url(#vl-wheel-shadow)">
+      {%- comment -%} Segment 0 — 50% OFF (winning) {%- endcomment -%}
+      <path d="M 100,100 L 52.5,17.73 A 95,95 0 0,1 147.5,17.73 Z" fill="#7a0036"/>
+      <path d="M 100,100 L 147.5,17.73 A 95,95 0 0,1 195,100 Z" fill="#f5e6dc"/>
+      <path d="M 100,100 L 195,100 A 95,95 0 0,1 147.5,182.27 Z" fill="#d4a17a"/>
+      <path d="M 100,100 L 147.5,182.27 A 95,95 0 0,1 52.5,182.27 Z" fill="#f5e6dc"/>
+      <path d="M 100,100 L 52.5,182.27 A 95,95 0 0,1 5,100 Z" fill="#d4a17a"/>
+      <path d="M 100,100 L 5,100 A 95,95 0 0,1 52.5,17.73 Z" fill="#f5e6dc"/>
+    </g>
+
+    {%- comment -%} Prize labels — kept upright for readability {%- endcomment -%}
+    <g font-family="system-ui, -apple-system, sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">
+      <text x="100" y="40" font-size="13" fill="#ffffff">50% OFF</text>
+      <text x="150" y="68" font-size="11" fill="#5c1a33">10% OFF</text>
+      <text x="150" y="132" font-size="11" fill="#5c1a33">FREE GIFT</text>
+      <text x="100" y="160" font-size="11" fill="#5c1a33">25% OFF</text>
+      <text x="50" y="132" font-size="11" fill="#5c1a33">TRY AGAIN</text>
+      <text x="50" y="68" font-size="11" fill="#5c1a33">15% OFF</text>
+    </g>
+
+    {%- comment -%} Wheel border + center hub {%- endcomment -%}
+    <circle cx="100" cy="100" r="95" fill="none" stroke="#5c1a33" stroke-width="2"/>
+    <circle cx="100" cy="100" r="10" fill="#ffffff" stroke="#5c1a33" stroke-width="2"/>
+  </svg>
+
+  {%- comment -%} Pointer (fixed, not rotating) {%- endcomment -%}
+  <div class="vl-spin-wheel__pointer" aria-hidden="true">
+    <svg viewBox="0 0 24 32" width="24" height="32">
+      <path d="M12 30 L2 4 Q12 0 22 4 Z" fill="#5c1a33" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .vl-spin-wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .vl-spin-wheel__pointer {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+  }
+</style>

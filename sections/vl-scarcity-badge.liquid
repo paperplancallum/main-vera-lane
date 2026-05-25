@@ -1,0 +1,92 @@
+{%- comment -%} ── VL - SCARCITY BADGE ── {%- endcomment -%}
+<section class="vl-scarcity" style="
+  --sc-bg: {{ section.settings.bg_color }};
+  --sc-text: {{ section.settings.text_color }};
+  --sc-accent: {{ section.settings.accent_color }};
+">
+  <div class="vl-scarcity__inner">
+    <span class="vl-scarcity__pulse" aria-hidden="true"></span>
+    <span class="vl-scarcity__text">{{ section.settings.text }}</span>
+  </div>
+</section>
+
+{% stylesheet %}
+  .vl-scarcity {
+    background: var(--sc-bg, #fff4ed);
+    color: var(--sc-text, #7a0036);
+    padding: 12px 16px;
+    text-align: center;
+  }
+  .vl-scarcity__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body--family, system-ui, -apple-system, sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .vl-scarcity__pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sc-accent, #e63946);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .vl-scarcity__pulse::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--sc-accent, #e63946);
+    animation: vl-scarcity-pulse 1.6s ease-out infinite;
+    opacity: 0.6;
+  }
+  @keyframes vl-scarcity-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+  @media (min-width: 750px) {
+    .vl-scarcity__inner { font-size: 15px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "VL - Scarcity Badge",
+  "tag": "section",
+  "class": "section-vl-scarcity",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Badge text",
+      "default": "Selling fast on Amazon — limited stock"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#fff4ed"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#7a0036"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Pulse dot color",
+      "default": "#e63946"
+    }
+  ],
+  "presets": [
+    {
+      "name": "VL Scarcity Badge"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,862 @@
+{%- comment -%} ── VL - SPIN TO WIN (click-triggered email gate) ── {%- endcomment -%}
+{%- assign storage_key = section.settings.storage_key | default: 'vl_spin_to_win_completed' -%}
+{%- assign storage_key_clean = storage_key | strip -%}
+{%- assign trigger_selector = section.settings.trigger_selector | default: 'a[href*="amazon.com"]' -%}
+{%- assign product_image = section.settings.product_image -%}
+
+<div
+  class="vl-spin"
+  data-vl-spin
+  data-storage-key="{{ storage_key_clean }}"
+  data-trigger-selector="{{ trigger_selector | escape }}"
+  data-post-spin-label="{{ section.settings.post_spin_label | escape }}"
+  data-text-selector="{{ section.settings.cta_text_selector | escape }}"
+  data-klaviyo-company-id="{{ section.settings.klaviyo_company_id }}"
+  data-klaviyo-list-id="{{ section.settings.klaviyo_list_id }}"
+  data-klaviyo-source="{{ section.settings.klaviyo_source }}"
+  hidden
+  style="
+    --spin-bg: {{ section.settings.overlay_color }};
+    --spin-card-bg: {{ section.settings.card_bg }};
+    --spin-text: {{ section.settings.text_color }};
+    --spin-accent: {{ section.settings.accent_color }};
+    --spin-accent-text: {{ section.settings.accent_text_color }};
+  "
+>
+  <div class="vl-spin__overlay" role="dialog" aria-modal="true" aria-labelledby="vl-spin-title">
+    <div class="vl-spin__card" data-card>
+      {%- comment -%} STEP 1: SPINNING — opens here, wheel animates immediately {%- endcomment -%}
+      <div class="vl-spin__step vl-spin__step--spinning" data-step="spinning">
+        {%- if product_image != blank or section.settings.product_name != blank -%}
+          <div class="vl-spin__product">
+            {%- if product_image != blank -%}
+              <img
+                src="{{ product_image | image_url: width: 200 }}"
+                srcset="{{ product_image | image_url: width: 200 }} 1x, {{ product_image | image_url: width: 400 }} 2x"
+                alt="{{ section.settings.product_name | escape }}"
+                class="vl-spin__product-image"
+                width="56"
+                height="56"
+              >
+            {%- endif -%}
+            {%- if section.settings.product_name != blank -%}
+              <p class="vl-spin__product-name">{{ section.settings.product_name }}</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        <h2 class="vl-spin__title" id="vl-spin-title">{{ section.settings.spinning_headline }}</h2>
+        <div class="vl-spin__wheel-wrap vl-spin__wheel-wrap--active" data-wheel-active>
+          {%- render 'vl-spin-wheel' -%}
+        </div>
+        <p class="vl-spin__subtitle vl-spin__subtitle--spinning">{{ section.settings.spinning_subtext }}</p>
+      </div>
+
+      {%- comment -%} STEP 2: WIN + email capture {%- endcomment -%}
+      <div class="vl-spin__step vl-spin__step--win" data-step="win" hidden>
+        <div class="vl-spin__confetti" aria-hidden="true">🎉</div>
+        <h2 class="vl-spin__title vl-spin__title--win">{{ section.settings.win_headline }}</h2>
+        <p class="vl-spin__prize">{{ section.settings.win_prize_text }}</p>
+
+        {%- if product_image != blank -%}
+          <div class="vl-spin__product vl-spin__product--small">
+            <img
+              src="{{ product_image | image_url: width: 120 }}"
+              alt="{{ section.settings.product_name | escape }}"
+              class="vl-spin__product-image vl-spin__product-image--small"
+              width="44"
+              height="44"
+            >
+            {%- if section.settings.product_name != blank -%}
+              <p class="vl-spin__product-name vl-spin__product-name--small">{{ section.settings.product_name }}</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.win_subtext != blank -%}
+          <p class="vl-spin__subtitle">{{ section.settings.win_subtext }}</p>
+        {%- endif -%}
+
+        <form class="vl-spin__form" data-form novalidate>
+          <label class="vl-spin__label" for="vl-spin-email">{{ section.settings.email_label }}</label>
+          <input
+            type="email"
+            id="vl-spin-email"
+            class="vl-spin__input"
+            placeholder="{{ section.settings.email_placeholder }}"
+            autocomplete="email"
+            required
+            data-email-input
+          >
+          <p class="vl-spin__error" data-error hidden>Please enter a valid email address.</p>
+          <button type="submit" class="vl-spin__cta vl-spin__cta--win" data-claim-btn disabled>
+            {{ section.settings.win_cta_text }}
+          </button>
+          <p class="vl-spin__fineprint">{{ section.settings.fineprint }}</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .vl-spin {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+  }
+  .vl-spin[hidden] {
+    display: none !important;
+  }
+  .vl-spin__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--spin-bg, rgba(20, 8, 14, 0.85));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    animation: vl-spin-fade-in 0.25s ease-out;
+  }
+  @keyframes vl-spin-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .vl-spin__card {
+    background: var(--spin-card-bg, #ffffff);
+    color: var(--spin-text, #1a1a1a);
+    border-radius: 20px;
+    max-width: 460px;
+    width: 100%;
+    padding: 28px 24px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    animation: vl-spin-card-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+  @keyframes vl-spin-card-in {
+    from { transform: scale(0.85) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .vl-spin__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--spin-text, #1a1a1a);
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    z-index: 2;
+  }
+  .vl-spin__close:hover { opacity: 1; }
+
+  .vl-spin__product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 14px;
+  }
+  .vl-spin__product--small { margin: 8px 0 14px; }
+  .vl-spin__product-image {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  .vl-spin__product-image--small {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+  .vl-spin__product-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.85;
+    text-align: left;
+  }
+  .vl-spin__product-name--small {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .vl-spin__title {
+    font-family: var(--font-heading--family, var(--font-body--family));
+    font-size: 26px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .vl-spin__title--win {
+    color: var(--spin-accent, #7a0036);
+  }
+  .vl-spin__subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 16px;
+    opacity: 0.75;
+  }
+  .vl-spin__subtitle--spinning {
+    margin-top: 14px;
+    font-weight: 600;
+    opacity: 1;
+  }
+  .vl-spin__wheel-wrap {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vl-spin__wheel-wrap svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+    transition: transform 4s cubic-bezier(0.17, 0.67, 0.21, 1);
+  }
+
+  .vl-spin__form {
+    text-align: left;
+  }
+  .vl-spin__label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .vl-spin__input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fff;
+    color: var(--spin-text, #1a1a1a);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+  }
+  .vl-spin__input:focus {
+    outline: none;
+    border-color: var(--spin-accent, #7a0036);
+  }
+  .vl-spin__input.has-error {
+    border-color: #e63946;
+  }
+  .vl-spin__error {
+    color: #e63946;
+    font-size: 13px;
+    margin: 6px 0 0;
+  }
+  .vl-spin__cta {
+    display: inline-block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--spin-accent, #7a0036);
+    color: var(--spin-accent-text, #ffffff);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.15s, filter 0.15s;
+  }
+  .vl-spin__cta:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+  .vl-spin__cta:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .vl-spin__cta--win {
+    margin-top: 6px;
+  }
+  .vl-spin__fineprint {
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0.55;
+    margin: 12px 0 0;
+    text-align: center;
+  }
+  .vl-spin__confetti {
+    font-size: 44px;
+    margin-bottom: 4px;
+    animation: vl-spin-pop 0.5s ease-out;
+  }
+  @keyframes vl-spin-pop {
+    0% { transform: scale(0) rotate(-10deg); }
+    60% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+  .vl-spin__prize {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--spin-accent, #7a0036);
+    margin: 0 0 6px;
+    letter-spacing: -0.02em;
+  }
+
+  body.vl-spin-active {
+    overflow: hidden;
+  }
+
+  @media (min-width: 750px) {
+    .vl-spin__card {
+      padding: 36px 36px;
+    }
+    .vl-spin__title { font-size: 30px; }
+    .vl-spin__wheel-wrap { width: 280px; height: 280px; }
+  }
+{% endstylesheet %}
+
+<script>
+  (function() {
+    var root = document.querySelector('[data-vl-spin]');
+    if (!root) return;
+
+    var storageKey = root.getAttribute('data-storage-key');
+    var triggerSelector = root.getAttribute('data-trigger-selector') || 'a[href*="amazon.com"]';
+    var postSpinLabel = root.getAttribute('data-post-spin-label') || '';
+    var ctaTextSelector = root.getAttribute('data-text-selector') || '';
+    var klaviyoCompanyId = root.getAttribute('data-klaviyo-company-id');
+    var klaviyoListId = root.getAttribute('data-klaviyo-list-id');
+    var klaviyoSource = root.getAttribute('data-klaviyo-source') || 'ALP-LP1 Spin to Win';
+
+    var stepSpinning = root.querySelector('[data-step="spinning"]');
+    var stepWin = root.querySelector('[data-step="win"]');
+    var form = root.querySelector('[data-form]');
+    var emailInput = root.querySelector('[data-email-input]');
+    var errorEl = root.querySelector('[data-error]');
+    var claimBtn = root.querySelector('[data-claim-btn]');
+    var wheelActive = root.querySelector('[data-wheel-active] svg');
+
+    var capturedUrl = null;
+
+    function alreadyCompleted() {
+      try { return storageKey && window.localStorage.getItem(storageKey) === '1'; }
+      catch (e) { return false; }
+    }
+
+    function markCompleted() {
+      try { if (storageKey) window.localStorage.setItem(storageKey, '1'); }
+      catch (e) { /* ignore */ }
+    }
+
+    // Swap CTA labels post-spin: server renders the pre-spin label ("Get 50%
+    // Discount"). Once the spin is completed (localStorage flag set) we swap
+    // to the post-spin label ("Buy Now on Amazon") so the offer doesn't stay
+    // promised after it's been claimed.
+    function applyPostSpinLabels() {
+      if (!postSpinLabel) return;
+      var links;
+      try { links = document.querySelectorAll(triggerSelector); }
+      catch (e) { return; }
+      Array.prototype.forEach.call(links, function(link) {
+        if (link.closest('[data-vl-spin]')) return;
+        var textEl = ctaTextSelector ? link.querySelector(ctaTextSelector) : null;
+        if (textEl) {
+          textEl.textContent = postSpinLabel;
+        } else {
+          // Fallback: rewrite the link's last text-node-ish child.
+          // Skips if the link has nested elements we don't recognize so we
+          // don't accidentally nuke icons.
+          var children = link.children;
+          if (children.length === 0) {
+            link.textContent = postSpinLabel;
+          }
+        }
+      });
+    }
+
+    var fbPixelId = {{ section.settings.fb_pixel_id | default: '2280168542489572' | json }};
+
+    // Unified tracking helper — fires to Meta Pixel (script + image beacon
+    // fallback for ad-blockers), GA4 via gtag, and GTM-style dataLayer push.
+    // Stays inert if a given system isn't loaded.
+    function trackEvent(metaEventName, gaEventName, properties) {
+      properties = properties || {};
+      // Meta Pixel — script API
+      try {
+        if (typeof fbq === 'function') {
+          fbq('trackCustom', metaEventName, properties);
+        }
+      } catch (err) { /* ignore */ }
+      // Meta Pixel — image beacon (survives uBlock / Brave Shields)
+      try {
+        if (fbPixelId) {
+          var qs = 'id=' + encodeURIComponent(fbPixelId) + '&ev=' + encodeURIComponent(metaEventName);
+          Object.keys(properties).forEach(function(k) {
+            qs += '&cd[' + encodeURIComponent(k) + ']=' + encodeURIComponent(String(properties[k]));
+          });
+          qs += '&noscript=1';
+          (new Image()).src = 'https://www.facebook.com/tr?' + qs;
+        }
+      } catch (err) { /* ignore */ }
+      // GA4 via gtag
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', gaEventName, properties);
+        }
+      } catch (err) { /* ignore */ }
+      // dataLayer push (covers GTM-based routing if it's added later)
+      try {
+        if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+          var dlPayload = { event: gaEventName };
+          Object.keys(properties).forEach(function(k) { dlPayload[k] = properties[k]; });
+          window.dataLayer.push(dlPayload);
+        }
+      } catch (err) { /* ignore */ }
+    }
+
+    function showStep(step) {
+      stepSpinning.hidden = step !== 'spinning';
+      stepWin.hidden = step !== 'win';
+    }
+
+    function open() {
+      showStep('spinning');
+      root.hidden = false;
+      document.body.classList.add('vl-spin-active');
+    }
+
+    function close() {
+      root.hidden = true;
+      document.body.classList.remove('vl-spin-active');
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function sendToKlaviyo(email) {
+      if (!klaviyoCompanyId) return Promise.resolve();
+
+      var subscribePayload = {
+        data: {
+          type: 'subscription',
+          attributes: {
+            custom_source: klaviyoSource,
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  properties: {
+                    'spin_to_win_source': klaviyoSource,
+                    'spin_to_win_at': new Date().toISOString()
+                  }
+                }
+              }
+            }
+          }
+        }
+      };
+      if (klaviyoListId) {
+        subscribePayload.data.relationships = {
+          list: { data: { type: 'list', id: klaviyoListId } }
+        };
+      }
+
+      var subscribeReq = fetch(
+        'https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(klaviyoCompanyId),
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+          keepalive: true,
+          body: JSON.stringify(subscribePayload)
+        }
+      ).catch(function(err) {
+        if (window.console && console.warn) console.warn('Klaviyo subscribe error', err);
+      });
+
+      var eventReq = fetch(
+        'https://a.klaviyo.com/client/events/?company_id=' + encodeURIComponent(klaviyoCompanyId),
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+          keepalive: true,
+          body: JSON.stringify({
+            data: {
+              type: 'event',
+              attributes: {
+                properties: { 'Source': klaviyoSource, 'Destination URL': capturedUrl || '' },
+                metric: { data: { type: 'metric', attributes: { name: 'Spin To Win Completed' } } },
+                profile: { data: { type: 'profile', attributes: { email: email } } }
+              }
+            }
+          })
+        }
+      ).catch(function(err) {
+        if (window.console && console.warn) console.warn('Klaviyo event error', err);
+      });
+
+      return Promise.all([subscribeReq, eventReq]);
+    }
+
+    function runSpin() {
+      if (!wheelActive) return;
+      // Reset to 0 explicitly so the transition has a known starting point.
+      wheelActive.style.transition = 'none';
+      wheelActive.style.transform = 'rotate(0deg)';
+      void wheelActive.offsetHeight; // force reflow
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          wheelActive.style.transition = '';
+          var jitter = (Math.random() * 20) - 10;
+          var degrees = (360 * 6) + jitter;
+          wheelActive.style.transform = 'rotate(' + degrees + 'deg)';
+        });
+      });
+      setTimeout(function() {
+        showStep('win');
+        if (emailInput) {
+          try { emailInput.focus({ preventScroll: true }); } catch (e) { emailInput.focus(); }
+        }
+        syncClaimDisabled(); // re-evaluate in case autofill landed a value
+      }, 4400);
+    }
+
+    function openAndSpin(destinationUrl) {
+      capturedUrl = destinationUrl || null;
+      trackEvent('SpinToWinOpened', 'spin_to_win_opened', {
+        page_url: window.location.pathname,
+        destination_url: capturedUrl || ''
+      });
+      open();
+      runSpin();
+    }
+
+    // Intercept clicks at the document level in CAPTURE phase. This runs before
+    // any other listeners (including the product-hero/sticky-cta scripts that
+    // fire window.open in a 400ms setTimeout), so stopImmediatePropagation
+    // prevents those side effects entirely.
+    function handleDocumentClick(e) {
+      if (e.defaultPrevented) return;
+      var target = e.target;
+      if (!target || typeof target.closest !== 'function') return;
+      var link = target.closest('a');
+      if (!link) return;
+      // Only intercept if the link matches our trigger selector
+      var matches;
+      try {
+        matches = link.matches(triggerSelector) ||
+                  (link.closest(triggerSelector) === link);
+      } catch (err) {
+        if (window.console && console.warn) console.warn('vl-spin: invalid selector', triggerSelector, err);
+        return;
+      }
+      if (!matches) return;
+      // Don't intercept links inside the overlay (e.g. our own claim button)
+      if (link.closest('[data-vl-spin]')) return;
+      // Already captured email — let normal nav happen (their existing handlers
+      // will fire the pixel and open Amazon in a new tab as before).
+      if (alreadyCompleted()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+      openAndSpin(link.href);
+    }
+
+    function attachTriggers() {
+      document.addEventListener('click', handleDocumentClick, true);
+    }
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = emailInput ? emailInput.value.trim() : '';
+        if (!isValidEmail(email)) {
+          if (emailInput) emailInput.classList.add('has-error');
+          if (errorEl) errorEl.hidden = false;
+          if (emailInput) emailInput.focus();
+          return;
+        }
+        if (emailInput) emailInput.classList.remove('has-error');
+        if (errorEl) errorEl.hidden = true;
+        if (claimBtn) {
+          claimBtn.disabled = true;
+          claimBtn.textContent = 'Claiming…';
+        }
+
+        // Fire the Klaviyo subscribe + event. Using keepalive:true inside
+        // sendToKlaviyo means the requests survive the upcoming navigation,
+        // so we don't need to await them.
+        sendToKlaviyo(email);
+        markCompleted();
+        applyPostSpinLabels();
+
+        // Fire AmazonLinkClick to Meta + GA synchronously inside the user gesture.
+        trackEvent('AmazonLinkClick', 'amazon_link_click', {
+          button_type: 'spin_to_win',
+          page_url: window.location.pathname
+        });
+        // Also fire an email-captured event so funnel analysis can separate
+        // "opened the gate" from "completed the gate".
+        trackEvent('SpinToWinEmailCaptured', 'spin_to_win_email_captured', {
+          page_url: window.location.pathname
+        });
+
+        if (capturedUrl) {
+          // window.open MUST be called synchronously inside the submit handler
+          // (user gesture) or browsers will block it as a popup.
+          var opened = window.open(capturedUrl, '_blank', 'noopener');
+          if (!opened) {
+            // Popup blocked — fall back to same-tab navigation
+            window.location.href = capturedUrl;
+            return;
+          }
+        }
+        close();
+      });
+    }
+
+    // Live-toggle the claim button's disabled state as the user types.
+    // The button starts disabled (server-rendered) and only enables when
+    // a valid email is in the input. Stops users clicking through to a
+    // validation error.
+    function syncClaimDisabled() {
+      if (!emailInput || !claimBtn) return;
+      var valid = isValidEmail(emailInput.value.trim());
+      claimBtn.disabled = !valid;
+      if (valid && errorEl) errorEl.hidden = true;
+      if (valid && emailInput.classList.contains('has-error')) {
+        emailInput.classList.remove('has-error');
+      }
+    }
+    if (emailInput && claimBtn) {
+      emailInput.addEventListener('input', syncClaimDisabled);
+      emailInput.addEventListener('change', syncClaimDisabled); // autofill in some browsers
+    }
+
+    function init() {
+      attachTriggers();
+      // Returning visitor who already completed the spin — swap labels now
+      // so they don't see a promised discount they've already claimed.
+      if (alreadyCompleted()) applyPostSpinLabels();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VL - Spin to Win Gate",
+  "tag": "section",
+  "class": "section-vl-spin",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Trigger"
+    },
+    {
+      "type": "text",
+      "id": "trigger_selector",
+      "label": "Trigger selector (CSS)",
+      "default": "a[href*=\"amazon.com\"]",
+      "info": "CSS selector for links/buttons that should open the spin gate. Default catches any link to amazon.com on the page."
+    },
+    {
+      "type": "text",
+      "id": "post_spin_label",
+      "label": "Post-spin CTA label",
+      "default": "BUY NOW ON AMAZON",
+      "info": "Replaces the trigger button text after the visitor completes the spin (or on page load for returning visitors who already completed it). The pre-spin label is set in the trigger button's own section."
+    },
+    {
+      "type": "text",
+      "id": "cta_text_selector",
+      "label": "Trigger button text selector",
+      "default": ".vl-product-hero__cta-text, .vl-sticky-cta__text",
+      "info": "CSS selector matching the text element inside the trigger button. Multiple selectors comma-separated. Default covers the product hero CTA and sticky CTA."
+    },
+    {
+      "type": "header",
+      "content": "Product preview"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "text",
+      "id": "product_name",
+      "label": "Product name",
+      "default": "Tone Adapting Foundation"
+    },
+    {
+      "type": "header",
+      "content": "Step 1: Spinning"
+    },
+    {
+      "type": "text",
+      "id": "spinning_headline",
+      "label": "Spinning headline",
+      "default": "Spinning…"
+    },
+    {
+      "type": "text",
+      "id": "spinning_subtext",
+      "label": "Spinning subtext",
+      "default": "Fingers crossed!"
+    },
+    {
+      "type": "header",
+      "content": "Step 2: Win + email capture"
+    },
+    {
+      "type": "text",
+      "id": "win_headline",
+      "label": "Win headline",
+      "default": "You won!"
+    },
+    {
+      "type": "text",
+      "id": "win_prize_text",
+      "label": "Prize text",
+      "default": "50% OFF"
+    },
+    {
+      "type": "text",
+      "id": "win_subtext",
+      "label": "Win subtext",
+      "default": "Enter your email to claim your 50% off discount."
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email label",
+      "default": "Your email"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "you@example.com"
+    },
+    {
+      "type": "text",
+      "id": "win_cta_text",
+      "label": "Claim button text",
+      "default": "CLAIM 50% OFF ON AMAZON"
+    },
+    {
+      "type": "richtext",
+      "id": "fineprint",
+      "label": "Fine print under claim button",
+      "default": "<p>By entering your email you agree to receive marketing emails. Unsubscribe anytime.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tracking"
+    },
+    {
+      "type": "text",
+      "id": "fb_pixel_id",
+      "label": "Meta Pixel ID",
+      "default": "2280168542489572",
+      "info": "Used for the image-beacon fallback when fbq is blocked by ad-blockers. Should match the main site pixel."
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo Integration"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_company_id",
+      "label": "Klaviyo Company ID",
+      "default": "VhFhDd"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo List ID",
+      "default": "RtSate",
+      "info": "Default RtSate = Vera Lane Newsletter (main list)."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_source",
+      "label": "Klaviyo custom_source tag",
+      "default": "ALP-LP1 Spin to Win"
+    },
+    {
+      "type": "text",
+      "id": "storage_key",
+      "label": "localStorage key (prevents re-showing)",
+      "default": "vl_spin_to_win_completed",
+      "info": "Once a visitor submits their email the key is set and subsequent CTA clicks pass through to the destination URL. Change the key to force re-capture."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay background",
+      "default": "#14080edd"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent / button color",
+      "default": "#7a0036"
+    },
+    {
+      "type": "color",
+      "id": "accent_text_color",
+      "label": "Accent button text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "VL Spin to Win Gate"
+    }
+  ]
+}
+{% endschema %}
