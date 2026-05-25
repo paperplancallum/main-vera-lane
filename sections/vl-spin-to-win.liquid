@@ -1,12 +1,14 @@
-{%- comment -%} ── VL - SPIN TO WIN EMAIL GATE ── {%- endcomment -%}
+{%- comment -%} ── VL - SPIN TO WIN (click-triggered email gate) ── {%- endcomment -%}
 {%- assign storage_key = section.settings.storage_key | default: 'vl_spin_to_win_completed' -%}
 {%- assign storage_key_clean = storage_key | strip -%}
+{%- assign trigger_selector = section.settings.trigger_selector | default: 'a[href*="amazon.com"]' -%}
 {%- assign product_image = section.settings.product_image -%}
 
 <div
   class="vl-spin"
   data-vl-spin
   data-storage-key="{{ storage_key_clean }}"
+  data-trigger-selector="{{ trigger_selector | escape }}"
   data-klaviyo-company-id="{{ section.settings.klaviyo_company_id }}"
   data-klaviyo-list-id="{{ section.settings.klaviyo_list_id }}"
   data-klaviyo-source="{{ section.settings.klaviyo_source }}"
@@ -21,56 +23,40 @@
 >
   <div class="vl-spin__overlay" role="dialog" aria-modal="true" aria-labelledby="vl-spin-title">
     <div class="vl-spin__card" data-card>
-      <button class="vl-spin__close" type="button" data-close aria-label="Close" hidden>
+      <button class="vl-spin__close" type="button" data-close aria-label="Close">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
       </button>
 
-      {%- comment -%} STEP 1: PREVIEW — product + spin CTA {%- endcomment -%}
-      <div class="vl-spin__step vl-spin__step--preview" data-step="preview">
-        <div class="vl-spin__product">
-          {%- if product_image != blank -%}
-            <img
-              src="{{ product_image | image_url: width: 200 }}"
-              srcset="{{ product_image | image_url: width: 200 }} 1x, {{ product_image | image_url: width: 400 }} 2x"
-              alt="{{ section.settings.product_name | escape }}"
-              class="vl-spin__product-image"
-              width="100"
-              height="100"
-            >
-          {%- endif -%}
-          {%- if section.settings.product_name != blank -%}
-            <p class="vl-spin__product-name">{{ section.settings.product_name }}</p>
-          {%- endif -%}
-        </div>
-
-        {%- if section.settings.preview_headline != blank -%}
-          <h2 class="vl-spin__title" id="vl-spin-title">{{ section.settings.preview_headline }}</h2>
-        {%- endif -%}
-        {%- if section.settings.preview_subheadline != blank -%}
-          <p class="vl-spin__subtitle">{{ section.settings.preview_subheadline }}</p>
+      {%- comment -%} STEP 1: SPINNING — opens here, wheel animates immediately {%- endcomment -%}
+      <div class="vl-spin__step vl-spin__step--spinning" data-step="spinning">
+        {%- if product_image != blank or section.settings.product_name != blank -%}
+          <div class="vl-spin__product">
+            {%- if product_image != blank -%}
+              <img
+                src="{{ product_image | image_url: width: 200 }}"
+                srcset="{{ product_image | image_url: width: 200 }} 1x, {{ product_image | image_url: width: 400 }} 2x"
+                alt="{{ section.settings.product_name | escape }}"
+                class="vl-spin__product-image"
+                width="56"
+                height="56"
+              >
+            {%- endif -%}
+            {%- if section.settings.product_name != blank -%}
+              <p class="vl-spin__product-name">{{ section.settings.product_name }}</p>
+            {%- endif -%}
+          </div>
         {%- endif -%}
 
-        <div class="vl-spin__wheel-wrap vl-spin__wheel-wrap--preview" data-wheel-preview>
-          {%- render 'vl-spin-wheel' -%}
-        </div>
-
-        <button type="button" class="vl-spin__cta" data-spin-btn>
-          {{ section.settings.spin_button_text }}
-        </button>
-      </div>
-
-      {%- comment -%} STEP 2: SPINNING {%- endcomment -%}
-      <div class="vl-spin__step vl-spin__step--spinning" data-step="spinning" hidden>
-        <h2 class="vl-spin__title">{{ section.settings.spinning_headline }}</h2>
+        <h2 class="vl-spin__title" id="vl-spin-title">{{ section.settings.spinning_headline }}</h2>
         <div class="vl-spin__wheel-wrap vl-spin__wheel-wrap--active" data-wheel-active>
           {%- render 'vl-spin-wheel' -%}
         </div>
         <p class="vl-spin__subtitle vl-spin__subtitle--spinning">{{ section.settings.spinning_subtext }}</p>
       </div>
 
-      {%- comment -%} STEP 3: WIN + email capture {%- endcomment -%}
+      {%- comment -%} STEP 2: WIN + email capture {%- endcomment -%}
       <div class="vl-spin__step vl-spin__step--win" data-step="win" hidden>
         <div class="vl-spin__confetti" aria-hidden="true">🎉</div>
         <h2 class="vl-spin__title vl-spin__title--win">{{ section.settings.win_headline }}</h2>
@@ -82,8 +68,8 @@
               src="{{ product_image | image_url: width: 120 }}"
               alt="{{ section.settings.product_name | escape }}"
               class="vl-spin__product-image vl-spin__product-image--small"
-              width="56"
-              height="56"
+              width="44"
+              height="44"
             >
             {%- if section.settings.product_name != blank -%}
               <p class="vl-spin__product-name vl-spin__product-name--small">{{ section.settings.product_name }}</p>
@@ -185,8 +171,8 @@
   }
   .vl-spin__product--small { margin: 8px 0 14px; }
   .vl-spin__product-image {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -214,7 +200,7 @@
     font-family: var(--font-heading--family, var(--font-body--family));
     font-size: 26px;
     line-height: 1.15;
-    margin: 0 0 6px;
+    margin: 0 0 12px;
     font-weight: 700;
     letter-spacing: -0.01em;
   }
@@ -236,7 +222,7 @@
     position: relative;
     width: 240px;
     height: 240px;
-    margin: 0 auto 18px;
+    margin: 0 auto 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -246,16 +232,6 @@
     height: 100%;
     transform: rotate(0deg);
     transition: transform 4s cubic-bezier(0.17, 0.67, 0.21, 1);
-  }
-  .vl-spin__wheel-wrap--preview svg {
-    animation: vl-spin-idle 14s linear infinite;
-  }
-  @keyframes vl-spin-idle {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  .vl-spin__wheel-wrap--active svg {
-    animation: none;
   }
 
   .vl-spin__form {
@@ -360,7 +336,6 @@
     }
     .vl-spin__title { font-size: 30px; }
     .vl-spin__wheel-wrap { width: 280px; height: 280px; }
-    .vl-spin__product-image { width: 72px; height: 72px; }
   }
 {% endstylesheet %}
 
@@ -370,35 +345,39 @@
     if (!root) return;
 
     var storageKey = root.getAttribute('data-storage-key');
+    var triggerSelector = root.getAttribute('data-trigger-selector') || 'a[href*="amazon.com"]';
     var klaviyoCompanyId = root.getAttribute('data-klaviyo-company-id');
     var klaviyoListId = root.getAttribute('data-klaviyo-list-id');
     var klaviyoSource = root.getAttribute('data-klaviyo-source') || 'ALP-LP1 Spin to Win';
 
-    try {
-      if (storageKey && window.localStorage.getItem(storageKey) === '1') {
-        return;
-      }
-    } catch (e) { /* localStorage disabled — show anyway */ }
-
-    var stepPreview = root.querySelector('[data-step="preview"]');
     var stepSpinning = root.querySelector('[data-step="spinning"]');
     var stepWin = root.querySelector('[data-step="win"]');
-    var spinBtn = root.querySelector('[data-spin-btn]');
     var form = root.querySelector('[data-form]');
     var emailInput = root.querySelector('[data-email-input]');
     var errorEl = root.querySelector('[data-error]');
     var claimBtn = root.querySelector('[data-claim-btn]');
     var closeBtn = root.querySelector('[data-close]');
     var wheelActive = root.querySelector('[data-wheel-active] svg');
-    var claimUrl = {{ section.settings.win_cta_url | default: '' | json }};
+
+    var capturedUrl = null;
+
+    function alreadyCompleted() {
+      try { return storageKey && window.localStorage.getItem(storageKey) === '1'; }
+      catch (e) { return false; }
+    }
+
+    function markCompleted() {
+      try { if (storageKey) window.localStorage.setItem(storageKey, '1'); }
+      catch (e) { /* ignore */ }
+    }
 
     function showStep(step) {
-      stepPreview.hidden = step !== 'preview';
       stepSpinning.hidden = step !== 'spinning';
       stepWin.hidden = step !== 'win';
     }
 
     function open() {
+      showStep('spinning');
       root.hidden = false;
       document.body.classList.add('vl-spin-active');
     }
@@ -406,12 +385,6 @@
     function close() {
       root.hidden = true;
       document.body.classList.remove('vl-spin-active');
-    }
-
-    function markCompleted() {
-      try {
-        if (storageKey) window.localStorage.setItem(storageKey, '1');
-      } catch (e) { /* ignore */ }
     }
 
     function isValidEmail(value) {
@@ -469,14 +442,9 @@
             data: {
               type: 'event',
               attributes: {
-                properties: { 'Source': klaviyoSource },
+                properties: { 'Source': klaviyoSource, 'Destination URL': capturedUrl || '' },
                 metric: { data: { type: 'metric', attributes: { name: 'Spin To Win Completed' } } },
-                profile: {
-                  data: {
-                    type: 'profile',
-                    attributes: { email: email }
-                  }
-                }
+                profile: { data: { type: 'profile', attributes: { email: email } } }
               }
             }
           })
@@ -489,37 +457,50 @@
     }
 
     function runSpin() {
-      showStep('spinning');
-      if (wheelActive) {
-        // Reset to 0 explicitly so the transition has a known starting point.
-        wheelActive.style.transition = 'none';
-        wheelActive.style.transform = 'rotate(0deg)';
-        // Force layout so the browser commits the reset before we apply the target.
-        void wheelActive.offsetHeight;
-        // Two rAFs guarantee the reset frame is painted before the new transform —
-        // otherwise the browser collapses both styles and skips the animation.
+      if (!wheelActive) return;
+      // Reset to 0 explicitly so the transition has a known starting point.
+      wheelActive.style.transition = 'none';
+      wheelActive.style.transform = 'rotate(0deg)';
+      void wheelActive.offsetHeight; // force reflow
+      requestAnimationFrame(function() {
         requestAnimationFrame(function() {
-          requestAnimationFrame(function() {
-            wheelActive.style.transition = '';
-            var jitter = (Math.random() * 20) - 10;
-            var degrees = (360 * 6) + jitter;
-            wheelActive.style.transform = 'rotate(' + degrees + 'deg)';
-          });
+          wheelActive.style.transition = '';
+          var jitter = (Math.random() * 20) - 10;
+          var degrees = (360 * 6) + jitter;
+          wheelActive.style.transform = 'rotate(' + degrees + 'deg)';
         });
-      }
+      });
       setTimeout(function() {
         showStep('win');
-        if (closeBtn) closeBtn.hidden = false;
         if (emailInput) {
           try { emailInput.focus({ preventScroll: true }); } catch (e) { emailInput.focus(); }
         }
       }, 4400);
     }
 
-    if (spinBtn) {
-      spinBtn.addEventListener('click', function() {
-        spinBtn.disabled = true;
-        runSpin();
+    function openAndSpin(destinationUrl) {
+      capturedUrl = destinationUrl || null;
+      open();
+      runSpin();
+    }
+
+    function attachTriggers() {
+      var links;
+      try { links = document.querySelectorAll(triggerSelector); }
+      catch (e) {
+        if (window.console && console.warn) console.warn('vl-spin: invalid trigger selector', triggerSelector, e);
+        return;
+      }
+      Array.prototype.forEach.call(links, function(link) {
+        // Don't intercept our own claim button or other elements inside the overlay
+        if (link.closest('[data-vl-spin]')) return;
+        if (link.getAttribute('data-vl-spin-bound') === '1') return;
+        link.setAttribute('data-vl-spin-bound', '1');
+        link.addEventListener('click', function(e) {
+          if (alreadyCompleted()) return; // already captured email — let nav proceed
+          e.preventDefault();
+          openAndSpin(link.href);
+        });
       });
     }
 
@@ -541,8 +522,8 @@
         }
         sendToKlaviyo(email).finally(function() {
           markCompleted();
-          if (claimUrl) {
-            window.location.href = claimUrl;
+          if (capturedUrl) {
+            window.location.href = capturedUrl;
           } else {
             close();
           }
@@ -552,8 +533,11 @@
 
     if (closeBtn) closeBtn.addEventListener('click', close);
 
-    // Open immediately — no delay
-    open();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', attachTriggers);
+    } else {
+      attachTriggers();
+    }
   })();
 </script>
 
@@ -565,7 +549,18 @@
   "settings": [
     {
       "type": "header",
-      "content": "Step 1: Preview (spin invite)"
+      "content": "Trigger"
+    },
+    {
+      "type": "text",
+      "id": "trigger_selector",
+      "label": "Trigger selector (CSS)",
+      "default": "a[href*=\"amazon.com\"]",
+      "info": "CSS selector for links/buttons that should open the spin gate. Default catches any link to amazon.com on the page."
+    },
+    {
+      "type": "header",
+      "content": "Product preview"
     },
     {
       "type": "image_picker",
@@ -579,26 +574,8 @@
       "default": "Tone Adapting Foundation"
     },
     {
-      "type": "text",
-      "id": "preview_headline",
-      "label": "Headline",
-      "default": "Spin to Win!"
-    },
-    {
-      "type": "text",
-      "id": "preview_subheadline",
-      "label": "Subheadline",
-      "default": "Spin the wheel for an exclusive discount on your order."
-    },
-    {
-      "type": "text",
-      "id": "spin_button_text",
-      "label": "Spin button text",
-      "default": "SPIN THE WHEEL"
-    },
-    {
       "type": "header",
-      "content": "Step 2: Spinning"
+      "content": "Step 1: Spinning"
     },
     {
       "type": "text",
@@ -614,7 +591,7 @@
     },
     {
       "type": "header",
-      "content": "Step 3: Win + email capture"
+      "content": "Step 2: Win + email capture"
     },
     {
       "type": "text",
@@ -653,11 +630,6 @@
       "default": "CLAIM 50% OFF ON AMAZON"
     },
     {
-      "type": "url",
-      "id": "win_cta_url",
-      "label": "Claim button URL (where to send the customer after email submit)"
-    },
-    {
       "type": "richtext",
       "id": "fineprint",
       "label": "Fine print under claim button",
@@ -676,7 +648,7 @@
     {
       "type": "text",
       "id": "klaviyo_list_id",
-      "label": "Klaviyo List ID (main marketing list)",
+      "label": "Klaviyo List ID",
       "default": "RtSate",
       "info": "Default RtSate = Vera Lane Newsletter (main list)."
     },
@@ -691,7 +663,7 @@
       "id": "storage_key",
       "label": "localStorage key (prevents re-showing)",
       "default": "vl_spin_to_win_completed",
-      "info": "Change the key to force the popup to re-appear for returning visitors."
+      "info": "Once a visitor submits their email the key is set and subsequent CTA clicks pass through to the destination URL. Change the key to force re-capture."
     },
     {
       "type": "header",
