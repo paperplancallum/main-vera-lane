@@ -1441,12 +1441,12 @@
       "type": "vl-upsell-modal",
       "settings": {
         "upsell_product": "makeup-brush",
-        "discount_percentage": 50,
-        "discount_code": "BRUSH50",
+        "discount_percentage": 30,
+        "discount_code": "BRUSH30",
         "badge_text": "WAIT! SPECIAL OFFER",
         "heading": "Complete Your Look",
         "subheading": "Add our professional makeup brush to your order",
-        "cta_text": "YES, ADD FOR 50% OFF",
+        "cta_text": "YES, ADD FOR 30% OFF",
         "skip_text": "No thanks",
         "timer_minutes": 5
       }
