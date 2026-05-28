@@ -1,0 +1,311 @@
+{
+  "layout": "theme.vl-landing",
+  "sections": {
+    "bl_alert_bar": {
+      "type": "bl-alert-bar",
+      "name": "BL - Alert Bar",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#2D2D2D",
+        "text_color": "#ffffff",
+        "accent_color": "#8B3A3A",
+        "show_countdown": true,
+        "countdown_prefix": "Ends in",
+        "countdown_hours": 24,
+        "badge": "LIMITED RELEASE",
+        "text": "Up to 50% Off — Founder's Drop",
+        "code": ""
+      }
+    },
+    "bl_hero": {
+      "type": "bl-hero",
+      "name": "BL - Hero",
+      "settings": {
+        "section_id": "",
+        "bg_image_asset": "lp-li-2-hero.jpg",
+        "bg_color": "#2d2d2d",
+        "overlay_opacity": 60,
+        "category": "BEAUTY",
+        "headline": "10 Reasons Women Over 50 Look 35 Again With This Tone-Adapting Foundation",
+        "subheadline": "The tone-adapting formula thousands of mature women are using to turn back the clock — without injections, fillers, or anyone knowing the difference. By Juliana, Updated November 2025.",
+        "show_rating": true,
+        "review_count": "12,400+ Verified Reviews",
+        "cta_text": "Claim Offer",
+        "cta_type": "anchor",
+        "cta_anchor": "offer",
+        "cta_url": "",
+        "cta_text_color": "#ffffff",
+        "cta_border_color": "#ffffff"
+      }
+    },
+    "bl_reason_1": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 1",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "number": "1",
+        "title": "It Actually Matches Your Skin — Not a Lab's Guess",
+        "body_text": "<p>Every other foundation forces you to pick a shade from a row of pre-mixed tubes. Vera Lane does the opposite. The tone-adapting pigments inside each capsule release and blend the moment they touch your skin, calibrating to your exact undertone in under 30 seconds.</p><p>That means no more pink cheeks. No more orange jawline. No more shopping between three half-empty bottles trying to mix \"the right colour.\" One shade. Your skin. A perfect match — every time.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-1.jpg",
+        "image_position": "right"
+      }
+    },
+    "bl_reason_2": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 2",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#ffffff",
+        "number": "2",
+        "title": "It Doesn't Settle Into Fine Lines and Wrinkles",
+        "body_text": "<p>Most foundations are built on heavy, oil-thirsty pigments that pool into every line by lunchtime. On mature skin, that turns a soft crease into a deep canyon — instantly adding years.</p><p>Vera Lane uses flexible micro-pigments suspended in a hydrating, weightless serum base. The formula moves with your skin instead of settling into it, so lines look softer at hour 12 than they did at hour one.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-2.jpg",
+        "image_position": "left"
+      }
+    },
+    "bl_reason_3": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 3",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "number": "3",
+        "title": "It Restores The Plump, Dewy Look of Your 30s",
+        "body_text": "<p>The dullness that creeps in after 40 isn't a coverage problem — it's a light problem. Skin loses its ability to reflect light evenly, so even \"glow\" foundations end up looking flat or chalky.</p><p>Vera Lane is infused with hyaluronic acid, squalane, and light-diffusing botanical extracts that bounce light the way young skin does. The result is the kind of soft, lit-from-within finish that makes people ask what you've been doing differently.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-3.jpg",
+        "image_position": "right"
+      }
+    },
+    "bl_reason_4": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 4",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#ffffff",
+        "number": "4",
+        "title": "It Creates The \"Soft Focus\" Effect Of Younger Skin",
+        "body_text": "<p>You don't need more coverage. You need better light. The texture you're trying to hide — fine lines, enlarged pores, uneven tone — is mostly visible because it casts tiny shadows on your skin.</p><p>The blurring spheres in Vera Lane scatter those shadows the way a soft-focus camera filter does. Texture disappears without a layer of opaque pigment. Your skin still looks like skin — just the version of it you remember.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-4.jpg",
+        "image_position": "left"
+      }
+    },
+    "bl_reason_5": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 5",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "number": "5",
+        "title": "It Protects Your Skin From Further Aging",
+        "body_text": "<p>Most foundations age you twice: once visually, by emphasising texture, and again chemically, by clogging pores and stripping moisture overnight.</p><p>Vera Lane is built around a barrier-supporting complex of niacinamide, vitamin E, and Centella Asiatica. While you wear it, it actively shields against UV stress, blue light, and pollution — three of the biggest accelerators of visible aging in women over 50.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-5.jpg",
+        "image_position": "right"
+      }
+    },
+    "bl_reason_6": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 6",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#ffffff",
+        "number": "6",
+        "title": "It Improves Your Skin The Longer You Wear It",
+        "body_text": "<p>Conventional foundations cover. Vera Lane treats. Each application delivers a measured dose of skincare-grade actives that work on tone, firmness, and elasticity from the moment they touch your face.</p><p>In a 60-day in-house study, 9 out of 10 women reported visibly firmer, more even skin after consistent wear — even on the days they wiped it off and went bare.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-6.jpg",
+        "image_position": "left"
+      }
+    },
+    "bl_reason_7": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 7",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "number": "7",
+        "title": "It's Formulated With Clean, Non-Toxic Ingredients",
+        "body_text": "<p>Vera Lane is free from parabens, sulphates, synthetic fragrance, phthalates, talc, and the dozen other ingredients dermatologists now flag as long-term irritants on mature skin.</p><p>Cruelty-free. Vegan. Made in a GMP-certified lab. Tested on dozens of skin tones — never animals. The full ingredient list lives on every box, with nothing hidden behind \"fragrance.\"</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-7.jpg",
+        "image_position": "right"
+      }
+    },
+    "bl_reason_8": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 8",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#ffffff",
+        "number": "8",
+        "title": "It Works For Every Skin Tone, Type, and Age",
+        "body_text": "<p>One shade adapts to fair, medium, olive, and deep skin alike — because the pigments respond to your own melanin levels, not a chart. Dry skin gets hydration. Oily skin gets balance. Combination skin gets evenness.</p><p>Women in their late 30s use it for prevention. Women in their 70s use it for the lift it gives sunken areas. The formula doesn't pick a decade.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-8.jpg",
+        "image_position": "left"
+      }
+    },
+    "bl_reason_9": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 9",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "number": "9",
+        "title": "It's A Dermatologist-Recommended Formula",
+        "body_text": "<p>Vera Lane was developed alongside a panel of board-certified dermatologists who specialise in mature skin. Every ingredient was vetted for safety, efficacy, and barrier compatibility — and every batch is tested for purity before it ships.</p><p>If you've spent the last decade chasing prescription serums, you'll recognise the actives inside. The difference is that Vera Lane delivers them through the makeup you were already going to wear.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-9.jpg",
+        "image_position": "right"
+      }
+    },
+    "bl_reason_10": {
+      "type": "bl-reason-item",
+      "name": "BL - Reason 10",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#ffffff",
+        "number": "10",
+        "title": "30-Day Risk-Free Trial — Or Your Money Back",
+        "body_text": "<p>You don't owe anyone an opinion on day one. Try Vera Lane for a full 30 days, in your real life, under your real lighting. If you don't see the change — in your mirror, in your photos, in the way people respond to you — send it back. We'll refund every dollar, no questions, no restocking fee, no awkward email chain.</p><p>It's the same guarantee we'd want our mothers and sisters to get. And it's the reason we can promise this is the last foundation you'll ever shop for.</p>",
+        "link_text": "",
+        "link_type": "anchor",
+        "link_anchor": "",
+        "link_url": "",
+        "image_asset": "lp-li-2-reason-10.jpg",
+        "image_position": "left"
+      }
+    },
+    "bl_quote_1": {
+      "type": "bl-customer-quote",
+      "name": "BL - Customer Quote 1",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "eyebrow": "WHAT WOMEN ARE SAYING — MELISSA, 47",
+        "quote": "I was three weeks away from booking a lower facelift because I couldn't stand the way I looked in photos anymore. A friend sent me this. I tried it on a Thursday and cancelled the consultation on Monday. It doesn't just cover — it gives me my face back.",
+        "author": "Melissa S. — Verified Buyer",
+        "verified": true
+      }
+    },
+    "bl_quote_2": {
+      "type": "bl-customer-quote",
+      "name": "BL - Customer Quote 2",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#ffffff",
+        "eyebrow": "WHAT WOMEN ARE SAYING — KAREN, 54",
+        "quote": "Menopause turned my skin into a science project — orange by 11am, grey by 5. Vera Lane is the first foundation that actually moves with my chemistry instead of fighting it. Eight hours in and the shade is still the shade I put on.",
+        "author": "Karen R. — Verified Buyer",
+        "verified": true
+      }
+    },
+    "bl_quote_3": {
+      "type": "bl-customer-quote",
+      "name": "BL - Customer Quote 3",
+      "settings": {
+        "section_id": "",
+        "bg_color": "#faf9f7",
+        "eyebrow": "WHAT WOMEN ARE SAYING — CHRISTINE, 46",
+        "quote": "Ran into my ex and his new girlfriend at a restaurant — she's 31. She complimented my skin and asked what serum I was using. I just smiled. This is the first time in a decade I've felt like the most polished person in the room.",
+        "author": "Christine M. — Verified Buyer",
+        "verified": true
+      }
+    },
+    "bl_product_card_split": {
+      "type": "bl-product-card-split",
+      "blocks": {
+        "feature_1": { "type": "feature", "settings": { "label": "Tone-Adapting" } },
+        "feature_2": { "type": "feature", "settings": { "label": "Hydrating Serum Base" } },
+        "feature_3": { "type": "feature", "settings": { "label": "Soft-Focus Finish" } },
+        "feature_4": { "type": "feature", "settings": { "label": "Clean + Non-Toxic" } },
+        "feature_5": { "type": "feature", "settings": { "label": "Dermatologist-Tested" } }
+      },
+      "block_order": ["feature_1", "feature_2", "feature_3", "feature_4", "feature_5"],
+      "name": "BL - Product Card Split",
+      "settings": {
+        "section_id": "offer",
+        "bg_color": "#faf9f7",
+        "sale_badge": "FOUNDER'S DROP — Up to 50% Off",
+        "badge_bg": "#d4a574",
+        "badge_text": "#2d2d2d",
+        "product_name": "Vera Lane Tone-Adapting Foundation",
+        "description": "<p>A lightweight, tone-adapting foundation engineered for skin over 40. Hydrates, blurs, and lifts — with no settling, no oxidation, and no shade-guessing. One bottle. Every skin tone. Every lighting.</p><p><strong>If you made it this far, you deserve the face you had 15 years ago.</strong></p>",
+        "image": "shopify://shop_images/freepik__add-the-two-products-together-into-a-studiostyle-p__90794.png",
+        "more_colors_text": "Adapts To Every Shade",
+        "cta_text": "Get Vera Lane Now",
+        "cta_url": "shopify://products/color-changing-foundation",
+        "cta_bg": "#000000",
+        "cta_text_color": "#ffffff"
+      }
+    },
+    "bl_sticky_cta": {
+      "type": "bl-sticky-cta",
+      "settings": {
+        "badge_text": "LIMITED TIME",
+        "promo_text": "Up to 50% Off Today",
+        "button_text": "Claim Offer",
+        "link_url": "shopify://products/color-changing-foundation",
+        "show_after_scroll": true,
+        "dismiss_enabled": false,
+        "bg_color": "#2D2D2D",
+        "text_color": "#ffffff",
+        "button_bg": "#D4A574",
+        "button_text_color": "#2D2D2D",
+        "badge_bg": "#8B3A3A",
+        "badge_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "bl_alert_bar",
+    "bl_hero",
+    "bl_reason_1",
+    "bl_reason_2",
+    "bl_reason_3",
+    "bl_reason_4",
+    "bl_reason_5",
+    "bl_reason_6",
+    "bl_reason_7",
+    "bl_reason_8",
+    "bl_reason_9",
+    "bl_reason_10",
+    "bl_quote_1",
+    "bl_quote_2",
+    "bl_quote_3",
+    "bl_product_card_split",
+    "bl_sticky_cta"
+  ]
+}
