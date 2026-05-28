@@ -1,0 +1,770 @@
+{
+  "sections": {
+    "lumen_pdp_hero": {
+      "type": "lumen-pdp-hero",
+      "blocks": {
+        "description_item_1": {
+          "type": "description_item",
+          "settings": {
+            "title": "Adapts to your exact shade on contact",
+            "content": "<p>The white cream releases pigment as you blend, matching your tone in 30–60 seconds — no shade chart, no guesswork.</p>"
+          }
+        },
+        "description_item_2": {
+          "type": "description_item",
+          "settings": {
+            "title": "Floats over fine lines & texture",
+            "content": "<p>Built for mature skin. The flexible, hydrating finish doesn't cake or crease into wrinkles — it sits like skin, not makeup.</p>"
+          }
+        },
+        "description_item_3": {
+          "type": "description_item",
+          "settings": {
+            "title": "Stays true through hot flashes & long days",
+            "content": "<p>SebumSmart™ pigment release prevents the 3pm orange face. Wears comfortably for up to 16 hours through heat, humidity, and hormonal shifts.</p>"
+          }
+        },
+        "magazine_logo_1": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/cosmopolitan_logo_svg.svg",
+            "alt_text": "Cosmopolitan"
+          }
+        },
+        "magazine_logo_2": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/grazia_logo_svg.svg",
+            "alt_text": "Grazia"
+          }
+        },
+        "magazine_logo_3": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/elle_magazine_logo_svg.svg",
+            "alt_text": "Elle"
+          }
+        },
+        "magazine_logo_4": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/vogue_magazine_logo_svg.svg",
+            "alt_text": "Vogue"
+          }
+        },
+        "trust_badge_1": {
+          "type": "trust_badge",
+          "settings": {
+            "icon_image": "shopify://shop_images/Layer_1.svg",
+            "text": "<p>30-Day Money Back Guarantee</p>"
+          }
+        },
+        "trust_badge_2": {
+          "type": "trust_badge",
+          "settings": {
+            "icon_image": "shopify://shop_images/Layer_1_1.svg",
+            "text": "<p>100% Shade Match Promise</p>"
+          }
+        },
+        "trust_badge_3": {
+          "type": "trust_badge",
+          "settings": {
+            "icon_image": "shopify://shop_images/Layer_1_2.svg",
+            "text": "<p>Free U.S. Shipping</p>"
+          }
+        },
+        "bundle_1pc": {
+          "type": "bundle",
+          "settings": {
+            "bundle_product": "color-changing-foundation",
+            "bundle_title": "1 Bottle",
+            "product_1": "color-changing-foundation",
+            "product_1_quantity": 1,
+            "product_2": "",
+            "product_2_quantity": 1,
+            "product_3": "",
+            "product_3_quantity": 1,
+            "add_bundle_property": false,
+            "add_vera2_bundle_property": false,
+            "show_badge": false,
+            "show_corner_badge": false,
+            "corner_badge_text": "",
+            "corner_badge_bg_color": "#7a0036",
+            "corner_badge_text_color": "#ffffff",
+            "badge_text": "",
+            "badge_bg_color": "",
+            "badge_text_color": "",
+            "show_free_delivery_badge": false,
+            "show_amazon_offer": false,
+            "amazon_url": "",
+            "amazon_promo_text": "",
+            "amazon_banner_bg_color": "#7a0036",
+            "amazon_banner_text_color": "#ffffff"
+          }
+        },
+        "bundle_brush": {
+          "type": "bundle",
+          "settings": {
+            "bundle_product": "bundle-tone-adapting-foundation-makeup-brush",
+            "bundle_title": "Foundation + Brush",
+            "bundle_image": "shopify://shop_images/freepik__add-the-two-products-together-into-a-studiostyle-p__90794.png",
+            "product_1": "color-changing-foundation",
+            "product_1_quantity": 1,
+            "product_2": "makeup-brush",
+            "product_2_quantity": 1,
+            "product_3": "",
+            "product_3_quantity": 1,
+            "add_bundle_property": false,
+            "add_vera2_bundle_property": true,
+            "show_badge": false,
+            "show_corner_badge": true,
+            "corner_badge_text": "GREAT DEAL",
+            "corner_badge_bg_color": "#000000",
+            "corner_badge_text_color": "#ffffff",
+            "badge_text": "BUNDLE",
+            "badge_bg_color": "",
+            "badge_text_color": "",
+            "show_free_delivery_badge": false,
+            "show_amazon_offer": false,
+            "amazon_url": "",
+            "amazon_promo_text": "",
+            "amazon_banner_bg_color": "#7a0036",
+            "amazon_banner_text_color": "#ffffff"
+          }
+        },
+        "bundle_starter": {
+          "type": "bundle",
+          "settings": {
+            "bundle_product": "makeup-bag-bundle",
+            "bundle_title": "Starter Kit: Foundation, Brush & Bag",
+            "bundle_image": "shopify://shop_images/Gemini_Generated_Image_7hejds7hejds7hej.png",
+            "product_1": "color-changing-foundation",
+            "product_1_quantity": 1,
+            "product_2": "makeup-brush",
+            "product_2_quantity": 1,
+            "product_3": "makeup-bag-1",
+            "product_3_quantity": 1,
+            "add_bundle_property": true,
+            "add_vera2_bundle_property": false,
+            "show_badge": false,
+            "show_corner_badge": true,
+            "corner_badge_text": "MOST POPULAR",
+            "corner_badge_bg_color": "#7a0036",
+            "corner_badge_text_color": "#ffffff",
+            "badge_text": "MOST POPULAR",
+            "badge_bg_color": "",
+            "badge_text_color": "",
+            "show_free_delivery_badge": true,
+            "show_amazon_offer": false,
+            "amazon_url": "",
+            "amazon_promo_text": "",
+            "amazon_banner_bg_color": "#7a0036",
+            "amazon_banner_text_color": "#ffffff"
+          }
+        },
+        "upsell_brush": {
+          "type": "upsell_product",
+          "settings": {
+            "product": "makeup-brush",
+            "title_override": "",
+            "button_label": ""
+          }
+        },
+        "upsell_bag": {
+          "type": "upsell_product",
+          "settings": {
+            "product": "makeup-bag-1",
+            "title_override": "",
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "description_item_1",
+        "description_item_2",
+        "description_item_3",
+        "magazine_logo_1",
+        "magazine_logo_2",
+        "magazine_logo_3",
+        "magazine_logo_4",
+        "trust_badge_1",
+        "trust_badge_2",
+        "trust_badge_3",
+        "bundle_1pc",
+        "bundle_brush",
+        "bundle_starter",
+        "upsell_brush",
+        "upsell_bag"
+      ],
+      "settings": {
+        "section_id": "product",
+        "product": "color-changing-foundation",
+        "custom_title": "Vera Lane Tone-Adapting Foundation",
+        "rating_text": "(4.8) 10,839 Glowing Customers",
+        "rating_link": "#reviews",
+        "size_text": "1 FL OZ / 30 ML",
+        "description": "<ul><li><strong>Stop wasting money on the wrong shade</strong> — pigment releases on contact and self-matches your tone.</li><li><strong>Look like yourself, just better</strong> — floats over fine lines, never cakes, breathable second-skin feel.</li><li><strong>Same perfect match in any lighting</strong> — no more orange face by lunch, no more 'floating head' effect.</li></ul>",
+        "show_tone_selector": true,
+        "tone_color_fair": "#f3d4b7",
+        "tone_label_fair": "",
+        "tone_color_medium": "#d4a982",
+        "tone_label_medium": "",
+        "tone_color_medium_dark": "#b2895f",
+        "tone_label_medium_dark": "",
+        "show_shade_guide": true,
+        "add_to_cart_label": "ADD TO CART",
+        "adding_to_cart_label": "ADDING...",
+        "skip_cart_go_to_checkout": false,
+        "delivery_text": "SHIPS IN 2 DAYS · DELIVERS IN 4–5",
+        "free_delivery_text": "FREE DELIVERY",
+        "badge_bg_color": "#ffd4cd",
+        "badge_text_color": "#7a0036",
+        "show_payment_icons": true,
+        "enable_animation": true,
+        "show_ugc": true,
+        "ugc_heading": "SEE IT IN ACTION — OVER 4.4M VIEWS",
+        "ugc_close_on_outside": true,
+        "ugc_pause_on_click": true,
+        "show_upsell": true,
+        "upsell_heading": "Pair it with",
+        "upsell_button_label": "ADD"
+      }
+    },
+    "vl_step_by_step": {
+      "type": "vl-step-by-step",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Shake, open and go",
+            "text": "Give the bottle a quick shake to wake up the pigment capsules. No primer needed — works on clean, moisturised skin."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Dot on cheeks, forehead, nose & chin",
+            "text": "Place small dots across your face. Don't blend yet — let the cream sit on the skin so the tone-matching reaction can start."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Buff outward & wait 30–60 seconds",
+            "text": "Blend out with a brush, sponge or fingers. The shade self-adjusts in under a minute. Add a thin second layer for more coverage. Done."
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "heading": "Your Daily 3-Step Glow",
+        "bg_color": "#ffffff",
+        "heading_color": "#5C1A33",
+        "card_bg_color": "#FBF8F6",
+        "number_bg_color": "#5C1A33",
+        "number_color": "#ffffff",
+        "step_title_color": "#000000",
+        "step_text_color": "#444444"
+      }
+    },
+    "vl_pdp_stats_grid": {
+      "type": "vl-pdp-stats-grid",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "percentage": "94%",
+            "statement": "Found their perfect shade match on the first try"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "percentage": "91%",
+            "statement": "Finally achieved that 'no-makeup makeup' look"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "percentage": "89%",
+            "statement": "Cut their morning routine from 15+ minutes to under 5"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "percentage": "85%",
+            "statement": "No longer carry concealer or powder for touch-ups"
+          }
+        },
+        "stat_5": {
+          "type": "stat",
+          "settings": {
+            "percentage": "81%",
+            "statement": "Received compliments on their skin within the first week"
+          }
+        }
+      },
+      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4", "stat_5"],
+      "settings": {
+        "eyebrow": "The Last Foundation You'll Ever Buy",
+        "heading": "Real results from women who demanded better",
+        "subheading": "Independent 30-day survey of 1,356 verified Vera Lane customers, age 40+.",
+        "footnote": "Survey conducted by Vera Lane Customer Insights, 2026. Results based on self-reported responses from verified buyers.",
+        "bg_color": "#FBF8F6",
+        "heading_color": "#1a1a1a",
+        "text_color": "#444444",
+        "accent_color": "#5C1A33",
+        "card_bg_color": "#FFFFFF",
+        "card_border_color": "#E1DCD8"
+      }
+    },
+    "lumen_grid_benefits": {
+      "type": "lumen-grid-benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Adapts to Your Skin",
+            "description": "Pigment capsules recognise your unique undertone on contact, releasing colour that mirrors your exact shade. No more orange line at the jaw."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Lightweight Hydration",
+            "description": "A flexible, breathable formula that lifts and hydrates instead of caking. Designed for skin that's been through a few decades and still wants to glow."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Buildable Coverage",
+            "description": "Sheer for an everyday look, layerable for full coverage when you want it. Add a second thin layer after 60 seconds — never cakes, never sets thick."
+          }
+        },
+        "benefit_4": {
+          "type": "benefit_item",
+          "settings": {
+            "title": "Confidence That Lasts",
+            "description": "Stays true through hot flashes, humidity, and 16-hour days. No mid-afternoon orange face, no 'floating head' effect at the neck."
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
+      "settings": {
+        "section_label": "Best Tone-Adapting Foundation",
+        "main_title": "What makes it different",
+        "image": "shopify://shop_images/Untitled_design_62.png",
+        "enable_animation": true,
+        "title_font_size_mobile": 30,
+        "title_font_size_desktop": 40,
+        "item_title_font_size_mobile": 16,
+        "item_title_font_size_desktop": 18,
+        "item_text_font_size_mobile": 14,
+        "item_text_font_size_desktop": 14,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
+        "padding_top_desktop": 96,
+        "padding_bottom_desktop": 96
+      }
+    },
+    "vl_science_block": {
+      "type": "vl-image-text",
+      "settings": {
+        "image": "shopify://shop_images/AdaptstoYourSkinToneInstantly_1.png",
+        "image_asset": "",
+        "image_alt": "Vera Lane Tone-Adapting Foundation — dermatologist tested",
+        "heading": "Dermatologist-tested. Built in a research lab, not a marketing room.",
+        "text": "<p><strong>Why this matters:</strong></p><ul><li><strong>Clinical rigour:</strong> tolerance, comfort, and finish evaluated across multiple skin types and undertones.</li><li><strong>Sensitive-skin focus:</strong> lightweight, fast-absorbing formula designed to minimise irritation on rosacea-prone and reactive skin.</li><li><strong>Mature-skin first:</strong> shade-adapting technology validated for a smooth, second-skin result on skin 40+.</li></ul><p>Non-comedogenic. Fragrance-free. Cruelty-free.</p>",
+        "bg_color": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "text_color": "#333333"
+      }
+    },
+    "lumen_before_after": {
+      "type": "lumen-before-after",
+      "blocks": {
+        "card_1": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/1_f148cab1-78ca-4668-b580-6ad71b71f4e6.png",
+            "image_before": "shopify://shop_images/Untitled_design_68.png",
+            "card_name": "Linda, 62",
+            "card_description": "I stopped wearing foundation because it always settled into my fine lines or looked the wrong color. This formula matched my skin tone instantly and feels so light. It doesn't look like makeup; it just looks like I have great skin again.",
+            "show_verified_buyer": true
+          }
+        },
+        "card_2": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/6.png",
+            "image_before": "shopify://shop_images/2.png",
+            "image_after": "shopify://shop_images/image_2_2.png",
+            "card_name": "Michelle, 57",
+            "card_description": "Tricky undertones, lots of redness — buying foundation online used to terrify me. This neutralised my redness immediately and blended right into my neck. No more 'floating head' effect.",
+            "show_verified_buyer": true
+          }
+        },
+        "card_3": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/woman-13.jpg",
+            "image_before": "shopify://shop_images/3.png",
+            "image_after": "shopify://shop_images/image_2_2.png",
+            "card_name": "Diane, 54",
+            "card_description": "Being fair, 'universal' shades usually turn orange on me within an hour. This one actually stayed true to my pale complexion. Finally a perfect match for fair skin.",
+            "show_verified_buyer": true
+          }
+        },
+        "card_4": {
+          "type": "testimonial_card",
+          "settings": {
+            "image_mode": "single",
+            "image_single": "shopify://shop_images/8_460d018c-39c2-4345-baba-bbf6b6e2a747.png",
+            "image_before": "shopify://shop_images/1.png",
+            "image_after": "shopify://shop_images/CleanShot2025-09-11at22.41.55_2x_58285bd6-1b08-4051-8b2c-b005b1881927.png",
+            "card_name": "Amanda, 47",
+            "card_description": "Fair skin with natural redness — most foundations look like a thick mask. This neutralised it instantly. It adapted to my pale tone perfectly. No orange line, just calm, even skin.",
+            "show_verified_buyer": true
+          }
+        }
+      },
+      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "settings": {
+        "section_id": "results",
+        "section_title": "Before & After",
+        "enable_animation": true
+      }
+    },
+    "lumen_trustpilot": {
+      "type": "lumen-trustpilot",
+      "settings": {
+        "stars_image": "shopify://shop_images/Frame_523.png",
+        "stars_image_alt": "4.8 out of 5 stars",
+        "rating_text": "4.8 OUT OF 5 BASED ON 10,839 REVIEWS",
+        "enable_animation": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_left_right": 20
+      }
+    },
+    "vl_review_cards": {
+      "type": "vl-review-cards",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-7.jpg",
+            "rating": 5,
+            "date": "Mar 18, 2026",
+            "title": "Finally found my perfect match",
+            "quote": "I'm 58 and have tried everything. This actually blends into my skin without settling into lines. My daughter asked what I was doing differently!",
+            "name": "Margaret S.",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-2.jpg",
+            "rating": 5,
+            "date": "Mar 5, 2026",
+            "title": "No more orange face",
+            "quote": "At 52, I've tried every foundation that promises to match. The color-matching on this one is real. No more checking mirrors worried I look orange by lunch.",
+            "name": "Patricia L.",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-3.jpg",
+            "rating": 5,
+            "date": "Feb 20, 2026",
+            "title": "Worth every penny",
+            "quote": "At 50, I've wasted so much money on foundations that cake or crease. This one doesn't. It just works.",
+            "name": "Linda K.",
+            "verified": true
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-4.jpg",
+            "rating": 5,
+            "date": "Jan 25, 2026",
+            "title": "Finally something for rosacea",
+            "quote": "At 52, my rosacea has always made foundation tricky. This neutralizes redness without looking like a mask. Game changer for mature skin.",
+            "name": "Carol B.",
+            "verified": true
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-5.jpg",
+            "rating": 5,
+            "date": "Jan 12, 2026",
+            "title": "Skeptic turned believer",
+            "quote": "At 55, I rolled my eyes at 'adapts to your skin tone' but it actually does. Bought 3 more for backup.",
+            "name": "Barbara R.",
+            "verified": true
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-6.jpg",
+            "rating": 5,
+            "date": "Dec 28, 2025",
+            "title": "Survives hot flashes",
+            "quote": "At 55, hot flashes were melting my makeup off by noon. This stays put even when I'm having a moment. Lifesaver.",
+            "name": "Nancy W.",
+            "verified": true
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "review-image-1.jpg",
+            "rating": 4,
+            "date": "Feb 8, 2026",
+            "title": "Good but wish it had more shades",
+            "quote": "At 60, I'd given up on foundation. This changed that. Lightweight and natural. Would love deeper shade options.",
+            "name": "Susan M.",
+            "verified": true
+          }
+        },
+        "review_8": {
+          "type": "review",
+          "settings": {
+            "review_image_asset": "",
+            "rating": 5,
+            "date": "Dec 15, 2025",
+            "title": "My go-to now",
+            "quote": "Threw out my other foundations. This is the only one I need. Matches perfectly and my skin can breathe.",
+            "name": "Dorothy H.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5",
+        "review_6",
+        "review_7",
+        "review_8"
+      ],
+      "settings": {
+        "section_id": "reviews",
+        "headline": "What our customers say",
+        "show_rating_summary": true,
+        "rating_summary_text": "Rated 4.8/5 based on 10,839 reviews",
+        "initial_count": 6,
+        "load_more_text": "Load more reviews",
+        "see_all_text": "",
+        "see_all_url": "",
+        "bg_color": "#ffffff",
+        "card_bg_color": "#ffffff",
+        "star_color": "#fbbf24",
+        "text_color": "#4b5563",
+        "name_color": "#374151"
+      }
+    },
+    "lumen_faq": {
+      "type": "lumen-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it really adapt to MY skin tone?",
+            "answer": "<p>Yes. The pigment microcapsules respond to your skin's own undertone on contact, releasing colour that mirrors your specific shade. You'll see it start working in around 30 seconds and reach perfect match in 2–3 minutes. It's chemistry, not marketing.</p><p>Works on fair through medium-dark tones, including cool, neutral, warm and olive undertones. Specifically formulated for mature skin (40+).</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How is this different from cheap color-changing foundations?",
+            "answer": "<p>Most cheap color-changing foundations use a basic tint that 'reacts' to one neutral mid-tone. We use microencapsulated pigments engineered to respond to your individual undertone — so the shade actually matches you, not a generic average.</p><p>Built in a research lab, dermatologist-tested for sensitive and mature skin, with anti-darkening microspheres that prevent the dreaded 3pm orange face.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe for sensitive / rosacea-prone skin?",
+            "answer": "<p>Yes. Dermatologist-tested on sensitive skin. The formula is fragrance-free, alcohol-free, non-comedogenic and avoids common irritants. We always recommend a patch test on the inside of your wrist if your skin is particularly reactive.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it turn orange during the day?",
+            "answer": "<p>No. Our SebumSmart™ pigment release was specifically designed to prevent oxidation — the chemical reaction that turns cheaper foundations orange over the course of a day. Anti-darkening microspheres keep the shade true from morning to night.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if the coverage isn't enough?",
+            "answer": "<p>Apply your first thin layer, wait 60–90 seconds, then add a second thin layer where you need more coverage. This builds up colour without ever feeling thick or cakey. Spot-conceal age spots or redness with a tiny extra dot.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does the 30-day guarantee work?",
+            "answer": "<p><strong>Try it for 30 days, risk-free.</strong> If the formula doesn't adapt perfectly to your skin tone — or you simply don't love it — let us know and we'll refund you 100%. No questions, return shipping included.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Ingredients",
+            "answer": "<p>Skin-first formula built around three hero ingredients: <strong>Glycerin</strong> for moisture, <strong>Bisabolol</strong> with tone-evening pigments to calm redness, and <strong>Vitamin E</strong> to nourish.</p>",
+            "popup_enabled": true,
+            "popup_trigger_text": "See full ingredient list",
+            "popup_title": "Full ingredient list",
+            "popup_content": "<p>Listed in INCI order. Last updated 2026-05-22.</p><ul><li>AQUA (WATER)</li><li>GLYCERIN</li><li>BISABOLOL</li><li>TOCOPHEROL (VITAMIN E)</li><li>DIMETHICONE</li><li>CYCLOPENTASILOXANE</li><li>TITANIUM DIOXIDE</li><li>IRON OXIDES (CI 77491, CI 77492, CI 77499)</li><li>MICA</li><li>PHENOXYETHANOL</li><li>BUTYLENE GLYCOL</li><li>SODIUM CHLORIDE</li></ul>"
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Shipping & returns",
+            "answer": "<p><strong>Fast & secure delivery.</strong> Orders ship within 1–2 business days. Free U.S. shipping on orders over $[threshold]. Tracked shipping included.</p><p><strong>Zero-stress returns.</strong> Try it for 30 days. If you're not delighted, just contact us for a full refund. No complicated forms, no hidden fees.</p>",
+            "popup_enabled": false,
+            "popup_trigger_text": "",
+            "popup_title": "",
+            "popup_content": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8"
+      ],
+      "settings": {
+        "section_id": "faq",
+        "section_label": "FAQ Section",
+        "main_heading": "Frequently Asked Questions",
+        "sticky_heading": true,
+        "first_item_open": 0,
+        "enable_animation": true,
+        "background_color": "#ffffff",
+        "heading_color": "#000000",
+        "question_color": "#000000",
+        "answer_color": "#333333",
+        "icon_color": "#000000",
+        "border_color": "#e5e5e5",
+        "heading_font_size_mobile": 36,
+        "heading_font_size_desktop": 56,
+        "question_font_size_mobile": 16,
+        "question_font_size_desktop": 18,
+        "question_text_transform": "uppercase",
+        "answer_font_size_mobile": 16,
+        "answer_font_size_desktop": 16,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_horizontal_mobile": 24,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_horizontal_desktop": 80
+      }
+    },
+    "vl_about_brand": {
+      "type": "vl-rich-text",
+      "settings": {
+        "subheading": "About Vera Lane",
+        "content": "<p>Vera Lane is built on the idea that women 40+ deserve formulas made for them — not afterthoughts. We engineer foundations with proper undertone variety, pigments that work with your skin's natural chemistry, and technology that adapts to hormonal change instead of fighting it.</p><p>No shortcuts, no cakey shades, no orange face. Just foundation made to actually work for you.</p>",
+        "bg_color": "#FBF8F6",
+        "heading_color": "#5C1A33",
+        "text_color": "#333333",
+        "link_color": "#5C1A33"
+      }
+    },
+    "lumen_usp": {
+      "type": "lumen-usp",
+      "settings": {
+        "aria_label": "Reasons to choose Vera Lane",
+        "background_color": "#ffffff",
+        "enable_animation": true,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_left_right_mobile": 20,
+        "padding_top_tablet": 56,
+        "padding_bottom_tablet": 56,
+        "padding_left_right_tablet": 40,
+        "padding_top_desktop": 72,
+        "padding_bottom_desktop": 72,
+        "padding_left_right_desktop": 72
+      }
+    },
+    "vl_sticky_cta": {
+      "type": "vl-sticky-cta",
+      "settings": {
+        "url": "#product",
+        "button_text": "ADD TO CART — TRY IT TODAY",
+        "show_amazon_icon": false,
+        "bg_color": "#ffffff",
+        "button_bg_color": "#5C1A33",
+        "button_text_color": "#ffffff",
+        "icon_bg_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "lumen_pdp_hero",
+    "vl_step_by_step",
+    "vl_pdp_stats_grid",
+    "lumen_grid_benefits",
+    "vl_science_block",
+    "lumen_before_after",
+    "lumen_trustpilot",
+    "vl_review_cards",
+    "lumen_faq",
+    "vl_about_brand",
+    "lumen_usp",
+    "vl_sticky_cta"
+  ]
+}
