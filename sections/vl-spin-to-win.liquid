@@ -25,6 +25,12 @@
 >
   <div class="vl-spin__overlay" role="dialog" aria-modal="true" aria-labelledby="vl-spin-title">
     <div class="vl-spin__card" data-card>
+      <button class="vl-spin__close" type="button" data-close aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
       {%- comment -%} STEP 1: SPINNING — opens here, wheel animates immediately {%- endcomment -%}
       <div class="vl-spin__step vl-spin__step--spinning" data-step="spinning">
         {%- if product_image != blank or section.settings.product_name != blank -%}
@@ -354,6 +360,7 @@
     var emailInput = root.querySelector('[data-email-input]');
     var errorEl = root.querySelector('[data-error]');
     var claimBtn = root.querySelector('[data-claim-btn]');
+    var closeBtn = root.querySelector('[data-close]');
     var wheelActive = root.querySelector('[data-wheel-active] svg');
 
     var capturedUrl = null;
@@ -635,6 +642,23 @@
         close();
       });
     }
+
+    // Close without submitting email is treated as a soft completion:
+    // the gate has been seen, the user opted out, and we don't re-gate
+    // their next CTA click. Same localStorage flag + same label swap as
+    // a successful submit, just no Klaviyo write and no Amazon redirect.
+    function softClose() {
+      markCompleted();
+      applyPostSpinLabels();
+      trackEvent('SpinToWinDismissed', 'spin_to_win_dismissed', {
+        page_url: window.location.pathname,
+        // Which step they were on when they closed — useful for funnel analysis
+        step: stepWin && !stepWin.hidden ? 'win' : 'spinning'
+      });
+      close();
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', softClose);
 
     // Live-toggle the claim button's disabled state as the user types.
     // The button starts disabled (server-rendered) and only enables when
