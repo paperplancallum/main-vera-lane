@@ -1,0 +1,114 @@
+{%- liquid
+  assign number = section.settings.number | default: '1'
+  assign title = section.settings.title
+  assign body = section.settings.body
+  assign image_asset = section.settings.image_asset
+  assign layout = section.settings.layout | default: 'image-right'
+-%}
+
+<section class="vl-lr-reason vl-lr-reason--{{ layout }}">
+  <div class="vl-lr-reason__grid">
+    <div class="vl-lr-reason__img">
+      {% if image_asset != blank %}
+        <img src="{{ image_asset | asset_url }}" alt="" loading="lazy" decoding="async">
+      {% endif %}
+    </div>
+    <div class="vl-lr-reason__content">
+      {% if title != blank %}
+        <h2 class="vl-lr-reason__h2">{{ number }}. {{ title }}</h2>
+      {% endif %}
+      {% if body != blank %}
+        <div class="vl-lr-reason__body">{{ body }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .vl-lr-reason {
+    background: #fff;
+    color: #000;
+    font-family: 'Mulish', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    padding: 12px 0;
+  }
+  .vl-lr-reason__grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  .vl-lr-reason__img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .vl-lr-reason__img img {
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  .vl-lr-reason__content { max-width: 560px; margin: 0 auto; }
+  .vl-lr-reason__h2 {
+    font-family: 'Source Serif 4','Source Serif Pro','Open Sans','Mulish',serif;
+    font-weight: 800;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.2;
+    color: #000;
+    margin: 0 0 14px;
+    letter-spacing: -0.005em;
+  }
+  .vl-lr-reason__body {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #1a1a1a;
+  }
+  .vl-lr-reason__body p { margin: 0 0 14px; }
+  .vl-lr-reason__body p:last-child { margin-bottom: 0; }
+
+  @media (min-width: 960px) {
+    .vl-lr-reason { padding: 16px 0; }
+    .vl-lr-reason__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      padding: 0 32px;
+    }
+    .vl-lr-reason--image-left .vl-lr-reason__img { order: 1; }
+    .vl-lr-reason--image-left .vl-lr-reason__content { order: 2; }
+    .vl-lr-reason--image-right .vl-lr-reason__img { order: 2; }
+    .vl-lr-reason--image-right .vl-lr-reason__content { order: 1; }
+    .vl-lr-reason__img img { max-width: 100%; }
+    .vl-lr-reason__content { max-width: 100%; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "VL LR · Reason",
+  "settings": [
+    { "type": "text", "id": "number", "label": "Number", "default": "1" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "image_asset", "label": "Image asset filename", "info": "e.g. lp-li-2-reason-1.jpg" },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout (desktop)",
+      "options": [
+        { "value": "image-right", "label": "Image right" },
+        { "value": "image-left", "label": "Image left" }
+      ],
+      "default": "image-right"
+    }
+  ],
+  "presets": [
+    { "name": "VL LR · Reason" }
+  ]
+}
+{% endschema %}

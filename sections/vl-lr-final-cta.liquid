@@ -1,0 +1,56 @@
+{%- liquid
+  assign heading = section.settings.heading | default: 'If you made it to the end, you deserve the face you had 15 years ago.'
+  assign btn_text = section.settings.btn_text | default: 'GET ACCESS TO SOLUTION NOW'
+  assign btn_url = section.settings.btn_url | default: '/products/color-changing-foundation'
+-%}
+
+<section class="vl-lr-final-cta">
+  <div class="vl-lr-final-cta__inner">
+    <h2 class="vl-lr-final-cta__h2">{{ heading }}</h2>
+    <a class="vl-lr-final-cta__btn" href="{{ btn_url }}">{{ btn_text }}</a>
+  </div>
+</section>
+
+{% stylesheet %}
+  .vl-lr-final-cta {
+    background: #fff;
+    padding: 64px 16px 88px;
+    font-family: 'Mulish', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  .vl-lr-final-cta__inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .vl-lr-final-cta__h2 {
+    font-family: 'Source Serif 4','Source Serif Pro','Open Sans','Mulish',serif;
+    font-weight: 800;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.25;
+    color: #000;
+    margin: 0 0 28px;
+  }
+  .vl-lr-final-cta__btn {
+    display: inline-block;
+    background: #F8B2B3;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    transition: opacity .15s ease;
+  }
+  .vl-lr-final-cta__btn:hover { opacity: 0.85; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "VL LR · Final CTA",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "If you made it to the end, you deserve the face you had 15 years ago." },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "GET ACCESS TO SOLUTION NOW" },
+    { "type": "url", "id": "btn_url", "label": "Button URL" }
+  ],
+  "presets": [
+    { "name": "VL LR · Final CTA" }
+  ]
+}
+{% endschema %}

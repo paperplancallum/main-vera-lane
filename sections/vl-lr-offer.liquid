@@ -1,0 +1,132 @@
+{%- liquid
+  assign heading = section.settings.heading | default: 'Click Below and Claim Your Special Offer Today!'
+  assign btn_text = section.settings.btn_text | default: 'Claim Special Offer Now →'
+  assign btn_url = section.settings.btn_url | default: '/products/color-changing-foundation'
+  assign image_asset = section.settings.image_asset
+  assign image_url = section.settings.image_url
+  assign hours = section.settings.countdown_hours | default: 1
+  assign shipping_text = section.settings.shipping_text | default: 'FAST & FREE SHIPPING AVAILABLE!'
+-%}
+
+<section id="vl-lr-offer" class="vl-lr-offer" data-vl-lr-offer>
+  <div class="vl-lr-offer__card">
+    <div class="vl-lr-offer__image">
+      {% if image_asset != blank %}
+        <img src="{{ image_asset | asset_url }}" alt="{{ heading }}" loading="lazy">
+      {% elsif image_url != blank %}
+        <img src="{{ image_url }}" alt="{{ heading }}" loading="lazy">
+      {% endif %}
+    </div>
+    <div class="vl-lr-offer__content">
+      <h2 class="vl-lr-offer__h2">{{ heading }}</h2>
+      <a href="{{ btn_url }}" class="vl-lr-offer__btn">{{ btn_text }}</a>
+      <div class="vl-lr-offer__timer">
+        Ending in: <span class="vl-lr-offer__time"><span data-vl-lr-oh>00</span> : <span data-vl-lr-om>59</span> : <span data-vl-lr-os>59</span></span>
+      </div>
+      <div class="vl-lr-offer__shipping">{{ shipping_text }}</div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .vl-lr-offer {
+    background: #fff;
+    padding: 48px 16px;
+    font-family: 'Mulish', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  .vl-lr-offer__card {
+    max-width: 1080px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+  .vl-lr-offer__image { display: flex; justify-content: center; }
+  .vl-lr-offer__image img { width: 100%; max-width: 360px; height: auto; display: block; border-radius: 6px; }
+  .vl-lr-offer__content { text-align: center; }
+  .vl-lr-offer__h2 {
+    font-family: 'Source Serif 4','Source Serif Pro','Open Sans','Mulish',serif;
+    font-weight: 800;
+    font-size: clamp(22px, 2.8vw, 30px);
+    line-height: 1.2;
+    margin: 0 0 24px;
+    color: #000;
+  }
+  .vl-lr-offer__btn {
+    display: inline-block;
+    background: #F8B2B3;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 18px 36px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: opacity .15s ease, transform .15s ease;
+    box-shadow: 0 4px 12px rgba(248,178,179,0.4);
+  }
+  .vl-lr-offer__btn:hover { opacity: 0.92; transform: translateY(-1px); }
+  .vl-lr-offer__timer { margin-top: 18px; font-size: 14px; color: #333; font-weight: 600; }
+  .vl-lr-offer__time { font-variant-numeric: tabular-nums; color: #d32f2f; font-weight: 800; margin-left: 4px; }
+  .vl-lr-offer__shipping { margin-top: 8px; font-size: 12px; color: #d32f2f; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  @media (min-width: 768px) {
+    .vl-lr-offer { padding: 56px 16px; }
+    .vl-lr-offer__card { grid-template-columns: 1fr 1.4fr; gap: 40px; padding: 40px; }
+    .vl-lr-offer__content { text-align: left; }
+  }
+{% endstylesheet %}
+
+<script>
+  (function(){
+    var root = document.querySelector('[data-vl-lr-offer]');
+    if (!root) return;
+    var hEl = root.querySelector('[data-vl-lr-oh]');
+    var mEl = root.querySelector('[data-vl-lr-om]');
+    var sEl = root.querySelector('[data-vl-lr-os]');
+    var key = 'vlLrOfferEnd';
+    var hours = {{ hours | json }};
+    var end = parseInt(sessionStorage.getItem(key), 10);
+    if (!end || isNaN(end) || end <= Date.now()) {
+      end = Date.now() + hours * 60 * 60 * 1000;
+      sessionStorage.setItem(key, String(end));
+    }
+    function pad(n){ return n < 10 ? '0' + n : '' + n; }
+    function tick(){
+      var ms = Math.max(0, end - Date.now());
+      var s = Math.floor(ms / 1000);
+      var h = Math.floor(s / 3600); s = s - h * 3600;
+      var m = Math.floor(s / 60); s = s - m * 60;
+      if (hEl) hEl.textContent = pad(h);
+      if (mEl) mEl.textContent = pad(m);
+      if (sEl) sEl.textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VL LR · Offer Card",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Click Below and Claim Your Special Offer Today!" },
+    { "type": "text", "id": "image_asset", "label": "Product image asset filename" },
+    { "type": "text", "id": "image_url", "label": "Product image URL (fallback)" },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "Claim Special Offer Now →" },
+    { "type": "url", "id": "btn_url", "label": "Button URL" },
+    { "type": "range", "id": "countdown_hours", "label": "Countdown hours", "min": 1, "max": 72, "step": 1, "default": 1 },
+    { "type": "text", "id": "shipping_text", "label": "Shipping line", "default": "FAST & FREE SHIPPING AVAILABLE!" }
+  ],
+  "presets": [
+    { "name": "VL LR · Offer Card" }
+  ]
+}
+{% endschema %}
