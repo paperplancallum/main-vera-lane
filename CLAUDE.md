@@ -66,14 +66,27 @@ Never create a landing page without the `lp-` prefix.
    - `POST /admin/api/2024-01/pages.json` with `template_suffix` matching template filename
    - Store: `1cw77g-ef`, scopes: `read_content,write_content,read_themes,write_themes`
 
-### Image Generation (fal.ai)
-- Always use fal.ai, never MCP tools for image generation
-- Model: `fal-ai/nano-banana-2` via queue endpoint (`https://queue.fal.run/fal-ai/nano-banana-2`)
-- Sync endpoint (`fal.run`) requires auth for nano-banana-2; use async queue instead
-- Resolution must be uppercase: `"0.5K"`, `"1K"`, `"2K"`, `"4K"` (not lowercase)
-- Auth: `FAL_KEY` env variable, header `Authorization: Key $FAL_KEY`
-- Queue workflow: POST to submit → poll status_url → GET response_url for result
-- Images go in `assets/` as JPG, referenced via `image_asset` / `bg_image_asset` in templates
+### Image Generation — PREFERRED: product-accurate generator (`scripts/image-gen/`)
+- For any image where the **product is visible**, use `scripts/image-gen/` — it
+  conditions on the real packshot via GPT Image 2's `/edit` endpoint so the bottle,
+  cap, label, and (critically) the **white formula** render accurately instead of
+  being invented. See `scripts/image-gen/README.md`.
+- Two paths, set per prompt: `needs_product_images: true` → `gpt-image-2/edit` +
+  real reference; `false` → `gpt-image-2` text-to-image + auto "do NOT show product".
+- Canonical packshot: `scripts/image-gen/product-images/` (uploaded once per run).
+  Brand spec / prompt modifier: `scripts/image-gen/brand-dna.md`.
+- Run: `FAL_KEY=… node scripts/image-gen/engine.js --prompts scripts/image-gen/prompts/<set>.json`
+  (`--dry-run` to preview routing, `--quality medium` for cheap test passes).
+- Always `Authorization: Key $FAL_KEY`; always the **queue** endpoint
+  (`queue.fal.run`) with polling — the sync endpoint times out ~60s.
+
+### Image Generation — legacy text-to-image (Nano Banana 2)
+- Older one-off scripts (e.g. `scripts/generate-lp-li-2-images.js`) use
+  `fal-ai/nano-banana-2` (queue endpoint, text-to-image, no product reference).
+  Fine for pure lifestyle/scene images; do NOT use it for product shots — it
+  invents a wrong bottle. Prefer the product-accurate generator above.
+- Resolution must be uppercase: `"0.5K"`, `"1K"`, `"2K"`, `"4K"` (not lowercase).
+- Generated images go in `assets/` as JPG, referenced via `image_asset` / `bg_image_asset`.
 
 ### Image Naming Convention
 - Hero: `lp-<short-slug>-hero.jpg`

@@ -1,0 +1,36 @@
+{
+  "brand": "Vera Lane Cosmetics",
+  "product": "Tone Adapting Foundation",
+  "_notes": "needs_product_images:true -> /edit with the real packshot + auto 'match precisely' clause. false -> text-to-image + auto 'do NOT show the product'. The brand prompt modifier is prepended to every prompt automatically; just describe the scene. chain_from reuses an earlier image's output as an extra reference for visual consistency.",
+  "prompts": [
+    {
+      "id": 1,
+      "name": "hero-packshot-on-marble",
+      "needs_product_images": true,
+      "aspect_ratio": "4:5",
+      "prompt": "Create a premium hero packshot: the foundation bottle standing upright on a cream marble surface, a soft swatch of white cream beside its base, fresh out-of-focus botanical sprig in the background, soft morning light, lots of negative space above for headline copy."
+    },
+    {
+      "id": 2,
+      "name": "in-hand-ugc",
+      "needs_product_images": true,
+      "aspect_ratio": "9:16",
+      "prompt": "Create an authentic UGC-style vertical shot: a young woman's hand (mid-20s, natural skin) holding the bottle up near her face in soft window light at home, slightly imperfect phone-camera feel, relatable bathroom-counter setting blurred behind."
+    },
+    {
+      "id": 3,
+      "name": "lifestyle-morning-routine",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Create an aspirational lifestyle scene: a relaxed woman in her late 20s with glowing, even, natural skin smiling softly by a sunlit window, morning skincare-routine mood, warm neutral bathroom. Focus entirely on her radiant complexion and the calm mood."
+    },
+    {
+      "id": 4,
+      "name": "lifestyle-story-version",
+      "needs_product_images": false,
+      "aspect_ratio": "9:16",
+      "chain_from": [3],
+      "prompt": "Vertical story crop of the same scene and same woman — match the exact model, styling, lighting and colour grade from the reference image. Reframe for a 9:16 composition with headroom at the top for text."
+    }
+  ]
+}

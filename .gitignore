@@ -13,3 +13,7 @@ scripts/shopify-oauth.js   # contains a Shopify App shared secret (keep local on
 # Cloudflare Worker local build/deps
 redirect-worker/node_modules/
 redirect-worker/.wrangler/
+
+# Image generator scratch outputs (keep the folder, not the renders)
+scripts/image-gen/outputs/*
+!scripts/image-gen/outputs/.gitkeep

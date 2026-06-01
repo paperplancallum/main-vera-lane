@@ -1,0 +1,112 @@
+{
+  "brand": "Vera Lane Cosmetics",
+  "product": "Tone Adapting Foundation",
+  "_notes": "Image set for the repositioned lp-li-3 (18-30 / Gen-Z skincare-makeup-hybrid angle). Product shots route to /edit with the real packshot; lifestyle shots are text-to-image with the auto 'no product' negative. Reason/review/product images render 1:1; hero is 16:9. All models should read as 18-28, fresh and relatable.",
+  "prompts": [
+    {
+      "id": 1,
+      "name": "lp-li-3-hero",
+      "needs_product_images": false,
+      "aspect_ratio": "16:9",
+      "prompt": "Create an aspirational but relatable hero image: a happy young woman around 23 with luminous, dewy 'glass-skin' glow and healthy natural makeup, fresh-faced, soft genuine smile, looking just past camera. Soft morning daylight, clean warm-neutral background, lots of negative space on the left for a headline. Real skin texture, no plastic AI sheen."
+    },
+    {
+      "id": 2,
+      "name": "lp-li-3-reason-1",
+      "needs_product_images": true,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a clean demo of the tone-adapting effect: the foundation bottle standing upright on a soft neutral surface; beside it, a small dab of the PURE WHITE cream on a young woman's bare forearm (light-medium skin) caught mid-blend, the edges of the white dab melting into a perfectly skin-matched tone — visually showing the white formula adapting to skin. Soft daylight, minimal background."
+    },
+    {
+      "id": 3,
+      "name": "lp-li-3-reason-2",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create an extreme close-up of a young woman's cheek and under-eye showing breathable, weightless, my-skin-but-better coverage: even and soft but still real skin with subtle natural texture, absolutely not cakey, not a heavy mask. Soft daylight, photorealistic."
+    },
+    {
+      "id": 4,
+      "name": "lp-li-3-reason-3",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a beauty close-up of a young woman (mid-20s) with a soft, dewy, lit-from-within 'glass skin' glow — hydrated, plump, luminous, healthy. Even soft lighting, glow-from-within finish, warm-neutral background. Photorealistic, real skin."
+    },
+    {
+      "id": 5,
+      "name": "lp-li-3-reason-4",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a half-face close-up of a young woman demonstrating a soft-focus 'real-life filter' effect: pores and tiny texture visibly softened and blurred across the cheek while skin still looks natural, selfie-flattering. Even editorial lighting, photorealistic."
+    },
+    {
+      "id": 6,
+      "name": "lp-li-3-reason-5",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a modern lifestyle shot: a young woman in her early 20s sitting at a laptop in soft indoor light, calm and healthy glowing skin lit gently by the screen, cozy minimal desk setting blurred behind. Conveys skin protected against screen time and city life. Photorealistic."
+    },
+    {
+      "id": 7,
+      "name": "lp-li-3-reason-6",
+      "needs_product_images": true,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a skincare-meets-makeup flat-lay: the foundation bottle as the hero, surrounded by skincare cues — a glass dropper, glossy serum/water droplets, a small dish of niacinamide-like cream, and a fresh green botanical leaf — on a soft pastel surface, soft overhead daylight. Communicates a skincare-makeup hybrid. Clean, premium."
+    },
+    {
+      "id": 8,
+      "name": "lp-li-3-reason-7",
+      "needs_product_images": true,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a clean-beauty still life: the foundation bottle on a minimal pale surface beside a single fresh green leaf and a couple of smooth stones, lots of negative space, soft natural light. Calm, clean, vegan, non-toxic aesthetic. No clutter."
+    },
+    {
+      "id": 9,
+      "name": "lp-li-3-reason-8",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create an inclusive group beauty shot: three young women (around 20-28) with different skin tones — fair, medium/olive, and deep — standing together in soft natural light, all with healthy glowing even skin, warm genuine expressions. Neutral editorial background. Photorealistic, real skin texture."
+    },
+    {
+      "id": 10,
+      "name": "lp-li-3-reason-9",
+      "needs_product_images": true,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a trendy content-creator vanity scene: the foundation bottle standing on a clean modern vanity with a soft ring-light glow and a blurred phone on a small stand nearby (screen blank, no text or logos), warm aesthetic 'going viral' mood. Soft flattering light. Do not invent any award badges, logos, or on-screen text."
+    },
+    {
+      "id": 11,
+      "name": "lp-li-3-reason-10",
+      "needs_product_images": true,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a fresh unboxing scene: the foundation bottle resting beside an open blush-pink shipping box with a small blank thank-you card and soft tissue paper, on a clean light surface, gentle daylight, premium-but-playful aesthetic. Leave the card blank (no text)."
+    },
+    {
+      "id": 12,
+      "name": "lp-li-3-product",
+      "needs_product_images": true,
+      "aspect_ratio": "1:1",
+      "prompt": "Create a clean hero packshot of the foundation bottle standing upright on a soft cream marble surface with a small swatch of white cream beside its base and gentle morning light, blurred warm-neutral background. Premium, simple, centered."
+    },
+    {
+      "id": 13,
+      "name": "lp-li-3-review-1",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create an authentic UGC-style selfie of a happy young woman around 23 with combination/oily but glowing, clear skin and natural makeup, casual bedroom or bathroom setting in soft daylight, slightly imperfect phone-camera feel. Relatable, real, no studio polish."
+    },
+    {
+      "id": 14,
+      "name": "lp-li-3-review-2",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create an authentic UGC-style selfie of a cheerful young woman around 26 with fair, pink-undertone skin and a fresh dewy glow, casual indoor setting, soft window light, natural phone-selfie feel. Relatable and real."
+    },
+    {
+      "id": 15,
+      "name": "lp-li-3-review-3",
+      "needs_product_images": false,
+      "aspect_ratio": "1:1",
+      "prompt": "Create an authentic UGC-style selfie of a young woman around 25 with a luminous glass-skin glow and minimal natural makeup, casual everyday setting, soft daylight, genuine relaxed smile, natural phone-selfie feel. Relatable and real."
+    }
+  ]
+}
