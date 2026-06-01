@@ -1,0 +1,15 @@
+# Secrets — never commit
+.env
+.env.*
+scripts/shopify-oauth.js   # contains a Shopify App shared secret (keep local only)
+
+# OS / editor junk
+.DS_Store
+**/.DS_Store
+
+# Tooling scratch
+.playwright-mcp/
+
+# Cloudflare Worker local build/deps
+redirect-worker/node_modules/
+redirect-worker/.wrangler/

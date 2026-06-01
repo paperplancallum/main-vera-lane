@@ -1,0 +1,120 @@
+{%- liquid
+  assign image_asset = section.settings.image_asset
+  assign headline = section.settings.headline
+  assign subheadline = section.settings.subheadline
+  assign intro_body = section.settings.intro_body
+  assign author_name = section.settings.author_name | default: 'Juliana'
+  assign author_date = section.settings.author_date | default: 'Last Updated November 2025'
+  assign author_avatar = section.settings.author_avatar
+  assign author_avatar_asset = section.settings.author_avatar_asset
+-%}
+
+<section class="vl-lr-hero">
+  {% if image_asset != blank %}
+    <div class="vl-lr-hero__banner">
+      <img src="{{ image_asset | asset_url }}" alt="" loading="eager" decoding="async">
+    </div>
+  {% endif %}
+
+  <div class="vl-lr-hero__text">
+    {% if headline != blank %}<h1 class="vl-lr-hero__h1">{{ headline }}</h1>{% endif %}
+    {% if subheadline != blank %}<p class="vl-lr-hero__sub"><strong>{{ subheadline }}</strong></p>{% endif %}
+    {% if intro_body != blank %}<div class="vl-lr-hero__body">{{ intro_body }}</div>{% endif %}
+  </div>
+
+  <div class="vl-lr-hero__author">
+    {% if author_avatar_asset != blank %}
+      <img class="vl-lr-hero__author-avatar" src="{{ author_avatar_asset | asset_url }}" alt="{{ author_name }}" loading="lazy">
+    {% elsif author_avatar != blank %}
+      <img class="vl-lr-hero__author-avatar" src="{{ author_avatar }}" alt="{{ author_name }}" loading="lazy">
+    {% endif %}
+    <div class="vl-lr-hero__author-info">
+      <div>By <strong>{{ author_name }}</strong></div>
+      <span>{{ author_date }}</span>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .vl-lr-hero {
+    background: #fff;
+    color: #000;
+    font-family: 'Mulish', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  .vl-lr-hero__banner {
+    max-width: 1080px;
+    margin: 32px auto 0;
+    padding: 0 16px;
+  }
+  .vl-lr-hero__banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .vl-lr-hero__text {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 16px 8px;
+  }
+  .vl-lr-hero__h1 {
+    font-family: 'Source Serif 4','Source Serif Pro','Open Sans','Mulish',serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4.4vw, 46px);
+    line-height: 1.12;
+    color: #000;
+    margin: 0 0 20px;
+    letter-spacing: -0.015em;
+  }
+  .vl-lr-hero__sub {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.55;
+    color: #000;
+    margin: 0 0 20px;
+  }
+  .vl-lr-hero__body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2a2a2a;
+  }
+  .vl-lr-hero__body p { margin: 0 0 16px; }
+  .vl-lr-hero__author {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 28px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .vl-lr-hero__author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .vl-lr-hero__author-info { font-size: 14px; line-height: 1.4; color: #333; }
+  .vl-lr-hero__author-info strong { color: #000; }
+  .vl-lr-hero__author-info span { color: #666; display: block; margin-top: 2px; font-size: 13px; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "VL LR · Hero",
+  "settings": [
+    { "type": "text", "id": "image_asset", "label": "Hero image (theme asset filename)", "info": "e.g. lp-li-2-hero.jpg" },
+    { "type": "text", "id": "headline", "label": "Headline (H1)" },
+    { "type": "textarea", "id": "subheadline", "label": "Subheadline (bold paragraph)" },
+    { "type": "richtext", "id": "intro_body", "label": "Intro paragraph" },
+    { "type": "header", "content": "Author byline" },
+    { "type": "text", "id": "author_name", "label": "Author name", "default": "Juliana" },
+    { "type": "text", "id": "author_date", "label": "Date line", "default": "Last Updated November 2025" },
+    { "type": "text", "id": "author_avatar_asset", "label": "Avatar asset filename", "info": "Theme asset filename, takes priority over URL below" },
+    { "type": "text", "id": "author_avatar", "label": "Avatar image URL" }
+  ],
+  "presets": [
+    { "name": "VL LR · Hero" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+{%- liquid
+  assign sale_label = section.settings.sale_label | default: 'MEMORIAL DAY SALE | Ends In'
+  assign btn_text = section.settings.btn_text | default: 'CLAIM OFFER'
+  assign target_anchor = section.settings.target_anchor | default: '#vl-lr-offer'
+  assign hours = section.settings.countdown_hours | default: 1
+  assign bg_color = section.settings.bg_color | default: '#F8B2B3'
+  assign text_color = section.settings.text_color | default: '#000000'
+  assign btn_bg = section.settings.btn_bg | default: '#FFFFFF'
+  assign btn_text_color = section.settings.btn_text_color | default: '#000000'
+-%}
+
+<div class="vl-lr-promo-bar" role="region" aria-label="Promotional offer countdown" data-vl-lr-promo>
+  <div class="vl-lr-promo-bar__inner">
+    <div class="vl-lr-promo-bar__text">
+      <strong>{{ sale_label }}</strong>
+    </div>
+    <div class="vl-lr-promo-bar__timer" aria-label="Countdown timer">
+      <span class="vl-lr-promo-bar__tbox" data-vl-lr-h>00</span>
+      <span class="vl-lr-promo-bar__dot">·</span>
+      <span class="vl-lr-promo-bar__tbox" data-vl-lr-m>59</span>
+      <span class="vl-lr-promo-bar__dot">·</span>
+      <span class="vl-lr-promo-bar__tbox" data-vl-lr-s>59</span>
+    </div>
+    <a class="vl-lr-promo-bar__btn" href="{{ target_anchor }}" aria-label="{{ btn_text }}">{{ btn_text }}</a>
+  </div>
+</div>
+<div class="vl-lr-promo-bar-spacer" aria-hidden="true"></div>
+
+{% stylesheet %}
+  .vl-lr-promo-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    background: var(--vl-lr-promo-bg, #F8B2B3);
+    color: var(--vl-lr-promo-fg, #000);
+    font-family: 'Mulish', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .vl-lr-promo-bar__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+  }
+  .vl-lr-promo-bar__text {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .vl-lr-promo-bar__timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .vl-lr-promo-bar__tbox {
+    background: transparent;
+    padding: 0;
+    min-width: 24px;
+    text-align: center;
+    font-feature-settings: "tnum";
+    font-weight: 600;
+  }
+  .vl-lr-promo-bar__dot { opacity: 0.5; font-weight: 400; }
+  .vl-lr-promo-bar__btn {
+    display: inline-block;
+    background: var(--vl-lr-promo-btn-bg, #FFFFFF);
+    color: var(--vl-lr-promo-btn-fg, #000);
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: opacity .15s ease;
+    text-transform: uppercase;
+  }
+  .vl-lr-promo-bar__btn:hover { opacity: 0.85; }
+  .vl-lr-promo-bar-spacer { height: 56px; }
+  @media (max-width: 640px) {
+    .vl-lr-promo-bar__inner {
+      grid-template-columns: 1fr auto;
+      grid-template-areas: "text btn" "timer btn";
+      padding: 10px 16px;
+      gap: 4px 12px;
+    }
+    .vl-lr-promo-bar__text { grid-area: text; font-size: 11px; }
+    .vl-lr-promo-bar__timer { grid-area: timer; font-size: 13px; }
+    .vl-lr-promo-bar__btn { grid-area: btn; align-self: center; font-size: 11px; padding: 8px 14px; }
+    .vl-lr-promo-bar-spacer { height: 64px; }
+  }
+{% endstylesheet %}
+
+<style>
+  .vl-lr-promo-bar { --vl-lr-promo-bg: {{ bg_color }}; --vl-lr-promo-fg: {{ text_color }}; --vl-lr-promo-btn-bg: {{ btn_bg }}; --vl-lr-promo-btn-fg: {{ btn_text_color }}; }
+</style>
+
+<script>
+  (function(){
+    var root = document.querySelector('[data-vl-lr-promo]');
+    if (!root) return;
+    var hEl = root.querySelector('[data-vl-lr-h]');
+    var mEl = root.querySelector('[data-vl-lr-m]');
+    var sEl = root.querySelector('[data-vl-lr-s]');
+    var key = 'vlLrPromoEnd';
+    var hours = {{ hours | json }};
+    var end = parseInt(sessionStorage.getItem(key), 10);
+    if (!end || isNaN(end) || end <= Date.now()) {
+      end = Date.now() + hours * 60 * 60 * 1000;
+      sessionStorage.setItem(key, String(end));
+    }
+    function pad(n){ return n < 10 ? '0' + n : '' + n; }
+    function tick(){
+      var ms = Math.max(0, end - Date.now());
+      var s = Math.floor(ms / 1000);
+      var h = Math.floor(s / 3600); s = s - h * 3600;
+      var m = Math.floor(s / 60); s = s - m * 60;
+      if (hEl) hEl.textContent = pad(h);
+      if (mEl) mEl.textContent = pad(m);
+      if (sEl) sEl.textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VL LR · Promo Bar",
+  "settings": [
+    { "type": "text", "id": "sale_label", "label": "Sale label", "default": "MEMORIAL DAY SALE | Ends In" },
+    { "type": "range", "id": "countdown_hours", "label": "Countdown hours", "min": 1, "max": 72, "step": 1, "default": 1 },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "CLAIM OFFER" },
+    { "type": "text", "id": "target_anchor", "label": "Button target anchor", "default": "#vl-lr-offer" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F8B2B3" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#000000" },
+    { "type": "color", "id": "btn_bg", "label": "Button background", "default": "#FFFFFF" },
+    { "type": "color", "id": "btn_text_color", "label": "Button text", "default": "#000000" }
+  ],
+  "presets": [
+    { "name": "VL LR · Promo Bar" }
+  ]
+}
+{% endschema %}
