@@ -1,0 +1,9 @@
+name = "veralane-redirect"
+main = "src/worker.js"
+compatibility_date = "2025-01-01"
+
+# Bind the worker to the subdomain. Cloudflare auto-provisions DNS + TLS for a
+# custom domain, so no separate DNS record is needed.
+[[routes]]
+pattern = "try.veralanecosmetics.com"
+custom_domain = true
