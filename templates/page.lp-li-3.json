@@ -4,7 +4,7 @@
     "promo_bar": {
       "type": "vl-lr-promo-bar",
       "settings": {
-        "sale_label": "Memorial Day Sale | Ends In",
+        "sale_label": "Viral Restock — Up to 50% Off | Ends In",
         "countdown_hours": 24,
         "btn_text": "CLAIM OFFER",
         "target_anchor": "#vl-lr-offer",
@@ -18,11 +18,11 @@
       "type": "vl-lr-hero",
       "settings": {
         "image_asset": "lp-li-3-hero.jpg",
-        "headline": "10 Reasons Women Over 50 Look 35 Again With This Tone-Adapting Foundation",
-        "subheadline": "The tone-adapting formula thousands of mature women are using to turn back the clock — without injections, fillers, or anyone knowing the difference.",
-        "intro_body": "<p>There are thousands of foundations promising younger-looking skin. But only one was engineered to adapt to mature skin's changing chemistry throughout the day. Vera Lane doesn't just cover imperfections — it reshapes how light hits your face, making women look 10–15 years younger in under 30 seconds.</p>",
-        "author_name": "Juliana",
-        "author_date": "Last Updated November 2025",
+        "headline": "10 Reasons This Viral Skincare-Makeup Hybrid Became Gen Z's Only Foundation",
+        "subheadline": "The tone-adapting, skin-loving formula blowing up on TikTok — one shade that melts into your skin, treats it while you wear it, and gives that lit-from-within glow with no cake, no clog, and zero shade-matching.",
+        "intro_body": "<p>There are thousands of foundations promising 'your skin but better.' Only one is actually a skincare-makeup hybrid — a weightless, tone-adapting formula that calibrates to your exact undertone in seconds while niacinamide and hyaluronic acid go to work underneath. Named the <strong>#1 Foundation by Korean Beauty Insider</strong>, it gives glowy, real-looking skin with no shade-matching, no cakey mask, and no 11am breakout — which is exactly why it keeps going viral.</p>",
+        "author_name": "Mia",
+        "author_date": "Last Updated June 2026",
         "author_avatar": "https://cdn.shopify.com/s/files/1/0924/3649/6730/files/uut9ptsdtewysqlavjgn.avif"
       }
     },
@@ -30,8 +30,8 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "1",
-        "title": "It Actually Matches Your Skin — Not a Lab's Guess",
-        "body": "<p>Every other foundation forces you to pick a shade from a row of pre-mixed tubes. Vera Lane does the opposite. The tone-adapting pigments inside each capsule release and blend the moment they touch your skin, calibrating to your exact undertone in under 30 seconds.</p><p>That means no more pink cheeks. No more orange jawline. No more shopping between three half-empty bottles trying to mix \"the right colour.\" One shade. Your skin. A perfect match — every time.</p>",
+        "title": "One Shade Matches Everyone — So You Can Finally Buy Foundation Online",
+        "body": "<p>Every other foundation makes you gamble: scroll 40 shades, guess your undertone, and pray the one that ships isn't too pink or too orange. Vera Lane flips it. The tone-adapting pigments stay pure white in the bottle, then release and blend the second they touch your skin — calibrating to your exact undertone in under 30 seconds.</p><p>One shade. Every undertone. No swatching, no returns, no 'why doesn't my face match my neck.' It just works — which is why it sells out every time it restocks.</p>",
         "image_asset": "lp-li-3-reason-1.jpg",
         "layout": "image-right"
       }
@@ -40,9 +40,9 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "2",
-        "title": "It Doesn't Settle Into Fine Lines and Wrinkles",
-        "body": "<p>Most foundations are built on heavy, oil-thirsty pigments that pool into every line by lunchtime. On mature skin, that turns a soft crease into a deep canyon — instantly adding years.</p><p>Vera Lane uses flexible micro-pigments suspended in a hydrating, weightless serum base. The formula moves with your skin instead of settling into it, so lines look softer at hour 12 than they did at hour one.</p>",
-        "image_asset": "lp-li-2-reason-2.jpg",
+        "title": "It Feels Like Skin — Never Cakey, Never a Mask",
+        "body": "<p>The reason most foundation looks 'done' is weight. Heavy pigments sit on top of your skin, settle into texture, and turn into a flat mask by lunch. Not the vibe.</p><p>Vera Lane suspends flexible micro-pigments in a weightless serum base, so it melts in instead of sitting on top. You get real, breathable, my-skin-but-better coverage that moves with your face — the no-makeup-makeup look everyone's actually after.</p>",
+        "image_asset": "lp-li-3-reason-2.jpg",
         "layout": "image-left"
       }
     },
@@ -50,8 +50,8 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "3",
-        "title": "It Restores The Plump, Dewy Look of Your 30s",
-        "body": "<p>The dullness that creeps in after 40 isn't a coverage problem — it's a light problem. Skin loses its ability to reflect light evenly, so even \"glow\" foundations end up looking flat or chalky.</p><p>Vera Lane is infused with hyaluronic acid, squalane, and light-diffusing botanical extracts that bounce light the way young skin does. The result is the kind of soft, lit-from-within finish that makes people ask what you've been doing differently.</p>",
+        "title": "That Lit-From-Within 'Glass Skin' Glow",
+        "body": "<p>Dull, flat, cakey — the three things that age a selfie. Most 'glow' foundations fake it with shimmer that reads as greasy in real light.</p><p>Vera Lane is infused with hyaluronic acid, squalane, and light-diffusing botanicals that bounce light the way healthy skin does. The result is that soft, dewy, lit-from-within finish — the glass-skin glow your whole For You page is chasing.</p>",
         "image_asset": "lp-li-3-reason-3.jpg",
         "layout": "image-right"
       }
@@ -60,9 +60,9 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "4",
-        "title": "It Creates The \"Soft Focus\" Effect Of Younger Skin",
-        "body": "<p>You don't need more coverage. You need better light. The texture you're trying to hide — fine lines, enlarged pores, uneven tone — is mostly visible because it casts tiny shadows on your skin.</p><p>The blurring spheres in Vera Lane scatter those shadows the way a soft-focus camera filter does. Texture disappears without a layer of opaque pigment. Your skin still looks like skin — just the version of it you remember.</p>",
-        "image_asset": "lp-li-2-reason-4.jpg",
+        "title": "It Blurs Pores and Texture Like a Real-Life Filter",
+        "body": "<p>Pores, little bumps, redness — most of what you want to hide is only visible because it casts tiny shadows on your skin. More coverage just makes it cakey.</p><p>The soft-focus spheres in Vera Lane scatter those shadows the way a beauty filter does, so texture softens without a heavy layer of pigment. Translation: you look flawless in photos, on camera, and in harsh bathroom lighting — no filter required.</p>",
+        "image_asset": "lp-li-3-reason-4.jpg",
         "layout": "image-left"
       }
     },
@@ -70,9 +70,9 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "5",
-        "title": "It Protects Your Skin From Further Aging",
-        "body": "<p>Most foundations age you twice: once visually, by emphasising texture, and again chemically, by clogging pores and stripping moisture overnight.</p><p>Vera Lane is built around a barrier-supporting complex of niacinamide, vitamin E, and Centella Asiatica. While you wear it, it actively shields against UV stress, blue light, and pollution — three of the biggest accelerators of visible aging in women over 50.</p>",
-        "image_asset": "lp-li-2-reason-5.jpg",
+        "title": "It Shields Your Skin From Blue Light and Pollution",
+        "body": "<p>Between phone screens, city air, and nine hours a day staring at a laptop, your skin takes a beating most makeup ignores — or makes worse by clogging it.</p><p>Vera Lane is built around a barrier-supporting complex of niacinamide, vitamin E, and Centella Asiatica that actively shields against blue light, UV stress, and pollution while you wear it. It's coverage that defends your skin instead of suffocating it.</p>",
+        "image_asset": "lp-li-3-reason-5.jpg",
         "layout": "image-right"
       }
     },
@@ -80,9 +80,9 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "6",
-        "title": "It Improves Your Skin The Longer You Wear It",
-        "body": "<p>Conventional foundations cover. Vera Lane treats. Each application delivers a measured dose of skincare-grade actives that work on tone, firmness, and elasticity from the moment they touch your face.</p><p>In a 60-day in-house study, 9 out of 10 women reported visibly firmer, more even skin after consistent wear — even on the days they wiped it off and went bare.</p>",
-        "image_asset": "lp-li-2-reason-6.jpg",
+        "title": "It's Skincare and Makeup in One — It Treats Your Skin While You Wear It",
+        "body": "<p>This is the part that makes it a hybrid, not just a foundation. Every application delivers a real dose of skincare-grade actives — niacinamide to even tone and calm redness, hyaluronic acid to hydrate, and botanicals to support your barrier.</p><p>So the longer you wear it, the better your bare skin gets. In a 60-day in-house study, 9 out of 10 testers reported clearer, more even skin — even on the days they skipped it. It's the only makeup that doubles as a skincare step.</p>",
+        "image_asset": "lp-li-3-reason-6.jpg",
         "layout": "image-left"
       }
     },
@@ -90,8 +90,8 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "7",
-        "title": "It's Formulated With Clean, Non-Toxic Ingredients",
-        "body": "<p>Vera Lane is free from parabens, sulphates, synthetic fragrance, phthalates, talc, and the dozen other ingredients dermatologists now flag as long-term irritants on mature skin.</p><p>Cruelty-free. Vegan. Made in a GMP-certified lab. Tested on dozens of skin tones — never animals. The full ingredient list lives on every box, with nothing hidden behind \"fragrance.\"</p>",
+        "title": "Non-Comedogenic, Clean, and Vegan — It Won't Clog or Break You Out",
+        "body": "<p>If foundation usually means a fresh breakout by day three, that's the formula — not your skin. Vera Lane is non-comedogenic and free from parabens, sulphates, synthetic fragrance, phthalates, and talc — the usual pore-clogging, irritation-triggering suspects.</p><p>Cruelty-free, vegan, and made in a GMP-certified lab. The full ingredient list is on every box, with nothing hidden behind 'fragrance.' Safe to wear every single day.</p>",
         "image_asset": "lp-li-3-reason-7.jpg",
         "layout": "image-right"
       }
@@ -100,9 +100,9 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "8",
-        "title": "It Works For Every Skin Tone, Type, and Age",
-        "body": "<p>One shade adapts to fair, medium, olive, and deep skin alike — because the pigments respond to your own melanin levels, not a chart. Dry skin gets hydration. Oily skin gets balance. Combination skin gets evenness.</p><p>Women in their late 30s use it for prevention. Women in their 70s use it for the lift it gives sunken areas. The formula doesn't pick a decade.</p>",
-        "image_asset": "lp-li-2-reason-8.jpg",
+        "title": "It Works on Every Undertone — and Every Skin Type",
+        "body": "<p>One shade adapts to fair, medium, olive, and deep skin alike, because the pigments respond to your own melanin — not a chart. But it doesn't stop at tone.</p><p>Oily skin gets balance instead of a midday slick. Dry skin gets hydration instead of flaking. Acne-prone and sensitive skin get a non-comedogenic formula that calms instead of irritates. Whatever your skin's doing, it adapts.</p>",
+        "image_asset": "lp-li-3-reason-8.jpg",
         "layout": "image-left"
       }
     },
@@ -110,8 +110,8 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "9",
-        "title": "It's A Dermatologist-Recommended Formula",
-        "body": "<p>Vera Lane was developed alongside a panel of board-certified dermatologists who specialise in mature skin. Every ingredient was vetted for safety, efficacy, and barrier compatibility — and every batch is tested for purity before it ships.</p><p>If you've spent the last decade chasing prescription serums, you'll recognise the actives inside. The difference is that Vera Lane delivers them through the makeup you were already going to wear.</p>",
+        "title": "It Was Named #1 Foundation by Korean Beauty Insider",
+        "body": "<p>You've probably already seen it on your feed — the tone-adapting 'white foundation that turns into your shade' clips have racked up millions of views, and every restock sells out. But it's not just hype: <strong>Korean Beauty Insider named it their #1 Foundation</strong>, and it's earned 12,400+ five-star reviews and counting.</p><p>The recognition holds up because the formula does. Every ingredient is dermatologist-tested for safety and barrier compatibility, and every batch is purity-tested before it ships. Viral, award-winning, and legit — all at once.</p>",
         "image_asset": "lp-li-3-reason-9.jpg",
         "layout": "image-right"
       }
@@ -120,8 +120,8 @@
       "type": "vl-lr-reason",
       "settings": {
         "number": "10",
-        "title": "30-Day Risk-Free Trial — Or Your Money Back",
-        "body": "<p>You don't owe anyone an opinion on day one. Try Vera Lane for a full 30 days, in your real life, under your real lighting. If you don't see the change — in your mirror, in your photos, in the way people respond to you — send it back. We'll refund every dollar, no questions, no restocking fee, no awkward email chain.</p><p>It's the same guarantee we'd want our mothers and sisters to get. And it's the reason we can promise this is the last foundation you'll ever shop for.</p>",
+        "title": "Try It for 30 Days — Love It or Your Money Back",
+        "body": "<p>You shouldn't have to decide from a swatch on a screen. Try Vera Lane for a full 30 days, in your real life and your real lighting. Wear it to class, to work, on camera, on a night out.</p><p>If it's not the easiest, glowiest foundation you've owned, send it back for a full refund — no restocking fee, no awkward email chain. That's how sure we are it'll earn a permanent spot in your bag.</p>",
         "image_asset": "lp-li-3-reason-10.jpg",
         "layout": "image-left"
       }
@@ -130,7 +130,7 @@
       "type": "vl-lr-offer",
       "settings": {
         "heading": "Click Below and Claim Your Special Offer Today!",
-        "image_asset": "lp-li-3-reason-10.jpg",
+        "image_asset": "lp-li-3-product.jpg",
         "btn_text": "Claim Special Offer Now →",
         "btn_url": "/products/color-changing-foundation",
         "countdown_hours": 24,
@@ -143,43 +143,46 @@
         "review_1": {
           "type": "review",
           "settings": {
-            "name_and_age": "Melissa, 47",
+            "name_and_age": "Mia, 23",
             "stars_text": "⭐⭐⭐⭐⭐",
-            "image_url": "https://images.pagedeck-cdn.com/upload/c_limit,q_80,w_3840,f_auto/v1762979788/vrwxrsqnufbmbjfmexvv.jpg",
-            "quote": "<p>\"I was three weeks away from booking a lower facelift because I couldn't stand the way I looked in photos anymore. A friend sent me this. I tried it on a Thursday and cancelled the consultation on Monday. It doesn't just cover — it gives me my face back.\"</p>"
+            "image_url": "",
+            "image_asset": "lp-li-3-review-1.jpg",
+            "quote": "<p>\"I have oily, acne-prone skin and every foundation either breaks me out or slides off by noon. This is the first one that actually stays, doesn't clog me, and somehow my skin looks better when I take it off. 'Obsessed' isn't a strong enough word.\"</p>"
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "name_and_age": "Karen, 54",
+            "name_and_age": "Zoe, 26",
             "stars_text": "⭐⭐⭐⭐⭐",
-            "image_url": "https://images.pagedeck-cdn.com/upload/c_limit,q_80,w_3840,f_auto/v1762979926/cyburriu3osrp5ojr6vt.jpg",
-            "quote": "<p>\"Menopause turned my skin into a science project — orange by 11am, grey by 5. Vera Lane is the first foundation that actually moves with my chemistry instead of fighting it. Eight hours in and the shade is still the shade I put on.\"</p>"
+            "image_url": "",
+            "image_asset": "lp-li-3-review-2.jpg",
+            "quote": "<p>\"Bought it because of TikTok, fully expecting to be let down. Nope. The white-to-your-shade thing is unreal — it matched me perfectly and I'm pretty fair with pink undertones. The glow is the part I can't get over.\"</p>"
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "name_and_age": "Christine, 46",
+            "name_and_age": "Priya, 25",
             "stars_text": "⭐⭐⭐⭐⭐",
-            "image_url": "https://images.pagedeck-cdn.com/upload/c_limit,q_80,w_3840,f_auto/v1762979939/aodshnftxhixo7swuhqn.jpg",
-            "quote": "<p>\"Ran into my ex and his new girlfriend at a restaurant — she's 31. She complimented my skin and asked what serum I was using. I just smiled. This is the first time in a decade I've felt like the most polished person in the room.\"</p>"
+            "image_url": "",
+            "image_asset": "lp-li-3-review-3.jpg",
+            "quote": "<p>\"I used to layer primer, foundation, concealer, setting powder… now it's just this. One step, glass-skin glow, and it photographs like I've got a filter on in real life. It replaced about four products in my routine.\"</p>"
           }
         }
       },
       "block_order": ["review_1", "review_2", "review_3"],
       "settings": {
         "reviews_count": "12,400+ Verified Reviews",
-        "heading": "What Women Are Saying",
-        "subheading": "Real Transformations From Real Women"
+        "heading": "What Everyone's Saying",
+        "subheading": "Real Reviews From Real Skin"
       }
     },
     "final_cta": {
       "type": "vl-lr-final-cta",
       "settings": {
-        "heading": "If you made it to the end, you deserve the face you had 15 years ago.",
-        "btn_text": "GET ACCESS TO SOLUTION NOW",
+        "heading": "If you made it this far, your skin's getting the upgrade it deserves.",
+        "btn_text": "GET YOURS BEFORE IT SELLS OUT",
         "btn_url": "/products/color-changing-foundation"
       }
     }
