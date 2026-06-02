@@ -1,91 +1,103 @@
 {
   "brand": "Vera Lane Cosmetics",
   "product": "Tone Adapting Foundation",
-  "_notes": "Image set for the repositioned lp-li-3 (18-30 / Gen-Z skincare-makeup-hybrid angle). Product shots route to /edit with the real packshot; lifestyle shots are text-to-image with the auto 'no product' negative. Reason/review/product images render 1:1; hero is 16:9. All models should read as 18-28, fresh and relatable.",
+  "_notes": "lp-li-3 (18-30 skincare-makeup-hybrid). FULL UGC aesthetic: every image uses skip_modifier (raw phone-photo look, no editorial polish). Product shots still route to /edit so the bottle/label render accurately; lifestyle shots are text-to-image. Reason/review/product render 1:1; hero is 16:9. Models read as real, relatable, not-a-model people.",
   "prompts": [
     {
       "id": 1,
       "name": "lp-li-3-hero",
-      "needs_product_images": false,
+      "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "16:9",
-      "prompt": "Create an aspirational but relatable hero image: a happy young woman around 23 with luminous, dewy 'glass-skin' glow and healthy natural makeup, fresh-faced, soft genuine smile, looking just past camera. Soft morning daylight, clean warm-neutral background, lots of negative space on the left for a headline. Real skin texture, no plastic AI sheen."
+      "prompt": "A candid, authentic phone photo of a real young woman around 23 with glowy but real skin (relatable, not a model), sitting by a window in her bedroom holding the foundation bottle and smiling naturally at the camera. Everyday lived-in setting, soft natural window light with the flat look of a phone camera, faint grain, slightly imperfect candid framing, landscape orientation with the girl to one side and her room behind. Looks like a real photo a customer would post — not a studio or editorial shoot. The bottle is clearly visible and in focus."
     },
     {
       "id": 2,
       "name": "lp-li-3-reason-1",
       "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a clean demo of the tone-adapting effect: the foundation bottle standing upright on a soft neutral surface; beside it, a small dab of the PURE WHITE cream on a young woman's bare forearm (light-medium skin) caught mid-blend, the edges of the white dab melting into a perfectly skin-matched tone — visually showing the white formula adapting to skin. Soft daylight, minimal background."
+      "prompt": "An authentic phone photo of a customer demonstrating the product: the foundation bottle held in one hand while the other bare forearm shows a swatch of the PURE WHITE cream half-blended into the skin, shot casually from the user's own POV in everyday indoor lighting. Slightly grainy, real skin, imperfect framing — clearly showing the white formula adapting to a skin-matched tone. Not a studio shot."
     },
     {
       "id": 3,
       "name": "lp-li-3-reason-2",
       "needs_product_images": false,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create an extreme close-up of a young woman's cheek and under-eye showing breathable, weightless, my-skin-but-better coverage: even and soft but still real skin with subtle natural texture, absolutely not cakey, not a heavy mask. Soft daylight, photorealistic."
+      "prompt": "A close-up phone selfie of a real young woman's cheek and under-eye showing breathable, my-skin-but-better coverage — even but real, with natural texture and a couple of visible pores, definitely not cakey. Flat phone-camera lighting, faint grain, candid. Looks like a real review close-up, not editorial."
     },
     {
       "id": 4,
       "name": "lp-li-3-reason-3",
       "needs_product_images": false,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a beauty close-up of a young woman (mid-20s) with a soft, dewy, lit-from-within 'glass skin' glow — hydrated, plump, luminous, healthy. Even soft lighting, glow-from-within finish, warm-neutral background. Photorealistic, real skin."
+      "prompt": "A casual phone selfie of a real young woman around 24 showing off her dewy, lit-from-within 'glass skin' glow, natural happy expression. Everyday indoor setting, soft light with phone-camera flatness, faint grain, candid imperfect framing. Authentic review-photo vibe — not a model, not a studio shot."
     },
     {
       "id": 5,
       "name": "lp-li-3-reason-4",
       "needs_product_images": false,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a half-face close-up of a young woman demonstrating a soft-focus 'real-life filter' effect: pores and tiny texture visibly softened and blurred across the cheek while skin still looks natural, selfie-flattering. Even editorial lighting, photorealistic."
+      "prompt": "A real, un-retouched phone selfie close-up of a young woman's face showing how the foundation softly blurs pores and texture while still looking like real skin — part of her face in sharp focus. Flat front-camera lighting, slight grain, candid framing. Looks like an honest 'no filter' review photo."
     },
     {
       "id": 6,
       "name": "lp-li-3-reason-5",
       "needs_product_images": false,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a modern lifestyle shot: a young woman in her early 20s sitting at a laptop in soft indoor light, calm and healthy glowing skin lit gently by the screen, cozy minimal desk setting blurred behind. Conveys skin protected against screen time and city life. Photorealistic."
+      "prompt": "A candid phone photo of a real young woman in her early 20s sitting at her laptop at home, healthy glowing skin lit by the screen and a lamp, casual messy desk around her. Everyday, slightly grainy, un-staged. Looks like a real snapshot, not a stock or editorial photo."
     },
     {
       "id": 7,
       "name": "lp-li-3-reason-6",
       "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a skincare-meets-makeup flat-lay: the foundation bottle as the hero, surrounded by skincare cues — a glass dropper, glossy serum/water droplets, a small dish of niacinamide-like cream, and a fresh green botanical leaf — on a soft pastel surface, soft overhead daylight. Communicates a skincare-makeup hybrid. Clean, premium."
+      "prompt": "An authentic phone 'shelfie': the foundation bottle sitting on a real bathroom shelf or counter among actual skincare products — a serum dropper, a moisturizer jar, a few everyday items — soft real bathroom lighting, slightly cluttered and lived-in, casual from-above or counter angle, faint grain. Looks like a real customer's shelf showing it's a skincare-makeup hybrid, not a styled studio set."
     },
     {
       "id": 8,
       "name": "lp-li-3-reason-7",
       "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a clean-beauty still life: the foundation bottle on a minimal pale surface beside a single fresh green leaf and a couple of smooth stones, lots of negative space, soft natural light. Calm, clean, vegan, non-toxic aesthetic. No clutter."
+      "prompt": "A casual phone photo of a hand holding the foundation bottle turned to show it, in everyday indoor lighting against a simple real background (a bedroom or bathroom) with a small green plant nearby. Relatable, slightly grainy, un-styled. Looks like a real customer photo, not a clean-beauty studio still life. The label stays readable."
     },
     {
       "id": 9,
       "name": "lp-li-3-reason-8",
       "needs_product_images": false,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create an inclusive group beauty shot: three young women (around 20-28) with different skin tones — fair, medium/olive, and deep — standing together in soft natural light, all with healthy glowing even skin, warm genuine expressions. Neutral editorial background. Photorealistic, real skin texture."
+      "prompt": "An authentic group selfie of three real young women (around 20-28) with different skin tones — fair, medium/olive, and deep — squished together smiling at the phone, all with healthy glowing real skin. Casual everyday setting, flat front-camera lighting, faint grain, candid imperfect framing. Looks like a real friends' selfie, not a diverse-cast studio shoot."
     },
     {
       "id": 10,
       "name": "lp-li-3-reason-9",
       "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a trendy content-creator vanity scene: the foundation bottle standing on a clean modern vanity with a soft ring-light glow and a blurred phone on a small stand nearby (screen blank, no text or logos), warm aesthetic 'going viral' mood. Soft flattering light. Do not invent any award badges, logos, or on-screen text."
+      "prompt": "An authentic behind-the-scenes phone photo: the foundation bottle on a real desk or vanity next to a phone propped on a small stand (screen blank, no text or logos) and a ring light, as if a creator just filmed a review — casual, lived-in, slightly cluttered, faint grain. Do not invent any award badges, logos, or on-screen text. Looks like a real snapshot."
     },
     {
       "id": 11,
       "name": "lp-li-3-reason-10",
       "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a fresh unboxing scene: the foundation bottle resting beside an open blush-pink shipping box with a small blank thank-you card and soft tissue paper, on a clean light surface, gentle daylight, premium-but-playful aesthetic. Leave the card blank (no text)."
+      "prompt": "An authentic unboxing phone photo: the foundation bottle just taken out of a blush-pink shipping mailer on a bed or lap, tissue paper and the open package around it, held in one hand. Everyday bedroom lighting, faint grain, casual POV framing. Looks like a real customer's unboxing photo. Leave any card blank (no text)."
     },
     {
       "id": 12,
       "name": "lp-li-3-product",
       "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create a clean hero packshot of the foundation bottle standing upright on a soft cream marble surface with a small swatch of white cream beside its base and gentle morning light, blurred warm-neutral background. Premium, simple, centered."
+      "prompt": "An authentic but clear phone photo of the foundation bottle held in a hand or standing on a clean real bathroom counter in nice soft natural light — the bottle prominent, well-lit, and fully in focus with its label readable. Casual and real (not a studio packshot) but flattering enough to show the product clearly. Faint grain, simple real background."
     },
     {
       "id": 13,
