@@ -55,5 +55,51 @@
         }
       });
     </script>
+    <script>
+      // Listicle/advertorial -> product detail page click tracking (CTR).
+      // Fires to GA4 (reliable) and Meta (direct tr beacon, works even when
+      // fbq isn't loaded on landing pages, plus fbq if present).
+      (function () {
+        var META_PIXEL_ID = "2280168542489572";
+        document.addEventListener("click", function (e) {
+          var link = e.target.closest ? e.target.closest("a[href]") : null;
+          if (!link) return;
+          var url;
+          try { url = new URL(link.href, window.location.origin); } catch (err) { return; }
+          if (url.pathname.indexOf("/products/") !== 0) return;
+
+          var cls = link.className || "";
+          var ctaLocation =
+            cls.indexOf("vl-lr-offer__btn") > -1 ? "offer" :
+            cls.indexOf("vl-lr-final-cta__btn") > -1 ? "final_cta" : "other";
+          var pagePath = window.location.pathname;
+          var dest = url.pathname;
+
+          if (typeof gtag === "function") {
+            gtag("event", "listicle_to_pdp", {
+              cta_location: ctaLocation,
+              page_path: pagePath,
+              link_url: dest
+            });
+          }
+          try {
+            var img = new Image();
+            img.src = "https://www.facebook.com/tr?id=" + META_PIXEL_ID
+              + "&ev=ListicleToPDP"
+              + "&cd[cta_location]=" + encodeURIComponent(ctaLocation)
+              + "&cd[page_path]=" + encodeURIComponent(pagePath)
+              + "&cd[link_url]=" + encodeURIComponent(dest)
+              + "&noscript=1";
+          } catch (err) {}
+          if (typeof fbq === "function") {
+            fbq("trackCustom", "ListicleToPDP", {
+              cta_location: ctaLocation,
+              page_path: pagePath,
+              link_url: dest
+            });
+          }
+        }, true);
+      })();
+    </script>
   </body>
 </html>
