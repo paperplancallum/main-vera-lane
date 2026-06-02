@@ -1,0 +1,207 @@
+{
+  "layout": "theme.vl-landing",
+  "sections": {
+    "promo_bar": {
+      "type": "vl-lr-promo-bar",
+      "settings": {
+        "sale_label": "Virální restock — sleva až 50 % | Končí za",
+        "countdown_hours": 24,
+        "btn_text": "ZÍSKAT NABÍDKU",
+        "target_anchor": "#vl-lr-offer",
+        "bg_color": "#F8B2B3",
+        "text_color": "#000000",
+        "btn_bg": "#FFFFFF",
+        "btn_text_color": "#000000"
+      }
+    },
+    "hero": {
+      "type": "vl-lr-hero",
+      "settings": {
+        "image_asset": "lp-li-3-hero.jpg",
+        "headline": "10 Důvodů, Proč Se Tenhle Virální Hybrid Péče a Make-upu Stal Jediným Make-upem Generace Z",
+        "subheadline": "Formule přizpůsobující se tónu pleti a pečující o ni, která boduje na TikToku — jeden odstín, který splyne s vaší pletí, pečuje o ni během nošení a dodá rozjasnění zevnitř bez efektu masky, bez ucpávání pórů a bez hledání odstínu.",
+        "intro_body": "<p>Existují tisíce make-upů slibujících 'vaši pleť, ale lepší'. Jen jeden je skutečně hybrid péče a make-upu — lehká formule přizpůsobující se tónu, která se za pár sekund nakalibruje na váš přesný podtón, zatímco niacinamid a kyselina hyaluronová pracují pod ním. Označený jako <strong>make-up č. 1 podle Korean Beauty Insider</strong> dodává zářivou, přirozeně vypadající pleť — bez hledání odstínu, bez efektu masky a bez vyrážky v 11 dopoledne. Přesně proto se z něj pořád stává virál.</p>",
+        "author_name": "Eliška",
+        "author_date": "Naposledy aktualizováno: červen 2026",
+        "author_avatar": "https://cdn.shopify.com/s/files/1/0924/3649/6730/files/uut9ptsdtewysqlavjgn.avif"
+      }
+    },
+    "reason_1": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "1",
+        "title": "Jeden Odstín Sedne Každému — Konečně Můžete Kupovat Make-up Online",
+        "body": "<p>Každý jiný make-up je sázka: projedete 40 odstínů, hádáte svůj podtón a modlíte se, aby ten, který dorazí, nebyl moc růžový nebo moc oranžový. Vera Lane to obrací. Pigmenty přizpůsobující se tónu zůstávají v lahvičce čistě bílé a uvolní se a splynou v okamžiku, kdy se dotknou pleti — nakalibrují se na váš přesný podtón za méně než 30 sekund.</p><p>Jeden odstín. Každý podtón. Žádné testování, žádné vracení, žádné 'proč mi obličej nesedí ke krku'. Prostě to funguje — proto se při každém naskladnění vyprodá.</p>",
+        "image_asset": "lp-li-3-reason-1.jpg",
+        "layout": "image-right"
+      }
+    },
+    "reason_2": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "2",
+        "title": "Působí Jako Pleť — Nikdy Těžký, Nikdy Jako Maska",
+        "body": "<p>Důvod, proč většina make-upů vypadá 'nalíčeně', je váha. Těžké pigmenty sedí na povrchu pleti, usazují se v nerovnostech a do oběda se promění v plochou masku. Není to ono.</p><p>Vera Lane drží pružné mikropigmenty v lehké sérové bázi, takže splyne s pletí místo aby ležel na povrchu. Získáte přirozené, prodyšné krytí 'moje pleť, ale lepší', které se pohybuje s obličejem — vzhled no-makeup make-up, o který všem opravdu jde.</p>",
+        "image_asset": "lp-li-3-reason-2.jpg",
+        "layout": "image-left"
+      }
+    },
+    "reason_3": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "3",
+        "title": "To Rozjasnění Zevnitř — Efekt 'Skleněné Pleti'",
+        "body": "<p>Matná, plochá, nalíčená — tři věci, které stárnou selfie. Většina 'rozjasňujících' make-upů ho předstírá třpytkami, které v reálném světle vypadají mastně.</p><p>Vera Lane je obohacen o kyselinu hyaluronovou, skvalan a rozjasňující rostlinné složky, které odrážejí světlo tak, jak to dělá zdravá pleť. Výsledkem je jemné, rosné, zevnitř zářící finále — lesk skleněné pleti, který honí celý váš feed.</p>",
+        "image_asset": "lp-li-3-reason-3.jpg",
+        "layout": "image-right"
+      }
+    },
+    "reason_4": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "4",
+        "title": "Rozostří Póry a Nerovnosti Jako Filtr v Reálu",
+        "body": "<p>Póry, drobné nerovnosti, zarudnutí — většina toho, co chcete skrýt, je vidět jen proto, že vrhá na pleť drobné stíny. Více krytí to jen udělá jako masku.</p><p>Soft-focus částice ve Vera Lane rozptylují tyto stíny tak, jak to dělá zkrášlovací filtr, takže se nerovnosti vyhladí bez těžké vrstvy pigmentu. Překlad: vypadáte dokonale na fotkách, před kamerou i v ostrém světle koupelny — bez filtru.</p>",
+        "image_asset": "lp-li-3-reason-4.jpg",
+        "layout": "image-left"
+      }
+    },
+    "reason_5": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "5",
+        "title": "Chrání Vaši Pleť Před Modrým Světlem a Znečištěním",
+        "body": "<p>Mezi obrazovkami telefonů, městským vzduchem a devíti hodinami denně u notebooku to vaše pleť pořádně schytá — a většina make-upu to ignoruje nebo to zhorší tím, že ji ucpe.</p><p>Vera Lane je postaven na komplexu podporujícím bariéru s niacinamidem, vitaminem E a pupečníkem asijským (Centella Asiatica), který během nošení aktivně chrání před modrým světlem, UV stresem a znečištěním. Je to krytí, které vaši pleť brání místo aby ji dusilo.</p>",
+        "image_asset": "lp-li-3-reason-5.jpg",
+        "layout": "image-right"
+      }
+    },
+    "reason_6": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "6",
+        "title": "Péče a Make-up v Jednom — Pečuje o Vaši Pleť Během Nošení",
+        "body": "<p>Tohle je ta část, která z něj dělá hybrid, ne jen make-up. Každá aplikace dodá skutečnou dávku aktivních látek úrovně péče — niacinamid pro sjednocení tónu a zklidnění zarudnutí, kyselinu hyaluronovou pro hydrataci a rostlinné složky pro podporu bariéry.</p><p>Takže čím déle ho nosíte, tím lepší je vaše holá pleť. V 60denní interní studii 9 z 10 testerek uvedlo čistší a jednotnější pleť — i ve dnech, kdy ho vynechaly. Je to jediný make-up, který je zároveň krokem péče o pleť.</p>",
+        "image_asset": "lp-li-3-reason-6.jpg",
+        "layout": "image-left"
+      }
+    },
+    "reason_7": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "7",
+        "title": "Nekomedogenní, Čistý a Veganský — Neucpe Póry ani Nezpůsobí Vyrážku",
+        "body": "<p>Pokud pro vás make-up obvykle znamená čerstvou vyrážku třetí den, může za to formule — ne vaše pleť. Vera Lane je nekomedogenní a bez parabenů, sulfátů, syntetických parfemací, ftalátů a talku — obvyklých viníků, kteří ucpávají póry a dráždí.</p><p>Netestováno na zvířatech, veganské a vyrobeno v laboratoři s certifikací GMP. Úplné složení je na každé krabičce, nic není schované pod 'parfemace'. Bezpečný pro každodenní nošení.</p>",
+        "image_asset": "lp-li-3-reason-7.jpg",
+        "layout": "image-right"
+      }
+    },
+    "reason_8": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "8",
+        "title": "Funguje na Každý Podtón — i Každý Typ Pleti",
+        "body": "<p>Jeden odstín se přizpůsobí světlé, střední, olivové i tmavé pleti, protože pigmenty reagují na váš vlastní melanin — ne na tabulku. Ale nekončí to u tónu.</p><p>Mastná pleť získá rovnováhu místo odpoledního lesku. Suchá pleť získá hydrataci místo olupování. Aknózní a citlivá pleť získá nekomedogenní formuli, která zklidňuje místo aby dráždila. Ať vaše pleť dělá cokoli, přizpůsobí se.</p>",
+        "image_asset": "lp-li-3-reason-8.jpg",
+        "layout": "image-left"
+      }
+    },
+    "reason_9": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "9",
+        "title": "Byl Označen jako Make-up Č. 1 podle Korean Beauty Insider",
+        "body": "<p>Nejspíš jste ho už viděla ve svém feedu — klipy s 'bílým make-upem, který se mění na váš odstín' nasbíraly miliony zhlédnutí a každé naskladnění se vyprodá. Ale není to jen hype: <strong>Korean Beauty Insider ho označil za svůj make-up č. 1</strong> a získal přes 12 400 pětihvězdičkových recenzí a stále přibývají.</p><p>To uznání obstojí, protože formule funguje. Každá složka je dermatologicky testovaná na bezpečnost a snášenlivost s bariérou pleti a každá šarže je před expedicí testována na čistotu. Virální, oceňovaný a skutečný — vše najednou.</p>",
+        "image_asset": "lp-li-3-reason-9.jpg",
+        "layout": "image-right"
+      }
+    },
+    "reason_10": {
+      "type": "vl-lr-reason",
+      "settings": {
+        "number": "10",
+        "title": "Vyzkoušejte Ho 30 Dní — Zamilujte Si Ho Nebo Vrátíme Peníze",
+        "body": "<p>Neměla byste se rozhodovat podle vzorku na obrazovce. Vyzkoušejte Vera Lane plných 30 dní, ve svém skutečném životě a skutečném světle. Noste ho do školy, do práce, před kameru, na večírek.</p><p>Pokud to nebude ten nejjednodušší a nejzářivější make-up, jaký jste měla, pošlete ho zpět s plnou náhradou — bez poplatků, bez trapné e-mailové výměny. Tak jistí jsme si, že si vyslouží trvalé místo ve vaší kosmetičce.</p>",
+        "image_asset": "lp-li-3-reason-10.jpg",
+        "layout": "image-left"
+      }
+    },
+    "offer": {
+      "type": "vl-lr-offer",
+      "settings": {
+        "heading": "Klikněte Níže a Získejte Svou Speciální Nabídku Ještě Dnes!",
+        "image_asset": "lp-li-3-product.jpg",
+        "btn_text": "Získat Speciální Nabídku →",
+        "btn_url": "/products/color-changing-foundation",
+        "countdown_hours": 24,
+        "shipping_text": "RYCHLÉ A DOPRAVA ZDARMA K DISPOZICI!"
+      }
+    },
+    "reviews": {
+      "type": "vl-lr-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name_and_age": "Tereza, 23",
+            "stars_text": "⭐⭐⭐⭐⭐",
+            "image_url": "",
+            "image_asset": "lp-li-3-review-1.jpg",
+            "quote": "<p>\"Mám mastnou pleť se sklonem k akné a každý make-up mě buď vyrážkou, nebo do poledne sjede. Tohle je první, který opravdu drží, neucpává mě a nějak moje pleť vypadá líp, když ho sundám. 'Posedlá' není dost silné slovo.\"</p>"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name_and_age": "Karolína, 26",
+            "stars_text": "⭐⭐⭐⭐⭐",
+            "image_url": "",
+            "image_asset": "lp-li-3-review-2.jpg",
+            "quote": "<p>\"Koupila jsem ho kvůli TikToku a plně čekala zklamání. Vůbec ne. Ta proměna z bílé na můj odstín je neuvěřitelná — sedl mi dokonale a jsem dost světlá s růžovým podtónem. Nejvíc nemůžu přenést přes srdce ten lesk.\"</p>"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name_and_age": "Adéla, 25",
+            "stars_text": "⭐⭐⭐⭐⭐",
+            "image_url": "",
+            "image_asset": "lp-li-3-review-3.jpg",
+            "quote": "<p>\"Dřív jsem nanášela bázi, make-up, korektor, fixační pudr… teď je to jen tohle. Jeden krok, lesk skleněné pleti a na fotkách to vypadá, jako bych měla filtr v reálu. Nahradilo to asi čtyři produkty v mé rutině.\"</p>"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "reviews_count": "Přes 12 400 Ověřených Recenzí",
+        "heading": "Co Všichni Říkají",
+        "subheading": "Skutečné Recenze od Skutečné Pleti"
+      }
+    },
+    "final_cta": {
+      "type": "vl-lr-final-cta",
+      "settings": {
+        "heading": "Pokud jste se dostala až sem, vaše pleť si zaslouží ten upgrade.",
+        "btn_text": "ZÍSKEJTE SVŮJ NEŽ SE VYPRODÁ",
+        "btn_url": "/products/color-changing-foundation"
+      }
+    }
+  },
+  "order": [
+    "promo_bar",
+    "hero",
+    "reason_1",
+    "reason_2",
+    "reason_3",
+    "reason_4",
+    "reason_5",
+    "reason_6",
+    "reason_7",
+    "reason_8",
+    "reason_9",
+    "reason_10",
+    "offer",
+    "reviews",
+    "final_cta"
+  ]
+}
