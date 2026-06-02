@@ -100,5 +100,5 @@ Never create a landing page without the `lp-` prefix.
 
 ## Shopify CLI
 - Dev server (local preview): `shopify theme dev --store 1cw77g-ef`
-- Live theme ID: `185429229846` (main-vera-lane/main)
+- Live theme ID: `187071955222` (`main-vera-lane/main`, role=main) — verify with `GET /admin/api/2024-01/themes.json` and pick `role==="main"`; IDs change when the GitHub-connected theme is re-linked. (`185429229846` is now the unpublished `main-manual` copy — do not use.)
 - **DO NOT use `shopify theme push` to deploy** — deploy via GitHub merge only (see Deployment Workflow above)
