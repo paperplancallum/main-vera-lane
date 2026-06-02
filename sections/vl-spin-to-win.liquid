@@ -401,7 +401,7 @@
       });
     }
 
-    var fbPixelId = {{ section.settings.fb_pixel_id | default: '2280168542489572' | json }};
+    var fbPixelId = {{ section.settings.fb_pixel_id | default: '2068875434030572' | json }};
 
     // Unified tracking helper — fires to Meta Pixel (script + image beacon
     // fallback for ad-blockers), GA4 via gtag, and GTM-style dataLayer push.
@@ -809,7 +809,7 @@
       "type": "text",
       "id": "fb_pixel_id",
       "label": "Meta Pixel ID",
-      "default": "2280168542489572",
+      "default": "2068875434030572",
       "info": "Used for the image-beacon fallback when fbq is blocked by ad-blockers. Should match the main site pixel."
     },
     {
