@@ -90,23 +90,26 @@
     {
       "id": 13,
       "name": "lp-li-3-review-1",
-      "needs_product_images": false,
+      "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create an authentic UGC-style selfie of a happy young woman around 23 with combination/oily but glowing, clear skin and natural makeup, casual bedroom or bathroom setting in soft daylight, slightly imperfect phone-camera feel. Relatable, real, no studio polish."
+      "prompt": "A raw, authentic front-facing phone selfie that looks like a real customer review photo — NOT a professional shoot, NOT editorial, no shallow depth of field. A relatable, ordinary young woman around 23 (real person, not a model) holding the foundation bottle up next to her cheek, smiling at her phone. Combination/oily skin that's glowy but real, with a few visible pores and the odd tiny blemish. Messy everyday bedroom behind her, flat ordinary indoor lighting with a faint phone-flash sheen, mild sensor grain, slight overexposure, slightly tilted and imperfect framing. The bottle is held clearly in frame and in focus."
     },
     {
       "id": 14,
       "name": "lp-li-3-review-2",
-      "needs_product_images": false,
+      "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create an authentic UGC-style selfie of a cheerful young woman around 26 with fair, pink-undertone skin and a fresh dewy glow, casual indoor setting, soft window light, natural phone-selfie feel. Relatable and real."
+      "prompt": "An authentic bathroom mirror selfie taken on a phone — the phone is visibly held in one hand, the foundation bottle held up toward the mirror in the other. A real young woman around 26 with fair, pink-undertone skin, casual and candid, not a model. Everyday cluttered bathroom, slightly harsh overhead lighting, mild grain, a touch of motion blur, off-center amateur framing. Looks exactly like a real customer's review photo posted online — not retouched, not studio. The bottle label stays clear and readable."
     },
     {
       "id": 15,
       "name": "lp-li-3-review-3",
-      "needs_product_images": false,
+      "needs_product_images": true,
+      "skip_modifier": true,
       "aspect_ratio": "1:1",
-      "prompt": "Create an authentic UGC-style selfie of a young woman around 25 with a luminous glass-skin glow and minimal natural makeup, casual everyday setting, soft daylight, genuine relaxed smile, natural phone-selfie feel. Relatable and real."
+      "prompt": "A casual phone selfie of a real young woman around 25 with a natural glow (relatable, not a model), giving a relaxed smile while holding the foundation bottle up right next to her cheek with her free hand. IMPORTANT: the foundation bottle must be clearly visible, prominent, held beside her face and in sharp focus with its label readable — she is showing it off to the camera the way customers do in review photos. Ordinary living-room or bedroom setting, soft window light mixed with the flat look of a phone front camera, faint grain, slightly off-center candid framing. Genuine UGC review-photo vibe — unpolished, un-retouched, real."
     }
   ]
 }

@@ -121,13 +121,15 @@ async function downloadImage(url, savePath) {
   fs.writeFileSync(savePath, Buffer.from(await res.arrayBuffer()));
 }
 
-/** Assemble the final prompt: brand modifier + (product-match | no-product) + scene. */
+/** Assemble the final prompt: brand modifier + (product-match | no-product) + scene.
+ *  Pass modifier="" (e.g. for raw UGC shots via skip_modifier) to drop the editorial style. */
 function assemblePrompt(scene, needsProduct, modifier) {
-  const parts = [modifier];
+  const parts = [];
+  if (modifier) parts.push(modifier);
   if (needsProduct) parts.push(PRODUCT_MATCH_CLAUSE);
   parts.push(scene);
   if (!needsProduct) parts.push(NO_PRODUCT_CLAUSE);
-  return parts.join('\n\n');
+  return parts.filter(Boolean).join('\n\n');
 }
 
 async function generate({ promptsFile, idsFilter, quality, dryRun, outDir }) {
@@ -186,7 +188,7 @@ async function generate({ promptsFile, idsFilter, quality, dryRun, outDir }) {
 
     const useEdit = refs.length > 0;
     const endpoint = useEdit ? EDIT_ENDPOINT : T2I_ENDPOINT;
-    const fullPrompt = assemblePrompt(p.prompt, needsProduct, modifier);
+    const fullPrompt = assemblePrompt(p.prompt, needsProduct, p.skip_modifier ? '' : modifier);
 
     console.log(`[${base}] -> ${useEdit ? 'edit+refs' : 't2i'}  (${refs.length} ref${refs.length === 1 ? '' : 's'})`);
 
