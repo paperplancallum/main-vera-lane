@@ -132,7 +132,7 @@
         "heading": "Kliknij Poniżej i Odbierz Swoją Specjalną Ofertę Już Dziś!",
         "image_asset": "lp-li-3-product.jpg",
         "btn_text": "Odbierz Specjalną Ofertę →",
-        "btn_url": "/products/color-changing-foundation",
+        "btn_url": "/pl/products/color-changing-foundation",
         "countdown_hours": 24,
         "shipping_text": "SZYBKA I DARMOWA WYSYŁKA DOSTĘPNA!"
       }
@@ -183,7 +183,7 @@
       "settings": {
         "heading": "Jeśli dotarłaś tak daleko, Twoja skóra zasługuje na ten upgrade.",
         "btn_text": "ZGARNIJ SWÓJ ZANIM SIĘ WYPRZEDA",
-        "btn_url": "/products/color-changing-foundation"
+        "btn_url": "/pl/products/color-changing-foundation"
       }
     }
   },
