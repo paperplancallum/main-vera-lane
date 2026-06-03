@@ -1,0 +1,22 @@
+{%- comment -%}
+  Returns a localized product-gallery image URL for a given locale + media position,
+  or empty string if there's no localized version (falls back to the original media).
+
+  Positions 2-6 are localized (position 1 is the generic, language-free image).
+  Localized files were uploaded to Shopify Files as: vl-gallery-img{pos}-{loc}.webp
+  Exception: img6-cs does not exist yet (Czech v6 not generated).
+
+  Usage:
+    {%- capture u -%}{%- render 'vl-loc-gallery-url', loc: cur_loc, pos: forloop.index -%}{%- endcapture -%}
+{%- endcomment -%}
+{%- liquid
+  assign u = ''
+  assign l = loc | slice: 0, 2
+  assign valid = 'pl,cs,sl' | split: ','
+  if valid contains l and pos >= 2 and pos <= 6
+    unless l == 'cs' and pos == 6
+      assign u = 'https://cdn.shopify.com/s/files/1/0956/7705/5254/files/vl-gallery-img' | append: pos | append: '-' | append: l | append: '.webp'
+    endunless
+  endif
+  echo u
+-%}

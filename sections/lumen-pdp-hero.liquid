@@ -3315,12 +3315,17 @@
       init() {
         // Initialize with default product images
         {% if section_product %}
+          {%- assign cur_loc = localization.language.iso_code | downcase -%}
           this.currentImages = [
             {% for media in section_product.media %}
               {% if media.media_type == 'image' %}
+                {%- capture loc_g_url -%}{%- render 'vl-loc-gallery-url', loc: cur_loc, pos: forloop.index -%}{%- endcapture -%}
+                {%- assign g_main = media | image_url: width: 1200 -%}
+                {%- assign g_thumb = media | image_url: width: 320 -%}
+                {%- if loc_g_url != blank -%}{%- assign g_main = loc_g_url -%}{%- assign g_thumb = loc_g_url -%}{%- endif -%}
                 {
-                  url: "{{ media | image_url: width: 1200 }}",
-                  thumb: "{{ media | image_url: width: 320 }}",
+                  url: "{{ g_main }}",
+                  thumb: "{{ g_thumb }}",
                   alt: "{{ media.alt | escape }}"
                 }{% unless forloop.last %},{% endunless %}
               {% endif %}
@@ -3437,12 +3442,17 @@
         this.bundleType = type || 'bundle_option';
         // Bundle option uses main product, so reset to default
         {% if section_product %}
+          {%- assign cur_loc = localization.language.iso_code | downcase -%}
           this.currentImages = [
             {% for media in section_product.media %}
               {% if media.media_type == 'image' %}
+                {%- capture loc_g_url -%}{%- render 'vl-loc-gallery-url', loc: cur_loc, pos: forloop.index -%}{%- endcapture -%}
+                {%- assign g_main = media | image_url: width: 1200 -%}
+                {%- assign g_thumb = media | image_url: width: 320 -%}
+                {%- if loc_g_url != blank -%}{%- assign g_main = loc_g_url -%}{%- assign g_thumb = loc_g_url -%}{%- endif -%}
                 {
-                  url: "{{ media | image_url: width: 1200 }}",
-                  thumb: "{{ media | image_url: width: 320 }}",
+                  url: "{{ g_main }}",
+                  thumb: "{{ g_thumb }}",
                   alt: "{{ media.alt | escape }}"
                 }{% unless forloop.last %},{% endunless %}
               {% endif %}
