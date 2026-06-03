@@ -1,8 +1,20 @@
 {% comment %}
   VL Upsell Modal
   ----------------
-  Shown after add-to-cart on the PDP. Offers an upsell product at a discount
-  before opening the cart drawer.
+  Shown after add-to-cart on the PDP. Two steps, in order:
+
+    Step 1 (optional) — EMAIL CAPTURE. Skippable. Captures the shopper's email at
+      peak intent in exchange for a first-order discount, pushes it to Klaviyo
+      (same client/events + client/subscriptions pattern as the back-in-stock
+      modal in lumen-pdp-hero), and best-effort applies the email discount code.
+      NOT a hard gate: "No thanks" advances to the upsell, and X/Escape/backdrop
+      bail straight to the cart drawer.
+
+    Step 2 — UPSELL. Offers an upsell product (the brush) at a discount before
+      opening the cart drawer. The countdown timer only runs on this step.
+
+  Logged-in customers and shoppers who already gave their email (localStorage
+  `vl_email_captured`) skip straight to the upsell step.
 
   Listens for: 'vl:upsell:show' custom event (dispatched by lumen-pdp-hero after cart add)
   Dispatches: 'cart:update' when user accepts, declines, or dismisses — opens the cart drawer
@@ -67,6 +79,15 @@
 
     .vl-upsell-modal__close:hover {
       color: #000;
+    }
+
+    /* Step containers — only one visible at a time */
+    .vl-upsell-step {
+      display: none;
+    }
+
+    .vl-upsell-step.is-active {
+      display: block;
     }
 
     .vl-upsell-modal__badge {
@@ -201,6 +222,60 @@
       color: #333;
     }
 
+    /* Email-capture step */
+    .vl-upsell-modal__email-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .vl-upsell-modal__email-input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d0d0d0;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      color: #1a1a1a;
+      box-sizing: border-box;
+    }
+
+    .vl-upsell-modal__email-input:focus {
+      outline: none;
+      border-color: #1a1a1a;
+    }
+
+    .vl-upsell-modal__email-input.has-error {
+      border-color: #d4372c;
+    }
+
+    .vl-upsell-modal__email-error {
+      display: none;
+      font-size: 12px;
+      color: #d4372c;
+      text-align: left;
+      margin: -4px 0 0;
+    }
+
+    .vl-upsell-modal__email-error.is-visible {
+      display: block;
+    }
+
+    .vl-upsell-modal__email-success {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a8a4a;
+      margin: 20px 0;
+    }
+
+    .vl-upsell-modal__fineprint {
+      font-size: 11px;
+      color: #aaa;
+      margin: 4px 0 0;
+      line-height: 1.4;
+    }
+
     @keyframes vlUpsellFadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -222,51 +297,94 @@
         </svg>
       </button>
 
-      {% if section.settings.badge_text != blank %}
-        <div class="vl-upsell-modal__badge">{{ section.settings.badge_text }}</div>
-      {% endif %}
+      {% comment %} ---------- STEP 1: EMAIL CAPTURE ---------- {% endcomment %}
+      {% if section.settings.enable_email_capture %}
+        <div class="vl-upsell-step" data-step="email">
+          {% if section.settings.email_badge_text != blank %}
+            <div class="vl-upsell-modal__badge">{{ section.settings.email_badge_text }}</div>
+          {% endif %}
 
-      {% if section.settings.heading != blank %}
-        <h2 class="vl-upsell-modal__heading">{{ section.settings.heading }}</h2>
-      {% endif %}
+          {% if section.settings.email_heading != blank %}
+            <h2 class="vl-upsell-modal__heading">{{ section.settings.email_heading }}</h2>
+          {% endif %}
 
-      {% if section.settings.subheading != blank %}
-        <p class="vl-upsell-modal__subheading">{{ section.settings.subheading }}</p>
-      {% endif %}
+          {% if section.settings.email_subheading != blank %}
+            <p class="vl-upsell-modal__subheading">{{ section.settings.email_subheading }}</p>
+          {% endif %}
 
-      <div class="vl-upsell-modal__timer" id="vl-upsell-timer">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        <span>Offer expires in <strong id="vl-upsell-countdown">5:00</strong></span>
-      </div>
+          <form class="vl-upsell-modal__email-form" id="vl-upsell-email-form" novalidate>
+            <input
+              type="email"
+              class="vl-upsell-modal__email-input"
+              id="vl-upsell-email-input"
+              placeholder="{{ section.settings.email_placeholder | default: 'Your email address' | escape }}"
+              autocomplete="email"
+              aria-label="Email address"
+            >
+            <p class="vl-upsell-modal__email-error" id="vl-upsell-email-error">Please enter a valid email address.</p>
+            <button type="submit" class="vl-upsell-modal__cta" id="vl-upsell-email-submit">
+              {{ section.settings.email_cta_text | default: 'EMAIL ME MY 10% OFF' }}
+            </button>
+          </form>
 
-      {% if upsell_product.featured_media %}
-        <div class="vl-upsell-modal__image-wrapper">
-          {{ upsell_product.featured_media | image_url: width: 400 | image_tag: loading: 'lazy', alt: upsell_product.title }}
+          <button type="button" class="vl-upsell-modal__skip" id="vl-upsell-email-skip">
+            {{ section.settings.email_skip_text | default: 'No thanks, continue' }}
+          </button>
+
+          {% if section.settings.email_fineprint != blank %}
+            <p class="vl-upsell-modal__fineprint">{{ section.settings.email_fineprint }}</p>
+          {% endif %}
         </div>
       {% endif %}
 
-      <div class="vl-upsell-modal__product-title">{{ upsell_product.title }}</div>
+      {% comment %} ---------- STEP 2: UPSELL (BRUSH) ---------- {% endcomment %}
+      <div class="vl-upsell-step" data-step="upsell">
+        {% if section.settings.badge_text != blank %}
+          <div class="vl-upsell-modal__badge">{{ section.settings.badge_text }}</div>
+        {% endif %}
 
-      <div class="vl-upsell-modal__price">
-        <span class="vl-upsell-modal__price-original">{{ original_price | money }}</span>
-        <span class="vl-upsell-modal__price-sale">{{ discounted_price | money }}</span>
+        {% if section.settings.heading != blank %}
+          <h2 class="vl-upsell-modal__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <p class="vl-upsell-modal__subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        <div class="vl-upsell-modal__timer" id="vl-upsell-timer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Offer expires in <strong id="vl-upsell-countdown">5:00</strong></span>
+        </div>
+
+        {% if upsell_product.featured_media %}
+          <div class="vl-upsell-modal__image-wrapper">
+            {{ upsell_product.featured_media | image_url: width: 400 | image_tag: loading: 'lazy', alt: upsell_product.title }}
+          </div>
+        {% endif %}
+
+        <div class="vl-upsell-modal__product-title">{{ upsell_product.title }}</div>
+
+        <div class="vl-upsell-modal__price">
+          <span class="vl-upsell-modal__price-original">{{ original_price | money }}</span>
+          <span class="vl-upsell-modal__price-sale">{{ discounted_price | money }}</span>
+        </div>
+
+        <button
+          class="vl-upsell-modal__cta"
+          id="vl-upsell-accept"
+          data-variant-id="{{ upsell_variant.id }}"
+          {% unless upsell_variant.available %}disabled{% endunless %}
+        >
+          {{ section.settings.cta_text | default: 'YES, ADD TO MY ORDER' }}
+        </button>
+
+        <button class="vl-upsell-modal__skip" id="vl-upsell-decline">
+          {{ section.settings.skip_text | default: 'No thanks' }}
+        </button>
       </div>
-
-      <button
-        class="vl-upsell-modal__cta"
-        id="vl-upsell-accept"
-        data-variant-id="{{ upsell_variant.id }}"
-        {% unless upsell_variant.available %}disabled{% endunless %}
-      >
-        {{ section.settings.cta_text | default: 'YES, ADD TO MY ORDER' }}
-      </button>
-
-      <button class="vl-upsell-modal__skip" id="vl-upsell-decline">
-        {{ section.settings.skip_text | default: 'No thanks' }}
-      </button>
     </div>
   </div>
 
@@ -277,12 +395,25 @@
       const declineBtn = document.getElementById('vl-upsell-decline');
       const closeBtns = overlay.querySelectorAll('[data-vl-upsell-close]');
 
-      // Analytics helper — fires both GA4 and Meta Pixel
+      const emailStep = overlay.querySelector('[data-step="email"]');
+      const upsellStep = overlay.querySelector('[data-step="upsell"]');
+
+      // ---- Email-capture config ----
+      var emailEnabled = {{ section.settings.enable_email_capture | json }};
+      var customerLoggedIn = {% if customer %}true{% else %}false{% endif %};
+      var emailDiscountCode = {{ section.settings.email_discount_code | json }};
+      var klaviyoCompanyId = {{ section.settings.klaviyo_company_id | default: 'VhFhDd' | json }};
+      var klaviyoListId = {{ section.settings.klaviyo_list_id | json }};
+      var klaviyoCustomSource = {{ section.settings.klaviyo_custom_source | default: 'PDP Add-to-Cart Email Capture' | json }};
+      var CAPTURED_KEY = 'vl_email_captured';
+
+      // ---- Upsell (brush) config ----
       var upsellProduct = {{ upsell_product.title | json }};
       var upsellVariantId = {{ upsell_variant.id | json }};
       var upsellDiscount = {{ discount_pct }};
       var upsellPrice = {{ discounted_price | money_without_currency | json }};
       var didAccept = false;
+      var countdownStarted = false;
 
       function trackUpsell(eventName, extraData) {
         var data = Object.assign({ product_title: upsellProduct }, extraData || {});
@@ -297,10 +428,23 @@
         }
       }
 
-      function show() {
+      function alreadyCaptured() {
+        try { return window.localStorage.getItem(CAPTURED_KEY) === '1'; }
+        catch (e) { return false; }
+      }
+
+      function markCaptured() {
+        try { window.localStorage.setItem(CAPTURED_KEY, '1'); } catch (e) {}
+      }
+
+      function setActiveStep(name) {
+        if (emailStep) emailStep.classList.toggle('is-active', name === 'email');
+        if (upsellStep) upsellStep.classList.toggle('is-active', name === 'upsell');
+      }
+
+      function openOverlay() {
         overlay.classList.add('is-visible');
         document.body.style.overflow = 'hidden';
-        trackUpsell('upsell_modal_shown', { discount_percentage: upsellDiscount });
       }
 
       function hide() {
@@ -331,20 +475,22 @@
       }
 
       function closeAndOpenCart() {
-        if (!didAccept) {
+        if (upsellStep && upsellStep.classList.contains('is-active') && !didAccept) {
           trackUpsell('upsell_declined');
         }
         hide();
         dispatchCartUpdate();
       }
 
-      // Countdown timer
+      // ---- Countdown timer (runs only on the upsell step) ----
       var countdownEl = document.getElementById('vl-upsell-countdown');
       var timerContainer = document.getElementById('vl-upsell-timer');
       var timerInterval = null;
       var totalSeconds = {{ section.settings.timer_minutes | default: 5 | times: 60 }};
 
       function startCountdown() {
+        if (countdownStarted) return;
+        countdownStarted = true;
         timerInterval = setInterval(function() {
           totalSeconds--;
           if (totalSeconds <= 0) {
@@ -362,25 +508,160 @@
         }, 1000);
       }
 
-      // Listen for the upsell trigger event from lumen-pdp-hero
-      document.addEventListener('vl:upsell:show', function() {
-        show();
+      function showUpsellStep() {
+        setActiveStep('upsell');
+        trackUpsell('upsell_modal_shown', { discount_percentage: upsellDiscount });
         startCountdown();
-      });
+      }
 
-      // Close buttons (X and backdrop) — open cart drawer instead
-      closeBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          closeAndOpenCart();
+      // ---- Step 1: email capture ----
+      var emailForm = document.getElementById('vl-upsell-email-form');
+      var emailInput = document.getElementById('vl-upsell-email-input');
+      var emailError = document.getElementById('vl-upsell-email-error');
+      var emailSkipBtn = document.getElementById('vl-upsell-email-skip');
+      var emailSubmitBtn = document.getElementById('vl-upsell-email-submit');
+
+      function emailIsValid(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value || '');
+      }
+
+      function pushToKlaviyo(email) {
+        if (!klaviyoCompanyId) return;
+        var props = {
+          'Source': klaviyoCustomSource,
+          'Discount Code': emailDiscountCode || ''
+        };
+        // Event — drives any "Email Captured" / welcome flow in Klaviyo
+        try {
+          fetch('https://a.klaviyo.com/client/events/?company_id=' + encodeURIComponent(klaviyoCompanyId), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+            keepalive: true,
+            body: JSON.stringify({
+              data: {
+                type: 'event',
+                attributes: {
+                  properties: props,
+                  metric: { data: { type: 'metric', attributes: { name: 'ATC Email Captured' } } },
+                  profile: { data: { type: 'profile', attributes: {
+                    email: email,
+                    properties: { 'atc_email_capture_source': klaviyoCustomSource, 'last_atc_email_capture_at': new Date().toISOString() }
+                  } } }
+                }
+              }
+            })
+          }).then(function(r) {
+            if (!r.ok && window.console && console.warn) console.warn('Klaviyo event non-2xx:', r.status);
+          }).catch(function(err) { if (window.console && console.warn) console.warn('Klaviyo event error', err); });
+        } catch (err) { if (window.console && console.warn) console.warn('Klaviyo event threw', err); }
+
+        // Subscribe to the marketing list (explicit opt-in: they entered email for a discount)
+        if (klaviyoListId) {
+          try {
+            fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + encodeURIComponent(klaviyoCompanyId), {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+              keepalive: true,
+              body: JSON.stringify({
+                data: {
+                  type: 'subscription',
+                  attributes: {
+                    custom_source: klaviyoCustomSource,
+                    profile: { data: { type: 'profile', attributes: {
+                      email: email,
+                      properties: { 'atc_email_capture_source': klaviyoCustomSource, 'last_atc_email_capture_at': new Date().toISOString() }
+                    } } }
+                  },
+                  relationships: { list: { data: { type: 'list', id: klaviyoListId } } }
+                }
+              })
+            }).then(function(r) {
+              if (!r.ok && window.console && console.warn) console.warn('Klaviyo subscribe non-2xx:', r.status);
+            }).catch(function(err) { if (window.console && console.warn) console.warn('Klaviyo subscribe error', err); });
+          } catch (err) { if (window.console && console.warn) console.warn('Klaviyo subscribe threw', err); }
+        }
+      }
+
+      function applyEmailDiscount() {
+        // Best-effort: stage the first-order code so it carries into the cart/checkout.
+        // NOTE: for this to coexist with the brush code at checkout, both discounts must be
+        // marked "combine with product/order discounts" in Shopify > Discounts. Otherwise the
+        // last code applied wins.
+        if (!emailDiscountCode) return Promise.resolve();
+        return fetch('/discount/' + encodeURIComponent(emailDiscountCode), { credentials: 'same-origin' })
+          .catch(function(err) { console.error('Failed to apply email discount code:', err); });
+      }
+
+      function advanceFromEmail() {
+        // After capturing/declining email, move to the brush upsell step.
+        showUpsellStep();
+      }
+
+      if (emailForm) {
+        emailForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var email = emailInput ? emailInput.value.trim() : '';
+          if (!emailIsValid(email)) {
+            if (emailInput) emailInput.classList.add('has-error');
+            if (emailError) emailError.classList.add('is-visible');
+            if (emailInput) emailInput.focus();
+            return;
+          }
+
+          markCaptured();
+          trackUpsell('atc_email_captured', { discount_code: emailDiscountCode || '' });
+          pushToKlaviyo(email);
+
+          if (emailSubmitBtn) {
+            emailSubmitBtn.disabled = true;
+            emailSubmitBtn.textContent = 'APPLYING...';
+          }
+
+          applyEmailDiscount().then(function() {
+            advanceFromEmail();
+          });
         });
+
+        emailInput.addEventListener('input', function() {
+          emailInput.classList.remove('has-error');
+          if (emailError) emailError.classList.remove('is-visible');
+        });
+      }
+
+      if (emailSkipBtn) {
+        emailSkipBtn.addEventListener('click', function() {
+          trackUpsell('atc_email_skipped');
+          advanceFromEmail();
+        });
+      }
+
+      // ---- Entry point: decide which step to show ----
+      function routeStep() {
+        openOverlay();
+        var showEmail = emailEnabled && emailStep && !customerLoggedIn && !alreadyCaptured();
+        if (showEmail) {
+          setActiveStep('email');
+          trackUpsell('atc_email_capture_shown');
+          setTimeout(function() { if (emailInput) emailInput.focus(); }, 50);
+        } else {
+          showUpsellStep();
+        }
+      }
+
+      document.addEventListener('vl:upsell:show', routeStep);
+
+      // ---- Close handling ----
+      // X / backdrop / Escape always bail to the cart drawer, from either step.
+      closeBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() { closeAndOpenCart(); });
       });
 
-      // Decline — open cart drawer
+      // Upsell-step decline — open cart drawer
       declineBtn.addEventListener('click', function() {
         closeAndOpenCart();
       });
 
-      // Accept — add upsell to cart, apply discount, then open cart drawer
+      // Upsell-step accept — add upsell to cart, apply brush discount, then open cart drawer
       acceptBtn.addEventListener('click', function() {
         didAccept = true;
         trackUpsell('upsell_accepted', { variant_id: upsellVariantId, discounted_price: upsellPrice });
@@ -406,7 +687,7 @@
           return response.json();
         })
         .then(function() {
-          // Apply the discount code session-side so it shows in the drawer
+          // Apply the brush discount code session-side so it shows in the drawer
           // and is auto-applied at checkout. Best-effort — proceed either way.
           var discountCode = {{ section.settings.discount_code | json }};
           if (discountCode) {
@@ -445,6 +726,93 @@
   "tag": "section",
   "class": "vl-upsell-modal-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Step 1 — Email capture"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_email_capture",
+      "label": "Enable email-capture step",
+      "default": true,
+      "info": "Shown before the upsell. Skippable — never blocks checkout. Hidden for logged-in customers and anyone who already gave their email."
+    },
+    {
+      "type": "text",
+      "id": "email_badge_text",
+      "label": "Email step — badge",
+      "default": "ONE QUICK THING"
+    },
+    {
+      "type": "text",
+      "id": "email_heading",
+      "label": "Email step — heading",
+      "default": "Get 10% off your first order"
+    },
+    {
+      "type": "textarea",
+      "id": "email_subheading",
+      "label": "Email step — subheading",
+      "default": "Enter your email and we'll apply your code to this order automatically."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email input placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "email_cta_text",
+      "label": "Email step — button text",
+      "default": "EMAIL ME MY 10% OFF"
+    },
+    {
+      "type": "text",
+      "id": "email_skip_text",
+      "label": "Email step — skip link text",
+      "default": "No thanks, continue"
+    },
+    {
+      "type": "text",
+      "id": "email_discount_code",
+      "label": "Email discount code",
+      "default": "WELCOME10",
+      "info": "Shopify code applied when email is submitted. To stack with the brush code, mark BOTH discounts 'combine with product/order discounts' in Settings > Discounts."
+    },
+    {
+      "type": "textarea",
+      "id": "email_fineprint",
+      "label": "Email step — fine print (optional)",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo (email capture)"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_company_id",
+      "label": "Klaviyo company/public ID",
+      "default": "VhFhDd"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo list ID",
+      "default": "RtSate",
+      "info": "List captured emails subscribe to. Leave blank to only fire the 'ATC Email Captured' event without adding to a list."
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_custom_source",
+      "label": "Klaviyo custom source",
+      "default": "PDP Add-to-Cart Email Capture"
+    },
+    {
+      "type": "header",
+      "content": "Step 2 — Upsell"
+    },
     {
       "type": "product",
       "id": "upsell_product",
@@ -506,7 +874,7 @@
       "max": 15,
       "step": 1,
       "default": 5,
-      "info": "Offer expires after this many minutes. Opens the cart drawer when timer hits zero."
+      "info": "Offer expires after this many minutes. Opens the cart drawer when timer hits zero. Starts only when the upsell step is shown."
     }
   ],
   "presets": [
