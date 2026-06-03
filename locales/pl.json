@@ -76,7 +76,7 @@
     "nested_product": "{{ product_title }}: {{ parent_title }}"
   },
   "actions": {
-    "add_to_cart": "Dodaj do koszyka",
+    "add_to_cart": "DODAJ DO KOSZYKA",
     "clear_all": "Wyczyść wszystko",
     "remove": "Usuń",
     "view_in_your_space": "Zobacz w swojej przestrzeni",
@@ -266,8 +266,8 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Dodaj do koszyka",
-      "adding_to_cart": "Trwa dodawanie...",
+      "add_to_cart": "DODAJ DO KOSZYKA",
+      "adding_to_cart": "DODAWANIE...",
       "added_to_cart": "Dodano do koszyka",
       "add_to_cart_error": "Błąd podczas dodawania do koszyka",
       "sold_out": "Wyprzedane",
@@ -318,7 +318,7 @@
         "unavailable": "Unavailable",
         "on_sale": "Sale",
         "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
+        "add_to_cart": "DODAJ DO KOSZYKA",
         "back_to_collection": "Back to {{ title }}",
         "view_details": "View details"
       }
@@ -353,6 +353,18 @@
       "signup_form_email_label": "Email",
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "description_label": "Opis"
+      },
+      "thank_you": {
+        "fulfillment": {
+          "description_label": "Opis"
+        }
+      }
     }
   }
 }

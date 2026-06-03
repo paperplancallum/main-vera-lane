@@ -76,7 +76,7 @@
     "nested_product": "{{ product_title }} pro {{ parent_title }}"
   },
   "actions": {
-    "add_to_cart": "Přidat do košíku",
+    "add_to_cart": "PŘIDAT DO KOŠÍKU",
     "clear_all": "Vymazat vše",
     "remove": "Odebrat",
     "view_in_your_space": "Zobrazit ve vašem prostoru",
@@ -277,8 +277,8 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Přidat do košíku",
-      "adding_to_cart": "Přidávání do košíku...",
+      "add_to_cart": "PŘIDAT DO KOŠÍKU",
+      "adding_to_cart": "PŘIDÁVÁNÍ...",
       "added_to_cart": "Přidáno do košíku",
       "add_to_cart_error": "Chyba při přidávání do košíku",
       "sold_out": "Vyprodáno",
@@ -318,7 +318,7 @@
         "unavailable": "Unavailable",
         "on_sale": "Sale",
         "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
+        "add_to_cart": "PŘIDAT DO KOŠÍKU",
         "back_to_collection": "Back to {{ title }}",
         "view_details": "View details"
       }
@@ -353,6 +353,18 @@
       "signup_form_email_label": "Email",
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "description_label": "Popis"
+      },
+      "thank_you": {
+        "fulfillment": {
+          "description_label": "Popis"
+        }
+      }
     }
   }
 }

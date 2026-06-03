@@ -76,7 +76,7 @@
     "discount_menu": "Kode za popust"
   },
   "actions": {
-    "add_to_cart": "Dodaj v košarico",
+    "add_to_cart": "DODAJ V KOŠARICO",
     "clear_all": "Počisti vse",
     "remove": "Odstrani",
     "view_in_your_space": "Prikaži v prostoru",
@@ -277,9 +277,9 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Dodaj v košarico",
+      "add_to_cart": "DODAJ V KOŠARICO",
       "added_to_cart": "Dodano v košarico",
-      "adding_to_cart": "Dodajanje ...",
+      "adding_to_cart": "DODAJANJE...",
       "add_to_cart_error": "Pri dodajanju v košarico je prišlo do napake",
       "sold_out": "Razprodano",
       "unavailable": "Ni na voljo"
@@ -318,7 +318,7 @@
         "unavailable": "Unavailable",
         "on_sale": "Sale",
         "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
+        "add_to_cart": "DODAJ V KOŠARICO",
         "back_to_collection": "Back to {{ title }}",
         "view_details": "View details"
       }
@@ -353,6 +353,18 @@
       "signup_form_email_label": "Email",
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "description_label": "Opis"
+      },
+      "thank_you": {
+        "fulfillment": {
+          "description_label": "Opis"
+        }
+      }
     }
   }
 }
