@@ -314,7 +314,7 @@
     "products": {
       "product": {
         "regular_price": "Regular price",
-        "sold_out": "Sold out",
+        "sold_out": "Wyprzedane",
         "unavailable": "Unavailable",
         "on_sale": "Sale",
         "quantity": "Quantity",
@@ -364,6 +364,37 @@
         "fulfillment": {
           "description_label": "Opis"
         }
+      },
+      "contact": {
+        "contact_method_title": "Kontakt"
+      },
+      "stock": {
+        "sold_out_label": "Wyprzedane"
+      },
+      "review": {
+        "blocks": {
+          "contact_method_title": "Kontakt"
+        }
+      },
+      "shop_policies": {
+        "contact_information": "Kontakt"
+      },
+      "notice_banner": {
+        "validation_errors_banner": {
+          "section_label": {
+            "contact": "Kontakt"
+          }
+        }
+      }
+    }
+  },
+  "customer_accounts": {
+    "order_details": {
+      "contact": "Kontakt"
+    },
+    "B2B": {
+      "orders": {
+        "order_list_column_headers_contact": "Kontakt"
       }
     }
   }
