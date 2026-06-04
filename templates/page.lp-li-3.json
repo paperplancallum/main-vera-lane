@@ -132,7 +132,7 @@
         "heading": "Click Below and Claim Your Special Offer Today!",
         "image_asset": "lp-li-3-product.jpg",
         "btn_text": "Claim Special Offer Now →",
-        "btn_url": "/products/color-changing-foundation",
+        "btn_url": "/products/color-changing-foundation?v=kbeauty",
         "countdown_hours": 24,
         "shipping_text": "FAST & FREE SHIPPING AVAILABLE!"
       }
@@ -183,7 +183,7 @@
       "settings": {
         "heading": "If you made it this far, your skin's getting the upgrade it deserves.",
         "btn_text": "GET YOURS BEFORE IT SELLS OUT",
-        "btn_url": "/products/color-changing-foundation"
+        "btn_url": "/products/color-changing-foundation?v=kbeauty"
       }
     }
   },

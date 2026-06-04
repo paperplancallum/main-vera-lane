@@ -141,7 +141,7 @@
         "heading": "Klikněte Níže a Získejte Svou Speciální Nabídku Ještě Dnes!",
         "image_asset": "lp-li-3-product.jpg",
         "btn_text": "Získat Speciální Nabídku →",
-        "btn_url": "/cs/products/color-changing-foundation",
+        "btn_url": "/cs/products/color-changing-foundation?v=kbeauty",
         "countdown_hours": 24,
         "shipping_text": "RYCHLÉ A DOPRAVA ZDARMA K DISPOZICI!"
       }
@@ -192,7 +192,7 @@
       "settings": {
         "heading": "Pokud jste se dostala až sem, vaše pleť si zaslouží ten upgrade.",
         "btn_text": "ZÍSKEJTE SVŮJ NEŽ SE VYPRODÁ",
-        "btn_url": "/cs/products/color-changing-foundation"
+        "btn_url": "/cs/products/color-changing-foundation?v=kbeauty"
       }
     }
   },
