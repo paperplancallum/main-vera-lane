@@ -374,6 +374,21 @@
             "col_2_text": "",
             "reinforcement": ""
           }
+        },
+        "variant_kbeauty": {
+          "type": "variant",
+          "settings": {
+            "variant_key": "kbeauty",
+            "image_asset": "lp-foundation-mmh-kbeauty.jpg",
+            "headline": "A Korean-developed skincare-foundation hybrid — scientifically engineered to treat your skin while it covers it.",
+            "subhead": "This isn't a makeup-aisle foundation. It was developed in Korea by skincare scientists as a true hybrid: hydrating and weightless like a serum, it releases pigment on contact with your skin to match your exact tone — leaving a glass-skin glow instead of a mask. No orange cast, no cake, no 'wrong shade'. The combination that went viral on TikTok, exclusive to Vera Lane and backed by 30 days, no questions, full refund.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": "",
+            "reinforcement": "A Korean-developed skincare-foundation hybrid you won't find anywhere else — hydrating, tone-adapting, zero orange cast. Try it risk-free for 30 days."
+          }
         }
       },
       "block_order": [
@@ -382,7 +397,8 @@
         "variant_c",
         "variant_d",
         "variant_e",
-        "variant_f"
+        "variant_f",
+        "variant_kbeauty"
       ],
       "settings": {}
     },

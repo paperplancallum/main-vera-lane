@@ -1,0 +1,14 @@
+{
+  "brand": "Vera Lane Cosmetics",
+  "product": "Tone Adapting Foundation",
+  "_notes": "Message-match hero image for the ?v=kbeauty PDP variation (Korean-developed skincare-foundation hybrid angle). needs_product_images:false -> text-to-image path, engine auto-adds 'do NOT show the product/branding'. UGC-style face shot, no product. Renders in the hero's narrow left column (grid 1fr 2fr), so a 4:5 portrait crop reads best. Output is renamed to lp-foundation-mmh-kbeauty.jpg after generation.",
+  "prompts": [
+    {
+      "id": 1,
+      "name": "mmh-kbeauty",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Create an authentic UGC-style selfie of a beautiful Korean woman around 25 years old, taken on a front phone camera at arm's length. Flawless, healthy, dewy 'glass-skin' complexion with a natural luminous glow — even tone, no heavy makeup, fresh and bare-skin looking. Soft natural window light at home, relatable everyday setting (bedroom or bathroom) softly blurred behind her. Slight casual phone-camera feel, candid and real, gentle natural smile, looking into the lens. Focus entirely on her radiant skin and the natural, trustworthy UGC mood — not a polished studio ad."
+    }
+  ]
+}
