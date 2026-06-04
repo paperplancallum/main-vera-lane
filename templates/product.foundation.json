@@ -389,6 +389,101 @@
             "col_2_text": "",
             "reinforcement": "A Korean-developed skincare-foundation hybrid you won't find anywhere else — hydrating, tone-adapting, zero orange cast. Try it risk-free for 30 days."
           }
+        },
+        "variant_chameleon": {
+          "type": "variant",
+          "settings": {
+            "variant_key": "chameleon",
+            "image_asset": "lp-foundation-mmh-35-medium.jpg",
+            "headline": "If your foundation looks right at home and orange by noon, the problem was never your shade.",
+            "subhead": "Right shade in the bathroom mirror, wrong shade — and a tell-tale line at your jaw — a few hours later. That's oxidation: pre-mixed pigment reacting with your skin through the day. Vera Lane has no pre-mixed shade to oxidise. The cream is white and releases your exact tone on contact, so there's nothing to drift orange and no line where your face stops and your neck begins.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": "",
+            "reinforcement": "No pre-mixed shade means nothing to oxidise or drift — your own tone, released on contact. Try it risk-free for 30 days."
+          }
+        },
+        "variant_glow": {
+          "type": "variant",
+          "settings": {
+            "variant_key": "glow",
+            "image_asset": "lp-foundation-mmh-35-medium.jpg",
+            "headline": "If skin tints do too little and foundation does too much, you've been choosing between the wrong two things.",
+            "subhead": "Skin tints leave you basically bare; full-coverage sits on top like a mask and kills the glow. Vera Lane is the in-between you actually wanted: weightless and hydrating like a serum, it releases just enough pigment on contact to even your tone — buildable if you want more — while your skin still looks like skin. A real glass-skin glow, not a coat of base.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": "",
+            "reinforcement": "Serum-light, tone-adapting, buildable — coverage that still reads as your own skin. Try it risk-free for 30 days."
+          }
+        },
+        "variant_calm": {
+          "type": "variant",
+          "settings": {
+            "variant_key": "calm",
+            "image_asset": "lp-foundation-mmh-35-medium.jpg",
+            "headline": "If evening out redness takes three products and five steps, this does it in one.",
+            "subhead": "Colour-correctors, full-coverage, powder to lock it down — and the redness still shows through, or the layers make your skin look worse. Vera Lane evens tone and visibly softens the look of redness in a single lightweight step. It releases pigment on contact to neutralise unevenness, then sits like skin instead of stacked makeup — no cake, no five-step routine.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": "",
+            "reinforcement": "One lightweight step that evens tone and softens the appearance of redness — no colour-correcting, no stacking. Try it risk-free for 30 days."
+          }
+        },
+        "variant_timeless": {
+          "type": "variant",
+          "settings": {
+            "variant_key": "timeless",
+            "image_asset": "lp-foundation-mmh-35-medium.jpg",
+            "headline": "If your foundation looks fine across the room but settles into every line up close, you've been sold the wrong formula.",
+            "subhead": "Long-wear foundations were built to seal and set — fine at 25, but on mature skin they catch in fine lines and go cakey by mid-afternoon. Vera Lane does the opposite: it hydrates like a serum and releases pigment on contact, so it adapts to your skin instead of sitting on top of it. Even tone that still moves like skin — close-up and late in the day, not just from across the room.",
+            "use_columns": false,
+            "col_1_title": "",
+            "col_1_text": "",
+            "col_2_title": "",
+            "col_2_text": "",
+            "reinforcement": "Hydrating, tone-adapting, never cakey — coverage that looks like skin up close, not makeup catching in lines. Try it risk-free for 30 days."
+          }
+        },
+        "age_18": {
+          "type": "age_clause",
+          "settings": {
+            "age_key": "18",
+            "clause": "And because it's weightless and skin-like, it's the rare base that never feels like makeup."
+          }
+        },
+        "age_25": {
+          "type": "age_clause",
+          "settings": {
+            "age_key": "25",
+            "clause": "Fast enough for a morning already running late — and it still looks like you by evening."
+          }
+        },
+        "age_35": {
+          "type": "age_clause",
+          "settings": {
+            "age_key": "35",
+            "clause": "Right as skin starts to shift, it adapts with you instead of fighting you."
+          }
+        },
+        "age_45": {
+          "type": "age_clause",
+          "settings": {
+            "age_key": "45",
+            "clause": "On skin that's drier than it used to be, the hydration keeps it from catching or going flat."
+          }
+        },
+        "age_55": {
+          "type": "age_clause",
+          "settings": {
+            "age_key": "55",
+            "clause": "If you'd quietly given up on foundation, this is the one built to behave on mature skin."
+          }
         }
       },
       "block_order": [
@@ -398,7 +493,16 @@
         "variant_d",
         "variant_e",
         "variant_f",
-        "variant_kbeauty"
+        "variant_kbeauty",
+        "variant_chameleon",
+        "variant_glow",
+        "variant_calm",
+        "variant_timeless",
+        "age_18",
+        "age_25",
+        "age_35",
+        "age_45",
+        "age_55"
       ],
       "settings": {}
     },
