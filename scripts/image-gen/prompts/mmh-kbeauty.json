@@ -1,0 +1,14 @@
+{
+  "brand": "Vera Lane Cosmetics",
+  "product": "Tone Adapting Foundation",
+  "_notes": "Message-match hero image for the ?v=kbeauty PDP variation (Korean-developed skincare-foundation hybrid angle). needs_product_images:true -> /edit path composites the real bottle + white formula. Renders in the hero's narrow left column (grid 1fr 2fr), so a 4:5 portrait crop reads best, matching the existing lp-foundation-mmh-*.jpg framing. Output is renamed to lp-foundation-mmh-kbeauty.jpg after generation.",
+  "prompts": [
+    {
+      "id": 1,
+      "name": "mmh-kbeauty",
+      "needs_product_images": true,
+      "aspect_ratio": "4:5",
+      "prompt": "Create a premium, science-led Korean-skincare hero shot: the foundation bottle standing upright on a clean off-white surface in a bright, airy, minimalist lab-meets-spa setting (clinical but warm, exclusive). A soft swatch of the white cream sits beside the base, catching the light with a fresh, dewy 'glass-skin' sheen. Subtle frosted-glass and pale neutral tones in the softly blurred background suggest a Korean skincare laboratory. Soft diffused daylight, gentle reflections, lots of calm negative space. Clean, high-end, hydrating, glowy mood — feels like advanced skincare, not makeup-aisle cosmetics."
+    }
+  ]
+}
