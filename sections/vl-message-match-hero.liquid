@@ -225,22 +225,20 @@
   the age+tone-matched model from the image map below.
 {% endcomment %}
 {%- assign mmh_default_img = 'lp-foundation-mmh-35-medium.jpg' | asset_url -%}
-{%- assign p_keys = "chameleon|||glow|||calm|||timeless" | split: "|||" -%}
-{%- assign p_heads = "If your foundation looks right at home and orange by noon, the problem was never your shade.|||If skin tints do too little and foundation does too much, you've been choosing between the wrong two things.|||If evening out redness takes three products and five steps, this does it in one.|||If your foundation looks fine across the room but settles into every line up close, you've been sold the wrong formula." | split: "|||" -%}
-{%- assign p_subs = "Right shade in the bathroom mirror, wrong shade — and a tell-tale line at your jaw — a few hours later. That's oxidation: pre-mixed pigment reacting with your skin through the day. Vera Lane has no pre-mixed shade to oxidise. The cream is white and releases your exact tone on contact, so there's nothing to drift orange and no line where your face stops and your neck begins.|||Skin tints leave you basically bare; full-coverage sits on top like a mask and kills the glow. Vera Lane is the in-between you actually wanted: weightless and hydrating like a serum, it releases just enough pigment on contact to even your tone — buildable if you want more — while your skin still looks like skin. A real glass-skin glow, not a coat of base.|||Colour-correctors, full-coverage, powder to lock it down — and the redness still shows through, or the layers make your skin look worse. Vera Lane evens tone and visibly softens the look of redness in a single lightweight step. It releases pigment on contact to neutralise unevenness, then sits like skin instead of stacked makeup — no cake, no five-step routine.|||Long-wear foundations were built to seal and set — fine at 25, but on mature skin they catch in fine lines and go cakey by mid-afternoon. Vera Lane does the opposite: it hydrates like a serum and releases pigment on contact, so it adapts to your skin instead of sitting on top of it. Even tone that still moves like skin — close-up and late in the day, not just from across the room." | split: "|||" -%}
-{%- assign p_reins = "No pre-mixed shade means nothing to oxidise or drift — your own tone, released on contact. Try it risk-free for 30 days.|||Serum-light, tone-adapting, buildable — coverage that still reads as your own skin. Try it risk-free for 30 days.|||One lightweight step that evens tone and softens the appearance of redness — no colour-correcting, no stacking. Try it risk-free for 30 days.|||Hydrating, tone-adapting, never cakey — coverage that looks like skin up close, not makeup catching in lines. Try it risk-free for 30 days." | split: "|||" -%}
-{%- for pk in p_keys -%}
-  {%- assign i = forloop.index0 -%}
-  <div class="vl-mmh vl-mmh--with-image" data-mmh-variant="{{ pk }}" id="vl-mmh-{{ pk }}">
+{%- capture mmh_persona_data -%}chameleon~|~If your foundation looks right at home and orange by noon, the problem was never your shade.~|~Right shade in the bathroom mirror, wrong shade — and a tell-tale line at your jaw — a few hours later. That's oxidation: pre-mixed pigment reacting with your skin through the day. Vera Lane has no pre-mixed shade to oxidise. The cream is white and releases your exact tone on contact, so there's nothing to drift orange and no line where your face stops and your neck begins.~|~No pre-mixed shade means nothing to oxidise or drift — your own tone, released on contact. Try it risk-free for 30 days.@@@glow~|~If skin tints do too little and foundation does too much, you've been choosing between the wrong two things.~|~Skin tints leave you basically bare; full-coverage sits on top like a mask and kills the glow. Vera Lane is the in-between you actually wanted: weightless and hydrating like a serum, it releases just enough pigment on contact to even your tone — buildable if you want more — while your skin still looks like skin. A real glass-skin glow, not a coat of base.~|~Serum-light, tone-adapting, buildable — coverage that still reads as your own skin. Try it risk-free for 30 days.@@@calm~|~If evening out redness takes three products and five steps, this does it in one.~|~Colour-correctors, full-coverage, powder to lock it down — and the redness still shows through, or the layers make your skin look worse. Vera Lane evens tone and visibly softens the look of redness in a single lightweight step. It releases pigment on contact to neutralise unevenness, then sits like skin instead of stacked makeup — no cake, no five-step routine.~|~One lightweight step that evens tone and softens the appearance of redness — no colour-correcting, no stacking. Try it risk-free for 30 days.@@@timeless~|~If your foundation looks fine across the room but settles into every line up close, you've been sold the wrong formula.~|~Long-wear foundations were built to seal and set — fine at 25, but on mature skin they catch in fine lines and go cakey by mid-afternoon. Vera Lane does the opposite: it hydrates like a serum and releases pigment on contact, so it adapts to your skin instead of sitting on top of it. Even tone that still moves like skin — close-up and late in the day, not just from across the room.~|~Hydrating, tone-adapting, never cakey — coverage that looks like skin up close, not makeup catching in lines. Try it risk-free for 30 days.{%- endcapture -%}
+{%- assign mmh_personas = mmh_persona_data | split: "@@@" -%}
+{%- for rec in mmh_personas -%}
+  {%- assign f = rec | split: "~|~" -%}
+  <div class="vl-mmh vl-mmh--with-image" data-mmh-variant="{{ f[0] }}" id="vl-mmh-{{ f[0] }}">
     <div class="vl-mmh__divider"></div>
     <div class="vl-mmh__hero">
       <div class="vl-mmh__image-wrap">
         <img class="vl-mmh__image" src="{{ mmh_default_img }}" alt="Vera Lane" loading="lazy" />
       </div>
-      <h2 class="vl-mmh__headline">{{ p_heads[i] }}</h2>
-      <p class="vl-mmh__subhead">{{ p_subs[i] }}</p>
+      <h2 class="vl-mmh__headline">{{ f[1] }}</h2>
+      <p class="vl-mmh__subhead">{{ f[2] }}</p>
     </div>
-    <template data-mmh-reinforcement-for="{{ pk }}">{{ p_reins[i] }}</template>
+    <template data-mmh-reinforcement-for="{{ f[0] }}">{{ f[3] }}</template>
   </div>
 {%- endfor -%}
 
@@ -249,10 +247,11 @@
   One shared set across all personas — rendered hidden so JS reads the text. Inline
   for the same deploy-reliability reason as the persona variants above.
 {% endcomment %}
-{%- assign a_keys = "18,25,35,45,55" | split: "," -%}
-{%- assign a_clauses = "And because it's weightless and skin-like, it's the rare base that never feels like makeup.|||Fast enough for a morning already running late — and it still looks like you by evening.|||Right as skin starts to shift, it adapts with you instead of fighting you.|||On skin that's drier than it used to be, the hydration keeps it from catching or going flat.|||If you'd quietly given up on foundation, this is the one built to behave on mature skin." | split: "|||" -%}
-{%- for ak in a_keys -%}
-  <template data-mmh-age-clause="{{ ak }}">{{ a_clauses[forloop.index0] }}</template>
+{%- capture mmh_ageclause_data -%}18~|~And because it's weightless and skin-like, it's the rare base that never feels like makeup.@@@25~|~Fast enough for a morning already running late — and it still looks like you by evening.@@@35~|~Right as skin starts to shift, it adapts with you instead of fighting you.@@@45~|~On skin that's drier than it used to be, the hydration keeps it from catching or going flat.@@@55~|~If you'd quietly given up on foundation, this is the one built to behave on mature skin.{%- endcapture -%}
+{%- assign mmh_ageclauses = mmh_ageclause_data | split: "@@@" -%}
+{%- for rec in mmh_ageclauses -%}
+  {%- assign f = rec | split: "~|~" -%}
+  <template data-mmh-age-clause="{{ f[0] }}">{{ f[1] }}</template>
 {%- endfor -%}
 
 {% comment %}
