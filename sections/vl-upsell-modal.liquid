@@ -527,6 +527,24 @@
 
       function pushToKlaviyo(email) {
         if (!klaviyoCompanyId) return;
+
+        // Stitch this browser's Klaviyo cookie to the email via onsite identify.
+        // Without this, the API calls below create/update the profile but DON'T
+        // associate the __kla_id cookie — so subsequent onsite events (Added to
+        // Cart, Checkout Started) stay anonymous and never reach the abandoned-
+        // cart flow. identify() also back-attributes the add-to-cart that just
+        // fired. klaviyo.js is loaded by the Klaviyo app embed, so the global
+        // may exist as `klaviyo` (new) or `_learnq` (legacy) — guard for both.
+        try {
+          if (window.klaviyo && typeof window.klaviyo.identify === 'function') {
+            window.klaviyo.identify({ email: email });
+          } else if (window._learnq && typeof window._learnq.push === 'function') {
+            window._learnq.push(['identify', { '$email': email }]);
+          }
+        } catch (err) {
+          if (window.console && console.warn) console.warn('Klaviyo onsite identify failed', err);
+        }
+
         var props = {
           'Source': klaviyoCustomSource,
           'Discount Code': emailDiscountCode || ''
