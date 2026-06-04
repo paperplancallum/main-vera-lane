@@ -1,0 +1,112 @@
+{
+  "brand": "Vera Lane Cosmetics",
+  "product": "Tone Adapting Foundation",
+  "_notes": "Message-match hero images for the ?v=<persona>-<age>-<tone> PDP variants. 5 age bands (18/25/35/45/55 = lower bound of the quiz age range) x 3 sellable tone bands (fair/medium/mediumdark). needs_product_images:false -> text-to-image, engine auto-adds 'do NOT show product/branding'. UGC selfie, NO product, demographic-matched RESULT skin (even, dewy). 4:5 portrait reads best in the hero's narrow left column. CANDID/UGC tone (v2): pushed toward a real casual phone selfie with natural skin texture and looser framing, keeping the warm muted Vera Lane aesthetic. After generation, convert+rename each to assets/lp-foundation-mmh-<age>-<tone>.jpg. TONE FIX: fair=pale Dutch, medium=German slight tan (NOT olive/golden), mediumdark=light Mediterranean tan.",
+  "prompts": [
+    {
+      "id": 1,
+      "name": "mmh-18-fair",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 21 years old, with a very fair, pale Northern-European complexion (e.g. Dutch) with a cool-neutral undertone — light skin, NOT tanned. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Fresh and youthful for her age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 2,
+      "name": "mmh-18-medium",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 21 years old, with a light, fair WHITE European complexion — a Central/Northern European (German) woman with clearly light skin and only the faintest hint of a tan, just half a shade deeper and a touch warmer than the palest porcelain. Light-to-medium brown hair. Her skin is light/pale-beige, NOT olive, NOT golden, NOT bronze, NOT tanned, NOT Mediterranean, NOT Middle Eastern, NOT Latina — a fair-skinned white woman with a neutral undertone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Fresh and youthful for her age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 3,
+      "name": "mmh-18-mediumdark",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 21 years old, with a medium, lightly-tanned European/Mediterranean complexion with a soft warm undertone — noticeably more tan than the medium band, but still a medium (not deep/dark) skin tone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Fresh and youthful for her age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 4,
+      "name": "mmh-25-fair",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 28 years old, with a very fair, pale Northern-European complexion (e.g. Dutch) with a cool-neutral undertone — light skin, NOT tanned. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Confident and fresh-faced. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 5,
+      "name": "mmh-25-medium",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 28 years old, with a light, fair WHITE European complexion — a Central/Northern European (German) woman with clearly light skin and only the faintest hint of a tan, just half a shade deeper and a touch warmer than the palest porcelain. Light-to-medium brown hair. Her skin is light/pale-beige, NOT olive, NOT golden, NOT bronze, NOT tanned, NOT Mediterranean, NOT Middle Eastern, NOT Latina — a fair-skinned white woman with a neutral undertone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Confident and fresh-faced. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 6,
+      "name": "mmh-25-mediumdark",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 28 years old, with a medium, lightly-tanned European/Mediterranean complexion with a soft warm undertone — noticeably more tan than the medium band, but still a medium (not deep/dark) skin tone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Confident and fresh-faced. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 7,
+      "name": "mmh-35-fair",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 38 years old, with a very fair, pale Northern-European complexion (e.g. Dutch) with a cool-neutral undertone — light skin, NOT tanned. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Natural and healthy for her age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 8,
+      "name": "mmh-35-medium",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 38 years old, with a light, fair WHITE European complexion — a Central/Northern European (German) woman with clearly light skin and only the faintest hint of a tan, just half a shade deeper and a touch warmer than the palest porcelain. Light-to-medium brown hair. Her skin is light/pale-beige, NOT olive, NOT golden, NOT bronze, NOT tanned, NOT Mediterranean, NOT Middle Eastern, NOT Latina — a fair-skinned white woman with a neutral undertone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Natural and healthy for her age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 9,
+      "name": "mmh-35-mediumdark",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 38 years old, with a medium, lightly-tanned European/Mediterranean complexion with a soft warm undertone — noticeably more tan than the medium band, but still a medium (not deep/dark) skin tone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Natural and healthy for her age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 10,
+      "name": "mmh-45-fair",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 48 years old, with a very fair, pale Northern-European complexion (e.g. Dutch) with a cool-neutral undertone — light skin, NOT tanned. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Naturally elegant, with soft real expression lines that read as her real age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 11,
+      "name": "mmh-45-medium",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 48 years old, with a light, fair WHITE European complexion — a Central/Northern European (German) woman with clearly light skin and only the faintest hint of a tan, just half a shade deeper and a touch warmer than the palest porcelain. Light-to-medium brown hair. Her skin is light/pale-beige, NOT olive, NOT golden, NOT bronze, NOT tanned, NOT Mediterranean, NOT Middle Eastern, NOT Latina — a fair-skinned white woman with a neutral undertone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Naturally elegant, with soft real expression lines that read as her real age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 12,
+      "name": "mmh-45-mediumdark",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 48 years old, with a medium, lightly-tanned European/Mediterranean complexion with a soft warm undertone — noticeably more tan than the medium band, but still a medium (not deep/dark) skin tone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Naturally elegant, with soft real expression lines that read as her real age. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 13,
+      "name": "mmh-55-fair",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 58 years old, with a very fair, pale Northern-European complexion (e.g. Dutch) with a cool-neutral undertone — light skin, NOT tanned. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Graceful and radiant, with natural fine lines kept real and soft — not erased. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 14,
+      "name": "mmh-55-medium",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 58 years old, with a light, fair WHITE European complexion — a Central/Northern European (German) woman with clearly light skin and only the faintest hint of a tan, just half a shade deeper and a touch warmer than the palest porcelain. Light-to-medium brown hair. Her skin is light/pale-beige, NOT olive, NOT golden, NOT bronze, NOT tanned, NOT Mediterranean, NOT Middle Eastern, NOT Latina — a fair-skinned white woman with a neutral undertone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Graceful and radiant, with natural fine lines kept real and soft — not erased. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    },
+    {
+      "id": 15,
+      "name": "mmh-55-mediumdark",
+      "needs_product_images": false,
+      "aspect_ratio": "4:5",
+      "prompt": "Authentic, candid UGC-style front-camera phone selfie of a woman around 58 years old, with a medium, lightly-tanned European/Mediterranean complexion with a soft warm undertone — noticeably more tan than the medium band, but still a medium (not deep/dark) skin tone. It should look like a REAL everyday selfie she'd casually post to her Instagram story — an ordinary relatable woman, not a model, not a studio shoot, not an ad. Natural skin with real visible texture and pores and a few small natural imperfections, only lightly retouched — healthy, even and softly dewy (the look of a foundation that melts into the skin), but never airbrushed, waxy or plastic-perfect. Graceful and radiant, with natural fine lines kept real and soft — not erased. Relaxed candid expression with a gentle natural half-smile, looking into the lens, held at arm's length with slightly imperfect, a little off-center phone framing. Soft natural window light in a relatable everyday home setting (bedroom or bathroom) softly blurred behind her, with a faint casual phone-camera softness and a touch of grain. Keep the warm, soft, lightly-muted Vera Lane tone. Focus on her radiant, even, real-looking skin and the honest, trustworthy UGC mood."
+    }
+  ]
+}

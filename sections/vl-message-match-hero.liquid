@@ -216,23 +216,88 @@
   </div>
 {% endfor %}
 
+{% comment %}
+  Age clauses (light copy tweak appended to the subhead by ?v=persona-AGE-tone).
+  One shared set across all personas — rendered hidden so JS reads the LOCALIZED text.
+{% endcomment %}
+{% for block in section.blocks %}
+  {%- if block.type == 'age_clause' and block.settings.clause != blank -%}
+    <template data-mmh-age-clause="{{ block.settings.age_key }}">{{ block.settings.clause }}</template>
+  {%- endif -%}
+{% endfor %}
+
+{% comment %}
+  Demographic image map: age (18/25/35/45/55) x tone (fair/medium/mediumdark).
+  Asset filename convention: lp-foundation-mmh-<age>-<tone>.jpg. Liquid resolves the
+  asset URLs here so the JS (which can't call asset_url) can swap the hero <img> src.
+{% endcomment %}
+{%- assign mmh_ages = "18,25,35,45,55" | split: "," -%}
+{%- assign mmh_tones = "fair,medium,mediumdark" | split: "," -%}
+<script type="application/json" data-mmh-image-map>
+{
+{%- for age in mmh_ages -%}
+  {%- for tone in mmh_tones -%}
+    {%- assign mmh_file = 'lp-foundation-mmh-' | append: age | append: '-' | append: tone | append: '.jpg' -%}
+    "{{ age }}-{{ tone }}": "{{ mmh_file | asset_url }}"{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+  {%- endfor -%}
+{%- endfor -%}
+}
+</script>
+
 <script>
   (function() {
     var params = new URLSearchParams(window.location.search);
     var variant = params.get('v');
     if (!variant) return;
 
-    var hero = document.querySelector('[data-mmh-variant="' + variant + '"]');
+    // Parse persona-age-tone. Single-token keys (a..f, kbeauty) parse to persona only
+    // and keep their original behaviour (no image swap / no age clause).
+    var parts = variant.split('-');
+    var persona = parts[0];
+    var age = parts.length >= 3 ? parts[1] : null;
+    var tone = parts.length >= 3 ? parts[2] : null;
+
+    // Match the copy block by persona token first, then by the full key (back-compat).
+    var hero = document.querySelector('[data-mmh-variant="' + persona + '"]')
+            || document.querySelector('[data-mmh-variant="' + variant + '"]');
     if (!hero) return;
 
     // Show the matching hero
     hero.classList.add('is-active');
     document.body.classList.add('has-mmh');
 
-    // Inject this variant's reinforcement copy into the buy box slot once the DOM is parsed
+    // Swap the hero image to the age+tone-matched model (falls back to the block's
+    // authored default image if no map entry / the file 404s).
+    if (age && tone) {
+      try {
+        var mapEl = document.querySelector('script[data-mmh-image-map]');
+        var imgMap = mapEl ? JSON.parse(mapEl.textContent) : {};
+        var src = imgMap[age + '-' + tone];
+        var img = hero.querySelector('.vl-mmh__image');
+        if (src && img) {
+          img.addEventListener('error', function onErr() {
+            // leave the authored default in place if the demographic asset is missing
+            img.removeEventListener('error', onErr);
+          });
+          img.src = src;
+        }
+      } catch (e) {}
+    }
+
+    // Append the age clause to the subhead (localized text comes from the template).
+    if (age) {
+      var clauseTpl = document.querySelector('template[data-mmh-age-clause="' + age + '"]');
+      var subhead = hero.querySelector('.vl-mmh__subhead');
+      if (clauseTpl && subhead && clauseTpl.innerHTML.trim() !== '') {
+        subhead.innerHTML = subhead.innerHTML.replace(/\s+$/, '') + ' ' + clauseTpl.innerHTML.trim();
+      }
+    }
+
+    // Inject this persona's reinforcement copy into the buy box slot once the DOM is parsed
     // (the slot lives in lumen-pdp-hero, which renders below this script in the document)
     var injectReinforcement = function() {
-      var reinforcementTpl = document.querySelector('template[data-mmh-reinforcement-for="' + variant + '"]');
+      var reinforcementTpl = document.querySelector('template[data-mmh-reinforcement-for="' + persona + '"]')
+                          || document.querySelector('template[data-mmh-reinforcement-for="' + variant + '"]');
       var reinforcementSlot = document.querySelector('[data-mmh-reinforcement-slot]');
       if (reinforcementTpl && reinforcementSlot && reinforcementTpl.innerHTML.trim() !== '') {
         reinforcementSlot.innerHTML = reinforcementTpl.innerHTML;
@@ -245,18 +310,16 @@
       injectReinforcement();
     }
 
+    var trackParams = { variant_key: variant, persona: persona, age: age || '', tone: tone || '' };
+
     // GA4 tracking
     if (typeof gtag === 'function') {
-      gtag('event', 'message_match_variant_viewed', {
-        variant_key: variant
-      });
+      gtag('event', 'message_match_variant_viewed', trackParams);
     }
 
     // Meta Pixel tracking
     if (typeof fbq === 'function') {
-      fbq('trackCustom', 'MessageMatchVariantViewed', {
-        variant_key: variant
-      });
+      fbq('trackCustom', 'MessageMatchVariantViewed', trackParams);
     }
   })();
 </script>
@@ -333,6 +396,24 @@
           "id": "reinforcement",
           "label": "Reinforcement text",
           "info": "Optional. Renders below the headline/subhead/columns. Use to reinforce the angle and tie it back to the product characteristics that solve the problem."
+        }
+      ]
+    },
+    {
+      "type": "age_clause",
+      "name": "Age Clause",
+      "settings": [
+        {
+          "type": "text",
+          "id": "age_key",
+          "label": "Age key",
+          "info": "Lower bound of the quiz age range: 18, 25, 35, 45 or 55. Matches the AGE token in ?v=persona-AGE-tone."
+        },
+        {
+          "type": "textarea",
+          "id": "clause",
+          "label": "Clause appended to the subhead",
+          "info": "Short life-stage line added to the end of the persona subhead for this age band. Shared across all personas."
         }
       ]
     }
