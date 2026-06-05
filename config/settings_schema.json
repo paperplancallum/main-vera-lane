@@ -1875,9 +1875,16 @@
       {
         "type": "text",
         "id": "cart_goal_1_threshold",
-        "label": "Threshold Amount (cents)",
-        "default": "3000",
-        "info": "Enter amount in cents, e.g. 3000 for $30"
+        "label": "Threshold (shop currency)",
+        "default": "30",
+        "info": "Base amount in your shop's primary currency, e.g. 30 for $30. Other markets use the per-market overrides below."
+      },
+      {
+        "type": "textarea",
+        "id": "cart_goal_1_currency_overrides",
+        "label": "Per-market threshold overrides",
+        "default": "",
+        "info": "One pair per market currency, CODE:amount in that currency's own units, comma-separated. Example: PLN:250, CZK:1400, EUR:55. Currencies not listed fall back to the base threshold above. Required for non-shop-currency markets, otherwise weak-currency markets (PLN, CZK) reach the goal far too cheaply."
       },
       {
         "type": "textarea",
@@ -1912,9 +1919,16 @@
       {
         "type": "text",
         "id": "cart_goal_2_threshold",
-        "label": "Threshold Amount (cents)",
-        "default": "4500",
-        "info": "Enter amount in cents, e.g. 4500 for $45"
+        "label": "Threshold (shop currency)",
+        "default": "45",
+        "info": "Base amount in your shop's primary currency, e.g. 45 for $45. Other markets use the per-market overrides below."
+      },
+      {
+        "type": "textarea",
+        "id": "cart_goal_2_currency_overrides",
+        "label": "Per-market threshold overrides",
+        "default": "",
+        "info": "One pair per market currency, CODE:amount in that currency's own units, comma-separated. Example: PLN:360, CZK:2100, EUR:85. Currencies not listed fall back to the base threshold above. Required for non-shop-currency markets, otherwise weak-currency markets (PLN, CZK) reach the goal far too cheaply."
       },
       {
         "type": "textarea",
@@ -1949,9 +1963,16 @@
       {
         "type": "text",
         "id": "cart_goal_3_threshold",
-        "label": "Threshold Amount (cents)",
-        "default": "6000",
-        "info": "Enter amount in cents, e.g. 6000 for $60"
+        "label": "Threshold (shop currency)",
+        "default": "60",
+        "info": "Base amount in your shop's primary currency, e.g. 60 for $60. Other markets use the per-market overrides below."
+      },
+      {
+        "type": "textarea",
+        "id": "cart_goal_3_currency_overrides",
+        "label": "Per-market threshold overrides",
+        "default": "",
+        "info": "One pair per market currency, CODE:amount in that currency's own units, comma-separated. Example: PLN:250, CZK:1400, EUR:55. Currencies not listed fall back to the base threshold above. Required for non-shop-currency markets, otherwise weak-currency markets (PLN, CZK) reach the goal far too cheaply."
       },
       {
         "type": "textarea",

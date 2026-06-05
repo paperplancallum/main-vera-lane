@@ -118,17 +118,26 @@
                 class="cart-drawer__rewards"
                 style="--cart-goal-text-padding-mobile: {{ settings.cart_goal_text_padding_mobile | default: 0 }}px; --cart-goal-text-padding-desktop: {{ settings.cart_goal_text_padding_desktop | default: 0 }}px;"
               >
+              {%- comment -%}
+                Cart-goal thresholds are stored in MAJOR units of the shop's
+                primary currency (e.g. "90"). cart.total_price is in the
+                customer's PRESENTMENT currency minor units, so we resolve a
+                per-market threshold (see resolve-cart-goal-threshold) before
+                converting to minor units and comparing — otherwise weak-currency
+                markets (PLN, CZK) clear a USD-denominated gate far too cheaply.
+              {%- endcomment -%}
+              {%- assign active_currency = cart.currency.iso_code | default: localization.country.currency.iso_code | default: shop.currency -%}
+              {%- capture goal_1_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_1_threshold, overrides: settings.cart_goal_1_currency_overrides, currency: active_currency -%}{%- endcapture -%}
+              {%- capture goal_2_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_2_threshold, overrides: settings.cart_goal_2_currency_overrides, currency: active_currency -%}{%- endcapture -%}
+              {%- capture goal_3_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_3_threshold, overrides: settings.cart_goal_3_currency_overrides, currency: active_currency -%}{%- endcapture -%}
               {% liquid
-                  comment
-                    Cart goals thresholds are stored in theme settings
-                    as dollar amounts (e.g. "30"). Convert them to cents
-                    so they can be compared directly to cart.total_price,
-                    which is also in cents.
-                  endcomment
+                  assign goal_1_threshold_major = goal_1_threshold_major | strip | default: 30
+                  assign goal_2_threshold_major = goal_2_threshold_major | strip | default: 45
+                  assign goal_3_threshold_major = goal_3_threshold_major | strip | default: 60
 
-                  assign free_shipping_threshold = settings.cart_goal_1_threshold | default: 30 | times: 100
-                  assign free_bag_threshold = settings.cart_goal_2_threshold | default: 45 | times: 100
-                  assign free_mascara_threshold = settings.cart_goal_3_threshold | default: 60 | times: 100
+                  assign free_shipping_threshold = goal_1_threshold_major | times: 100
+                  assign free_bag_threshold = goal_2_threshold_major | times: 100
+                  assign free_mascara_threshold = goal_3_threshold_major | times: 100
 
                   assign cart_total_cents = cart.total_price
                   
@@ -217,10 +226,19 @@
                   assign goal_2_effective_enabled = settings.cart_goal_2_enabled
                   assign goal_3_effective_enabled = settings.cart_goal_3_enabled
 
-                  assign free_shipping_threshold = settings.cart_goal_1_threshold | default: 60 | round
-                  assign goal_1_reward_text = settings.cart_goal_1_text | default: 'Free Shipping <strong class="cart-drawer__reward-amount">$30</strong>' | replace: '[threshold]', free_shipping_threshold
-                  assign goal_2_reward_text = settings.cart_goal_2_text | default: 'Free Travel Bag <strong class="cart-drawer__reward-amount">$45</strong>'
-                  assign goal_3_reward_text = settings.cart_goal_3_text | default: 'Free Mini Mascara <strong class="cart-drawer__reward-amount">$60</strong>'
+                  comment
+                    Display amounts are the resolved per-market thresholds
+                    (free_*_threshold are in the active currency's minor units)
+                    formatted with the money filter so each market shows its own
+                    amount + symbol. Reward text injects them via [threshold].
+                  endcomment
+                  assign goal_1_threshold_money = free_shipping_threshold | money_without_trailing_zeros
+                  assign goal_2_threshold_money = free_bag_threshold | money_without_trailing_zeros
+                  assign goal_3_threshold_money = free_mascara_threshold | money_without_trailing_zeros
+
+                  assign goal_1_reward_text = settings.cart_goal_1_text | default: 'Free Shipping <strong class="cart-drawer__reward-amount">[threshold]</strong>' | replace: '[threshold]', goal_1_threshold_money
+                  assign goal_2_reward_text = settings.cart_goal_2_text | default: 'Free Makeup Bag <strong class="cart-drawer__reward-amount">[threshold]</strong>' | replace: '[threshold]', goal_2_threshold_money
+                  assign goal_3_reward_text = settings.cart_goal_3_text | default: 'Free Mini Mascara <strong class="cart-drawer__reward-amount">[threshold]</strong>' | replace: '[threshold]', goal_3_threshold_money
 
                   if cart_has_goal_1_excluded_item and goal_1_effective_enabled
                     assign goal_1_effective_enabled = false
@@ -321,9 +339,14 @@
   assign goal_2_product = settings.cart_goal_2_product
   assign goal_3_product = settings.cart_goal_3_product
 
-  assign goal_1_threshold_cents = settings.cart_goal_1_threshold | default: 30 | times: 100
-  assign goal_2_threshold_cents = settings.cart_goal_2_threshold | default: 45 | times: 100
-  assign goal_3_threshold_cents = settings.cart_goal_3_threshold | default: 60 | times: 100
+  comment
+    Reuse the per-market thresholds resolved at the top of this snippet
+    (already in the active presentment currency's minor units) so the JS
+    auto-add logic compares against the same gate the progress bars use.
+  endcomment
+  assign goal_1_threshold_cents = free_shipping_threshold
+  assign goal_2_threshold_cents = free_bag_threshold
+  assign goal_3_threshold_cents = free_mascara_threshold
 
   comment
     Use the same effective enabled flags that account for bundle
