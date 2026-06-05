@@ -1,4 +1,4 @@
-{%- assign active_currency = cart.currency.iso_code | default: localization.country.currency.iso_code | default: shop.currency -%}
+{%- assign active_currency = localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency -%}
 {%- capture cta_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_1_threshold, overrides: settings.cart_goal_1_currency_overrides, currency: active_currency -%}{%- endcapture -%}
 {%- assign cta_threshold_cents = cta_threshold_major | strip | default: 60 | times: 100 -%}
 {%- assign free_shipping_threshold = cta_threshold_cents | money_without_trailing_zeros -%}
