@@ -28,6 +28,9 @@
     { "en": "<p>Free Shipping from $[threshold]</p>", "pl": "<p>Darmowa dostawa od [threshold]</p>", "cs": "<p>Doprava zdarma od [threshold]</p>", "sl": "<p>Brezplačna dostava od [threshold]</p>" },
     { "en": "<p>Free Return</p>", "pl": "<p>Darmowy zwrot</p>", "cs": "<p>Vrácení zdarma</p>", "sl": "<p>Brezplačno vračilo</p>" },
 
+    { "en": "Free Shipping <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>", "pl": "Darmowa dostawa <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>", "cs": "Doprava zdarma <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>", "sl": "Brezplačna dostava <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>" },
+    { "en": "Free Makeup Bag <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>", "pl": "Darmowa kosmetyczka <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>", "cs": "Kosmetická taštička zdarma <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>", "sl": "Brezplačna kozmetična torbica <strong class=\"cart-drawer__reward-amount\">[threshold]</strong>" },
+
     { "en": "MOST POPULAR", "pl": "NAJPOPULARNIEJSZY", "cs": "NEJOBLÍBENĚJŠÍ", "sl": "NAJBOLJ PRILJUBLJENO" },
     { "en": "BUNDLE", "pl": "ZESTAW", "cs": "SADA", "sl": "KOMPLET" },
     { "en": "GREAT DEAL", "pl": "ŚWIETNA OKAZJA", "cs": "SKVĚLÁ NABÍDKA", "sl": "ODLIČNA PONUDBA" },
