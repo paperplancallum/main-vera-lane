@@ -14,6 +14,27 @@
   fetchpriority="low"
 ></script>
 
+{%- comment -%}
+  Resolve per-market cart-goal thresholds ONCE, up front and OUTSIDE the
+  cart.empty? branch below. Both the rewards progress UI (non-empty branch) and
+  the ALWAYS-rendered #cart-goals-data JSON (read by cart-drawer.js) depend on
+  these. Computing them inside the non-empty branch left the JSON gate null on
+  empty-cart page loads, so the JS treated `total >= null` as `>= 0` and auto-
+  added the free gift on the very first item. See resolve-cart-goal-threshold.
+{%- endcomment -%}
+{%- assign active_currency = localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency -%}
+{%- capture goal_1_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_1_threshold, overrides: settings.cart_goal_1_currency_overrides, currency: active_currency -%}{%- endcapture -%}
+{%- capture goal_2_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_2_threshold, overrides: settings.cart_goal_2_currency_overrides, currency: active_currency -%}{%- endcapture -%}
+{%- capture goal_3_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_3_threshold, overrides: settings.cart_goal_3_currency_overrides, currency: active_currency -%}{%- endcapture -%}
+{%- liquid
+  assign goal_1_threshold_major = goal_1_threshold_major | strip | default: 30
+  assign goal_2_threshold_major = goal_2_threshold_major | strip | default: 45
+  assign goal_3_threshold_major = goal_3_threshold_major | strip | default: 60
+  assign free_shipping_threshold = goal_1_threshold_major | times: 100
+  assign free_bag_threshold = goal_2_threshold_major | times: 100
+  assign free_mascara_threshold = goal_3_threshold_major | times: 100
+-%}
+
 <cart-drawer-component
   class="cart-drawer"
   {{ block.shopify_attributes }}
@@ -118,27 +139,12 @@
                 class="cart-drawer__rewards"
                 style="--cart-goal-text-padding-mobile: {{ settings.cart_goal_text_padding_mobile | default: 0 }}px; --cart-goal-text-padding-desktop: {{ settings.cart_goal_text_padding_desktop | default: 0 }}px;"
               >
-              {%- comment -%}
-                Cart-goal thresholds are stored in MAJOR units of the shop's
-                primary currency (e.g. "90"). cart.total_price is in the
-                customer's PRESENTMENT currency minor units, so we resolve a
-                per-market threshold (see resolve-cart-goal-threshold) before
-                converting to minor units and comparing — otherwise weak-currency
-                markets (PLN, CZK) clear a USD-denominated gate far too cheaply.
-              {%- endcomment -%}
-              {%- assign active_currency = cart.currency.iso_code | default: localization.country.currency.iso_code | default: shop.currency -%}
-              {%- capture goal_1_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_1_threshold, overrides: settings.cart_goal_1_currency_overrides, currency: active_currency -%}{%- endcapture -%}
-              {%- capture goal_2_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_2_threshold, overrides: settings.cart_goal_2_currency_overrides, currency: active_currency -%}{%- endcapture -%}
-              {%- capture goal_3_threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_3_threshold, overrides: settings.cart_goal_3_currency_overrides, currency: active_currency -%}{%- endcapture -%}
               {% liquid
-                  assign goal_1_threshold_major = goal_1_threshold_major | strip | default: 30
-                  assign goal_2_threshold_major = goal_2_threshold_major | strip | default: 45
-                  assign goal_3_threshold_major = goal_3_threshold_major | strip | default: 60
-
-                  assign free_shipping_threshold = goal_1_threshold_major | times: 100
-                  assign free_bag_threshold = goal_2_threshold_major | times: 100
-                  assign free_mascara_threshold = goal_3_threshold_major | times: 100
-
+                  comment
+                    free_shipping_threshold / free_bag_threshold /
+                    free_mascara_threshold are resolved per-market once at the
+                    top of this snippet (outside the cart.empty? branch).
+                  endcomment
                   assign cart_total_cents = cart.total_price
                   
                   assign shipping_progress = cart_total_cents | times: 100 | divided_by: free_shipping_threshold
