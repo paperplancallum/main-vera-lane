@@ -1,17 +1,21 @@
 {% comment %}
   Free Shipping Threshold Snippet
 
-  Outputs the free shipping threshold as a formatted dollar amount.
-  Pulls from Theme Settings cart_goal_1_threshold.
+  Outputs the free shipping threshold formatted in the customer's local
+  (presentment) currency. Pulls from Theme Settings cart_goal_1_threshold and
+  resolves any per-market override (cart_goal_1_currency_overrides) so PLN/CZK/
+  EUR markets show their own amount instead of a hardcoded dollar value.
 
   Usage:
     {% render 'free-shipping-threshold' %}
-    Output: $60
+    Output (US): $60   (PL): 250 zł
 
-  The threshold is set in Theme Settings > Cart Goals > Goal 1 Threshold
+  The threshold is set in Theme Settings > Cart Goals > Goal 1.
 {% endcomment %}
 
 {%- liquid
-  assign threshold_dollars = settings.cart_goal_1_threshold | default: 60 | round
+  assign active_currency = cart.currency.iso_code | default: localization.country.currency.iso_code | default: shop.currency
 -%}
-${{ threshold_dollars -}}
+{%- capture threshold_major -%}{%- render 'resolve-cart-goal-threshold', base: settings.cart_goal_1_threshold, overrides: settings.cart_goal_1_currency_overrides, currency: active_currency -%}{%- endcapture -%}
+{%- assign threshold_cents = threshold_major | strip | default: 60 | times: 100 -%}
+{{- threshold_cents | money_without_trailing_zeros -}}

@@ -1,0 +1,43 @@
+{%- comment -%}
+  Resolve a cart-goal spend threshold for the active presentment currency.
+
+  Cart-goal thresholds are stored in MAJOR currency units in the shop's primary
+  currency (e.g. "90" = $90.00). But cart.total_price (Liquid) and the AJAX cart
+  total (cart-drawer.js) are in the customer's PRESENTMENT currency minor units.
+  Comparing the raw stored number against a presentment-currency total means a
+  weak-currency market (PLN, CZK) clears a USD-denominated gate far too cheaply
+  — e.g. a "$90" makeup-bag goal becomes "90 zł" (~$23) in Poland.
+
+  This snippet picks the right threshold for the active currency from a
+  per-market override list, falling back to the base (shop-currency) value.
+
+  Params:
+    base      - settings.cart_goal_N_threshold  (major units, shop primary currency)
+    overrides - settings.cart_goal_N_currency_overrides
+                ("CODE:amount" pairs in each currency's own major units,
+                 comma-separated, e.g. "PLN:360, CZK:2100, EUR:85")
+    currency  - active presentment currency ISO code (e.g. cart.currency.iso_code)
+
+  Output: the resolved threshold in MAJOR units of the active currency.
+{%- endcomment -%}
+{%- liquid
+  assign _result = base | default: 0
+  assign _overrides = overrides | default: ''
+  assign _currency = currency | default: '' | upcase
+
+  if _overrides != '' and _currency != ''
+    assign _pairs = _overrides | split: ','
+    for _pair in _pairs
+      assign _kv = _pair | split: ':'
+      if _kv.size < 2
+        continue
+      endif
+      assign _code = _kv[0] | strip | upcase
+      assign _amt = _kv[1] | strip
+      if _code == _currency and _amt != ''
+        assign _result = _amt
+      endif
+    endfor
+  endif
+-%}
+{{- _result -}}
