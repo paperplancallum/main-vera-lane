@@ -437,6 +437,29 @@
         try { window.localStorage.setItem(CAPTURED_KEY, '1'); } catch (e) {}
       }
 
+      // Visitors whose email we ALREADY have — skip the email-capture step for them.
+      // Signals (any one is enough):
+      //   utm_source in KNOWN_EMAIL_UTM_SOURCES  -> arrived from one of our owned
+      //                                             channels (e.g. a Klaviyo email)
+      //   _kx present                            -> Klaviyo email-click identifier
+      //   qe=1 present                           -> quiz handoff that captured an
+      //                                             email (set by the quiz's
+      //                                             buildOfferUrl). NOTE: do NOT key
+      //                                             off ?v= — Meta ads also send
+      //                                             traffic to ?v= PDPs without an
+      //                                             email; only ?qe=1 is quiz-origin.
+      var KNOWN_EMAIL_UTM_SOURCES = ['klaviyo', 'quiz'];
+      function hasKnownEmail() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var src = (params.get('utm_source') || '').toLowerCase();
+          if (src && KNOWN_EMAIL_UTM_SOURCES.indexOf(src) !== -1) return true;
+          if (params.has('_kx')) return true;
+          if (params.get('qe') === '1') return true;
+          return false;
+        } catch (e) { return false; }
+      }
+
       function setActiveStep(name) {
         if (emailStep) emailStep.classList.toggle('is-active', name === 'email');
         if (upsellStep) upsellStep.classList.toggle('is-active', name === 'upsell');
@@ -656,6 +679,10 @@
       // ---- Entry point: decide which step to show ----
       function routeStep() {
         openOverlay();
+        // If we already have this shopper's email (Klaviyo / quiz traffic), remember
+        // it so every add-to-cart this visit skips the capture step, then go straight
+        // to the upsell.
+        if (hasKnownEmail()) markCaptured();
         var showEmail = emailEnabled && emailStep && !customerLoggedIn && !alreadyCaptured();
         if (showEmail) {
           setActiveStep('email');
