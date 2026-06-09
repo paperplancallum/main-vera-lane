@@ -22,7 +22,7 @@
       "name": "BL - Hero",
       "settings": {
         "section_id": "",
-        "bg_image_asset": "lp-li-2-hero.jpg",
+        "bg_image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-hero.jpg",
         "bg_color": "#2d2d2d",
         "overlay_opacity": 60,
         "category": "BEAUTY",
@@ -51,7 +51,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-1.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-1.jpg",
         "image_position": "right"
       }
     },
@@ -68,7 +68,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-2.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-2.jpg",
         "image_position": "left"
       }
     },
@@ -85,7 +85,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-3.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-3.jpg",
         "image_position": "right"
       }
     },
@@ -102,7 +102,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-4.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-4.jpg",
         "image_position": "left"
       }
     },
@@ -119,7 +119,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-5.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-5.jpg",
         "image_position": "right"
       }
     },
@@ -136,7 +136,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-6.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-6.jpg",
         "image_position": "left"
       }
     },
@@ -153,7 +153,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-7.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-7.jpg",
         "image_position": "right"
       }
     },
@@ -170,7 +170,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-8.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-8.jpg",
         "image_position": "left"
       }
     },
@@ -187,7 +187,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-9.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-9.jpg",
         "image_position": "right"
       }
     },
@@ -204,7 +204,7 @@
         "link_type": "anchor",
         "link_anchor": "",
         "link_url": "",
-        "image_asset": "lp-li-2-reason-10.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-2-reason-10.jpg",
         "image_position": "left"
       }
     },

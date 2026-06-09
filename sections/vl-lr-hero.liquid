@@ -12,7 +12,7 @@
 <section class="vl-lr-hero">
   {% if image_asset != blank %}
     <div class="vl-lr-hero__banner">
-      <img src="{{ image_asset | asset_url }}" alt="" loading="eager" decoding="async">
+      <img src="{%- render 'img-src', src: image_asset -%}" alt="" loading="eager" decoding="async">
     </div>
   {% endif %}
 

@@ -26,7 +26,7 @@
     "hero": {
       "type": "vl-lr-hero",
       "settings": {
-        "image_asset": "lp-li-3-hero.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-hero.jpg",
         "headline": "10 Razlogov, Zakaj Je Ta Viralni Hibrid Nege in Ličil Postal Edina Podlaga Generacije Z",
         "subheadline": "Formula, ki se prilagaja tonu kože in jo neguje ter nori na TikToku — en odtenek, ki se zlije s tvojo kožo, jo neguje med nošenjem in ji podari sij od znotraj, brez učinka maske, brez mašenja por in brez iskanja odtenka.",
         "intro_body": "<p>Obstaja na tisoče podlag, ki obljubljajo 'tvoja koža, le boljša'. Le ena je zares hibrid nege in ličil — lahka formula, ki se prilagaja tonu in se v nekaj sekundah umeri na tvoj točen podton, medtem ko niacinamid in hialuronska kislina delujeta pod njo. Razglašena za <strong>podlago št. 1 po Korean Beauty Insider</strong> daje sijočo, naravno videti kožo — brez iskanja odtenka, brez učinka maske in brez mozolja ob 11. uri. Prav zato vedno znova postane viralna.</p>",
@@ -41,7 +41,7 @@
         "number": "1",
         "title": "En Odtenek Ustreza Vsem — Končno Lahko Kupiš Podlago Prek Spleta",
         "body": "<p>Vsaka druga podlaga je igra na srečo: pregleduješ 40 odtenkov, ugibaš svoj podton in moliš, da tisti, ki pride, ne bo preveč rožnat ali preveč oranžen. Vera Lane to obrne. Pigmenti, ki se prilagajajo tonu, ostanejo v steklenički čisto beli, nato pa se sprostijo in zlijejo v trenutku, ko se dotaknejo kože — umerijo se na tvoj točen podton v manj kot 30 sekundah.</p><p>En odtenek. Vsak podton. Brez preizkušanja, brez vračil, brez 'zakaj se mi obraz ne ujema z vratom'. Preprosto deluje — zato vsakič ob ponovni zalogi pohaja.</p>",
-        "image_asset": "lp-li-3-reason-1.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-1.jpg",
         "layout": "image-right"
       }
     },
@@ -51,7 +51,7 @@
         "number": "2",
         "title": "Občuti Se Kot Koža — Nikoli Težka, Nikoli Kot Maska",
         "body": "<p>Razlog, da večina podlag izgleda 'naličeno', je teža. Težki pigmenti ležijo na vrhu kože, se posedejo v neravnine in se do kosila spremenijo v plosko masko. Ni to.</p><p>Vera Lane zadrži prožne mikropigmente v lahki serumski osnovi, zato se zlije s kožo, namesto da bi ležala na vrhu. Dobiš naravno, zračno prekrivnost 'moja koža, le boljša', ki se premika z obrazom — videz no-makeup ličil, za katerim si vsi v resnici želijo.</p>",
-        "image_asset": "lp-li-3-reason-2.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-2.jpg",
         "layout": "image-left"
       }
     },
@@ -61,7 +61,7 @@
         "number": "3",
         "title": "Tisti Sij od Znotraj — Učinek 'Steklene Kože'",
         "body": "<p>Motna, plosko, naličena — tri stvari, ki postarajo selfi. Večina 'sijočih' podlag ga ponaredi z bleščicami, ki v pravi svetlobi izgledajo mastno.</p><p>Vera Lane je obogatena s hialuronsko kislino, skvalanom in rastlinskimi sestavinami, ki odbijajo svetlobo tako, kot to počne zdrava koža. Rezultat je mehka, rosna, od znotraj sijoča dovršenost — sij steklene kože, za katerim lovi vsa tvoja platforma.</p>",
-        "image_asset": "lp-li-3-reason-3.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-3.jpg",
         "layout": "image-right"
       }
     },
@@ -71,7 +71,7 @@
         "number": "4",
         "title": "Zabriše Pore in Neravnine Kot Pravi Filter",
         "body": "<p>Pore, drobne neravnine, rdečica — večina tistega, kar želiš skriti, je vidna le zato, ker meče drobne sence na kožo. Več prekrivnosti to le naredi kot masko.</p><p>Delci soft-focus v Vera Lane razpršijo te sence tako, kot to počne lepotni filter, zato se neravnine zgladijo brez težke plasti pigmenta. Prevod: izgledaš brezhibno na fotografijah, pred kamero in v ostri kopalniški svetlobi — brez filtra.</p>",
-        "image_asset": "lp-li-3-reason-4.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-4.jpg",
         "layout": "image-left"
       }
     },
@@ -81,7 +81,7 @@
         "number": "5",
         "title": "Ščiti Tvojo Kožo Pred Modro Svetlobo in Onesnaženjem",
         "body": "<p>Med telefonskimi zasloni, mestnim zrakom in devetimi urami na dan pred prenosnikom tvoja koža trpi to, kar večina ličil ignorira — ali poslabša s tem, da jo zamaši.</p><p>Vera Lane temelji na kompleksu za podporo bariere z niacinamidom, vitaminom E in azijsko vodno popkoreso (Centella Asiatica), ki med nošenjem aktivno ščiti pred modro svetlobo, UV stresom in onesnaženjem. To je prekrivnost, ki tvojo kožo brani, namesto da bi jo dušila.</p>",
-        "image_asset": "lp-li-3-reason-5.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-5.jpg",
         "layout": "image-right"
       }
     },
@@ -91,7 +91,7 @@
         "number": "6",
         "title": "Nega in Ličila v Enem — Neguje Tvojo Kožo Med Nošenjem",
         "body": "<p>To je tisti del, ki iz nje naredi hibrid, ne le podlago. Vsak nanos dostavi pravo dozo aktivnih sestavin ravni nege — niacinamid za poenotenje tona in pomiritev rdečice, hialuronsko kislino za vlaženje in rastlinske sestavine za podporo bariere.</p><p>Torej dlje ko jo nosiš, boljša je tvoja gola koža. V 60-dnevni interni študiji je 9 od 10 testerk poročalo o čistejši, bolj enakomerni koži — celo ob dnevih, ko so jo izpustile. To so edina ličila, ki so hkrati korak nege kože.</p>",
-        "image_asset": "lp-li-3-reason-6.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-6.jpg",
         "layout": "image-left"
       }
     },
@@ -101,7 +101,7 @@
         "number": "7",
         "title": "Nekomedogena, Čista in Veganska — Ne Zamaši Por in Ne Povzroči Mozoljev",
         "body": "<p>Če podlaga zate običajno pomeni svež mozolj tretji dan, je za to kriva formula — ne tvoja koža. Vera Lane je nekomedogena in brez parabenov, sulfatov, sintetičnih dišav, ftalatov in smukca — običajnih krivcev, ki mašijo pore in dražijo.</p><p>Brez testiranja na živalih, veganska in izdelana v laboratoriju s certifikatom GMP. Celoten seznam sestavin je na vsaki škatlici, nič ni skrito pod 'dišava'. Varna za vsakodnevno nošenje.</p>",
-        "image_asset": "lp-li-3-reason-7.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-7.jpg",
         "layout": "image-right"
       }
     },
@@ -111,7 +111,7 @@
         "number": "8",
         "title": "Deluje na Vsak Podton — in Vsak Tip Kože",
         "body": "<p>En odtenek se prilagodi svetli, srednji, olivni in temni koži, ker se pigmenti odzivajo na tvoj lasten melanin — ne na tabelo. A ne ustavi se pri tonu.</p><p>Mastna koža dobi ravnovesje namesto popoldanskega leska. Suha koža dobi vlago namesto luščenja. Aknasta in občutljiva koža dobita nekomedogeno formulo, ki pomirja namesto da draži. Karkoli počne tvoja koža, se prilagodi.</p>",
-        "image_asset": "lp-li-3-reason-8.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-8.jpg",
         "layout": "image-left"
       }
     },
@@ -121,7 +121,7 @@
         "number": "9",
         "title": "Razglašena za Podlago Št. 1 po Korean Beauty Insider",
         "body": "<p>Verjetno si jo že videla na svojem viru — posnetki z 'belo podlago, ki se spremeni v tvoj odtenek' so nabrali milijone ogledov in vsaka ponovna zaloga poide. A ni le hype: <strong>Korean Beauty Insider jo je razglasil za svojo podlago št. 1</strong> in zbrala je več kot 12.400 petzvezdičnih ocen in jih je vedno več.</p><p>To priznanje zdrži, ker formula deluje. Vsaka sestavina je dermatološko testirana za varnost in združljivost z bariero kože, vsaka serija pa je pred odpremo testirana na čistost. Viralna, nagrajena in resnična — vse hkrati.</p>",
-        "image_asset": "lp-li-3-reason-9.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-9.jpg",
         "layout": "image-right"
       }
     },
@@ -131,7 +131,7 @@
         "number": "10",
         "title": "Preizkusi Jo 30 Dni — Vzljubi Jo ali Vrnemo Denar",
         "body": "<p>Ne bi se smela odločati po vzorcu na zaslonu. Preizkusi Vera Lane polnih 30 dni, v svojem resničnem življenju in resnični svetlobi. Nosi jo v šolo, v službo, pred kamero, na zabavo.</p><p>Če to ne bo najlažja in najbolj sijoča podlaga, kar si jih imela, jo pošlji nazaj s polnim vračilom denarja — brez stroškov, brez nerodne izmenjave e-pošte. Tako prepričani smo, da si bo prislužila stalno mesto v tvoji kozmetični torbici.</p>",
-        "image_asset": "lp-li-3-reason-10.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-10.jpg",
         "layout": "image-left"
       }
     },
@@ -139,7 +139,7 @@
       "type": "vl-lr-offer",
       "settings": {
         "heading": "Klikni Spodaj in Prevzemi Svojo Posebno Ponudbo Še Danes!",
-        "image_asset": "lp-li-3-product.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-product.jpg",
         "btn_text": "Prevzemi Posebno Ponudbo →",
         "btn_url": "/sl/products/color-changing-foundation?v=kbeauty",
         "countdown_hours": 24,
@@ -155,7 +155,7 @@
             "name_and_age": "Nina, 23",
             "stars_text": "⭐⭐⭐⭐⭐",
             "image_url": "",
-            "image_asset": "lp-li-3-review-1.jpg",
+            "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-review-1.jpg",
             "quote": "<p>\"Imam mastno kožo, nagnjeno k aknam, in vsaka podlaga me ali izbruha ali zdrsne do poldneva. To je prva, ki res zdrži, me ne maši in nekako moja koža izgleda boljše, ko jo odstranim. 'Obsedena' ni dovolj močna beseda.\"</p>"
           }
         },
@@ -165,7 +165,7 @@
             "name_and_age": "Sara, 26",
             "stars_text": "⭐⭐⭐⭐⭐",
             "image_url": "",
-            "image_asset": "lp-li-3-review-2.jpg",
+            "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-review-2.jpg",
             "quote": "<p>\"Kupila sem jo zaradi TikToka in popolnoma pričakovala razočaranje. Sploh ne. Tista pretvorba iz bele v moj odtenek je neverjetna — ujela me je popolnoma, jaz pa sem precej svetla z rožnatim podtonom. Najbolj ne morem prek tega sijaja.\"</p>"
           }
         },
@@ -175,7 +175,7 @@
             "name_and_age": "Lara, 25",
             "stars_text": "⭐⭐⭐⭐⭐",
             "image_url": "",
-            "image_asset": "lp-li-3-review-3.jpg",
+            "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-review-3.jpg",
             "quote": "<p>\"Včasih sem nanašala bazo, podlago, korektor, fiksirni puder… zdaj je le to. En korak, sij steklene kože, na fotografijah pa izgleda, kot da imam filter v resnici. Nadomestila je kakšne štiri izdelke v moji rutini.\"</p>"
           }
         }

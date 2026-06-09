@@ -13,7 +13,7 @@
             </div>
           {% elsif block.settings.image_asset != blank %}
             <div class="dr-rankings__image-wrap">
-              <img class="dr-rankings__image" src="{{ block.settings.image_asset | asset_url }}" loading="lazy" alt="{{ block.settings.product_name }}">
+              <img class="dr-rankings__image" src="{%- render 'img-src', src: block.settings.image_asset -%}" loading="lazy" alt="{{ block.settings.product_name }}">
             </div>
           {% endif %}
           <div class="dr-rankings__name">{{ block.settings.product_name }}</div>

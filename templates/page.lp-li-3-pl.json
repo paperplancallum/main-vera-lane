@@ -26,7 +26,7 @@
     "hero": {
       "type": "vl-lr-hero",
       "settings": {
-        "image_asset": "lp-li-3-hero.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-hero.jpg",
         "headline": "10 Powodów, Dla Których Ten Viralny Hybryd Pielęgnacji i Makijażu Został Jedynym Podkładem Pokolenia Z",
         "subheadline": "Dopasowująca się do tonu, pielęgnująca skórę formuła, która podbija TikToka — jeden odcień, który wtapia się w skórę, pielęgnuje ją podczas noszenia i daje blask od wewnątrz, bez efektu maski, bez zatykania porów i bez dobierania odcienia.",
         "intro_body": "<p>Istnieją tysiące podkładów obiecujących efekt 'twoja skóra, tylko lepsza'. Tylko jeden jest naprawdę hybrydą pielęgnacji i makijażu — lekką, dopasowującą się do tonu formułą, która w kilka sekund kalibruje się do Twojego dokładnego podtonu, podczas gdy niacynamid i kwas hialuronowy działają pod spodem. Uznany za <strong>podkład nr 1 według Korean Beauty Insider</strong>, daje promienną, naturalnie wyglądającą skórę — bez dobierania odcienia, bez efektu maski i bez wyprysku o 11 rano. Właśnie dlatego wciąż staje się viralem.</p>",
@@ -41,7 +41,7 @@
         "number": "1",
         "title": "Jeden Odcień Pasuje Każdemu — Wreszcie Możesz Kupić Podkład Online",
         "body": "<p>Każdy inny podkład to loteria: przewijasz 40 odcieni, zgadujesz swój podton i modlisz się, żeby ten, który dotrze, nie był zbyt różowy ani zbyt pomarańczowy. Vera Lane odwraca tę zasadę. Dopasowujące się pigmenty pozostają czysto białe w buteleczce, a uwalniają się i zlewają ze skórą w momencie kontaktu — kalibrując się do Twojego dokładnego podtonu w mniej niż 30 sekund.</p><p>Jeden odcień. Każdy podton. Bez testowania, bez zwrotów, bez 'dlaczego moja twarz nie pasuje do szyi'. Po prostu działa — dlatego wyprzedaje się przy każdej dostawie.</p>",
-        "image_asset": "lp-li-3-reason-1.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-1.jpg",
         "layout": "image-right"
       }
     },
@@ -51,7 +51,7 @@
         "number": "2",
         "title": "Czuć Jak Skórę — Nigdy Nie Ciężki, Nigdy Jak Maska",
         "body": "<p>Powód, dla którego większość podkładów wygląda 'sztucznie', to ciężar. Ciężkie pigmenty osadzają się na skórze, wnikają w nierówności i do południa zamieniają się w płaską maskę. Nie tego chcemy.</p><p>Vera Lane zawiesza elastyczne mikropigmenty w lekkiej, serum-owej bazie, więc wtapia się w skórę zamiast leżeć na wierzchu. Otrzymujesz naturalne, oddychające krycie 'moja skóra, tylko lepsza', które porusza się razem z twarzą — efekt no-makeup-makeup, o który wszystkim chodzi.</p>",
-        "image_asset": "lp-li-3-reason-2.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-2.jpg",
         "layout": "image-left"
       }
     },
@@ -61,7 +61,7 @@
         "number": "3",
         "title": "Blask Od Wewnątrz — Efekt 'Szklanej Skóry'",
         "body": "<p>Matowa, płaska, sztuczna — trzy rzeczy, które postarzają selfie. Większość 'rozświetlających' podkładów udaje blask drobinkami, które w prawdziwym świetle wyglądają tłusto.</p><p>Vera Lane jest wzbogacona o kwas hialuronowy, skwalan i rozświetlające składniki roślinne, które odbijają światło tak, jak robi to zdrowa skóra. Efekt to miękkie, wilgotne, promieniejące od środka wykończenie — blask szklanej skóry, za którym goni cała Twoja tablica.</p>",
-        "image_asset": "lp-li-3-reason-3.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-3.jpg",
         "layout": "image-right"
       }
     },
@@ -71,7 +71,7 @@
         "number": "4",
         "title": "Rozmywa Pory i Nierówności Jak Filtr w Realu",
         "body": "<p>Pory, drobne nierówności, zaczerwienienia — większość tego, co chcesz ukryć, jest widoczna tylko dlatego, że rzuca drobne cienie na skórę. Więcej krycia tylko pogłębia efekt maski.</p><p>Drobinki soft-focus w Vera Lane rozpraszają te cienie tak, jak robi to filtr upiększający, więc nierówności się wygładzają bez ciężkiej warstwy pigmentu. Tłumacząc: wyglądasz nieskazitelnie na zdjęciach, na kamerze i w ostrym świetle łazienki — bez filtra.</p>",
-        "image_asset": "lp-li-3-reason-4.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-4.jpg",
         "layout": "image-left"
       }
     },
@@ -81,7 +81,7 @@
         "number": "5",
         "title": "Chroni Skórę Przed Niebieskim Światłem i Zanieczyszczeniami",
         "body": "<p>Między ekranami telefonów, miejskim powietrzem i dziewięcioma godzinami dziennie przed laptopem, Twoja skóra dostaje w kość — a większość makijażu to ignoruje lub pogarsza, zatykając ją.</p><p>Vera Lane opiera się na wspierającym barierę kompleksie niacynamidu, witaminy E i wąkroty azjatyckiej (Centella Asiatica), który aktywnie chroni przed niebieskim światłem, stresem UV i zanieczyszczeniami podczas noszenia. To krycie, które broni Twojej skóry zamiast ją dusić.</p>",
-        "image_asset": "lp-li-3-reason-5.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-5.jpg",
         "layout": "image-right"
       }
     },
@@ -91,7 +91,7 @@
         "number": "6",
         "title": "Pielęgnacja i Makijaż w Jednym — Pielęgnuje Skórę Podczas Noszenia",
         "body": "<p>To właśnie ta część czyni go hybrydą, a nie zwykłym podkładem. Każda aplikacja dostarcza realną dawkę składników aktywnych klasy pielęgnacyjnej — niacynamid wyrównuje koloryt i koi zaczerwienienia, kwas hialuronowy nawilża, a składniki roślinne wspierają barierę.</p><p>Więc im dłużej go nosisz, tym lepsza staje się Twoja naga skóra. W 60-dniowym badaniu wewnętrznym 9 na 10 testerek zgłosiło czystszą, bardziej wyrównaną skórę — nawet w dni, gdy go nie nakładały. To jedyny makijaż, który jest też krokiem pielęgnacyjnym.</p>",
-        "image_asset": "lp-li-3-reason-6.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-6.jpg",
         "layout": "image-left"
       }
     },
@@ -101,7 +101,7 @@
         "number": "7",
         "title": "Niekomedogenny, Czysty i Wegański — Nie Zatka Porów ani Nie Wywoła Wyprysków",
         "body": "<p>Jeśli podkład zwykle oznacza świeży wyprysk trzeciego dnia, to wina formuły — nie Twojej skóry. Vera Lane jest niekomedogenny i wolny od parabenów, siarczanów, syntetycznych zapachów, ftalanów i talku — typowych winowajców zatykających pory i podrażniających skórę.</p><p>Nietestowany na zwierzętach, wegański i wyprodukowany w laboratorium z certyfikatem GMP. Pełen skład jest na każdym opakowaniu, nic nie jest ukryte pod hasłem 'kompozycja zapachowa'. Bezpieczny do codziennego noszenia.</p>",
-        "image_asset": "lp-li-3-reason-7.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-7.jpg",
         "layout": "image-right"
       }
     },
@@ -111,7 +111,7 @@
         "number": "8",
         "title": "Działa na Każdy Podton — i Każdy Typ Skóry",
         "body": "<p>Jeden odcień dopasowuje się do skóry jasnej, średniej, oliwkowej i ciemnej, ponieważ pigmenty reagują na Twoją własną melaninę — a nie na tabelę. Ale to nie koniec.</p><p>Skóra tłusta zyskuje równowagę zamiast popołudniowego błyszczenia. Skóra sucha dostaje nawilżenie zamiast łuszczenia. Skóra trądzikowa i wrażliwa dostaje niekomedogenną formułę, która koi zamiast podrażniać. Cokolwiek robi Twoja skóra — on się dopasuje.</p>",
-        "image_asset": "lp-li-3-reason-8.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-8.jpg",
         "layout": "image-left"
       }
     },
@@ -121,7 +121,7 @@
         "number": "9",
         "title": "Uznany za Podkład Nr 1 przez Korean Beauty Insider",
         "body": "<p>Prawdopodobnie już widziałaś go na swojej tablicy — klipy z dopasowującym się 'białym podkładem, który zmienia się w Twój odcień' zebrały miliony wyświetleń, a każda dostawa się wyprzedaje. Ale to nie tylko szum: <strong>Korean Beauty Insider uznał go za swój podkład nr 1</strong>, a on zebrał ponad 12 400 pięciogwiazdkowych recenzji i wciąż ich przybywa.</p><p>To uznanie się broni, bo formuła działa. Każdy składnik jest dermatologicznie przetestowany pod kątem bezpieczeństwa i zgodności z barierą skóry, a każda partia jest badana na czystość przed wysyłką. Viralowy, nagradzany i prawdziwy — wszystko naraz.</p>",
-        "image_asset": "lp-li-3-reason-9.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-9.jpg",
         "layout": "image-right"
       }
     },
@@ -131,7 +131,7 @@
         "number": "10",
         "title": "Wypróbuj Przez 30 Dni — Pokochaj Go Albo Zwrot Pieniędzy",
         "body": "<p>Nie powinnaś decydować na podstawie próbki na ekranie. Wypróbuj Vera Lane przez pełne 30 dni, w swoim prawdziwym życiu i swoim prawdziwym świetle. Noś go na uczelnię, do pracy, przed kamerę, na imprezę.</p><p>Jeśli to nie będzie najłatwiejszy i najbardziej rozświetlający podkład, jaki miałaś, odeślij go z pełnym zwrotem pieniędzy — bez opłat, bez krępującej wymiany maili. Tak bardzo jesteśmy pewni, że na stałe zagości w Twojej kosmetyczce.</p>",
-        "image_asset": "lp-li-3-reason-10.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-reason-10.jpg",
         "layout": "image-left"
       }
     },
@@ -139,7 +139,7 @@
       "type": "vl-lr-offer",
       "settings": {
         "heading": "Kliknij Poniżej i Odbierz Swoją Specjalną Ofertę Już Dziś!",
-        "image_asset": "lp-li-3-product.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-product.jpg",
         "btn_text": "Odbierz Specjalną Ofertę →",
         "btn_url": "/pl/products/color-changing-foundation?v=kbeauty",
         "countdown_hours": 24,
@@ -155,7 +155,7 @@
             "name_and_age": "Zuzanna, 23",
             "stars_text": "⭐⭐⭐⭐⭐",
             "image_url": "",
-            "image_asset": "lp-li-3-review-1.jpg",
+            "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-review-1.jpg",
             "quote": "<p>\"Mam cerę tłustą i trądzikową, a każdy podkład albo mnie wykwita, albo schodzi do południa. To pierwszy, który naprawdę się trzyma, nie zatyka mi porów i jakimś cudem moja skóra wygląda lepiej, gdy go zmywam. 'Zakochana' to za mało powiedziane.\"</p>"
           }
         },
@@ -165,7 +165,7 @@
             "name_and_age": "Wiktoria, 26",
             "stars_text": "⭐⭐⭐⭐⭐",
             "image_url": "",
-            "image_asset": "lp-li-3-review-2.jpg",
+            "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-review-2.jpg",
             "quote": "<p>\"Kupiłam przez TikToka, w pełni spodziewając się rozczarowania. No i nie. Ta zamiana z białego na mój odcień jest nierealna — dopasował się idealnie, a jestem dość jasna z różowym podtonem. Najbardziej nie mogę wyjść z podziwu nad blaskiem.\"</p>"
           }
         },
@@ -175,7 +175,7 @@
             "name_and_age": "Natalia, 25",
             "stars_text": "⭐⭐⭐⭐⭐",
             "image_url": "",
-            "image_asset": "lp-li-3-review-3.jpg",
+            "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-li-3-review-3.jpg",
             "quote": "<p>\"Kiedyś nakładałam bazę, podkład, korektor, puder utrwalający… teraz to tylko to jedno. Jeden krok, blask szklanej skóry, a na zdjęciach wygląda, jakbym miała filtr w realu. Zastąpił jakieś cztery produkty w mojej rutynie.\"</p>"
           }
         }

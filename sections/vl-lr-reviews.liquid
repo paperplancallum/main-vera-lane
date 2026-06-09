@@ -24,7 +24,7 @@
           <article class="vl-lr-reviews__card" {{ block.shopify_attributes }}>
             {% if block.settings.image_asset != blank %}
               <div class="vl-lr-reviews__img">
-                <img src="{{ block.settings.image_asset | asset_url }}" alt="" loading="lazy">
+                <img src="{%- render 'img-src', src: block.settings.image_asset -%}" alt="" loading="lazy">
               </div>
             {% elsif block.settings.image_url != blank %}
               <div class="vl-lr-reviews__img">

@@ -141,7 +141,11 @@
   {%- assign mmh_img_src = '' -%}
   {%- assign mmh_img_alt = block.settings.headline | default: 'Vera Lane' -%}
   {%- if block.settings.image_asset != blank -%}
-    {%- assign mmh_img_src = block.settings.image_asset | asset_url -%}
+    {%- if block.settings.image_asset contains '://' -%}
+      {%- assign mmh_img_src = block.settings.image_asset -%}
+    {%- else -%}
+      {%- assign mmh_img_src = block.settings.image_asset | asset_url -%}
+    {%- endif -%}
   {%- elsif block.settings.hero_image != blank -%}
     {%- assign mmh_img_src = block.settings.hero_image | image_url: width: 800 -%}
     {%- assign mmh_img_alt = block.settings.hero_image.alt | default: mmh_img_alt -%}
@@ -224,7 +228,7 @@
   stay as template blocks. Default image is the 35-medium house shot; JS swaps it to
   the age+tone-matched model from the image map below.
 {% endcomment %}
-{%- assign mmh_default_img = 'lp-foundation-mmh-35-medium.jpg' | asset_url -%}
+{%- assign mmh_default_img = 'https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-foundation-mmh-35-medium.jpg' -%}
 {%- capture mmh_persona_data -%}chameleon~|~If your foundation looks right at home and orange by noon, the problem was never your shade.~|~Right shade in the bathroom mirror, wrong shade — and a tell-tale line at your jaw — a few hours later. That's oxidation: pre-mixed pigment reacting with your skin through the day. Vera Lane has no pre-mixed shade to oxidise. The cream is white and releases your exact tone on contact, so there's nothing to drift orange and no line where your face stops and your neck begins.~|~No pre-mixed shade means nothing to oxidise or drift — your own tone, released on contact. Try it risk-free for 30 days.@@@glow~|~If skin tints do too little and foundation does too much, you've been choosing between the wrong two things.~|~Skin tints leave you basically bare; full-coverage sits on top like a mask and kills the glow. Vera Lane is the in-between you actually wanted: weightless and hydrating like a serum, it releases just enough pigment on contact to even your tone — buildable if you want more — while your skin still looks like skin. A real glass-skin glow, not a coat of base.~|~Serum-light, tone-adapting, buildable — coverage that still reads as your own skin. Try it risk-free for 30 days.@@@calm~|~If evening out redness takes three products and five steps, this does it in one.~|~Colour-correctors, full-coverage, powder to lock it down — and the redness still shows through, or the layers make your skin look worse. Vera Lane evens tone and visibly softens the look of redness in a single lightweight step. It releases pigment on contact to neutralise unevenness, then sits like skin instead of stacked makeup — no cake, no five-step routine.~|~One lightweight step that evens tone and softens the appearance of redness — no colour-correcting, no stacking. Try it risk-free for 30 days.@@@timeless~|~If your foundation looks fine across the room but settles into every line up close, you've been sold the wrong formula.~|~Long-wear foundations were built to seal and set — fine at 25, but on mature skin they catch in fine lines and go cakey by mid-afternoon. Vera Lane does the opposite: it hydrates like a serum and releases pigment on contact, so it adapts to your skin instead of sitting on top of it. Even tone that still moves like skin — close-up and late in the day, not just from across the room.~|~Hydrating, tone-adapting, never cakey — coverage that looks like skin up close, not makeup catching in lines. Try it risk-free for 30 days.{%- endcapture -%}
 {%- assign mmh_personas = mmh_persona_data | split: "@@@" -%}
 {%- for rec in mmh_personas -%}

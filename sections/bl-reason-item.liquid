@@ -36,7 +36,11 @@
         assign reason_img_url = section.settings.image | image_url: width: 700
         assign reason_img_alt = section.settings.image.alt | default: section.settings.title | escape
       elsif section.settings.image_asset != blank
-        assign reason_img_url = section.settings.image_asset | asset_url
+        if section.settings.image_asset contains '://'
+          assign reason_img_url = section.settings.image_asset
+        else
+          assign reason_img_url = section.settings.image_asset | asset_url
+        endif
         assign reason_img_alt = section.settings.title | escape
       endif
     -%}
