@@ -1883,7 +1883,6 @@
         "type": "textarea",
         "id": "cart_goal_1_currency_overrides",
         "label": "Per-market threshold overrides",
-        "default": "",
         "info": "One pair per market currency, CODE:amount in that currency's own units, comma-separated. Example: PLN:250, CZK:1400, EUR:55. Currencies not listed fall back to the base threshold above. Required for non-shop-currency markets, otherwise weak-currency markets (PLN, CZK) reach the goal far too cheaply."
       },
       {
@@ -1927,7 +1926,6 @@
         "type": "textarea",
         "id": "cart_goal_2_currency_overrides",
         "label": "Per-market threshold overrides",
-        "default": "",
         "info": "One pair per market currency, CODE:amount in that currency's own units, comma-separated. Example: PLN:360, CZK:2100, EUR:85. Currencies not listed fall back to the base threshold above. Required for non-shop-currency markets, otherwise weak-currency markets (PLN, CZK) reach the goal far too cheaply."
       },
       {
@@ -1971,7 +1969,6 @@
         "type": "textarea",
         "id": "cart_goal_3_currency_overrides",
         "label": "Per-market threshold overrides",
-        "default": "",
         "info": "One pair per market currency, CODE:amount in that currency's own units, comma-separated. Example: PLN:250, CZK:1400, EUR:55. Currencies not listed fall back to the base threshold above. Required for non-shop-currency markets, otherwise weak-currency markets (PLN, CZK) reach the goal far too cheaply."
       },
       {
