@@ -76,6 +76,21 @@
     "lumen_featured_products_VLfp": {
       "type": "lumen-featured",
       "blocks": {
+        "card_F3Q3Xz": {
+          "type": "card",
+          "settings": {
+            "product": "brow-pencil",
+            "custom_name": "",
+            "reviews_text": "180 Reviews",
+            "hide_description": false,
+            "fallback_description": "Complex with 30 Billion CPU",
+            "show_pill": false,
+            "pill_text": "#Best Seller",
+            "show_discount": false,
+            "discount_pct": "20%",
+            "discount_text": "Save with subscription"
+          }
+        },
         "card_jbyWAm": {
           "type": "card",
           "settings": {
@@ -138,6 +153,7 @@
         }
       },
       "block_order": [
+        "card_F3Q3Xz",
         "card_jbyWAm",
         "card_7A8Vx4",
         "card_qWj3jw",
