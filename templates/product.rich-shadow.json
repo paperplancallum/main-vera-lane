@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -94,7 +103,7 @@
         "rating_text": "(4.7) 264 Reviews",
         "rating_link": "#reviews",
         "size_text": "1 FL OZ / 30 ML",
-        "description": "Creamy, crease-proof eyeshadow color in one swipe.",
+        "description": "<ul><li><strong>One-Swipe, Crease-Proof Color: </strong>A cushiony cream lays down rich, even pigment in a single pass, then locks crease-proof for all-day wear.</li><li><strong>Blend in Seconds, No Brushes: </strong>Stays workable just long enough to diffuse with a fingertip, then sets waterproof and budge-proof.</li><li><strong>Five Build-Your-Own Shades: </strong>From soft daytime neutrals to warm metallics — wear one alone or layer to shade and define.</li></ul>",
         "show_tone_selector": true,
         "tone_color_fair": "#f3d4b7",
         "tone_label_fair": "",

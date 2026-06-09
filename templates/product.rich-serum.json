@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -94,7 +103,7 @@
         "rating_text": "(4.6) 198 Reviews",
         "rating_link": "#reviews",
         "size_text": "1 FL OZ / 30 ML",
-        "description": "A nightly peptide serum for longer, fuller-looking lashes.",
+        "description": "<ul><li><strong>Visibly Longer & Fuller in 4–6 Weeks: </strong>A daily conditioning complex supports the look of denser, healthier lashes with consistent use.</li><li><strong>Peptide + Biotin Conditioning: </strong>Nourishes and fortifies fragile lashes from root to tip to reduce the appearance of breakage and fallout.</li><li><strong>Gentle, Prostaglandin-Free Formula: </strong>No harsh actives and no known darkening of the lid line — safe for sensitive eyes and lash extensions.</li></ul>",
         "show_tone_selector": true,
         "tone_color_fair": "#f3d4b7",
         "tone_label_fair": "",
