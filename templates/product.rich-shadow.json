@@ -102,7 +102,7 @@
         "custom_title": "",
         "rating_text": "(4.7) 264 Reviews",
         "rating_link": "#reviews",
-        "size_text": "1 FL OZ / 30 ML",
+        "size_text": "",
         "description": "<ul><li><strong>One-Swipe, Crease-Proof Color: </strong>A cushiony cream lays down rich, even pigment in a single pass, then locks crease-proof for all-day wear.</li><li><strong>Blend in Seconds, No Brushes: </strong>Stays workable just long enough to diffuse with a fingertip, then sets waterproof and budge-proof.</li><li><strong>Five Build-Your-Own Shades: </strong>From soft daytime neutrals to warm metallics — wear one alone or layer to shade and define.</li></ul>",
         "show_tone_selector": true,
         "tone_color_fair": "#f3d4b7",
@@ -126,7 +126,8 @@
         "ugc_pause_on_click": true,
         "show_upsell": false,
         "upsell_heading": "Choose what works best for you",
-        "upsell_button_label": "ADD TO BAG"
+        "upsell_button_label": "ADD TO BAG",
+        "intro_text": "<p>A creamy, blendable eyeshadow stick that delivers one-swipe color and a soft luminous finish that won't crease or fade — in five wearable shades from soft neutrals to warm metallics.</p>"
       }
     }
   },

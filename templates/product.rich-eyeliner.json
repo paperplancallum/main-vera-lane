@@ -102,7 +102,7 @@
         "custom_title": "",
         "rating_text": "(4.7) 286 Reviews",
         "rating_link": "#reviews",
-        "size_text": "1 FL OZ / 30 ML",
+        "size_text": "",
         "description": "<ul><li><strong>One-Stroke, Saturated Color: </strong>A creamy gel glides on in a single pass — rich, even and intensely pigmented. No skipping, no dragging, no patchiness.</li><li><strong>Up to 12-Hour Waterproof Wear: </strong>Sets to a transfer-proof finish that survives heat, humidity and watery eyes without smudging or fading.</li><li><strong>Precision Tip for Any Look: </strong>A fine, flexible applicator makes a subtle tightline or a sharp cat-eye equally effortless — even on hooded or mature lids.</li></ul>",
         "show_tone_selector": true,
         "tone_color_fair": "#f3d4b7",
@@ -126,7 +126,8 @@
         "ugc_pause_on_click": true,
         "show_upsell": false,
         "upsell_heading": "Choose what works best for you",
-        "upsell_button_label": "ADD TO BAG"
+        "upsell_button_label": "ADD TO BAG",
+        "intro_text": "<p>A precision gel eyeliner that lays down rich, even color in one smooth stroke and stays put for up to 12 hours — waterproof, smudge-proof, and easy to control on any lid.</p>"
       }
     }
   },
