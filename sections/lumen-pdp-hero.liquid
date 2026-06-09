@@ -2513,7 +2513,7 @@
               <div class="lumen-pdp-hero__tone-selector" role="radiogroup" aria-label="Choose your skin tone">
                 {% for variant in section_product.variants %}
                   {%- assign tone = variant.option1 -%}
-                  {%- assign tone_color = '#D4A982' -%}
+                  {%- capture tone_color -%}{%- render 'vl-shade-color', label: tone -%}{%- endcapture -%}
                   {%- assign tone_label = tone -%}
                   {%- if tone == 'Fair' -%}
                     {%- if section.settings.tone_color_fair != blank -%}{%- assign tone_color = section.settings.tone_color_fair -%}{%- endif -%}
@@ -2578,7 +2578,7 @@
                   >
                     {%- for variant in section_product.variants -%}
                       {%- assign tone = variant.option1 -%}
-                      {%- assign row_color = '#D4A982' -%}
+                      {%- capture row_color -%}{%- render 'vl-shade-color', label: tone -%}{%- endcapture -%}
                       {%- assign row_label = tone -%}
                       {%- assign row_best_for = '' -%}
                       {%- if tone == 'Fair' -%}

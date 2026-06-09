@@ -1,0 +1,25 @@
+{%- comment -%}
+  vl-shade-color: maps a variant option label to a representative swatch hex.
+  Used as the DEFAULT swatch colour in lumen-pdp-hero (the foundation's
+  Fair/Medium/Medium-Dark colours still come from section settings and override
+  this, so the foundation PDP is unaffected). Falls back to a neutral beige for
+  any label not listed.
+
+  Usage: {%- capture tone_color -%}{%- render 'vl-shade-color', label: variant.option1 -%}{%- endcapture -%}
+{%- endcomment -%}
+{%- assign l = label | strip | downcase -%}
+{%- case l -%}
+  {%- when 'black' -%}#1A1A1A
+  {%- when 'brown' -%}#5A3A24
+  {%- when 'deep burgundy' -%}#5B1A2B
+  {%- when 'silver' -%}#9AA0A6
+  {%- when 'blonde' -%}#C8A66B
+  {%- when 'brunette' -%}#4A3220
+  {%- when 'mauve' -%}#8E6E73
+  {%- when 'gold' -%}#C7A24A
+  {%- when 'champagne' -%}#C9B79C
+  {%- when 'bronze' -%}#7A4A2B
+  {%- when 'pearl' -%}#E6E0D4
+  {%- when 'clear' -%}#EDEAE3
+  {%- else -%}#D4A982
+{%- endcase -%}
