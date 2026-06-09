@@ -17,13 +17,28 @@
   {{ block.shopify_attributes }}
   style="--add-to-cart-font-case: {{ settings.button_text_case }};"
 >
-  {% render 'add-to-cart-button',
-    id: id,
-    class: class,
-    can_add_to_cart: can_add_to_cart,
-    product: closest.product,
-    add_to_cart_text: add_to_cart_text
-  %}
+  {%- comment -%}
+    VL: On product-grid cards (collection / home / search / recommendations) send shoppers
+    to the PDP with a "View product" link instead of an add-to-cart button — this drives
+    traffic to the rich product page and avoids availability-gated greying. The real
+    add-to-cart button is preserved on the main product page (where closest.product is the
+    product being viewed).
+  {%- endcomment -%}
+  {%- if product != blank and closest.product.id == product.id -%}
+    {% render 'add-to-cart-button',
+      id: id,
+      class: class,
+      can_add_to_cart: can_add_to_cart,
+      product: closest.product,
+      add_to_cart_text: add_to_cart_text
+    %}
+  {%- else -%}
+    <a href="{{ closest.product.url }}" class="button {{ class }}">
+      <span class="add-to-cart-text">
+        <span class="add-to-cart-text__content">View product</span>
+      </span>
+    </a>
+  {%- endif -%}
 </span>
 
 {% schema %}
