@@ -38,7 +38,7 @@
     </div>
   {% elsif section.settings.image_asset != blank %}
     <div class="dr-review__image">
-      <img class="dr-review__img" src="{{ section.settings.image_asset | asset_url }}" loading="lazy" alt="{{ section.settings.product_name }}">
+      <img class="dr-review__img" src="{%- render 'img-src', src: section.settings.image_asset -%}" loading="lazy" alt="{{ section.settings.product_name }}">
     </div>
   {% endif %}
 

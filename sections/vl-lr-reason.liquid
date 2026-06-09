@@ -10,7 +10,7 @@
   <div class="vl-lr-reason__grid">
     <div class="vl-lr-reason__img">
       {% if image_asset != blank %}
-        <img src="{{ image_asset | asset_url }}" alt="" loading="lazy" decoding="async">
+        <img src="{%- render 'img-src', src: image_asset -%}" alt="" loading="lazy" decoding="async">
       {% endif %}
     </div>
     <div class="vl-lr-reason__content">

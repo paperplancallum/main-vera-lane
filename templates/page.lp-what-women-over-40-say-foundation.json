@@ -15,7 +15,7 @@
       "name": "BL - Hero",
       "settings": {
         "section_id": "",
-        "bg_image_asset": "lp-social-proof-hero.jpg",
+        "bg_image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-social-proof-hero.png",
         "bg_color": "#2d2d2d",
         "overlay_opacity": 35,
         "category": "REAL REVIEWS",

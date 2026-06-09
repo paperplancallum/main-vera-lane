@@ -12,7 +12,7 @@
   <div class="vl-lr-offer__card">
     <div class="vl-lr-offer__image">
       {% if image_asset != blank %}
-        <img src="{{ image_asset | asset_url }}" alt="{{ heading }}" loading="lazy">
+        <img src="{%- render 'img-src', src: image_asset -%}" alt="{{ heading }}" loading="lazy">
       {% elsif image_url != blank %}
         <img src="{{ image_url }}" alt="{{ heading }}" loading="lazy">
       {% endif %}

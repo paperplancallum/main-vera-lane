@@ -29,7 +29,11 @@
             {%- assign review_img_src = block.settings.review_image | image_url: width: 600 -%}
           {%- elsif block.settings.review_image_asset != blank -%}
             {%- assign has_review_image = true -%}
-            {%- assign review_img_src = block.settings.review_image_asset | asset_url -%}
+            {%- if block.settings.review_image_asset contains '://' -%}
+              {%- assign review_img_src = block.settings.review_image_asset -%}
+            {%- else -%}
+              {%- assign review_img_src = block.settings.review_image_asset | asset_url -%}
+            {%- endif -%}
           {%- endif -%}
           <article class="vl-review-cards__card {% if has_review_image %}vl-review-cards__card--has-image{% endif %}{% if forloop.index > initial_count %} vl-review-cards__card--hidden{% endif %}" data-index="{{ forloop.index }}" {{ block.shopify_attributes }}>
             {%- if has_review_image -%}

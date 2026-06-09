@@ -4,7 +4,11 @@
     assign review_img_url = section.settings.image | image_url: width: 500
     assign review_img_alt = section.settings.image.alt | default: section.settings.brand_name | escape
   elsif section.settings.image_asset != blank
-    assign review_img_url = section.settings.image_asset | asset_url
+    if section.settings.image_asset contains '://'
+      assign review_img_url = section.settings.image_asset
+    else
+      assign review_img_url = section.settings.image_asset | asset_url
+    endif
     assign review_img_alt = section.settings.brand_name | escape
   endif
 

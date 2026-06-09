@@ -3,7 +3,11 @@
   if section.settings.bg_image != blank
     assign hero_bg_url = section.settings.bg_image | image_url: width: 1600
   elsif section.settings.bg_image_asset != blank
-    assign hero_bg_url = section.settings.bg_image_asset | asset_url
+    if section.settings.bg_image_asset contains '://'
+      assign hero_bg_url = section.settings.bg_image_asset
+    else
+      assign hero_bg_url = section.settings.bg_image_asset | asset_url
+    endif
   endif
 -%}
 <div class="bl-hero" {% if section.settings.section_id != blank %}id="{{ section.settings.section_id }}"{% endif %} style="{% if hero_bg_url %}--hero-bg-image: url('{{ hero_bg_url }}');{% endif %} --hero-bg-color: {{ section.settings.bg_color }}; --hero-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};">

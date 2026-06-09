@@ -1,0 +1,16 @@
+{%- comment -%}
+  Resolve an image source that may be either:
+   - a bare theme-asset filename (e.g. "lp-li-2-hero.jpg")  -> asset_url
+   - a full URL (e.g. a Shopify Files CDN url)              -> used as-is
+  Landing-page images were migrated out of /assets to Shopify Files to keep the
+  theme under Shopify's 50MB GitHub-import cap, so settings now hold full URLs.
+  Usage: {%- render 'img-src', src: section.settings.image_asset -%}
+{%- endcomment -%}
+{%- liquid
+  assign resolved_src = src | default: ''
+  if resolved_src contains '://'
+    echo resolved_src
+  else
+    echo resolved_src | asset_url
+  endif
+-%}

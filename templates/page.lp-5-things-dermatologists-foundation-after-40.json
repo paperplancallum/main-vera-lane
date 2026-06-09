@@ -16,7 +16,7 @@
         "meta_text": "DERMATOLOGIST INSIGHTS",
         "headline": "5 Things Dermatologists Wish You Knew About Foundation After 40",
         "intro_text": "Board-certified dermatologists see the same foundation mistakes every week in their clinics. Here's what they want you to know — and what they tell their own patients to do differently.",
-        "image_asset": "lp-derm-foundation-hero.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-derm-foundation-hero.jpg",
         "image_alt": "Woman with radiant, healthy-looking skin",
         "caption": "What dermatologists actually recommend may surprise you.",
         "bg_color": "#ffffff",
@@ -39,7 +39,7 @@
     "image_text_tip1_003": {
       "type": "vl-image-text",
       "settings": {
-        "image_asset": "lp-derm-foundation-reason-1.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-derm-foundation-reason-1.jpg",
         "image_alt": "Woman gently touching her face, healthy skin texture",
         "image_caption": "Your skin barrier changes significantly after 40.",
         "heading": "1. Your Skin Barrier Is Thinner Than You Think",
@@ -74,7 +74,7 @@
     "image_text_tip3_006": {
       "type": "vl-image-text",
       "settings": {
-        "image_asset": "lp-derm-foundation-reason-3.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-derm-foundation-reason-3.jpg",
         "image_alt": "Foundation bottles with anti-aging marketing labels",
         "image_caption": "The 'anti-aging' label lets brands charge 30% more for the same formula.",
         "heading": "3. 'Anti-Aging' Foundations Are Usually Just Marketing",
@@ -109,7 +109,7 @@
     "image_text_tip5_009": {
       "type": "vl-image-text",
       "settings": {
-        "image_asset": "lp-derm-foundation-reason-5.jpg",
+        "image_asset": "https://cdn.shopify.com/s/files/1/0956/7705/5254/files/lp-derm-foundation-reason-5.jpg",
         "image_alt": "Woman over 50 with radiant, natural-looking skin",
         "image_caption": "The right foundation works for your skin, not against it.",
         "heading": "5. The Right Foundation Can Actually Improve Your Skin",

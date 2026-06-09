@@ -20,7 +20,7 @@
     {% elsif section.settings.image_asset != blank %}
       <div class="vl-image-text__image">
         <img
-          src="{{ section.settings.image_asset | asset_url }}"
+          src="{%- render 'img-src', src: section.settings.image_asset -%}"
           alt="{{ section.settings.image_alt | default: 'Image' }}"
           loading="lazy"
           width="800"

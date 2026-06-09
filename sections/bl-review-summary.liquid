@@ -4,7 +4,11 @@
     assign summary_img_url = section.settings.image | image_url: width: 500
     assign summary_img_alt = section.settings.image.alt | default: section.settings.product_name | escape
   elsif section.settings.image_asset != blank
-    assign summary_img_url = section.settings.image_asset | asset_url
+    if section.settings.image_asset contains '://'
+      assign summary_img_url = section.settings.image_asset
+    else
+      assign summary_img_url = section.settings.image_asset | asset_url
+    endif
     assign summary_img_alt = section.settings.product_name | escape
   endif
 
