@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumen-pdp-hero",
+      "blocks": {
+        "description_item_3PU4Mz": {
+          "type": "description_item",
+          "settings": {
+            "title": "Visibly Longer & Fuller in 4–6 Weeks",
+            "content": "<p>A daily conditioning complex supports the look of denser, healthier lashes with consistent use.</p>"
+          }
+        },
+        "description_item_BwXRQq": {
+          "type": "description_item",
+          "settings": {
+            "title": "Peptide + Biotin Conditioning",
+            "content": "<p>Nourishes and fortifies fragile lashes from root to tip to reduce the appearance of breakage and fallout.</p>"
+          }
+        },
+        "description_item_c9mQXG": {
+          "type": "description_item",
+          "settings": {
+            "title": "Gentle, Prostaglandin-Free Formula",
+            "content": "<p>No harsh actives and no known darkening of the lid line — safe for sensitive eyes and lash extensions.</p>"
+          }
+        },
+        "magazine_logo_7qjcEx": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/cosmopolitan_logo_svg.svg",
+            "alt_text": "Magazine logo"
+          }
+        },
+        "magazine_logo_NxJ67z": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/grazia_logo_svg.svg",
+            "alt_text": "Magazine logo"
+          }
+        },
+        "magazine_logo_7MRWYQ": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/elle_magazine_logo_svg.svg",
+            "alt_text": "Magazine logo"
+          }
+        },
+        "magazine_logo_4XVyTp": {
+          "type": "magazine_logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/vogue_magazine_logo_svg.svg",
+            "alt_text": "Magazine logo"
+          }
+        },
+        "trust_badge_hYWKi7": {
+          "type": "trust_badge",
+          "settings": {
+            "icon_image": "shopify://shop_images/Layer_1.svg",
+            "text": "<p>30 Day Money Back Guarantee</p>"
+          }
+        },
+        "trust_badge_wT3BMT": {
+          "type": "trust_badge",
+          "settings": {
+            "icon_image": "shopify://shop_images/Layer_1_1.svg",
+            "text": "<p>Free Shipping from $[threshold]</p>"
+          }
+        },
+        "trust_badge_KVy3Dw": {
+          "type": "trust_badge",
+          "settings": {
+            "icon_image": "shopify://shop_images/Layer_1_2.svg",
+            "text": "<p>Free Return</p>"
+          }
+        }
+      },
+      "block_order": [
+        "description_item_3PU4Mz",
+        "description_item_BwXRQq",
+        "description_item_c9mQXG",
+        "magazine_logo_7qjcEx",
+        "magazine_logo_NxJ67z",
+        "magazine_logo_7MRWYQ",
+        "magazine_logo_4XVyTp",
+        "trust_badge_hYWKi7",
+        "trust_badge_wT3BMT",
+        "trust_badge_KVy3Dw"
+      ],
+      "name": "⚡ Lumen PDP Hero",
+      "settings": {
+        "section_id": "",
+        "product": "lash-growth-serum",
+        "custom_title": "",
+        "rating_text": "(4.6) 198 Reviews",
+        "rating_link": "#reviews",
+        "size_text": "1 FL OZ / 30 ML",
+        "description": "A nightly peptide serum for longer, fuller-looking lashes.",
+        "show_tone_selector": true,
+        "tone_color_fair": "#f3d4b7",
+        "tone_label_fair": "",
+        "tone_color_medium": "#d4a982",
+        "tone_label_medium": "",
+        "tone_color_medium_dark": "#b2895f",
+        "tone_label_medium_dark": "",
+        "add_to_cart_label": "ADD TO CART",
+        "adding_to_cart_label": "ADDING...",
+        "skip_cart_go_to_checkout": true,
+        "delivery_text": "SHIPS IN 2 DAYS · DELIVERS IN 4-5",
+        "free_delivery_text": "FREE DELIVERY",
+        "badge_bg_color": "#ffd4cd",
+        "badge_text_color": "#7a0036",
+        "show_payment_icons": true,
+        "enable_animation": true,
+        "show_ugc": false,
+        "ugc_heading": "SEE HOW IT WORKS ON DIFFERENT PEOPLE",
+        "ugc_close_on_outside": true,
+        "ugc_pause_on_click": true,
+        "show_upsell": false,
+        "upsell_heading": "Choose what works best for you",
+        "upsell_button_label": "ADD TO BAG"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
