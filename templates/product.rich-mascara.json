@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -89,11 +98,12 @@
       "name": "⚡ Lumen PDP Hero",
       "settings": {
         "section_id": "",
-        "product": "tubing-mascara",
+        "product": "tubing-effect-mascara",
         "custom_title": "",
         "rating_text": "(4.8) 412 Reviews",
         "rating_link": "#reviews",
         "size_text": "0.34 FL OZ / 10 ML",
+        "intro_text": "<p>A clean, lightweight tubing mascara that wraps every lash in flexible polymer tubes for length and lift that lasts all day — then slides off with just warm water, no flaking or smudging.</p>",
         "description": "<ul><li><strong>Tube Technology, Not Paint: </strong>Flexible micro-polymers wrap each lash in a weightless tube for length and lift that holds all day — no clumps, no spider lashes.</li><li><strong>Smudge-Proof, Flake-Proof, Tear-Proof: </strong>Sweat, humidity and watery eyes are no match — it won't budge, transfer or crumble under your eyes.</li><li><strong>Removes With Just Warm Water: </strong>Press warm water to your lashes and the tubes slide clean off — no oils, no scrubbing, no lash breakage.</li></ul>",
         "show_tone_selector": true,
         "tone_color_fair": "#f3d4b7",
@@ -117,8 +127,7 @@
         "ugc_pause_on_click": true,
         "show_upsell": false,
         "upsell_heading": "Choose what works best for you",
-        "upsell_button_label": "ADD TO BAG",
-        "intro_text": "<p>A clean, lightweight tubing mascara that wraps every lash in flexible polymer tubes for length and lift that lasts all day — then slides off with just warm water, no flaking or smudging.</p>"
+        "upsell_button_label": "ADD TO BAG"
       }
     }
   },
