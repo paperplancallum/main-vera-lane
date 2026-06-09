@@ -298,6 +298,20 @@
             color: #000000;
         }
         
+        .lumen-pdp-hero__intro {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 24px;
+            color: #333333;
+        }
+        .lumen-pdp-hero__intro p {
+            margin: 0 0 8px;
+        }
+        .lumen-pdp-hero__intro p:last-child {
+            margin-bottom: 0;
+        }
+
         .lumen-pdp-hero__description {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
@@ -2196,6 +2210,11 @@
                 </div>
             </div>
             
+            <!-- Intro text (product description) -->
+            {% if section.settings.intro_text != blank %}
+              <div class="lumen-pdp-hero__intro">{{ section.settings.intro_text }}</div>
+            {% endif %}
+
             <!-- Description -->
             {% assign description_blocks = section.blocks | where: 'type', 'description_item' %}
             {% if description_blocks.size > 0 %}
@@ -4254,6 +4273,12 @@
       "id": "size_text",
       "label": "Size text",
       "default": "1 FL OZ / 30 ML"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro text (shown under price)",
+      "info": "Short product description shown between the price and the benefit accordions."
     },
     {
       "type": "richtext",
