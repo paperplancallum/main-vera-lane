@@ -141,6 +141,30 @@
     "lumen_collection_Ftyi3R": {
       "type": "lumen-collection",
       "blocks": {
+        "product_DbbDQt": {
+          "type": "product",
+          "settings": {
+            "product": "lash-growth-serum"
+          }
+        },
+        "product_yETQ63": {
+          "type": "product",
+          "settings": {
+            "product": "eye-shadow-stick"
+          }
+        },
+        "product_M7bht6": {
+          "type": "product",
+          "settings": {
+            "product": "eye-liner"
+          }
+        },
+        "product_eGJiHC": {
+          "type": "product",
+          "settings": {
+            "product": "brow-pencil"
+          }
+        },
         "product_xW3RpP": {
           "type": "product",
           "settings": {
@@ -167,6 +191,10 @@
         }
       },
       "block_order": [
+        "product_DbbDQt",
+        "product_yETQ63",
+        "product_M7bht6",
+        "product_eGJiHC",
         "product_xW3RpP",
         "product_UKtKpE",
         "product_RCGHYJ",
@@ -205,42 +233,66 @@
           "type": "faq_item",
           "settings": {
             "question": "What is your return policy?",
-            "answer": "We offer a 30-day money-back guarantee on all products. If you're not completely satisfied with your purchase, contact us for a full refund."
+            "answer": "We offer a 30-day money-back guarantee on all products. If you're not completely satisfied with your purchase, contact us for a full refund.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_wei8bi": {
           "type": "faq_item",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "Standard shipping takes 4-5 business days. Express shipping is available for 2-3 business day delivery."
+            "answer": "Standard shipping takes 4-5 business days. Express shipping is available for 2-3 business day delivery.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_RBkpfh": {
           "type": "faq_item",
           "settings": {
             "question": "Is this product suitable for sensitive skin?",
-            "answer": "Yes, our products are dermatologist-tested and formulated for most skin types, including sensitive skin. If your skin is particularly sensitive, a patch test is recommended."
+            "answer": "Yes, our products are dermatologist-tested and formulated for most skin types, including sensitive skin. If your skin is particularly sensitive, a patch test is recommended.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_iatPU8": {
           "type": "faq_item",
           "settings": {
             "question": "How do I know which shade to choose?",
-            "answer": "Our foundation adapts to your skin tone within seconds. It works for fair to medium skin tones."
+            "answer": "Our foundation adapts to your skin tone within seconds. It works for fair to medium skin tones.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_gVTkNq": {
           "type": "faq_item",
           "settings": {
             "question": "What ingredients are in this product?",
-            "answer": "Our foundation contains nourishing ingredients like Glycerin, Bisabolol, and Vitamin E for healthy, comfortable-looking skin."
+            "answer": "Our foundation contains nourishing ingredients like Glycerin, Bisabolol, and Vitamin E for healthy, comfortable-looking skin.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         },
         "faq_item_YJJ4p4": {
           "type": "faq_item",
           "settings": {
             "question": "Do you offer free shipping?",
-            "answer": "Yes, we offer free shipping on all orders over $[threshold]. Orders under $[threshold] have a flat shipping rate."
+            "answer": "Yes, we offer free shipping on all orders over $[threshold]. Orders under $[threshold] have a flat shipping rate.",
+            "popup_enabled": false,
+            "popup_trigger_text": "View full list",
+            "popup_title": "",
+            "popup_content": ""
           }
         }
       },
@@ -254,6 +306,7 @@
       ],
       "name": "⚡FAQ Section",
       "settings": {
+        "section_id": "",
         "section_label": "FAQ Section",
         "main_heading": "Frequently Asked Questions",
         "sticky_heading": true,
