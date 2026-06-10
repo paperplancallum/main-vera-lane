@@ -144,7 +144,7 @@
         "product_DbbDQt": {
           "type": "product",
           "settings": {
-            "product": "lash-growth-serum"
+            "product": "peptide-biotin-lash-serum"
           }
         },
         "product_yETQ63": {
@@ -156,13 +156,13 @@
         "product_M7bht6": {
           "type": "product",
           "settings": {
-            "product": "eye-liner"
+            "product": "long-wear-gel-eyeliner"
           }
         },
         "product_eGJiHC": {
           "type": "product",
           "settings": {
-            "product": "brow-pencil"
+            "product": "micro-fine-brow-pencil"
           }
         },
         "product_xW3RpP": {
@@ -188,6 +188,12 @@
           "settings": {
             "product": "bundle-tone-adapting-foundation-makeup-brush"
           }
+        },
+        "product_TubMasc01": {
+          "type": "product",
+          "settings": {
+            "product": "tubing-lash-mascara"
+          }
         }
       },
       "block_order": [
@@ -198,13 +204,14 @@
         "product_xW3RpP",
         "product_UKtKpE",
         "product_RCGHYJ",
-        "product_rwcNiC"
+        "product_rwcNiC",
+        "product_TubMasc01"
       ],
       "name": "Lumen — Collection grid",
       "settings": {
         "aria_label": "Our products",
         "heading": "Our Products",
-        "button_label": "Add to bag",
+        "button_label": "View product",
         "background_color": "#ffffff",
         "background_gradient_start": "#ffffff",
         "background_gradient_end": "#ffffff",
