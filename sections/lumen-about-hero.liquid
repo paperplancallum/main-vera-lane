@@ -32,11 +32,11 @@
       <div class="vl-aboutHero__content" data-vl-about-hero-animate>
         <div class="vl-aboutHero__stack">
           <h2 class="vl-aboutHero__title">
-            We formulate beauty products that restore the identity of mature women.
+            We formulate beauty products that adapt to your exact skin tone.
           </h2>
 
           <p class="vl-aboutHero__quote">
-            “You are at a stage where you no longer chase approval, yet you still value the version of yourself that feels polished and presentable. For too long, you’ve been told to ‘try harder’ with products that only seem to expose the texture they were meant to soften. You deserve a routine that honors your skin exactly as it is today—providing a quiet, healthy glow that lets you recognize yourself in the mirror again.”
+            “You have better things to do than play the shade-guessing game. For too long, you’ve been handed foundations that look right in the bottle and wrong on your face — too orange, too flat, too much. You deserve a routine that meets your skin exactly as it is today—an effortless, healthy glow that looks like you on your best day, in minutes.”
           </p>
         </div>
       </div>
@@ -52,7 +52,7 @@
           <img
             class="vl-aboutHero__image"
             src="{% if hero_image_mobile != blank %}{{ hero_image_mobile | image_url: width: 900 }}{% else %}{{ 'about-hero-image-mobile-133135.png' | file_url }}{% endif %}"
-            alt="{{ section.settings.hero_image_alt | default: 'Portrait of a mature woman with a soft glow.' | escape }}"
+            alt="{{ section.settings.hero_image_alt | default: 'Portrait of a young woman with a fresh, natural glow.' | escape }}"
             loading="eager"
             decoding="async"
           >
@@ -506,7 +506,7 @@
       "type": "text",
       "id": "hero_image_alt",
       "label": "Hero image alt text",
-      "default": "Portrait of a mature woman with a soft glow."
+      "default": "Portrait of a young woman with a fresh, natural glow."
     }
   ],
   "presets": [
