@@ -46,37 +46,18 @@ The correct deployment workflow is:
 
 **`shopify theme dev` is fine** for local preview/testing.
 
-## Multi-Language / Localization — IMPORTANT
-The store serves **three non-English markets — Polish (`pl`), Czech (`cs`),
-Slovenian (`sl`)** — via **Shopify Markets + the Translations API** (not separate
-templates/pages). Translated copy is registered against Shopify *translatable
-resources*, so `{{ block.settings.x }}` / product fields render localized
-**automatically** per locale — section & theme settings need **no `| t` filter**
-(that filter is only for `locales/*.json` UI strings).
+## Localization — DISCONTINUED (English only)
+**The store is English-only.** As of 2026-06 the business is US-only (the `EURO`
+and `United Kingdom` Shopify Markets are set to DRAFT) and all translation work is
+discontinued. **Do NOT add or update PL/CS/SL translations when adding or changing
+site content** — English is the only language.
 
-**RULE: any time you add or change user-facing content on the site, check whether a
-non-English version exists and update/add the translation too.** An English-only
-change silently leaves PL/CS/SL showing English (or stale) copy — this is the most
-common localization bug here. (Known existing gap: the `vl-message-match-hero`
-`?v=` variants were English-only until translated case-by-case.)
-
-Workflow when you add/edit PDP content (e.g. a new message-match hero variant):
-1. **Deploy the English change first** via GitHub merge — Shopify must re-scan the
-   theme so new section settings become translatable resources before they can be
-   translated.
-2. Add the new English string + `pl`/`cs`/`sl` to
-   [scripts/content/pdp-translations.json](scripts/content/pdp-translations.json).
-   The matcher is **case-sensitive**: the `en` value must mirror the stored source
-   exactly (HTML stripped + whitespace collapsed only — see `norm()` in the script).
-3. Run `node scripts/build-pdp-translations.js` (`--dry-run` first; `--only=theme`
-   or `--only=product` to scope; `--enable-languages` to (re)publish locales).
-   Registers via the Admin API — **no theme redeploy needed** once the resource exists.
-4. Verify: query `translatableResource(resourceId).translations(locale:)`, or load
-   `/products/<handle>` on a localized domain/path.
-
-Needs `SHOPIFY_ACCESS_TOKEN` in `.env` with `read/write_translations` +
-`read/write_locales` scopes. `pdp-translations.json` + `build-pdp-translations.js`
-are local tooling (not part of the deployed theme).
+Legacy tooling from the multi-language era
+([scripts/content/pdp-translations.json](scripts/content/pdp-translations.json) +
+`scripts/build-pdp-translations.js`, which registered translations via the Shopify
+Translations API) is kept for history only — do not run it. Existing PL/CS/SL
+translations registered in Shopify are dormant and harmless while those markets
+stay in DRAFT.
 
 ## Landing Page URL Convention — IMPORTANT
 All landing pages (advertorials, listicles, reviews, etc.) MUST use URLs starting with `/lp-`. The `/lp-` prefix is used by the store to trigger specific popups and tracking.
