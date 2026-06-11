@@ -409,21 +409,21 @@
           "type": "description_item",
           "settings": {
             "title": "Instantly Adapts to Your Exact Shade",
-            "content": "<p>The white cream transforms upon application to match your unique skin tone perfectly.</p>"
+            "content": "<p>The white cream transforms on contact to match your skin tone perfectly — no wrong-shade guesswork.</p>"
           }
         },
         "description_item_BwXRQq": {
           "type": "description_item",
           "settings": {
-            "title": "Ideal for Mature Skin (Floats Over Fine Lines):",
-            "content": "<p>The hydrating formula doesn't cake or crease into wrinkles, creating a smooth finish that looks like skin, not makeup.</p>"
+            "title": "No Orange Cast, Ever",
+            "content": "<p>A non-oxidising formula that stays true to your skin tone all day — no orange, no mismatch, no touch-ups.</p>"
           }
         },
         "description_item_c9mQXG": {
           "type": "description_item",
           "settings": {
             "title": "Weightless, \"Second-Skin\" Feel",
-            "content": "<p>Say goodbye to that heavy, \"mask-like\" sensation. Neutralizes redness and age spots while letting your skin breathe, giving you a healthy, lit-from-within glow.</p>"
+            "content": "<p>Skip the heavy, mask-like feel. Evens out redness for a breathable, lit-from-within glow that looks like your skin, only better.</p>"
           }
         },
         "magazine_logo_7qjcEx": {
@@ -737,7 +737,7 @@
         "rating_text": "(4.6) 1,356 Reviews",
         "rating_link": "#reviews",
         "size_text": "1 FL OZ / 30 ML",
-        "description": "<ul><li><strong>Instantly Adapts to Your Exact Shade: </strong>The white cream transforms upon application to match your unique skin tone perfectly.</li><li><strong>Ideal for Mature Skin (Floats Over Fine Lines): </strong>The hydrating formula doesn't cake or crease into wrinkles, creating a smooth finish that looks like skin, not makeup.</li><li><strong>Weightless, \"Second-Skin\" Feel: </strong>Say goodbye to that heavy, \"mask-like\" sensation. Neutralizes redness and age spots while letting your skin breathe, giving you a healthy, lit-from-within glow.</li></ul>",
+        "description": "<ul><li><strong>Instantly Adapts to Your Exact Shade: </strong>The white cream transforms on contact to match your skin tone — no wrong-shade guesswork, ever.</li><li><strong>No Orange Cast, Ever: </strong>A non-oxidising formula that stays true to your tone all day — it never turns orange by lunch.</li><li><strong>Weightless, \"Second-Skin\" Glow: </strong>Lightweight, breathable coverage that evens out redness and looks like skin, not makeup — just a fresh, lit-from-within glow.</li></ul>",
         "show_tone_selector": true,
         "tone_color_fair": "#f3d4b7",
         "tone_label_fair": "",
@@ -755,7 +755,7 @@
         "show_payment_icons": true,
         "enable_animation": true,
         "show_ugc": true,
-        "ugc_heading": "SEE HOW IT WORKS ON DIFFERENT PEOPLE",
+        "ugc_heading": "SEE HOW IT ADAPTS ON DIFFERENT SKIN TONES",
         "ugc_close_on_outside": true,
         "ugc_pause_on_click": true,
         "show_upsell": true,
@@ -776,22 +776,22 @@
         "benefit_2": {
           "type": "benefit_item",
           "settings": {
-            "title": "Engineered for Mature Texture",
-            "description": "Traditional makeup often highlights what you want to hide. Our formula is specifically designed to float over fine lines and enlarged pores rather than settling into them, creating a lifted, soft-focus effect that lasts all day."
+            "title": "Smooth, Soft-Focus Finish",
+            "description": "Blurs the look of pores and uneven texture instead of settling into them, for a lifted, soft-focus finish that lasts all day."
           }
         },
         "benefit_3": {
           "type": "benefit_item",
           "settings": {
             "title": "The \"Second Skin\" Glow",
-            "description": "Conceal redness, age spots, and uneven patches without the heavy \"mask\" feel of full-coverage foundation. This breathable, lightweight finish allows your natural radiance to shine through while providing a balanced, uniform complexion."
+            "description": "Evens out redness and uneven patches without the heavy \"mask\" feel of full coverage. A breathable, lightweight finish that lets your natural radiance show through."
           }
         },
         "benefit_4": {
           "type": "benefit_item",
           "settings": {
             "title": "16-Hour Hydration Lock",
-            "description": "Formulated to combat the \"mid-day dry out\" common with aging skin. This long-wear formula stays flexible and luminous for up to 16 hours, ensuring your skin looks as fresh in the evening as it did in the morning."
+            "description": "No mid-day dry-out. This long-wear formula stays flexible and luminous for up to 16 hours — as fresh in the evening as it was in the morning."
           }
         },
         "benefit_5": {
@@ -844,8 +844,8 @@
             "image_mode": "single",
             "image_single": "shopify://shop_images/1_f148cab1-78ca-4668-b580-6ad71b71f4e6.png",
             "image_before": "shopify://shop_images/Untitled_design_68.png",
-            "card_name": "Linda, 62",
-            "card_description": "I stopped wearing foundation because it always settled into my fine lines or looked the wrong color—usually too orange. This formula matched my skin tone instantly and feels so light. It doesn't look like makeup; it just looks like I have great skin again.",
+            "card_name": "Maya, 24",
+            "card_description": "I could never find my shade — everything went orange or sat in a weird line at my jaw. This matched me instantly and feels like nothing. It just looks like really good skin.",
             "show_verified_buyer": true
           }
         },
@@ -856,8 +856,8 @@
             "image_single": "shopify://shop_images/6.png",
             "image_before": "shopify://shop_images/2.png",
             "image_after": "shopify://shop_images/image_2_2.png",
-            "card_name": "Michelle, 57",
-            "card_description": "I have tricky undertones and struggling with redness, so buying makeup online terrified me. I took a chance on this, and I'm shocked. It neutralized my redness immediately and blended right into my neck. No more 'floating head' effect!",
+            "card_name": "Chloe, 28",
+            "card_description": "My skin gets red and blotchy and I hated how cakey full-coverage looked. This evened everything out and blended right into my neck — no mask, no orange, just calm even skin.",
             "show_verified_buyer": true
           }
         },
@@ -868,8 +868,8 @@
             "image_single": "shopify://shop_images/woman-13.jpg",
             "image_before": "shopify://shop_images/3.png",
             "image_after": "shopify://shop_images/image_2_2.png",
-            "card_name": "Diane, 54",
-            "card_description": "Being very fair, 'universal' shades usually turn dark or orange on me within an hour. This one actually stayed true to my pale complexion. It gives me a healthy, warm glow without looking fake. Finally, a perfect match for fair skin.",
+            "card_name": "Sophie, 23",
+            "card_description": "I'm really fair and 'universal' shades always turned dark on me within an hour. This actually stayed true to my tone and gave me a soft glow. Finally a match that lasts.",
             "show_verified_buyer": true
           }
         },
@@ -880,8 +880,8 @@
             "image_single": "shopify://shop_images/8_460d018c-39c2-4345-baba-bbf6b6e2a747.png",
             "image_before": "shopify://shop_images/1.png",
             "image_after": "shopify://shop_images/CleanShot2025-09-11at22.41.55_2x_58285bd6-1b08-4051-8b2c-b005b1881927.png",
-            "card_name": "Amanda, 47",
-            "card_description": "I have fair skin with a lot of natural redness, so finding a shade that covers without looking like a thick mask is impossible. This neutralized my complexion instantly! It adapted to my pale tone perfectly—no orange line, just calm, even skin.",
+            "card_name": "Ella, 29",
+            "card_description": "Fair skin with a lot of natural redness here — covering it usually means a thick mask. This neutralised it instantly and adapted to my tone perfectly. No orange line, just even, glowy skin.",
             "show_verified_buyer": true
           }
         }
@@ -935,7 +935,7 @@
           "settings": {
             "image": "shopify://shop_images/60s-female-foundation-makeup-portrait.jpg",
             "card_name": "Monica",
-            "card_subtitle": "Grandmother",
+            "card_subtitle": "Content Creator",
             "show_speaker_icon": true
           }
         },
@@ -954,7 +954,7 @@
           "settings": {
             "image": "shopify://shop_images/foundation-makeup-application-prompt.jpg",
             "card_name": "Jessica",
-            "card_subtitle": "Grandmother",
+            "card_subtitle": "Nursing Student",
             "show_speaker_icon": false
           }
         },
@@ -1067,9 +1067,9 @@
             "review_image_asset": "review-image-7.jpg",
             "rating": 5,
             "date": "Mar 18, 2026",
-            "title": "Finally found my perfect match",
-            "quote": "I'm 58 and have tried everything. This actually blends into my skin without settling into lines. My daughter asked what I was doing differently!",
-            "name": "Margaret S.",
+            "title": "Finally found my shade",
+            "quote": "I'm 24 and could never get the colour right — always too orange or too pale. This blends straight into my skin and just looks like me. My friends keep asking what I'm wearing.",
+            "name": "Maya R.",
             "verified": true
           }
         },
@@ -1080,8 +1080,8 @@
             "rating": 5,
             "date": "Mar 5, 2026",
             "title": "No more orange face!",
-            "quote": "At 52, I've tried every foundation that promises to match. The color-matching on this one is real. It adapts to my skin throughout the day. No more checking mirrors worried I look orange by lunch.",
-            "name": "Patricia L.",
+            "quote": "At 26, I'd basically given up on foundation turning orange by 2pm. The colour-matching on this is real — it adapts to my skin and stays true all day.",
+            "name": "Chloe T.",
             "verified": true
           }
         },
@@ -1092,8 +1092,8 @@
             "rating": 5,
             "date": "Feb 20, 2026",
             "title": "Worth every penny",
-            "quote": "At 50, I've wasted so much money on foundations that cake or crease. This one doesn't. It just works. Finally found something that makes my skin look natural.",
-            "name": "Linda K.",
+            "quote": "At 23, I've wasted so much money on foundations that cake or oxidise. This one doesn't. It just works and feels like nothing on.",
+            "name": "Jess M.",
             "verified": true
           }
         },
@@ -1103,9 +1103,9 @@
             "review_image_asset": "review-image-1.jpg",
             "rating": 4,
             "date": "Feb 8, 2026",
-            "title": "Good but wish it had more shades",
-            "quote": "At 60, I'd given up on foundation. This changed that. Lightweight and natural. Would love to see more shade options for deeper skin tones.",
-            "name": "Susan M.",
+            "title": "Wish it had more shades",
+            "quote": "At 29, I love how lightweight and natural this is. The adapt tech is genuinely impressive — would still love even more shade options down the line.",
+            "name": "Priya K.",
             "verified": true
           }
         },
@@ -1115,9 +1115,9 @@
             "review_image_asset": "review-image-4.jpg",
             "rating": 5,
             "date": "Jan 25, 2026",
-            "title": "Finally something for rosacea",
-            "quote": "At 52, my rosacea has always made foundation tricky. This neutralizes redness without looking like I'm wearing a mask. Game changer for mature skin.",
-            "name": "Carol B.",
+            "title": "Finally something for redness",
+            "quote": "At 27, my redness always made foundation tricky. This evens it out without looking like a mask. Total game changer for my routine.",
+            "name": "Hannah L.",
             "verified": true
           }
         },
@@ -1128,8 +1128,8 @@
             "rating": 5,
             "date": "Jan 12, 2026",
             "title": "Skeptic turned believer",
-            "quote": "At 55, I rolled my eyes at 'adapts to your skin tone' but it actually does. Perfect match every time. Bought 3 more for backup.",
-            "name": "Barbara R.",
+            "quote": "At 25, I rolled my eyes at 'adapts to your skin tone' — but it actually does. Perfect match every time. Bought two more for backup.",
+            "name": "Sofia D.",
             "verified": true
           }
         },
@@ -1139,9 +1139,9 @@
             "review_image_asset": "review-image-6.jpg",
             "rating": 5,
             "date": "Dec 28, 2025",
-            "title": "Perfect for hot flashes",
-            "quote": "At 55, hot flashes were melting my makeup off by noon. This stays put even when I'm having a moment. Absolute lifesaver.",
-            "name": "Nancy W.",
+            "title": "Perfect gym-to-dinner",
+            "quote": "At 28, my makeup used to slide off by the evening. This stays put through a workout and a night out. Absolute lifesaver.",
+            "name": "Emma W.",
             "verified": true
           }
         },
@@ -1152,8 +1152,8 @@
             "rating": 5,
             "date": "Dec 15, 2025",
             "title": "My go-to now",
-            "quote": "Threw out my other foundations. This is the only one I need. Matches perfectly, doesn't cake, and my skin can breathe.",
-            "name": "Dorothy H.",
+            "quote": "Threw out my other foundations. This is the only one I reach for — matches perfectly, doesn't cake, and my skin can still breathe.",
+            "name": "Olivia P.",
             "verified": true
           }
         },
@@ -1163,9 +1163,9 @@
             "review_image_asset": "",
             "rating": 5,
             "date": "Nov 30, 2025",
-            "title": "Finally looks natural",
-            "quote": "I've always looked 'made up' with foundation. This actually looks like my skin, just better. My husband noticed immediately!",
-            "name": "Helen J.",
+            "title": "Looks like my skin",
+            "quote": "I always looked 'made up' with foundation. This looks like my skin, just better. My boyfriend noticed straight away.",
+            "name": "Tara S.",
             "verified": true
           }
         },
@@ -1175,9 +1175,9 @@
             "review_image_asset": "",
             "rating": 4,
             "date": "Nov 18, 2025",
-            "title": "Great coverage",
-            "quote": "Covers my age spots without looking heavy. Takes a minute to blend but once it sets, it's gorgeous. Would love SPF added.",
-            "name": "Ruth T.",
+            "title": "Great everyday coverage",
+            "quote": "Evens out my skin without looking heavy. Takes a sec to blend but once it sets it's gorgeous. Would love SPF added.",
+            "name": "Bella N.",
             "verified": true
           }
         },
@@ -1187,9 +1187,9 @@
             "review_image_asset": "",
             "rating": 5,
             "date": "Nov 5, 2025",
-            "title": "Daughter bought it for me",
-            "quote": "My daughter surprised me with this. Best gift ever! At 67, I'd given up on foundation. Now I wear it every day.",
-            "name": "Mary E.",
+            "title": "My friend put me on",
+            "quote": "My best friend told me to try it and I'm obsessed. So lightweight, the colour just works, and it lasts all day.",
+            "name": "Grace A.",
             "verified": true
           }
         },
@@ -1199,9 +1199,9 @@
             "review_image_asset": "",
             "rating": 5,
             "date": "Oct 22, 2025",
-            "title": "Ordering more for friends",
-            "quote": "This is what mature skin needs. Light, breathable, and somehow makes wrinkles less visible. Already ordered gifts for my book club!",
-            "name": "Jean M.",
+            "title": "Exactly what I wanted",
+            "quote": "Light, breathable, and the shade is spot on. The only foundation I'll buy now — already told my whole group chat.",
+            "name": "Zoe F.",
             "verified": true
           }
         }
@@ -1247,8 +1247,8 @@
         "image": "shopify://shop_images/AdaptstoYourSkinToneInstantly_1.png",
         "benefit_1_title": "Custom-Fit Color Technology",
         "benefit_1_text": "Say goodbye to the guesswork of shade matching. Our innovative formula releases micro-encapsulated pigments upon application, seamlessly transforming from white to your exact skin tone for a match that feels uniquely yours.",
-        "benefit_2_title": "Flawless, Ageless Finish",
-        "benefit_2_text": "Designed specifically for mature skin, this lightweight foundation glides over fine lines and wrinkles rather than settling into them. It instantly neutralizes redness and blurs imperfections, leaving you with a smooth, radiant, and youthful complexion.",
+        "benefit_2_title": "Flawless, Lightweight Finish",
+        "benefit_2_text": "A lightweight foundation that sits on top of your skin, not in it — instantly neutralising redness and blurring imperfections for a smooth, radiant, your-skin-but-better finish.",
         "benefit_3_title": "Hydrating Skincare Hybrid",
         "benefit_3_text": "More than just makeup. Enriched with glycerin, bisabolol, and vitamin E, it locks in moisture and calms redness while you wear it, so your skin feels comfortable and nourished from morning to night.",
         "benefit_4_title": "16-Hour Weightless Wear",
@@ -1307,7 +1307,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How do I know which shade to choose?",
-            "answer": "Our foundation adapts to your skin tone within seconds. It works for fair to medium skin tones.",
+            "answer": "Our foundation adapts to your skin tone within seconds. It works across fair, medium and medium-dark tones — pick the closest to you and the formula adjusts on application.",
             "popup_enabled": false,
             "popup_trigger_text": "View full list",
             "popup_title": "",
@@ -1363,7 +1363,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does this work for my skin?",
-            "answer": "<p>Yes. Our adaptive formula is suitable for all fair to medium skin tones and is specifically formulated for mature skin types. It is designed to float over fine lines and wrinkles rather than settling into them, making it ideal for skin with texture, rosacea, or age spots.</p>",
+            "answer": "<p>Yes. Our adaptive formula suits fair to medium-dark skin tones and most skin types, including sensitive, redness-prone, or combination skin. It sits on top of the skin for a smooth, breathable, natural finish.</p>",
             "popup_enabled": false,
             "popup_trigger_text": "View full list",
             "popup_title": "",
