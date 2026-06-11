@@ -25,8 +25,8 @@
         "title_size_mobile": 32,
         "quote_size_desktop": 16,
         "quote_size_mobile": 16,
-        "hero_image_desktop": "shopify://shop_images/image_588256402-removebg-preview_1.png",
-        "hero_image_mobile": "shopify://shop_images/image_588256402-removebg-preview_1.png",
+        "hero_image_desktop": "shopify://shop_images/vl-about-hero-25.png",
+        "hero_image_mobile": "shopify://shop_images/vl-about-hero-25.png",
         "hero_image_alt": "Portrait of a young woman with a fresh, natural glow."
       }
     },
@@ -36,7 +36,7 @@
         "card_1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Generated_Image_April_03_2026_-_5_32PM.jpg",
+            "image": "shopify://shop_images/vl-about-story-mirror.png",
             "image_alt": "",
             "title": "Where we started",
             "copy": "Vera Lane Cosmetics began with a frustrating gap: foundations were either too heavy, oxidized orange by lunchtime, or never matched the skin they were sitting on. We set out to build a single, dependable foundation that adapts to its wearer rather than asking the wearer to adapt to it. Today, that one product has grown into a small range used by over 1,000 customers — every formula still designed to match your skin, not the other way around."
@@ -45,7 +45,7 @@
         "card_2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Generated_Image_April_03_2026_-_5_33PM.jpg",
+            "image": "shopify://shop_images/vl-about-story-swatches.png",
             "image_alt": "",
             "title": "Who's behind Vera Lane",
             "copy": "Vera Lane Cosmetics is owned and operated by Paper Plan LLC, a small independent company registered in the United States. We're a tight team of formulators, designers and customer-care humans — not a faceless brand. Every email to hello@veralanecosmetics.com is read and answered by one of us, usually within a day."
@@ -54,7 +54,7 @@
         "card_3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Generated_Image_April_03_2026_-_5_34PM.jpg",
+            "image": "shopify://shop_images/vl-about-story-promise.png",
             "image_alt": "",
             "title": "Our promise",
             "copy": "Try anything we sell for 30 days. If it doesn't match your shade exactly or feel like nothing on your skin, we'll send you a free prepaid return label and refund the order in full — no restocking fee, no questions, no rebuttal email. We'd rather lose a sale than lose your trust."
@@ -189,7 +189,7 @@
         "question_size_mobile": 18,
         "answer_size_desktop": 16,
         "answer_size_mobile": 16,
-        "image": "shopify://shop_images/image_588256404.png",
+        "image": "shopify://shop_images/vl-about-values-trio.png",
         "image_alt": "Our Values image"
       }
     }
