@@ -27,7 +27,7 @@
         "quote_size_mobile": 16,
         "hero_image_desktop": "shopify://shop_images/image_588256402-removebg-preview_1.png",
         "hero_image_mobile": "shopify://shop_images/image_588256402-removebg-preview_1.png",
-        "hero_image_alt": "Portrait of a mature woman with a soft glow."
+        "hero_image_alt": "Portrait of a young woman with a fresh, natural glow."
       }
     },
     "lumen_about_different": {
@@ -39,7 +39,7 @@
             "image": "shopify://shop_images/Generated_Image_April_03_2026_-_5_32PM.jpg",
             "image_alt": "",
             "title": "Where we started",
-            "copy": "Vera Lane Cosmetics began with a frustrating gap: foundations were either too heavy, settled into fine lines, or never matched the skin they were sitting on. We set out to build a single, dependable foundation that adapts to its wearer rather than asking the wearer to adapt to it. Today, that one product has grown into a small range used by over 1,000 customers — every formula still designed around skin that has changed."
+            "copy": "Vera Lane Cosmetics began with a frustrating gap: foundations were either too heavy, oxidized orange by lunchtime, or never matched the skin they were sitting on. We set out to build a single, dependable foundation that adapts to its wearer rather than asking the wearer to adapt to it. Today, that one product has grown into a small range used by over 1,000 customers — every formula still designed to match your skin, not the other way around."
           }
         },
         "card_2": {
@@ -57,7 +57,7 @@
             "image": "shopify://shop_images/Generated_Image_April_03_2026_-_5_34PM.jpg",
             "image_alt": "",
             "title": "Our promise",
-            "copy": "Try anything we sell for 30 days. If it doesn't float over your lines or match your shade exactly, we'll send you a free prepaid return label and refund the order in full — no restocking fee, no questions, no rebuttal email. We'd rather lose a sale than lose your trust."
+            "copy": "Try anything we sell for 30 days. If it doesn't match your shade exactly or feel like nothing on your skin, we'll send you a free prepaid return label and refund the order in full — no restocking fee, no questions, no rebuttal email. We'd rather lose a sale than lose your trust."
           }
         }
       },
@@ -154,7 +154,7 @@
           "settings": {
             "icon": "shopify://shop_images/Drop_1.svg",
             "question": "Restorative",
-            "answer": "We believe makeup succeeds when it disappears. Our goal is not to \"fix\" your age or sell you a younger version of yourself, but to help you recognize the woman in the mirror again. We formulate for \"invisible confidence\"—coverage that is felt in your self-respect but imperceptible to the eye, ensuring people notice your healthy glow, not your makeup."
+            "answer": "We believe makeup succeeds when it disappears. Our goal is not to cover you up or sell you someone else's idea of perfect, but to let your actual skin do the talking. We formulate for \"invisible confidence\"—coverage that is felt in your self-respect but imperceptible to the eye, ensuring people notice your healthy glow, not your makeup."
           }
         },
         "faq_yxWy97": {
@@ -162,7 +162,7 @@
           "settings": {
             "icon": "shopify://shop_images/Flower_1.svg",
             "question": "Forgiving",
-            "answer": "Mature skin has unique needs that the beauty industry often ignores. We prioritize the physical reality of skin that has changed, creating \"second-skin\" textures that float over fine lines rather than settling into them. We offer a reliable standard for those who have felt betrayed by products that make them look older, providing comfort and breathability that lasts all day."
+            "answer": "Real skin has texture — dry patches, breakouts, redness, all of it. We prioritize how skin actually behaves day to day, creating \"second-skin\" textures that move with your face rather than caking on top of it. We offer a reliable standard for anyone who has felt betrayed by products that look great in the bottle and wrong on their skin, providing comfort and breathability that lasts all day."
           }
         }
       },
