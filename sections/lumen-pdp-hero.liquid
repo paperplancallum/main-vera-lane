@@ -3321,6 +3321,25 @@
       baseProductPrice: {{ selected_variant.price | default: 0 }},
       // Current product images for gallery
       currentImages: [],
+      // Map of variantId -> index of that variant's image within the product-media gallery
+      // (-1 = that variant has no assigned image). Built from the same image-only media
+      // sequence used to populate currentImages, so the index lines up 1:1.
+      variantMediaIndex: {
+        {%- if section_product -%}
+          {%- for variant in section_product.variants -%}
+            {%- assign v_media_id = variant.featured_media.id -%}
+            {%- assign found_idx = -1 -%}
+            {%- assign img_i = 0 -%}
+            {%- for media in section_product.media -%}
+              {%- if media.media_type == 'image' -%}
+                {%- if v_media_id != blank and media.id == v_media_id -%}{%- assign found_idx = img_i -%}{%- endif -%}
+                {%- assign img_i = img_i | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            "{{ variant.id }}": {{ found_idx }}{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        {%- endif -%}
+      },
       // Bundle images data
       bundleImagesData: {},
       // Current product title and price
@@ -3451,6 +3470,16 @@
               this.isLoading = false;
             }, 3000);
           }
+        });
+
+        // Switch the gallery main image when the shade/variant changes.
+        // (Skip while a multi-product bundle is showing its own image set.)
+        this.$watch('selectedVariantId', (id) => {
+          if (this.bundleType === 'bundle') return;
+          var idx = this.variantMediaIndex ? this.variantMediaIndex[id] : -1;
+          if (idx == null || idx < 0) return;
+          if (window.lumenGalleryMain) window.lumenGalleryMain.slideTo(idx);
+          if (window.lumenGalleryThumbs) window.lumenGalleryThumbs.slideTo(idx);
         });
       },
       
