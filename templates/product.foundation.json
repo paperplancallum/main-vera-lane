@@ -842,7 +842,7 @@
           "type": "testimonial_card",
           "settings": {
             "image_mode": "single",
-            "image_single": "shopify://shop_images/1_f148cab1-78ca-4668-b580-6ad71b71f4e6.png",
+            "image_single": "shopify://shop_images/vl-foundation-ba-01.png",
             "image_before": "shopify://shop_images/Untitled_design_68.png",
             "card_name": "Maya, 24",
             "card_description": "I could never find my shade — everything went orange or sat in a weird line at my jaw. This matched me instantly and feels like nothing. It just looks like really good skin.",
@@ -853,7 +853,7 @@
           "type": "testimonial_card",
           "settings": {
             "image_mode": "single",
-            "image_single": "shopify://shop_images/6.png",
+            "image_single": "shopify://shop_images/vl-foundation-ba-02.png",
             "image_before": "shopify://shop_images/2.png",
             "image_after": "shopify://shop_images/image_2_2.png",
             "card_name": "Chloe, 28",
@@ -865,7 +865,7 @@
           "type": "testimonial_card",
           "settings": {
             "image_mode": "single",
-            "image_single": "shopify://shop_images/woman-13.jpg",
+            "image_single": "shopify://shop_images/vl-foundation-ba-03.png",
             "image_before": "shopify://shop_images/3.png",
             "image_after": "shopify://shop_images/image_2_2.png",
             "card_name": "Sophie, 23",
@@ -877,7 +877,7 @@
           "type": "testimonial_card",
           "settings": {
             "image_mode": "single",
-            "image_single": "shopify://shop_images/8_460d018c-39c2-4345-baba-bbf6b6e2a747.png",
+            "image_single": "shopify://shop_images/vl-foundation-ba-04.png",
             "image_before": "shopify://shop_images/1.png",
             "image_after": "shopify://shop_images/CleanShot2025-09-11at22.41.55_2x_58285bd6-1b08-4051-8b2c-b005b1881927.png",
             "card_name": "Ella, 29",
@@ -906,7 +906,7 @@
           "type": "slider_card",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/european-female-headshot-perspective-shift.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-01.png",
             "card_name": "Ivana",
             "card_subtitle": "Copywriter",
             "show_speaker_icon": false
@@ -915,7 +915,7 @@
         "slider_card_2": {
           "type": "slider_card",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_66.png",
+            "image": "shopify://shop_images/vl-foundation-slider-02.png",
             "card_name": "Sarah",
             "card_subtitle": "Art Teacher",
             "show_speaker_icon": false
@@ -924,7 +924,7 @@
         "slider_card_3": {
           "type": "slider_card",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_67.png",
+            "image": "shopify://shop_images/vl-foundation-slider-03.png",
             "card_name": "Dr Stephanie",
             "card_subtitle": "Dermatologist",
             "show_speaker_icon": true
@@ -933,7 +933,7 @@
         "slider_card_WGJdmc": {
           "type": "slider_card",
           "settings": {
-            "image": "shopify://shop_images/60s-female-foundation-makeup-portrait.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-04.png",
             "card_name": "Monica",
             "card_subtitle": "Content Creator",
             "show_speaker_icon": true
@@ -943,7 +943,7 @@
           "type": "slider_card",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/late-60s-european-woman-headshot-json.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-05.png",
             "card_name": "Anastasia",
             "card_subtitle": "Marketing Manager",
             "show_speaker_icon": true
@@ -952,7 +952,7 @@
         "slider_card_5": {
           "type": "slider_card",
           "settings": {
-            "image": "shopify://shop_images/foundation-makeup-application-prompt.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-06.png",
             "card_name": "Jessica",
             "card_subtitle": "Nursing Student",
             "show_speaker_icon": false
@@ -962,7 +962,7 @@
           "type": "slider_card",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/slavic-female-portrait-skin-retouch.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-07.png",
             "card_name": "Ivana",
             "card_subtitle": "Copywriter",
             "show_speaker_icon": false
@@ -972,7 +972,7 @@
           "type": "slider_card",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_66.png",
+            "image": "shopify://shop_images/vl-foundation-slider-02.png",
             "card_name": "Sarah",
             "card_subtitle": "Art Teacher",
             "show_speaker_icon": false
@@ -982,7 +982,7 @@
           "type": "slider_card",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_67.png",
+            "image": "shopify://shop_images/vl-foundation-slider-03.png",
             "card_name": "Dr Stephanie",
             "card_subtitle": "Dermatologist",
             "show_speaker_icon": true
@@ -991,7 +991,7 @@
         "slider_card_bBGcit": {
           "type": "slider_card",
           "settings": {
-            "image": "shopify://shop_images/late-60s-slavic-female-portrait-json.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-08.png",
             "card_name": "Anastasia",
             "card_subtitle": "Marketing Manager",
             "show_speaker_icon": true
@@ -1001,7 +1001,7 @@
           "type": "slider_card",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/slavic-woman-smooth-skin-portrait.jpg",
+            "image": "shopify://shop_images/vl-foundation-slider-09.png",
             "card_name": "Jessica",
             "card_subtitle": "Makeup Artist",
             "show_speaker_icon": false
