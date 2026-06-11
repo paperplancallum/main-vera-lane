@@ -1,0 +1,412 @@
+- generic [ref=e2]:
+  - generic [ref=e7]:
+    - link "Skip to content":
+      - /url: "#AppFrameMain"
+    - generic [ref=e12]:
+      - generic [ref=e17] [cursor=pointer]:
+        - img "Shopify" [ref=e18]
+        - img "Shopify" [ref=e19]
+      - generic [ref=e21]:
+        - button "Search ⌘ K" [ref=e766] [cursor=pointer]:
+          - generic [ref=e767]:
+            - generic [ref=e768]:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+              - generic "Search" [ref=e769]
+            - generic [ref=e770]:
+              - generic [ref=e771]: ⌘
+              - generic [ref=e772]: K
+        - toolbar [ref=e775]:
+          - generic [ref=e777]:
+            - generic [ref=e778]:
+              - img [ref=e781]
+              - heading "Unsaved changes" [level=2] [ref=e785]
+            - generic [ref=e786]:
+              - button "Discard" [ref=e789] [cursor=pointer]
+              - button "Save" [ref=e792] [cursor=pointer]
+      - generic [ref=e34]:
+        - generic [ref=e36]:
+          - button "Sidekick" [ref=e40] [cursor=pointer]:
+            - img [ref=e44]
+          - button "Alerts Feed - 1 unseen alerts" [ref=e54] [cursor=pointer]:
+            - generic [ref=e56]:
+              - img [ref=e59]
+              - generic [ref=e61]: "1"
+        - button "Callum Mundine" [ref=e71] [cursor=pointer]:
+          - generic [ref=e74]:
+            - img "Vera Lane Cosmetics" [ref=e78]:
+              - generic [ref=e79]: VLC
+            - paragraph [ref=e81]: Vera Lane Cosmetics
+    - generic [ref=e83]:
+      - generic "Navigation" [ref=e84]:
+        - navigation [ref=e86]:
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - list [ref=e90]:
+                - listitem [ref=e91]:
+                  - link "Home" [ref=e94] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef
+                    - generic [ref=e95]:
+                      - img [ref=e98]
+                      - img [ref=e102]
+                    - generic [ref=e104]: Home
+                - listitem [ref=e105]:
+                  - link "Orders 1" [ref=e108] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/orders
+                    - generic [ref=e109]:
+                      - img [ref=e112]
+                      - img [ref=e116]
+                    - generic [ref=e118]: Orders
+                    - generic [ref=e121]:
+                      - generic: "1"
+                - listitem [ref=e122]:
+                  - link "Products" [ref=e125] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/products
+                    - generic [ref=e126]:
+                      - img [ref=e129]
+                      - img [ref=e133]
+                    - generic [ref=e136]: Products
+                - listitem [ref=e137]:
+                  - link "Customers" [ref=e140] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/customers
+                    - generic [ref=e141]:
+                      - img [ref=e144]
+                      - img [ref=e149]
+                    - generic [ref=e152]: Customers
+                - listitem [ref=e153]:
+                  - link "Marketing" [ref=e156] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/marketing
+                    - generic [ref=e157]:
+                      - img [ref=e160]
+                      - img [ref=e166]
+                    - generic [ref=e170]: Marketing
+                - listitem [ref=e171]:
+                  - link "Discounts" [ref=e174] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/discounts
+                    - generic [ref=e175]:
+                      - img [ref=e178]
+                      - img [ref=e182]
+                    - generic [ref=e187]: Discounts
+                - listitem [ref=e188]:
+                  - link "Content" [ref=e191] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/content/metaobjects
+                    - generic [ref=e192]:
+                      - img [ref=e195]
+                      - img [ref=e202]
+                    - generic [ref=e207]: Content
+                - listitem [ref=e208]:
+                  - link "Markets" [ref=e211] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/markets
+                    - generic [ref=e212]:
+                      - img [ref=e215]
+                      - img [ref=e220]
+                    - generic [ref=e223]: Markets
+                - listitem [ref=e224]:
+                  - link "Finance" [ref=e227] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/finance
+                    - generic [ref=e228]:
+                      - img [ref=e231]
+                      - img [ref=e235]
+                    - generic [ref=e237]: Finance
+                - listitem [ref=e238]:
+                  - link "Analytics" [ref=e241] [cursor=pointer]:
+                    - /url: /store/1cw77g-ef/analytics
+                    - generic [ref=e242]:
+                      - img [ref=e245]
+                      - img [ref=e251]
+                    - generic [ref=e255]: Analytics
+              - list [ref=e256]:
+                - listitem [ref=e257]:
+                  - button "Sales channels" [ref=e259] [cursor=pointer]:
+                    - strong [ref=e261]:
+                      - generic: Sales channels
+                  - list [ref=e263]:
+                    - button "Online Store" [ref=e264]:
+                      - list [ref=e265]:
+                        - listitem [ref=e266]:
+                          - link "Online Store" [ref=e269] [cursor=pointer]:
+                            - /url: /store/1cw77g-ef/themes?appLoadId=ef7a531f-01c4-4b22-b9e8-b1b2729667ec
+                            - img [ref=e271]
+                            - generic [ref=e272]: Online Store
+                    - button "Agentic" [ref=e273]:
+                      - list [ref=e274]:
+                        - listitem [ref=e275]:
+                          - link "Agentic" [ref=e278] [cursor=pointer]:
+                            - /url: /store/1cw77g-ef/apps/agentic?appLoadId=c64f0a13-de58-4ea9-90d1-a5f68aa4f093
+                            - img [ref=e280]
+                            - generic [ref=e281]: Agentic
+                    - listitem
+                    - button "Google & YouTube Pin to your navigation" [ref=e282]:
+                      - list [ref=e283]:
+                        - listitem [ref=e284]:
+                          - generic [ref=e286]:
+                            - link "Google & YouTube" [ref=e287] [cursor=pointer]:
+                              - /url: /store/1cw77g-ef/apps/google?appLoadId=c45d94c4-0735-469d-8961-55d62444b59e
+                              - img [ref=e289]
+                              - generic [ref=e290]: Google & YouTube
+                            - button "Pin to your navigation" [ref=e293] [cursor=pointer]:
+                              - text: •
+                              - img [ref=e297]
+                  - status [ref=e299]
+                - listitem [ref=e300]:
+                  - button "Apps" [ref=e302] [cursor=pointer]:
+                    - strong [ref=e304]:
+                      - generic: Apps
+                  - list [ref=e306]:
+                    - button "Flow Pin to your navigation" [disabled] [ref=e307]:
+                      - list [ref=e308]:
+                        - listitem [ref=e309]:
+                          - generic [ref=e311]:
+                            - link "Flow" [disabled] [ref=e312] [cursor=pointer]:
+                              - /url: /store/1cw77g-ef/apps/flow?appLoadId=a091afcc-7de7-495f-b093-66e8e92e38a1
+                              - img [ref=e314]
+                              - generic [ref=e315]: Flow
+                            - button "Pin to your navigation" [disabled] [ref=e318] [cursor=pointer]:
+                              - text: •
+                              - img [ref=e322]
+                  - status [ref=e324]
+                - listitem [ref=e325]:
+                  - button "Sidekick conversations" [ref=e327] [cursor=pointer]:
+                    - strong [ref=e329]:
+                      - generic: Sidekick conversations
+                  - generic [ref=e331]:
+                    - list [ref=e332]:
+                      - listitem [ref=e333]:
+                        - button "Accessing old payout history in Shopify" [ref=e336] [cursor=pointer]:
+                          - generic [ref=e337]: Accessing old payout history in Shopify
+                    - list [ref=e338]:
+                      - listitem [ref=e339]:
+                        - link "Bundle Merchandising and Repeat Purchase Opportunities Digest" [ref=e343] [cursor=pointer]:
+                          - /url: /store/1cw77g-ef/sidekick/pulse/01KQ6D85JGCJAVPCBT1QPJHS4A
+                          - generic [ref=e344]: Bundle Merchandising and Repeat Purchase Opportunities Digest
+                    - list [ref=e345]:
+                      - listitem [ref=e346]:
+                        - button "Updating legal entity information in Shopify" [ref=e349] [cursor=pointer]:
+                          - generic [ref=e350]: Updating legal entity information in Shopify
+            - list [ref=e352]:
+              - listitem [ref=e353]:
+                - link "Settings" [ref=e356] [cursor=pointer]:
+                  - /url: /store/1cw77g-ef/settings
+                  - img [ref=e360]
+                  - generic [ref=e362]: Settings
+      - main [ref=e363]:
+        - generic [ref=e794]:
+          - generic [ref=e795]:
+            - status:
+              - paragraph [ref=e796]: Copy of GIFT. This page is ready
+            - navigation "Breadcrumbs for Discounts" [ref=e801]:
+              - generic [ref=e802]:
+                - link "Discounts" [ref=e803] [cursor=pointer]:
+                  - /url: /store/1cw77g-ef/discounts
+                  - img [ref=e807]
+                - img [ref=e812]
+                - heading "Copy of GIFT" [level=1] [ref=e815]
+          - generic [ref=e817]:
+            - generic [ref=e819]:
+              - button [ref=e821]: Submit
+              - generic [ref=e822]:
+                - generic [ref=e825]:
+                  - heading "Free shipping" [level=2] [ref=e827]:
+                    - generic: Free shipping
+                  - generic [ref=e829]:
+                    - generic [ref=e830]:
+                      - generic [ref=e832]: Discount code
+                      - button "Generate random code" [ref=e834] [cursor=pointer]:
+                        - generic [ref=e835]: Generate random code
+                    - textbox "Discount code" [active] [ref=e839]: FREESHIP60
+                    - paragraph [ref=e841]: Customers must enter this code at checkout.
+                - generic [ref=e843]:
+                  - heading "Countries" [level=2] [ref=e845]:
+                    - generic: Countries
+                  - generic:
+                    - group "Countries" [ref=e847]:
+                      - generic [ref=e848]: Countries
+                      - generic [ref=e849] [cursor=pointer]:
+                        - radio "All countries" [checked] [ref=e850]
+                        - text: All countries
+                      - generic [ref=e851] [cursor=pointer]:
+                        - radio "Selected countries" [ref=e852]
+                        - text: Selected countries
+                    - generic [ref=e853]:
+                      - heading "Purchase type" [level=3] [ref=e855]:
+                        - generic: Purchase type
+                      - group "Purchase type" [ref=e856]:
+                        - generic [ref=e857]: Purchase type
+                        - generic [ref=e858] [cursor=pointer]:
+                          - radio "One-time purchase" [checked] [ref=e859]
+                          - text: One-time purchase
+                        - generic [ref=e860] [cursor=pointer]:
+                          - radio "Subscription" [ref=e861]
+                          - text: Subscription
+                        - generic [ref=e862] [cursor=pointer]:
+                          - radio "Both" [ref=e863]
+                          - text: Both
+                    - generic [ref=e864]:
+                      - heading "Shipping rates" [level=3] [ref=e866]:
+                        - generic: Shipping rates
+                      - generic [ref=e868] [cursor=pointer]:
+                        - checkbox "Exclude shipping rates over a certain amount" [ref=e869]
+                        - generic [ref=e872]: Exclude shipping rates over a certain amount
+                - generic [ref=e875]:
+                  - heading "Eligibility" [level=3] [ref=e876]:
+                    - generic: Eligibility
+                  - generic [ref=e877]:
+                    - generic [ref=e880]:
+                      - generic [ref=e881]: Eligibility
+                      - generic [ref=e882] [cursor=pointer]:
+                        - button "Eligibility" [ref=e883]
+                        - generic [ref=e887]:
+                          - generic: All customers
+                        - img [ref=e891]
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: All customers
+                          - generic: Markets
+                          - generic: Customer segments
+                          - generic: Specific customers
+                - generic [ref=e896]:
+                  - heading "Minimum purchase requirements" [level=3] [ref=e897]:
+                    - generic: Minimum purchase requirements
+                  - group "Minimum purchase requirements" [ref=e898]:
+                    - generic [ref=e899]: Minimum purchase requirements
+                    - generic [ref=e900] [cursor=pointer]:
+                      - radio "No minimum requirements" [checked] [ref=e901]
+                      - text: No minimum requirements
+                    - generic [ref=e902] [cursor=pointer]:
+                      - radio "Minimum purchase amount ($)" [ref=e903]
+                      - text: Minimum purchase amount ($)
+                    - generic [ref=e904] [cursor=pointer]:
+                      - radio "Minimum quantity of items" [ref=e905]
+                      - text: Minimum quantity of items
+                - generic [ref=e908]:
+                  - heading "Maximum discount uses" [level=3] [ref=e909]:
+                    - generic: Maximum discount uses
+                  - group "Usage limit options" [ref=e910]:
+                    - generic [ref=e911]: Usage limit options
+                    - generic [ref=e912] [cursor=pointer]:
+                      - checkbox "Limit number of times this discount can be used in total" [ref=e913]
+                      - text: Limit number of times this discount can be used in total
+                    - generic [ref=e916] [cursor=pointer]:
+                      - checkbox "Limit to one use per customer" [checked] [ref=e917]
+                      - text: Limit to one use per customer
+                - generic [ref=e923]:
+                  - heading "Combinations" [level=3] [ref=e924]:
+                    - generic: Combinations
+                  - group "Combines with" [ref=e925]:
+                    - generic [ref=e926]: Combines with
+                    - generic [ref=e927] [cursor=pointer]:
+                      - checkbox "Product discounts" [ref=e928]
+                      - text: Product discounts
+                    - generic [ref=e932] [cursor=pointer]:
+                      - checkbox "Order discounts" [ref=e933]
+                      - text: Order discounts
+                - generic [ref=e939]:
+                  - heading "Active dates" [level=3] [ref=e940]:
+                    - generic: Active dates
+                  - generic [ref=e941]:
+                    - group [ref=e942]:
+                      - generic [ref=e943]:
+                        - generic [ref=e947]:
+                          - generic [ref=e950]: Start date
+                          - generic [ref=e953]:
+                            - img [ref=e957]
+                            - textbox "Start date" [ref=e959]:
+                              - /placeholder: YYYY-MM-DD
+                              - text: 2026-03-31
+                        - generic [ref=e963]:
+                          - generic [ref=e966]: Start time (PDT)
+                          - generic [ref=e969]:
+                            - img [ref=e973]
+                            - combobox "Start time (PDT)" [ref=e976]: 10:26 PM
+                    - group [ref=e977]:
+                      - generic [ref=e981] [cursor=pointer]:
+                        - checkbox "Set end date" [ref=e982]
+                        - generic [ref=e985]: Set end date
+            - generic [ref=e987]:
+              - generic [ref=e990]:
+                - generic [ref=e991]:
+                  - generic [ref=e993]:
+                    - heading "FREESHIP60" [level=3] [ref=e1071]
+                    - button "Copy FREESHIP60 discount code" [ref=e1072] [cursor=pointer]:
+                      - img [ref=e1001]
+                  - paragraph [ref=e1003]:
+                    - generic: Code
+                - generic [ref=e1004]:
+                  - heading "Type" [level=3] [ref=e1005]:
+                    - generic: Type
+                  - generic [ref=e1006]:
+                    - paragraph [ref=e1007]:
+                      - generic: Free shipping
+                    - generic [ref=e1008]:
+                      - img [ref=e1011]
+                      - generic [ref=e1014]:
+                        - generic: Shipping discount
+                - generic [ref=e1015]:
+                  - heading "Details" [level=3] [ref=e1016]:
+                    - generic: Details
+                  - list [ref=e1018]:
+                    - listitem [ref=e1019]:
+                      - generic:
+                        - generic: All customers
+                    - listitem [ref=e1020]:
+                      - generic:
+                        - generic: For Online Store
+                    - listitem [ref=e1021]:
+                      - generic:
+                        - generic: Applies to one-time purchases
+                    - listitem [ref=e1022]:
+                      - generic:
+                        - generic: For all countries
+                    - listitem [ref=e1023]:
+                      - generic:
+                        - generic: No minimum purchase requirement
+                    - listitem [ref=e1024]:
+                      - generic:
+                        - generic: One use per customer
+                    - listitem [ref=e1025]:
+                      - generic:
+                        - generic: Can’t combine with other discounts
+                    - listitem [ref=e1026]:
+                      - generic:
+                        - generic: Active from Mar 31
+                - generic [ref=e1027]:
+                  - heading "Performance" [level=3] [ref=e1028]:
+                    - generic: Performance
+                  - generic [ref=e1029]:
+                    - generic: Discount is not active yet
+              - generic [ref=e1031]:
+                - generic:
+                  - heading "Sales channel access" [level=2] [ref=e1032]:
+                    - generic: Sales channel access
+                  - generic [ref=e1036] [cursor=pointer]:
+                    - generic [ref=e1038]:
+                      - checkbox "Allow discount to be featured on selected channels" [ref=e1039]
+                      - generic:
+                        - img
+                    - paragraph [ref=e1043]:
+                      - generic: Allow discount to be featured on selected channels
+              - generic [ref=e1051]:
+                - generic [ref=e1054]: Tags
+                - group "Tags" [ref=e1055]:
+                  - generic "Tags" [ref=e1056]:
+                    - group [ref=e1057] [cursor=pointer]:
+                      - button "Add tags" [ref=e1058]:
+                        - img [ref=e1062]
+                        - generic [ref=e1065]:
+                          - generic: Add tags
+            - button "Save" [ref=e1069] [cursor=pointer]:
+              - generic [ref=e1070]: Save
+  - generic:
+    - generic:
+      - generic:
+        - generic: General shortcuts
+        - generic: Adding items to your store
+        - generic: Navigating your admin panel
+        - generic: Navigating settings
+    - dialog "Sidekick" [ref=e758]:
+      - button "Resize Sidebar" [ref=e759]:
+        - generic [ref=e760]:
+          - generic: Resize Sidebar
