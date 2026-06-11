@@ -79,11 +79,11 @@
         "card_F3Q3Xz": {
           "type": "card",
           "settings": {
-            "product": "brow-pencil",
+            "product": "micro-fine-brow-pencil",
             "custom_name": "",
             "reviews_text": "180 Reviews",
-            "hide_description": false,
-            "fallback_description": "Complex with 30 Billion CPU",
+            "hide_description": true,
+            "fallback_description": "",
             "show_pill": false,
             "pill_text": "#Best Seller",
             "show_discount": false,
@@ -124,7 +124,7 @@
         "card_qWj3jw": {
           "type": "card",
           "settings": {
-            "product": "makeup-bag-1",
+            "product": "tubing-lash-mascara",
             "custom_name": "",
             "reviews_text": "256 Reviews",
             "hide_description": true,
@@ -139,13 +139,28 @@
         "card_njP8qb": {
           "type": "card",
           "settings": {
-            "product": "bundle-tone-adapting-foundation-makeup-brush",
+            "product": "creamy-eyeshadow-stick",
             "custom_name": "",
             "reviews_text": "804 Reviews",
             "hide_description": true,
             "fallback_description": "",
-            "show_pill": true,
+            "show_pill": false,
             "pill_text": "",
+            "show_discount": false,
+            "discount_pct": "20%",
+            "discount_text": "Save with subscription"
+          }
+        },
+        "card_serum0": {
+          "type": "card",
+          "settings": {
+            "product": "peptide-biotin-lash-serum",
+            "custom_name": "",
+            "reviews_text": "312 Reviews",
+            "hide_description": true,
+            "fallback_description": "",
+            "show_pill": false,
+            "pill_text": "#Best Seller",
             "show_discount": false,
             "discount_pct": "20%",
             "discount_text": "Save with subscription"
@@ -153,15 +168,16 @@
         }
       },
       "block_order": [
-        "card_F3Q3Xz",
         "card_jbyWAm",
-        "card_7A8Vx4",
         "card_qWj3jw",
-        "card_njP8qb"
+        "card_F3Q3Xz",
+        "card_njP8qb",
+        "card_serum0",
+        "card_7A8Vx4"
       ],
       "name": "⚡ Lumen Featured Products",
       "settings": {
-        "columns_desktop": "3",
+        "columns_desktop": "4",
         "collection": "",
         "title": "Recommended Products",
         "description_desktop": "Expertly crafted skincare your skin will love.",
@@ -201,9 +217,9 @@
         "sub_font_size_mobile": 16,
         "reviews_font_size_desktop": 14,
         "reviews_font_size_mobile": 12,
-        "name_font_size_desktop": 22,
+        "name_font_size_desktop": 18,
         "name_font_size_mobile": 18,
-        "price_font_size_desktop": 24,
+        "price_font_size_desktop": 20,
         "price_font_size_mobile": 20,
         "desc_font_size_desktop": 16,
         "desc_font_size_mobile": 14,
