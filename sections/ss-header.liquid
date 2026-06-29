@@ -1,0 +1,240 @@
+{%- comment -%}
+  ss-header — Star Story funnel header.
+  Ported from star-story-theme/sections/header.liquid, rebuilt self-contained
+  (no Dawn snippet/component-CSS/locale dependencies, which don't exist in this
+  theme). Renders the original's visible chrome: brand logo + gradient
+  "SHOP NOW" pill, sticky on scroll. Scoped to the lp-star-story page only.
+{%- endcomment -%}
+
+{%- liquid
+  assign cta_link = section.settings.cta_link
+  if cta_link == blank
+    assign cta_link = '#product-id'
+  endif
+  assign logo_link = section.settings.logo_link
+  if logo_link == blank
+    assign logo_link = cta_link
+  endif
+-%}
+
+<style>
+  .ss-header {
+    {% if section.settings.sticky %}position: sticky; top: 0;{% endif %}
+    z-index: 50;
+    background: {{ section.settings.bg_color }};
+    {% if section.settings.show_line_separator %}border-bottom: 1px solid rgba(0, 53, 75, 0.12);{% endif %}
+    padding: {{ section.settings.padding_top }}px 3rem {{ section.settings.padding_bottom }}px 3rem;
+  }
+
+  .ss-header__inner {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .ss-header__logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 0;
+  }
+
+  .ss-header__logo {
+    width: {{ section.settings.logo_width }}px;
+    max-width: 60vw;
+    height: auto;
+    display: block;
+  }
+
+  .ss-header__wordmark {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #00354B;
+  }
+
+  a.ss-header__cta {
+    border-radius: 30px;
+    background: linear-gradient(87deg, #0074A5 -72.47%, #00354B 262.98%);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: unset;
+    padding: 16px 28px;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  a.ss-header__cta:hover {
+    opacity: 0.9;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ss-header {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    {% unless section.settings.show_cta_mobile %}
+    a.ss-header__cta { display: none; }
+    {% endunless %}
+  }
+</style>
+
+<header class="ss-header">
+  <div class="ss-header__inner">
+    <a href="{{ logo_link }}" class="ss-header__logo-link" aria-label="{{ shop.name | escape }}">
+      {%- if section.settings.logo_image != blank -%}
+        <img
+          class="ss-header__logo"
+          src="{{ section.settings.logo_image | image_url: width: 600 }}"
+          alt="{{ shop.name | escape }}"
+          width="{{ section.settings.logo_width }}"
+          loading="eager">
+      {%- elsif section.settings.logo_asset != blank -%}
+        <img
+          class="ss-header__logo"
+          src="{{ section.settings.logo_asset | asset_url }}"
+          alt="{{ shop.name | escape }}"
+          width="{{ section.settings.logo_width }}"
+          loading="eager">
+      {%- else -%}
+        <span class="ss-header__wordmark">{{ section.settings.wordmark }}</span>
+      {%- endif -%}
+    </a>
+
+    {%- if section.settings.cta_text != blank -%}
+      <a class="ss-header__cta" href="{{ cta_link }}">{{ section.settings.cta_text }}</a>
+    {%- endif -%}
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Star Story Header",
+  "class": "section-ss-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image",
+      "info": "Optional. Overrides the asset logo below."
+    },
+    {
+      "type": "text",
+      "id": "logo_asset",
+      "label": "Logo asset filename",
+      "default": "ss-icon-vector-11.svg",
+      "info": "Theme asset filename (used if no logo image is set)."
+    },
+    {
+      "type": "text",
+      "id": "wordmark",
+      "label": "Wordmark fallback text",
+      "default": "Star Story"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 60,
+      "max": 240,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 140
+    },
+    {
+      "type": "url",
+      "id": "logo_link",
+      "label": "Logo link",
+      "info": "Defaults to the CTA link."
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link",
+      "info": "Defaults to #product-id (the hero)."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_mobile",
+      "label": "Show button on mobile",
+      "default": false,
+      "info": "Original header hid the button on mobile."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky on scroll",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "label": "Show bottom border",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Star Story Header"
+    }
+  ]
+}
+{% endschema %}
