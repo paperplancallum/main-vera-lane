@@ -1748,6 +1748,16 @@
           display: none !important;
         }
 
+        /* "Amazon-only" mode (?amazon=on): Amazon is the sole CTA — hide the
+           native Add-to-Cart form and the tone/shade variant pickers so the only
+           action left is the Buy-on-Amazon button. Toggled at runtime by
+           applyAmazonOverride() adding .lumen-pdp-hero--amazon-only to the section. */
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__main-atc,
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__tone-selector,
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__shade-guide {
+          display: none !important;
+        }
+
         .lumen-pdp-hero__amazon-banner {
           padding: 3px 14px;
           margin: 0 -12px -12px -12px;
@@ -2646,6 +2656,7 @@
             {% if section_product and selected_variant %}
               {% assign form_id = 'LumenPdpHeroProductForm-' | append: section.id %}
               <product-form-component
+                class="lumen-pdp-hero__main-atc"
                 data-section-id="{{ section.id }}"
                 data-product-id="{{ section_product.id }}"
                 data-product-url="{{ section_product.url }}"
@@ -4161,6 +4172,11 @@
       document.querySelectorAll('.lumen-pdp-hero__variant[data-amazon-offer]').forEach(function(el) {
         el.setAttribute('data-amazon-offer', val);
         el.classList.toggle('lumen-pdp-hero__variant--amazon-offer', val === 'on');
+      });
+      // Amazon-only mode: when ?amazon=on, Amazon becomes the sole CTA — hide the
+      // native ATC form + tone/shade variant pickers (see .lumen-pdp-hero--amazon-only CSS).
+      document.querySelectorAll('.lumen-pdp-hero').forEach(function(sec) {
+        sec.classList.toggle('lumen-pdp-hero--amazon-only', val === 'on');
       });
     })();
 
