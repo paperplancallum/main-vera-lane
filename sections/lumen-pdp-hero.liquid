@@ -1748,6 +1748,34 @@
           display: none !important;
         }
 
+        /* "Amazon-only" mode (?amazon=on): Amazon is the sole CTA — hide the
+           native Add-to-Cart form and the tone/shade variant pickers so the only
+           action left is the Buy-on-Amazon button. Toggled at runtime by
+           applyAmazonOverride() adding .lumen-pdp-hero--amazon-only to the section. */
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__main-atc,
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__tone-selector,
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__shade-guide {
+          display: none !important;
+        }
+
+        /* Amazon-only mode: the native ATC is hidden (above); a "Buy On Amazon"
+           button takes its place, styled like the ATC. Hidden by default. */
+        .lumen-pdp-hero__main-amazon-cta { display: none; }
+        .lumen-pdp-hero--amazon-only .lumen-pdp-hero__main-amazon-cta {
+          display: flex;
+          gap: 10px;
+          width: 100%;
+        }
+        .lumen-pdp-hero__main-amazon-cta-icon {
+          width: 22px;
+          height: 22px;
+          object-fit: contain;
+          background: #fff;
+          border-radius: 4px;
+          padding: 2px;
+          position: relative;
+        }
+
         .lumen-pdp-hero__amazon-banner {
           padding: 3px 14px;
           margin: 0 -12px -12px -12px;
@@ -2646,6 +2674,7 @@
             {% if section_product and selected_variant %}
               {% assign form_id = 'LumenPdpHeroProductForm-' | append: section.id %}
               <product-form-component
+                class="lumen-pdp-hero__main-atc"
                 data-section-id="{{ section.id }}"
                 data-product-id="{{ section_product.id }}"
                 data-product-url="{{ section_product.url }}"
@@ -2674,6 +2703,34 @@
                   </add-to-cart-component>
                 {%- endform -%}
               </product-form-component>
+
+              {%- comment -%} Amazon-only mode (?amazon=on) hides the native ATC above and
+                  shows this "Buy On Amazon" button in its place — same destination URL and
+                  same data-amazon-track tracking (AmazonLinkClick) as the hero BUY button.
+                  URL comes from the first bundle block that has an amazon_url. {%- endcomment -%}
+              {%- assign amazon_cta_url = '' -%}
+              {%- assign amazon_cta_icon = '' -%}
+              {%- for _b in section.blocks -%}
+                {%- if _b.type == 'bundle' and _b.settings.amazon_url != blank and amazon_cta_url == '' -%}
+                  {%- assign amazon_cta_url = _b.settings.amazon_url -%}
+                  {%- assign amazon_cta_icon = _b.settings.amazon_icon -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if amazon_cta_url != blank -%}
+                <a href="{{ amazon_cta_url }}"
+                   class="lumen-pdp-hero__button lumen-pdp-hero__main-amazon-cta"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-amazon-track
+                   data-bundle-name="main-atc"
+                   data-product-handle="{{ section_product.handle }}"
+                   data-product-id="{{ section_product.id }}">
+                  {%- if amazon_cta_icon != blank -%}
+                    <img class="lumen-pdp-hero__main-amazon-cta-icon" src="{{ amazon_cta_icon | image_url: width: 48 }}" alt="Amazon" width="22" height="22" loading="lazy">
+                  {%- endif -%}
+                  <span>Buy On Amazon</span>
+                </a>
+              {%- endif -%}
             {% endif %}
             
             <!-- Delivery Info -->
@@ -4161,6 +4218,11 @@
       document.querySelectorAll('.lumen-pdp-hero__variant[data-amazon-offer]').forEach(function(el) {
         el.setAttribute('data-amazon-offer', val);
         el.classList.toggle('lumen-pdp-hero__variant--amazon-offer', val === 'on');
+      });
+      // Amazon-only mode: when ?amazon=on, Amazon becomes the sole CTA — hide the
+      // native ATC form + tone/shade variant pickers (see .lumen-pdp-hero--amazon-only CSS).
+      document.querySelectorAll('.lumen-pdp-hero').forEach(function(sec) {
+        sec.classList.toggle('lumen-pdp-hero--amazon-only', val === 'on');
       });
     })();
 
